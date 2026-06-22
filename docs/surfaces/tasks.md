@@ -34,7 +34,7 @@ Public-safe low-level inventory of Hermes scheduled automation. Private/client-s
 | Telegram @github hourly review | GitHub & publishing | every 60m | no-agent (script stdout delivered directly) | [REDACTED] | origin | ~ | 2026-06-22T11:53:39.766723-04:00  ok |
 | Glances system watchdog | Reliability watchdogs | every 15m | no-agent (script stdout delivered directly) | glances_watchdog.py | origin | ~ | 2026-06-22T12:39:06.202685-04:00  ok |
 | Daily React Doctor web watchdog | Reliability watchdogs | 30 9 * * * | no-agent (script stdout delivered directly) | [REDACTED] | origin | ~ | 2026-06-22T09:30:09.779649-04:00  ok |
-| Private Hermes ops wiki updater | Other scheduled automation | every 360m | no-agent (script stdout delivered directly) | [REDACTED] | origin | ~ | 2026-06-22T06:49:59.564202-04:00  ok |
+| Private Hermes ops wiki updater | Other scheduled automation | every 360m | no-agent (script stdout delivered directly) | [REDACTED] | origin | ~ | 2026-06-22T12:50:08.677928-04:00  ok |
 | Hermes architecture public site watchdog | Reliability watchdogs | every 15m | no-agent (script stdout delivered directly) | [REDACTED] | origin | ~ | 2026-06-22T12:39:06.349962-04:00  ok |
 | Hermes private ops wiki public route watchdog | Reliability watchdogs | every 15m | no-agent (script stdout delivered directly) | [REDACTED] | origin | ~ | 2026-06-22T12:39:06.487669-04:00  ok |
 | Telegram @notboring_tech hourly review | Other scheduled automation | every 60m | no-agent (script stdout delivered directly) | [REDACTED] | origin | ~ | 2026-06-22T11:53:40.698716-04:00  ok |

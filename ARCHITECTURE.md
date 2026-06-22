@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-06-22T12:48:36-04:00`.
+> Public-safe architecture snapshot generated at `2026-06-22T12:50:49-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
