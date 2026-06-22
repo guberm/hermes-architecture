@@ -24,7 +24,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | productivity | 20 |
 | red-teaming | 1 |
 | research | 13 |
-| smart-home | 3 |
+| smart-home | 4 |
 | social-media | 2 |
 | software-development | 33 |
 | uncategorized | 18 |
