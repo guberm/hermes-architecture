@@ -24,7 +24,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | productivity | 20 |
 | red-teaming | 1 |
 | research | 13 |
-| smart-home | 4 |
+| smart-home | 5 |
 | social-media | 2 |
 | software-development | 33 |
 | uncategorized | 18 |
@@ -47,32 +47,32 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `perplexity-research` | uncategorized | Brain-augmented web research. Sends brain context about a topic to Perplexity, which searches the web with citations and returns what is NEW |
 | `retrieval-reflex` | uncategorized | When/what to retrieve — open the brain page for a salient entity before answering from memory. |
 | `brain-pdf` | uncategorized | Generate a publication-quality PDF from a GBrain page or markdown file using Hermes-native Chrome rendering. The brain page remains the sour |
-| `openhue` | smart-home | Control Philips Hue lights, scenes, rooms via OpenHue CLI. |
-| `home-hvac-diagnostics` | smart-home | Diagnose residential HVAC comfort/airflow problems using sensor data, photos, duct/register checks, and safe homeowner tests. |
-| `native-mcp` | mcp | MCP client: connect servers, register tools (stdio/HTTP). |
-| `xurl` | social-media | X/Twitter via xurl CLI: post, search, DM, media, v2 API. |
-| `kanban-codex-lane` | autonomous-ai-agents | Use when a Hermes Kanban worker wants to run Codex CLI as an isolated implementation lane while Hermes keeps ownership of task lifecycle, re |
-| `hermes-agent` | autonomous-ai-agents | Configure, extend, or contribute to Hermes Agent. |
-| `coding-agent-clis` | autonomous-ai-agents | Use when delegating software work to an external coding-agent CLI such as Claude Code, Codex, or OpenCode, especially for isolated implement |
-| `jupyter-live-kernel` | data-science | Iterative Python via live Jupyter kernel (hamelnb). |
-| `[REDACTED]` | .archive | Diagnose and advise on residential HVAC comfort imbalance: hot/cold rooms, upstairs/downstairs temperature splits, duct/register airflow, th |
-| `[REDACTED]` | .archive | Operate, publish, protect, troubleshoot, and theme the Hermes Web Dashboard. |
-| `[REDACTED]` | .archive | Install, update, run, and verify Node/npm-based CLI tools safely; covers npx vs npm install, Node version pitfalls, and global CLI verificat |
-| `hermes-gateway-routing` | .archive | Inspect, configure, and patch Hermes gateway message routing across origin chats, home channels, threads, and approval flows. |
-| `[REDACTED]` | .archive | [REDACTED] |
-| `n8n-workflow-operations` | .archive | Operate, debug, back up, patch, and verify n8n workflows across Dev/QA/UAT/PreProd/Prod with environment-specific safety gates. |
-| `[REDACTED]` | .archive | Publish a locally running web app from a Linux host with systemd, reverse proxying, HTTPS, Cloudflare-aware DNS checks, narrow sudo wrappers |
-| `[REDACTED]` | .archive | AudioCraft: MusicGen text-to-music, AudioGen text-to-sound. |
-| `simplify-code` | software-development | Parallel 3-agent cleanup of recent code changes. |
-| `codebase-recon-debrief` | software-development | Use when working in an unfamiliar or messy codebase and the task requires understanding flows before editing. Enforces briefing, targeted re |
-| `ponytail-help` | software-development | > |
-| `[REDACTED]` | software-development | Debug Hermes TUI slash commands: Python, gateway, Ink UI. |
-| `plan` | software-development | Plan mode: write an actionable markdown plan to .hermes/plans/, no execution. Bite-sized tasks, exact paths, complete code. |
-| `[REDACTED]` | software-development | Modify, debug, or extend the s6-overlay supervision tree inside the Hermes Agent Docker image — adding new services, debugging profile gatew |
-| `runtime-debuggers` | software-development | Use when debugging running Python or Node processes with breakpoints, stepping, attach flows, or post-mortem inspection rather than ad-hoc l |
-| `ponytail-audit` | software-development | > |
-| `[REDACTED]` | software-development | Execute plans via delegate_task subagents (2-stage review). |
-| `spike` | software-development | Throwaway experiments to validate an idea before build. |
+| `huggingface-hub` | mlops | HuggingFace hf CLI: search/download/upload models, datasets. |
+| `dspy` | mlops | DSPy: declarative LM programs, auto-optimize prompts, RAG. |
+| `fine-tuning-with-trl` | mlops | TRL: SFT, DPO, PPO, GRPO, reward modeling for LLM RLHF. |
+| `axolotl` | mlops | Axolotl: YAML LLM fine-tuning (LoRA, DPO, GRPO). |
+| `unsloth` | mlops | Unsloth: 2-5x faster LoRA/QLoRA fine-tuning, less VRAM. |
+| `segment-anything-model` | mlops | SAM: zero-shot image segmentation via points, boxes, masks. |
+| `weights-and-biases` | mlops | W&B: log ML experiments, sweeps, model registry, dashboards. |
+| `evaluating-llms-harness` | mlops | lm-eval-harness: benchmark LLMs (MMLU, GSM8K, etc.). |
+| `llama-cpp` | mlops | llama.cpp local GGUF inference + HF Hub model discovery. |
+| `obliteratus` | mlops | OBLITERATUS: abliterate LLM refusals (diff-in-means). |
+| `serving-llms-vllm` | mlops | vLLM: high-throughput LLM serving, OpenAI API, quantization. |
+| `outlines` | mlops | Outlines: structured JSON/regex/Pydantic LLM generation. |
+| `gif-search` | media | Search/download GIFs from Tenor via curl + jq. |
+| `spotify` | media | Spotify: play, search, queue, manage playlists and devices. |
+| `youtube-content` | media | YouTube transcripts to summaries, threads, blogs. |
+| `llm-wiki` | research | Karpathy |
+| `blogwatcher` | research | Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool. |
+| `[REDACTED]` | research | Evaluate whether a third-party service or product is trustworthy, integrable, and compliant enough for automation, purchasing, or review for |
+| `[REDACTED]` | research | Operate the academic research workflow from paper discovery through experiment-backed writing and submission. |
+| `polymarket` | research | Query Polymarket: markets, prices, orderbooks, history. |
+| `himalaya` | email | Himalaya CLI: IMAP/SMTP email from terminal. |
+| `pokemon-player` | gaming | Play Pokemon via headless emulator + RAM reads. |
+| `[REDACTED]` | gaming | Host modded Minecraft servers (CurseForge, Modrinth). |
+| `popular-web-designs` | creative | 54 real design systems (Stripe, Linear, Vercel) as HTML/CSS. |
+| `humanizer` | creative | Humanize text: strip AI-isms and add real voice. |
+| `comfyui` | creative | Generate images, video, and audio with ComfyUI — install, launch, manage nodes/models, run workflows with parameter injection. Uses the offi |
 
 ## Operational meaning
 

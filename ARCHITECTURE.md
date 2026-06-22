@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-06-22T13:30:37-04:00`.
+> Public-safe architecture snapshot generated at `2026-06-22T19:31:04-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -34,7 +34,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 35 jobs; 25 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 215 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
+| Skills | 216 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 23 | Hook command bodies are not published. |
 | Plugins | 63 visible plugin rows captured; enabled estimate 3 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 0 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -78,7 +78,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | productivity | 20 |
 | red-teaming | 1 |
 | research | 13 |
-| smart-home | 4 |
+| smart-home | 5 |
 | social-media | 2 |
 | software-development | 33 |
 | uncategorized | 18 |
@@ -102,17 +102,17 @@ Public-safe skill examples:
 | `perplexity-research` | uncategorized | Brain-augmented web research. Sends brain context about a topic to Perplexity, which searches the web with citations and returns what is NEW |
 | `retrieval-reflex` | uncategorized | When/what to retrieve — open the brain page for a salient entity before answering from memory. |
 | `brain-pdf` | uncategorized | Generate a publication-quality PDF from a GBrain page or markdown file using Hermes-native Chrome rendering. The brain page remains the sour |
-| `openhue` | smart-home | Control Philips Hue lights, scenes, rooms via OpenHue CLI. |
-| `home-hvac-diagnostics` | smart-home | Diagnose residential HVAC comfort/airflow problems using sensor data, photos, duct/register checks, and safe homeowner tests. |
-| `native-mcp` | mcp | MCP client: connect servers, register tools (stdio/HTTP). |
-| `xurl` | social-media | X/Twitter via xurl CLI: post, search, DM, media, v2 API. |
-| `kanban-codex-lane` | autonomous-ai-agents | Use when a Hermes Kanban worker wants to run Codex CLI as an isolated implementation lane while Hermes keeps ownership of task lifecycle, re |
-| `hermes-agent` | autonomous-ai-agents | Configure, extend, or contribute to Hermes Agent. |
-| `coding-agent-clis` | autonomous-ai-agents | Use when delegating software work to an external coding-agent CLI such as Claude Code, Codex, or OpenCode, especially for isolated implement |
-| `jupyter-live-kernel` | data-science | Iterative Python via live Jupyter kernel (hamelnb). |
-| `[REDACTED]` | .archive | Diagnose and advise on residential HVAC comfort imbalance: hot/cold rooms, upstairs/downstairs temperature splits, duct/register airflow, th |
-| `[REDACTED]` | .archive | Operate, publish, protect, troubleshoot, and theme the Hermes Web Dashboard. |
-| `[REDACTED]` | .archive | Install, update, run, and verify Node/npm-based CLI tools safely; covers npx vs npm install, Node version pitfalls, and global CLI verificat |
+| `huggingface-hub` | mlops | HuggingFace hf CLI: search/download/upload models, datasets. |
+| `dspy` | mlops | DSPy: declarative LM programs, auto-optimize prompts, RAG. |
+| `fine-tuning-with-trl` | mlops | TRL: SFT, DPO, PPO, GRPO, reward modeling for LLM RLHF. |
+| `axolotl` | mlops | Axolotl: YAML LLM fine-tuning (LoRA, DPO, GRPO). |
+| `unsloth` | mlops | Unsloth: 2-5x faster LoRA/QLoRA fine-tuning, less VRAM. |
+| `segment-anything-model` | mlops | SAM: zero-shot image segmentation via points, boxes, masks. |
+| `weights-and-biases` | mlops | W&B: log ML experiments, sweeps, model registry, dashboards. |
+| `evaluating-llms-harness` | mlops | lm-eval-harness: benchmark LLMs (MMLU, GSM8K, etc.). |
+| `llama-cpp` | mlops | llama.cpp local GGUF inference + HF Hub model discovery. |
+| `obliteratus` | mlops | OBLITERATUS: abliterate LLM refusals (diff-in-means). |
+| `serving-llms-vllm` | mlops | vLLM: high-throughput LLM serving, OpenAI API, quantization. |
 
 
 ### Hooks, webhooks, and plugin hook manifests
@@ -121,26 +121,26 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 
 | Hook manifest surface |
 |---|
-| `.claude/plugins/cache/ponytail/ponytail/4.6.0/hooks/hooks.json` |
-| `.claude/plugins/cache/claude-code-warp/warp/2.0.0/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.4.1/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.3.0/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.4.0/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.0.0/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.0.1/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.1.0/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.2.0/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/ponytail/hooks/hooks.json` |
-| `[REDACTED]` |
-| `.claude/plugins/marketplaces/claude-code-plugins/plugins/ralph-wiggum/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-code-plugins/plugins/hookify/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-code-plugins/plugins/security-guidance/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-code-plugins/plugins/learning-output-style/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-code-warp/plugins/warp/hooks/hooks.json` |
-| `[REDACTED]` |
-| `.claude/plugins/marketplaces/claude-plugins-official/plugins/ralph-loop/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/thedotmack/cursor-hooks/hooks.json` |
+| `.claude/plugins/marketplaces/thedotmack/plugin/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/claude-plugins-official/plugins/learning-output-style/hooks/hooks.json` |
 | `.claude/plugins/marketplaces/claude-plugins-official/plugins/security-guidance/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/claude-plugins-official/plugins/ralph-loop/hooks/hooks.json` |
+| `[REDACTED]` |
+| `.claude/plugins/marketplaces/claude-code-warp/plugins/warp/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/claude-code-plugins/plugins/learning-output-style/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/claude-code-plugins/plugins/security-guidance/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/claude-code-plugins/plugins/hookify/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/claude-code-plugins/plugins/ralph-wiggum/hooks/hooks.json` |
+| `[REDACTED]` |
+| `.claude/plugins/marketplaces/ponytail/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.2.0/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.1.0/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.0.1/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.0.0/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.4.0/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.3.0/hooks/hooks.json` |
 
 
 ### Plugin surface
@@ -205,7 +205,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Item | Status |
 |---|---|
 | LM Studio endpoint | `available` at `http://127.0.0.1:1234/v1` |
-| Reported model IDs | `mythosnanoq6, qwythos9bq5, gemma4coderq3, gemma4coderq4, oymuncq4, [REDACTED], gemma4unc, [REDACTED]` |
+| Reported model IDs | `qwythos9bq5, mythosnanoq6, gemma4coderq3, gemma4coderq4, oymuncq4, [REDACTED], gemma4unc, [REDACTED]` |
 | Chat smoke test | `blocked_or_unavailable: {
 "error": {
     "message": "Failed to load model \"gemma4unc\". Error: Model loading was stopped due to insufficient system resources. Under the current settings, this model requires approximately 14.36 GB of memory, and continuing` |
@@ -266,11 +266,11 @@ Future recommended profile split:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.17.0 (2026.6.19) · upstream b1b20270 · local f7524d0d (+2 carried commits)
+Hermes Agent v0.17.0 (2026.6.19) · upstream 87c4a5eb · local f7524d0d (+2 carried commits)
 Project: ~/.hermes/hermes-agent
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 373 commits behind — run 'hermes update'
+Update available: 407 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:

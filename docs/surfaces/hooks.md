@@ -13,29 +13,29 @@ Public-safe low-level inventory of hook surfaces. Hook command bodies and privat
 
 | Relative path |
 |---|
-| `.claude/plugins/cache/ponytail/ponytail/4.6.0/hooks/hooks.json` |
-| `.claude/plugins/cache/claude-code-warp/warp/2.0.0/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.4.1/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.3.0/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.4.0/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.0.0/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.0.1/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.1.0/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.2.0/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/ponytail/hooks/hooks.json` |
-| `[REDACTED]` |
-| `.claude/plugins/marketplaces/claude-code-plugins/plugins/ralph-wiggum/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-code-plugins/plugins/hookify/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-code-plugins/plugins/security-guidance/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-code-plugins/plugins/learning-output-style/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-code-warp/plugins/warp/hooks/hooks.json` |
-| `[REDACTED]` |
-| `.claude/plugins/marketplaces/claude-plugins-official/plugins/ralph-loop/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-plugins-official/plugins/security-guidance/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-plugins-official/plugins/learning-output-style/hooks/hooks.json` |
 | `.claude/plugins/marketplaces/thedotmack/cursor-hooks/hooks.json` |
 | `.claude/plugins/marketplaces/thedotmack/plugin/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/claude-plugins-official/plugins/learning-output-style/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/claude-plugins-official/plugins/security-guidance/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/claude-plugins-official/plugins/ralph-loop/hooks/hooks.json` |
+| `[REDACTED]` |
+| `.claude/plugins/marketplaces/claude-code-warp/plugins/warp/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/claude-code-plugins/plugins/learning-output-style/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/claude-code-plugins/plugins/security-guidance/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/claude-code-plugins/plugins/hookify/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/claude-code-plugins/plugins/ralph-wiggum/hooks/hooks.json` |
+| `[REDACTED]` |
+| `.claude/plugins/marketplaces/ponytail/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.2.0/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.1.0/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.0.1/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.0.0/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.4.0/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.3.0/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.4.1/hooks/hooks.json` |
+| `.claude/plugins/cache/claude-code-warp/warp/2.0.0/hooks/hooks.json` |
+| `.claude/plugins/cache/ponytail/ponytail/4.6.0/hooks/hooks.json` |
 
 ## Boundaries
 
