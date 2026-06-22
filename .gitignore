@@ -1,0 +1,10 @@
+.env
+*.key
+*.pem
+*.token
+__pycache__/
+.venv/
+node_modules/
+*.log
+private/
+tmp/

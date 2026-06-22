@@ -1,0 +1,1018 @@
+{
+  "generated_at": "2026-06-22T10:22:33-04:00",
+  "public_repo": "this public repository",
+  "host": {
+    "primary": "Linux host running Hermes gateway as a systemd service",
+    "windows_remote": "Windows workstation over SSH for desktop tasks",
+    "timezone": "operator local timezone"
+  },
+  "hermes": {
+    "version_output": "Hermes Agent v0.17.0 (2026.6.19) · upstream 5ff11a68 · local f7524d0d (+2 carried commits)\nProject: ~/.hermes/hermes-agent\nPython: 3.11.15\nOpenAI SDK: 2.24.0\nUpdate available: 317 commits behind — run 'hermes update'",
+    "primary_model": {},
+    "fallback_model": {},
+    "providers": {},
+    "custom_providers": [],
+    "auxiliary": {},
+    "delegation": {},
+    "memory": {},
+    "stt": {},
+    "tts": {}
+  },
+  "gateway": {
+    "status_summary": {
+      "running": true,
+      "pid_present": true,
+      "service": "hermes-gateway.service",
+      "detail": "Systemd gateway service is enabled/running on the Linux host."
+    },
+    "platforms": [
+      "api_server",
+      "homeassistant",
+      "mattermost",
+      "telegram",
+      "whatsapp"
+    ],
+    "home_channels": "Configured privately; IDs are intentionally not published."
+  },
+  "mcp": {
+    "servers": {},
+    "list_output_sanitized": "MCP Servers:\n\n  Name             Transport                      Tools        Status    \n  ──────────────── ────────────────────────────── ──────────── ──────────\n  codegraph        ~/.nvm/versions/no...   all          ✓ enabled\n  gbrain           http://127.0.0.1:3131/mcp      all          ✓ enabled\n  notebooklm       npx -y notebooklm-mcp@latest   all          ✓ enabled\n  homeway          https://homeway.io/api/mcp     all          ✗ disabled"
+  },
+  "tools": {
+    "list_output_sanitized": "Built-in toolsets (cli):\n  ✓ enabled  web  🔍 Web Search & Scraping\n  ✓ enabled  browser  🌐 Browser Automation\n  ✓ enabled  terminal  💻 Terminal & Processes\n  ✓ enabled  file  📁 File Operations\n  ✓ enabled  code_execution  ⚡ Code Execution\n  ✓ enabled  vision  👁️  Vision / Image Analysis\n  ✗ disabled  video  🎬 Video Analysis\n  ✓ enabled  image_gen  🎨 Image Generation\n  ✗ disabled  video_gen  🎬 Video Generation\n  ✗ disabled  x_search  🐦 X (Twitter) Search\n  ✓ enabled  moa  🧠 Mixture of Agents\n  ✓ enabled  tts  🔊 Text-to-Speech\n  ✓ enabled  skills  📚 Skills\n  ✓ enabled  todo  📋 Task Planning\n  ✓ enabled  memory  💾 Memory\n  ✓ enabled  context_engine  🧩 Context Engine\n  ✓ enabled  session_search  🔎 Session Search\n  ✓ enabled  clarify  ❓ Clarifying Questions\n  ✓ enabled  delegation  👥 Task Delegation\n  ✓ enabled  cronjob  ⏰ Cron Jobs\n  ✓ enabled  homeassistant  🏠 Home Assistant\n  ✗ disabled  spotify  🎵 Spotify\n  ✗ disabled  yuanbao  🤖 Yuanbao\n  ✗ disabled  computer_use  🖱️  Computer Use (macOS)\n\nMCP servers:\n  codegraph  all tools enabled\n  gbrain  all tools enabled\n  notebooklm  all tools enabled\n  homeway  all tools enabled"
+  },
+  "profiles": {
+    "output_sanitized": "Profile          Model                        Gateway      Alias        Distribution\n ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────\n ◆default         gpt-5.5                      running      —            —"
+  },
+  "fallback": {
+    "output_sanitized": "Primary:   gpt-5.5  (via openai-codex)\n\n  Fallback chain (1 entry):\n    1. gpt-5.4  (via copilot)\n\n  Tried in order when the primary fails (rate-limit, 5xx, connection errors).\n  Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/fallback-providers"
+  },
+  "scheduled_automation": {
+    "active_job_categories": {
+      "Backup & sync": 5,
+      "GitHub & publishing": 6,
+      "Other scheduled automation": 4,
+      "Media/news monitoring": 3,
+      "Knowledge & memory": 4,
+      "Home automation": 2,
+      "Private finance automation": 4,
+      "Reliability watchdogs": 7
+    },
+    "note": "Exact job names are intentionally grouped for the public repo because some jobs reference private personal or client workflows."
+  },
+  "operational_surfaces": {
+    "tasks": {
+      "cron_total": 35,
+      "execution_modes": {
+        "no_agent": 25,
+        "agent": 0,
+        "unknown": 10
+      },
+      "public_categories": {
+        "Backup & sync": 5,
+        "GitHub & publishing": 6,
+        "Home automation": 2,
+        "Knowledge & memory": 4,
+        "Media/news monitoring": 3,
+        "Other scheduled automation": 4,
+        "Private finance automation": 4,
+        "Reliability watchdogs": 7
+      },
+      "jobs_public": [
+        {
+          "name": "Daily Hermes Backup",
+          "category": "Backup & sync",
+          "schedule": "0 3 * * *",
+          "repeat": "∞",
+          "next_run": "2026-06-23T03:00:00-04:00",
+          "deliver": "configured private channel",
+          "script": "daily_hermes_backup.sh",
+          "mode": "no-agent (script stdout delivered directly)",
+          "workdir": "~",
+          "last_run": "2026-06-22T03:01:01.899859-04:00  ok"
+        },
+        {
+          "name": "Sync & Merge All",
+          "category": "Backup & sync",
+          "schedule": "0 */8 * * *",
+          "repeat": "∞",
+          "next_run": "2026-06-22T16:00:00-04:00",
+          "deliver": "configured private channel",
+          "last_run": "2026-06-22T08:04:34.402110-04:00  ok"
+        },
+        {
+          "name": "Daily DB SQLite Google Drive Backup",
+          "category": "Backup & sync",
+          "schedule": "30 4 * * *",
+          "repeat": "49/3650",
+          "next_run": "2026-06-23T04:30:00-04:00",
+          "deliver": "configured private channel",
+          "script": "[REDACTED]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "last_run": "2026-06-22T04:32:19.805895-04:00  ok"
+        },
+        {
+          "name": "github-health-digest",
+          "category": "GitHub & publishing",
+          "schedule": "0 9 * * 1-5",
+          "repeat": "∞",
+          "next_run": "2026-06-23T09:00:00-04:00",
+          "deliver": "configured private channel",
+          "script": "github_health_digest.py",
+          "workdir": "~",
+          "last_run": "2026-06-22T09:01:13.661151-04:00  ok"
+        },
+        {
+          "name": "Check Windows nightly cleanup logs",
+          "category": "Other scheduled automation",
+          "schedule": "15 2 * * *",
+          "repeat": "∞",
+          "next_run": "2026-06-23T02:15:00-04:00",
+          "deliver": "configured private channel",
+          "last_run": "2026-06-22T02:19:18.945784-04:00  ok"
+        },
+        {
+          "name": "world-update-brief",
+          "category": "Media/news monitoring",
+          "schedule": "0 7,19 * * *",
+          "repeat": "∞",
+          "next_run": "2026-06-22T19:00:00-04:00",
+          "deliver": "configured private channel",
+          "workdir": "~/.hermes/scripts",
+          "last_run": "2026-06-22T07:47:35.803011-04:00  error: RuntimeError: Промежуточный статус: продакшн-запуск начат и шёл в фоне, но к моменту принудительной остановки по лимиту tool-итераций ещё не завершился."
+        },
+        {
+          "name": "[Backup & sync task]",
+          "category": "Backup & sync",
+          "schedule": "every 180m",
+          "repeat": "∞",
+          "next_run": "2026-06-22T11:38:01.944847-04:00",
+          "deliver": "configured private channel",
+          "script": "[private script]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "last_run": "2026-06-22T08:38:01.944847-04:00  ok"
+        },
+        {
+          "name": "Auto-update public portfolio site Projects",
+          "category": "GitHub & publishing",
+          "schedule": "every 1440m",
+          "repeat": "∞",
+          "next_run": "2026-06-22T14:36:49.053484-04:00",
+          "deliver": "configured private channel",
+          "script": "[private script]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "last_run": "2026-06-21T14:36:49.053484-04:00  ok"
+        },
+        {
+          "name": "Weekly memory-to-gbrain compaction",
+          "category": "Knowledge & memory",
+          "schedule": "0 5 * * 0",
+          "repeat": "∞",
+          "next_run": "2026-06-28T05:00:00-04:00",
+          "deliver": "configured private channel",
+          "last_run": "2026-06-21T05:04:43.642652-04:00  ok"
+        },
+        {
+          "name": "Daily GBrain Google Drive Backup",
+          "category": "Backup & sync",
+          "schedule": "45 4 * * *",
+          "repeat": "∞",
+          "next_run": "2026-06-23T04:45:00-04:00",
+          "deliver": "configured private channel",
+          "script": "[REDACTED]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "last_run": "2026-06-22T04:46:08.425484-04:00  ok"
+        },
+        {
+          "name": "Daily RSS Bot Stats Report",
+          "category": "GitHub & publishing",
+          "schedule": "0 8 * * *",
+          "repeat": "24/3650",
+          "next_run": "2026-06-23T08:00:00-04:00",
+          "deliver": "configured private channel",
+          "script": "rss_bot_daily_report.py",
+          "mode": "no-agent (script stdout delivered directly)",
+          "last_run": "2026-06-22T08:01:25.014299-04:00  ok"
+        },
+        {
+          "name": "SwitchBot Meter Pro hourly Google Sheet logger",
+          "category": "Home automation",
+          "schedule": "every 60m",
+          "repeat": "∞",
+          "next_run": "2026-06-22T11:14:04.472129-04:00",
+          "deliver": "configured private channel",
+          "script": "[REDACTED]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "last_run": "2026-06-22T10:14:04.472129-04:00  ok"
+        },
+        {
+          "name": "Home Assistant filtered 3-hour Google Sheet logger",
+          "category": "Home automation",
+          "schedule": "every 180m",
+          "repeat": "∞",
+          "next_run": "2026-06-22T10:57:03.246967-04:00",
+          "deliver": "configured private channel",
+          "script": "ha_entities_to_sheets.py",
+          "mode": "no-agent (script stdout delivered directly)",
+          "last_run": "2026-06-22T07:57:03.246967-04:00  ok"
+        },
+        {
+          "name": "[REDACTED]",
+          "category": "Knowledge & memory",
+          "schedule": "once at 2026-09-01 08:43",
+          "repeat": "0/1",
+          "next_run": "2026-09-01T08:43:22-04:00",
+          "deliver": "configured private channel"
+        },
+        {
+          "name": "[Media/news monitoring task]",
+          "category": "Media/news monitoring",
+          "schedule": "20 8,20 * * *",
+          "repeat": "∞",
+          "next_run": "2026-06-22T20:20:00-04:00",
+          "deliver": "origin",
+          "workdir": "~",
+          "last_run": "2026-06-22T08:21:59.363223-04:00  ok"
+        },
+        {
+          "name": "[Private finance automation task]",
+          "category": "Private finance automation",
+          "schedule": "every 720m",
+          "repeat": "∞",
+          "next_run": "2026-06-22T21:18:42.995315-04:00",
+          "deliver": "origin",
+          "script": "[private script]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "last_run": "2026-06-22T09:18:42.995315-04:00  ok"
+        },
+        {
+          "name": "[Private finance automation task]",
+          "category": "Private finance automation",
+          "schedule": "0 8,14,20 * * *",
+          "repeat": "41/3650",
+          "next_run": "2026-06-22T14:00:00-04:00",
+          "deliver": "origin",
+          "workdir": "~",
+          "last_run": "2026-06-22T08:05:13.836267-04:00  ok"
+        },
+        {
+          "name": "Hermes cron auto-healer",
+          "category": "Reliability watchdogs",
+          "schedule": "every 15m",
+          "repeat": "∞",
+          "next_run": "2026-06-22T10:28:01.763252-04:00",
+          "deliver": "origin",
+          "script": "hermes_auto_healer.py",
+          "mode": "no-agent (script stdout delivered directly)",
+          "workdir": "~",
+          "last_run": "2026-06-22T10:13:01.763252-04:00  ok"
+        },
+        {
+          "name": "[Reliability watchdogs task]",
+          "category": "Reliability watchdogs",
+          "schedule": "every 720m",
+          "repeat": "∞",
+          "next_run": "2026-06-22T12:33:57.206497-04:00",
+          "deliver": "origin",
+          "script": "[private script]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "workdir": "~",
+          "last_run": "2026-06-22T00:33:57.206497-04:00  ok"
+        },
+        {
+          "name": "Nightly GBrain update watchdog",
+          "category": "Knowledge & memory",
+          "schedule": "20 3 * * *",
+          "repeat": "∞",
+          "next_run": "2026-06-23T03:20:00-04:00",
+          "deliver": "origin",
+          "script": "gbrain_update_watchdog.py",
+          "mode": "no-agent (script stdout delivered directly)",
+          "workdir": "~",
+          "last_run": "2026-06-22T03:20:58.789081-04:00  ok"
+        },
+        {
+          "name": "[Private finance automation task]",
+          "category": "Private finance automation",
+          "schedule": "15 8,14,20 * * *",
+          "repeat": "∞",
+          "next_run": "2026-06-22T14:15:00-04:00",
+          "deliver": "origin",
+          "script": "[private script]",
+          "workdir": "~",
+          "last_run": "2026-06-22T08:15:15.768631-04:00  ok"
+        },
+        {
+          "name": "[Private finance automation task]",
+          "category": "Private finance automation",
+          "schedule": "20 8,14,20 * * *",
+          "repeat": "∞",
+          "next_run": "2026-06-22T14:20:00-04:00",
+          "deliver": "origin",
+          "script": "[private script]",
+          "workdir": "~",
+          "last_run": "2026-06-22T08:23:37.549376-04:00  ok"
+        },
+        {
+          "name": "Hermes Python env guard",
+          "category": "Reliability watchdogs",
+          "schedule": "every 120m",
+          "repeat": "∞",
+          "next_run": "2026-06-22T11:02:01.892576-04:00",
+          "deliver": "origin",
+          "script": "hermes_python_env_guard.py",
+          "mode": "no-agent (script stdout delivered directly)",
+          "last_run": "2026-06-22T09:02:01.892576-04:00  ok"
+        },
+        {
+          "name": "ForgetMe YouTube new video monitor",
+          "category": "Media/news monitoring",
+          "schedule": "every 30m",
+          "repeat": "∞",
+          "next_run": "2026-06-22T10:51:02.091034-04:00",
+          "deliver": "origin",
+          "script": "[REDACTED]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "workdir": "~",
+          "last_run": "2026-06-22T10:21:02.091034-04:00  ok"
+        },
+        {
+          "name": "Hourly GBrain auto-healer",
+          "category": "Knowledge & memory",
+          "schedule": "every 60m",
+          "repeat": "∞",
+          "next_run": "2026-06-22T10:49:14.246346-04:00",
+          "deliver": "origin",
+          "script": "gbrain_hourly_healer.py",
+          "mode": "no-agent (script stdout delivered directly)",
+          "workdir": "~",
+          "last_run": "2026-06-22T09:49:14.246346-04:00  ok"
+        },
+        {
+          "name": "Update public Hermes architecture repo",
+          "category": "GitHub & publishing",
+          "schedule": "15 6 * * *",
+          "repeat": "∞",
+          "next_run": "2026-06-23T06:15:00-04:00",
+          "deliver": "origin",
+          "script": "[REDACTED]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "workdir": "~",
+          "last_run": "2026-06-22T06:16:19.464303-04:00  ok"
+        },
+        {
+          "name": "OpenSourceProjects.dev hourly review",
+          "category": "GitHub & publishing",
+          "schedule": "every 60m",
+          "repeat": "∞",
+          "next_run": "2026-06-22T10:49:14.909085-04:00",
+          "deliver": "origin",
+          "script": "[REDACTED]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "workdir": "~",
+          "last_run": "2026-06-22T09:49:14.909085-04:00  ok"
+        },
+        {
+          "name": "Telegram @github hourly review",
+          "category": "GitHub & publishing",
+          "schedule": "every 60m",
+          "repeat": "∞",
+          "next_run": "2026-06-22T10:50:03.062938-04:00",
+          "deliver": "origin",
+          "script": "[REDACTED]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "workdir": "~",
+          "last_run": "2026-06-22T09:50:03.062938-04:00  ok"
+        },
+        {
+          "name": "Glances system watchdog",
+          "category": "Reliability watchdogs",
+          "schedule": "every 15m",
+          "repeat": "80/3650",
+          "next_run": "2026-06-22T10:30:04.382234-04:00",
+          "deliver": "origin",
+          "script": "glances_watchdog.py",
+          "mode": "no-agent (script stdout delivered directly)",
+          "workdir": "~",
+          "last_run": "2026-06-22T10:15:04.382234-04:00  ok"
+        },
+        {
+          "name": "Daily React Doctor web watchdog",
+          "category": "Reliability watchdogs",
+          "schedule": "30 9 * * *",
+          "repeat": "2/3650",
+          "next_run": "2026-06-23T09:30:00-04:00",
+          "deliver": "origin",
+          "script": "[REDACTED]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "workdir": "~",
+          "last_run": "2026-06-22T09:30:09.779649-04:00  ok"
+        },
+        {
+          "name": "Private Hermes ops wiki updater",
+          "category": "Other scheduled automation",
+          "schedule": "every 360m",
+          "repeat": "4/3650",
+          "next_run": "2026-06-22T12:49:59.564202-04:00",
+          "deliver": "origin",
+          "script": "[REDACTED]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "workdir": "~",
+          "last_run": "2026-06-22T06:49:59.564202-04:00  ok"
+        },
+        {
+          "name": "Hermes architecture public site watchdog",
+          "category": "Reliability watchdogs",
+          "schedule": "every 15m",
+          "repeat": "64/3650",
+          "next_run": "2026-06-22T10:30:04.501821-04:00",
+          "deliver": "origin",
+          "script": "[REDACTED]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "workdir": "~",
+          "last_run": "2026-06-22T10:15:04.501821-04:00  ok"
+        },
+        {
+          "name": "Hermes private ops wiki public route watchdog",
+          "category": "Reliability watchdogs",
+          "schedule": "every 15m",
+          "repeat": "64/3650",
+          "next_run": "2026-06-22T10:30:04.637519-04:00",
+          "deliver": "origin",
+          "script": "[REDACTED]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "workdir": "~",
+          "last_run": "2026-06-22T10:15:04.637519-04:00  ok"
+        },
+        {
+          "name": "Telegram @notboring_tech hourly review",
+          "category": "Other scheduled automation",
+          "schedule": "every 60m",
+          "repeat": "18/3650",
+          "next_run": "2026-06-22T10:50:29.236751-04:00",
+          "deliver": "origin",
+          "script": "[REDACTED]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "workdir": "~",
+          "last_run": "2026-06-22T09:50:29.236751-04:00  ok"
+        },
+        {
+          "name": "Telegram @git_developer hourly review",
+          "category": "Other scheduled automation",
+          "schedule": "every 60m",
+          "repeat": "12/3650",
+          "next_run": "2026-06-22T10:49:41.069865-04:00",
+          "deliver": "origin",
+          "script": "[REDACTED]",
+          "mode": "no-agent (script stdout delivered directly)",
+          "workdir": "~",
+          "last_run": "2026-06-22T09:49:41.069865-04:00  ok"
+        }
+      ],
+      "note": "Task names that expose personal/client workflows are replaced with category labels; schedules/scripts/modes are retained when safe."
+    },
+    "skills": {
+      "total_detected": 214,
+      "categories": {
+        ".archive": 11,
+        "apple": 6,
+        "autonomous-ai-agents": 7,
+        "creative": 34,
+        "data-science": 2,
+        "devops": 9,
+        "ecc-imports": 4,
+        "email": 2,
+        "gaming": 2,
+        "github": 11,
+        "mcp": 1,
+        "media": 7,
+        "mlops": 19,
+        "note-taking": 4,
+        "personal": 5,
+        "productivity": 20,
+        "red-teaming": 1,
+        "research": 13,
+        "smart-home": 3,
+        "social-media": 2,
+        "software-development": 33,
+        "uncategorized": 18
+      },
+      "public_examples": [
+        {
+          "name": "strategic-reading",
+          "category": "uncategorized",
+          "description": "Read a book, article, transcript, or case study through the lens of a specific strategic problem you"
+        },
+        {
+          "name": "article-enrichment",
+          "category": "uncategorized",
+          "description": "Transform raw article text dumps in the brain into structured pages with executive summary, verbatim quotes, key insights, why-it-matters, a"
+        },
+        {
+          "name": "skillpack-check",
+          "category": "uncategorized",
+          "description": "|"
+        },
+        {
+          "name": "chrome-extensions",
+          "category": "uncategorized",
+          "description": ">"
+        },
+        {
+          "name": "modern-web-guidance",
+          "category": "uncategorized",
+          "description": "|"
+        },
+        {
+          "name": "concept-synthesis",
+          "category": "uncategorized",
+          "description": "Deduplicate and synthesize raw concept stubs into a tiered intellectual map (T1 Canon to T4 Riff), tracing idea evolution across sources ove"
+        },
+        {
+          "name": "ingest",
+          "category": "uncategorized",
+          "description": "Route content to specialized ingestion skills. Detects input type and delegates."
+        },
+        {
+          "name": "yuanbao",
+          "category": "uncategorized",
+          "description": "Yuanbao (元宝) groups: @mention users, query info/members."
+        },
+        {
+          "name": "maintain",
+          "category": "uncategorized",
+          "description": "|"
+        },
+        {
+          "name": "academic-verify",
+          "category": "uncategorized",
+          "description": "Verify a research claim or academic citation by tracing it through publication → methodology → raw data → independent replication. Routes th"
+        },
+        {
+          "name": "dogfood",
+          "category": "uncategorized",
+          "description": "Exploratory QA of web apps: find bugs, evidence, reports."
+        },
+        {
+          "name": "perplexity-research",
+          "category": "uncategorized",
+          "description": "Brain-augmented web research. Sends brain context about a topic to Perplexity, which searches the web with citations and returns what is NEW"
+        },
+        {
+          "name": "retrieval-reflex",
+          "category": "uncategorized",
+          "description": "When/what to retrieve — open the brain page for a salient entity before answering from memory."
+        },
+        {
+          "name": "brain-pdf",
+          "category": "uncategorized",
+          "description": "Generate a publication-quality PDF from a GBrain page or markdown file using Hermes-native Chrome rendering. The brain page remains the sour"
+        },
+        {
+          "name": "openhue",
+          "category": "smart-home",
+          "description": "Control Philips Hue lights, scenes, rooms via OpenHue CLI."
+        },
+        {
+          "name": "home-hvac-diagnostics",
+          "category": "smart-home",
+          "description": "Diagnose residential HVAC comfort/airflow problems using sensor data, photos, duct/register checks, and safe homeowner tests."
+        },
+        {
+          "name": "native-mcp",
+          "category": "mcp",
+          "description": "MCP client: connect servers, register tools (stdio/HTTP)."
+        },
+        {
+          "name": "xurl",
+          "category": "social-media",
+          "description": "X/Twitter via xurl CLI: post, search, DM, media, v2 API."
+        },
+        {
+          "name": "kanban-codex-lane",
+          "category": "autonomous-ai-agents",
+          "description": "Use when a Hermes Kanban worker wants to run Codex CLI as an isolated implementation lane while Hermes keeps ownership of task lifecycle, re"
+        },
+        {
+          "name": "hermes-agent",
+          "category": "autonomous-ai-agents",
+          "description": "Configure, extend, or contribute to Hermes Agent."
+        },
+        {
+          "name": "coding-agent-clis",
+          "category": "autonomous-ai-agents",
+          "description": "Use when delegating software work to an external coding-agent CLI such as Claude Code, Codex, or OpenCode, especially for isolated implement"
+        },
+        {
+          "name": "jupyter-live-kernel",
+          "category": "data-science",
+          "description": "Iterative Python via live Jupyter kernel (hamelnb)."
+        },
+        {
+          "name": "[REDACTED]",
+          "category": ".archive",
+          "description": "Diagnose and advise on residential HVAC comfort imbalance: hot/cold rooms, upstairs/downstairs temperature splits, duct/register airflow, th"
+        },
+        {
+          "name": "[REDACTED]",
+          "category": ".archive",
+          "description": "Operate, publish, protect, troubleshoot, and theme the Hermes Web Dashboard."
+        },
+        {
+          "name": "[REDACTED]",
+          "category": ".archive",
+          "description": "Install, update, run, and verify Node/npm-based CLI tools safely; covers npx vs npm install, Node version pitfalls, and global CLI verificat"
+        },
+        {
+          "name": "hermes-gateway-routing",
+          "category": ".archive",
+          "description": "Inspect, configure, and patch Hermes gateway message routing across origin chats, home channels, threads, and approval flows."
+        },
+        {
+          "name": "[REDACTED]",
+          "category": ".archive",
+          "description": "[REDACTED]"
+        },
+        {
+          "name": "n8n-workflow-operations",
+          "category": ".archive",
+          "description": "Operate, debug, back up, patch, and verify n8n workflows across Dev/QA/UAT/PreProd/Prod with environment-specific safety gates."
+        },
+        {
+          "name": "[REDACTED]",
+          "category": ".archive",
+          "description": "Publish a locally running web app from a Linux host with systemd, reverse proxying, HTTPS, Cloudflare-aware DNS checks, narrow sudo wrappers"
+        },
+        {
+          "name": "[REDACTED]",
+          "category": ".archive",
+          "description": "AudioCraft: MusicGen text-to-music, AudioGen text-to-sound."
+        },
+        {
+          "name": "simplify-code",
+          "category": "software-development",
+          "description": "Parallel 3-agent cleanup of recent code changes."
+        },
+        {
+          "name": "codebase-recon-debrief",
+          "category": "software-development",
+          "description": "Use when working in an unfamiliar or messy codebase and the task requires understanding flows before editing. Enforces briefing, targeted re"
+        },
+        {
+          "name": "ponytail-help",
+          "category": "software-development",
+          "description": ">"
+        },
+        {
+          "name": "[REDACTED]",
+          "category": "software-development",
+          "description": "Debug Hermes TUI slash commands: Python, gateway, Ink UI."
+        },
+        {
+          "name": "plan",
+          "category": "software-development",
+          "description": "Plan mode: write an actionable markdown plan to .hermes/plans/, no execution. Bite-sized tasks, exact paths, complete code."
+        },
+        {
+          "name": "[REDACTED]",
+          "category": "software-development",
+          "description": "Modify, debug, or extend the s6-overlay supervision tree inside the Hermes Agent Docker image — adding new services, debugging profile gatew"
+        },
+        {
+          "name": "runtime-debuggers",
+          "category": "software-development",
+          "description": "Use when debugging running Python or Node processes with breakpoints, stepping, attach flows, or post-mortem inspection rather than ad-hoc l"
+        },
+        {
+          "name": "ponytail-audit",
+          "category": "software-development",
+          "description": ">"
+        },
+        {
+          "name": "[REDACTED]",
+          "category": "software-development",
+          "description": "Execute plans via delegate_task subagents (2-stage review)."
+        },
+        {
+          "name": "spike",
+          "category": "software-development",
+          "description": "Throwaway experiments to validate an idea before build."
+        }
+      ],
+      "note": "Examples omit personal/client-sensitive skill names; full local skill inventory remains private."
+    },
+    "hooks": {
+      "shell_hooks_allowlist_present": false,
+      "shell_hooks_allowlist_entries": 0,
+      "claude_plugin_hook_files_detected": 23,
+      "public_hook_file_examples": [
+        ".claude/plugins/cache/ponytail/ponytail/4.6.0/hooks/hooks.json",
+        ".claude/plugins/cache/claude-code-warp/warp/2.0.0/hooks/hooks.json",
+        ".claude/plugins/cache/thedotmack/claude-mem/13.4.1/hooks/hooks.json",
+        ".claude/plugins/cache/thedotmack/claude-mem/13.3.0/hooks/hooks.json",
+        ".claude/plugins/cache/thedotmack/claude-mem/13.4.0/hooks/hooks.json",
+        ".claude/plugins/cache/thedotmack/claude-mem/13.0.0/hooks/hooks.json",
+        ".claude/plugins/cache/thedotmack/claude-mem/13.0.1/hooks/hooks.json",
+        ".claude/plugins/cache/thedotmack/claude-mem/13.1.0/hooks/hooks.json",
+        ".claude/plugins/cache/thedotmack/claude-mem/13.2.0/hooks/hooks.json",
+        ".claude/plugins/marketplaces/ponytail/hooks/hooks.json",
+        "[REDACTED]",
+        ".claude/plugins/marketplaces/claude-code-plugins/plugins/ralph-wiggum/hooks/hooks.json",
+        ".claude/plugins/marketplaces/claude-code-plugins/plugins/hookify/hooks/hooks.json",
+        ".claude/plugins/marketplaces/claude-code-plugins/plugins/security-guidance/hooks/hooks.json",
+        ".claude/plugins/marketplaces/claude-code-plugins/plugins/learning-output-style/hooks/hooks.json",
+        ".claude/plugins/marketplaces/claude-code-warp/plugins/warp/hooks/hooks.json",
+        "[REDACTED]",
+        ".claude/plugins/marketplaces/claude-plugins-official/plugins/ralph-loop/hooks/hooks.json",
+        ".claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/hooks.json",
+        ".claude/plugins/marketplaces/claude-plugins-official/plugins/security-guidance/hooks/hooks.json",
+        ".claude/plugins/marketplaces/claude-plugins-official/plugins/learning-output-style/hooks/hooks.json",
+        ".claude/plugins/marketplaces/thedotmack/cursor-hooks/hooks.json",
+        ".claude/plugins/marketplaces/thedotmack/plugin/hooks/hooks.json"
+      ],
+      "webhook_summary": "webhook platform not enabled",
+      "note": "Hook contents and command bodies are not published; only hook surfaces/counts are documented."
+    },
+    "plugins": {
+      "detected_plugins": [
+        {
+          "name": "browser-browser-use",
+          "status": "not enabled"
+        },
+        {
+          "name": "browser-browserbase",
+          "status": "not enabled"
+        },
+        {
+          "name": "browser-firecrawl",
+          "status": "not enabled"
+        },
+        {
+          "name": "chronos",
+          "status": "not enabled"
+        },
+        {
+          "name": "basic",
+          "status": "not enabled"
+        },
+        {
+          "name": "nous",
+          "status": "not enabled"
+        },
+        {
+          "name": "self-hosted",
+          "status": "not enabled"
+        },
+        {
+          "name": "disk-cleanup",
+          "status": "not enabled"
+        },
+        {
+          "name": "google_meet",
+          "status": "not enabled"
+        },
+        {
+          "name": "fal",
+          "status": "not enabled"
+        },
+        {
+          "name": "krea",
+          "status": "not enabled"
+        },
+        {
+          "name": "openai",
+          "status": "not enabled"
+        },
+        {
+          "name": "openai-codex",
+          "status": "not enabled"
+        },
+        {
+          "name": "xai",
+          "status": "not enabled"
+        },
+        {
+          "name": "alibaba-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "anthropic-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "arcee-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "bedrock-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "copilot-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "copilot-acp-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "custom-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "deepseek-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "gemini-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "gmi-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "huggingface-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "kilocode-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "kimi-coding-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "minimax-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "nous-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "novita-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "nvidia-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "openrouter-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "qwen-oauth-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "stepfun-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "xai-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "xiaomi-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "zai-provider",
+          "status": "not enabled"
+        },
+        {
+          "name": "langfuse",
+          "status": "not enabled"
+        },
+        {
+          "name": "nemo_relay",
+          "status": "not enabled"
+        },
+        {
+          "name": "discord-platform",
+          "status": "not enabled"
+        },
+        {
+          "name": "google_chat-platform",
+          "status": "not enabled"
+        },
+        {
+          "name": "irc-platform",
+          "status": "not enabled"
+        },
+        {
+          "name": "line-platform",
+          "status": "not enabled"
+        },
+        {
+          "name": "mattermost-platform",
+          "status": "not enabled"
+        },
+        {
+          "name": "ntfy-platform",
+          "status": "not enabled"
+        },
+        {
+          "name": "photon-platform",
+          "status": "not enabled"
+        },
+        {
+          "name": "raft-platform",
+          "status": "not enabled"
+        },
+        {
+          "name": "simplex-platform",
+          "status": "not enabled"
+        },
+        {
+          "name": "teams-platform",
+          "status": "not enabled"
+        },
+        {
+          "name": "security-guidance",
+          "status": "not enabled"
+        },
+        {
+          "name": "spotify",
+          "status": "not enabled"
+        },
+        {
+          "name": "teams_pipeline",
+          "status": "not enabled"
+        },
+        {
+          "name": "fal",
+          "status": "not enabled"
+        },
+        {
+          "name": "xai",
+          "status": "not enabled"
+        },
+        {
+          "name": "web-brave-free",
+          "status": "not enabled"
+        },
+        {
+          "name": "web-ddgs",
+          "status": "not enabled"
+        },
+        {
+          "name": "web-exa",
+          "status": "not enabled"
+        },
+        {
+          "name": "web-firecrawl",
+          "status": "not enabled"
+        },
+        {
+          "name": "web-parallel",
+          "status": "not enabled"
+        },
+        {
+          "name": "web-searxng",
+          "status": "not enabled"
+        },
+        {
+          "name": "web-tavily",
+          "status": "not enabled"
+        },
+        {
+          "name": "web-xai",
+          "status": "not enabled"
+        },
+        {
+          "name": "hermes-lcm",
+          "status": "enabled"
+        }
+      ],
+      "enabled_count_estimate": 3,
+      "not_enabled_count_estimate": 68,
+      "note": "Plugin descriptions are omitted from the public inventory because they may mention credential/environment surfaces."
+    },
+    "tools": {
+      "toolset_counts_estimate": {},
+      "enabled_rows_estimate": 22,
+      "note": "CLI parsing is best-effort; full tool schemas are runtime-generated and not published."
+    }
+  },
+  "local_models": {
+    "lm_studio": {
+      "base_url": "http://127.0.0.1:1234/v1",
+      "models": [
+        "mythosnanoq6",
+        "qwythos9bq5",
+        "gemma4coderq3",
+        "gemma4coderq4",
+        "oymuncq4",
+        "[REDACTED]",
+        "gemma4unc",
+        "[REDACTED]"
+      ],
+      "chat_smoke": "blocked_or_unavailable: {\n    \"error\": {\n        \"message\": \"Failed to load model \\\"gemma4unc\\\". Error: Model loading was stopped due to insufficient system resources. Under the current settings, this model requires approximately 14.36 GB of memory, and continuing"
+    },
+    "note": "Main Hermes remains openai-codex/gpt-5.5. LM Studio is configured as an optional local provider, not the default."
+  }
+}

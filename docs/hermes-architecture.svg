@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="860" viewBox="0 0 1280 860" role="img" aria-label="Hermes Agent Architecture">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker>
+    <style>
+      .bg{fill:#020617} .title{font:700 24px 'JetBrains Mono',monospace;fill:#e2e8f0} .sub{font:12px 'JetBrains Mono',monospace;fill:#94a3b8}
+      .box-title{font:700 14px 'JetBrains Mono',monospace;fill:#f8fafc} .box-sub{font:10px 'JetBrains Mono',monospace;fill:#cbd5e1}
+      .small{font:9px 'JetBrains Mono',monospace;fill:#cbd5e1} .line{stroke:#64748b;stroke-width:1.8;marker-end:url(#arrow);fill:none}
+      .dash{stroke-dasharray:6 4} .front{fill:#082f49;stroke:#22d3ee} .back{fill:#064e3b;stroke:#34d399}
+      .db{fill:#3b0764;stroke:#c4b5fd} .cloud{fill:#451a03;stroke:#fbbf24} .sec{fill:#4c0519;stroke:#fb7185}
+      .ext{fill:#1e293b;stroke:#cbd5e1} .bus{fill:#431407;stroke:#fb923c}
+    </style>
+  </defs>
+  <rect class="bg" width="1280" height="860"/><rect width="1280" height="860" fill="url(#grid)" opacity="0.55"/>
+  <text x="40" y="52" class="title">Hermes Agent Architecture</text>
+  <text x="40" y="76" class="sub">Public-safe generated snapshot · 2026-06-22T10:22:33-04:00</text>
+
+  <!-- Flows -->
+  <path class="line" d="M215 190 C300 190 300 330 385 330"/>
+  <path class="line" d="M215 295 C300 295 300 330 385 330"/>
+  <path class="line" d="M215 400 C300 400 300 330 385 330"/>
+  <path class="line" d="M545 330 C625 330 625 160 705 160"/>
+  <path class="line" d="M545 330 C625 330 625 265 705 265"/>
+  <path class="line" d="M545 330 C625 330 625 370 705 370"/>
+  <path class="line" d="M545 330 C625 330 625 480 705 480"/>
+  <path class="line" d="M865 160 C935 160 935 205 1005 205"/>
+  <path class="line" d="M865 265 C935 265 935 315 1005 315"/>
+  <path class="line" d="M865 370 C935 370 935 430 1005 430"/>
+  <path class="line" d="M545 330 C625 330 625 600 705 600"/>
+  <path class="line dash" d="M545 330 C620 520 745 705 1005 695"/>
+
+  <!-- User channels -->
+  <g><rect x="40" y="135" width="175" height="70" rx="8" fill="#0f172a"/><rect x="40" y="135" width="175" height="70" rx="8" class="front" stroke-width="1.6"/><text x="60" y="165" class="box-title">Telegram</text><text x="60" y="185" class="box-sub">primary mobile UX</text></g>
+  <g><rect x="40" y="240" width="175" height="70" rx="8" fill="#0f172a"/><rect x="40" y="240" width="175" height="70" rx="8" class="front" stroke-width="1.6"/><text x="60" y="270" class="box-title">Mattermost</text><text x="60" y="290" class="box-sub">workbench/home lane</text></g>
+  <g><rect x="40" y="345" width="175" height="70" rx="8" fill="#0f172a"/><rect x="40" y="345" width="175" height="70" rx="8" class="front" stroke-width="1.6"/><text x="60" y="375" class="box-title">WhatsApp/API</text><text x="60" y="395" class="box-sub">secondary channels</text></g>
+
+  <!-- Core -->
+  <g><rect x="365" y="270" width="200" height="120" rx="10" fill="#0f172a"/><rect x="365" y="270" width="200" height="120" rx="10" class="back" stroke-width="2"/><text x="390" y="305" class="box-title">Hermes Gateway</text><text x="390" y="328" class="box-sub">systemd service on Linux</text><text x="390" y="350" class="box-sub">tool loop · skills · memory</text><text x="390" y="372" class="box-sub">tasks · hooks · plugins</text></g>
+
+  <!-- Models -->
+  <g><rect x="705" y="115" width="190" height="80" rx="8" fill="#0f172a"/><rect x="705" y="115" width="190" height="80" rx="8" class="cloud" stroke-width="1.6"/><text x="728" y="148" class="box-title">OpenAI Codex</text><text x="728" y="170" class="box-sub">primary gpt-5.5</text></g>
+  <g><rect x="705" y="220" width="190" height="80" rx="8" fill="#0f172a"/><rect x="705" y="220" width="190" height="80" rx="8" class="cloud" stroke-width="1.6"/><text x="728" y="253" class="box-title">Copilot</text><text x="728" y="275" class="box-sub">fallback + aux gpt-5.4</text></g>
+  <g><rect x="705" y="325" width="190" height="80" rx="8" fill="#0f172a"/><rect x="705" y="325" width="190" height="80" rx="8" class="bus" stroke-width="1.6"/><text x="728" y="358" class="box-title">LM Studio</text><text x="728" y="380" class="box-sub">optional local provider</text></g>
+  <g><rect x="705" y="430" width="190" height="80" rx="8" fill="#0f172a"/><rect x="705" y="430" width="190" height="80" rx="8" class="bus" stroke-width="1.6"/><text x="728" y="463" class="box-title">Free Kimi Proxy</text><text x="728" y="485" class="box-sub">experimental reserve only</text></g>
+
+  <!-- Knowledge/tools -->
+  <g><rect x="1005" y="165" width="220" height="80" rx="8" fill="#0f172a"/><rect x="1005" y="165" width="220" height="80" rx="8" class="db" stroke-width="1.6"/><text x="1030" y="198" class="box-title">GBrain MCP</text><text x="1030" y="220" class="box-sub">knowledge graph · facts · code</text></g>
+  <g><rect x="1005" y="275" width="220" height="80" rx="8" fill="#0f172a"/><rect x="1005" y="275" width="220" height="80" rx="8" class="db" stroke-width="1.6"/><text x="1030" y="308" class="box-title">NotebookLM MCP</text><text x="1030" y="330" class="box-sub">grounded research notebooks</text></g>
+  <g><rect x="1005" y="390" width="220" height="80" rx="8" fill="#0f172a"/><rect x="1005" y="390" width="220" height="80" rx="8" class="db" stroke-width="1.6"/><text x="1030" y="423" class="box-title">CodeGraph MCP</text><text x="1030" y="445" class="box-sub">repository code intelligence</text></g>
+
+  <!-- Automation / external -->
+  <g><rect x="705" y="555" width="220" height="90" rx="8" fill="#0f172a"/><rect x="705" y="555" width="220" height="90" rx="8" class="sec" stroke-width="1.6"/><text x="730" y="590" class="box-title">Tasks / Hooks</text><text x="730" y="612" class="box-sub">cron · no-agent scripts</text><text x="730" y="632" class="box-sub">skills · plugins · webhooks</text></g>
+  <g><rect x="1005" y="650" width="220" height="90" rx="8" fill="#0f172a"/><rect x="1005" y="650" width="220" height="90" rx="8" class="ext" stroke-width="1.6"/><text x="1030" y="685" class="box-title">External Systems</text><text x="1030" y="707" class="box-sub">Windows SSH · Home Assistant</text><text x="1030" y="727" class="box-sub">GitHub · Google Drive</text></g>
+
+  <!-- Legend -->
+  <g transform="translate(40 760)"><text class="box-title" x="0" y="0">Legend</text><rect x="0" y="18" width="18" height="12" class="front"/><text x="26" y="29" class="small">User channels</text><rect x="150" y="18" width="18" height="12" class="back"/><text x="176" y="29" class="small">Hermes core</text><rect x="300" y="18" width="18" height="12" class="cloud"/><text x="326" y="29" class="small">Cloud model</text><rect x="450" y="18" width="18" height="12" class="db"/><text x="476" y="29" class="small">Knowledge/MCP</text><rect x="620" y="18" width="18" height="12" class="sec"/><text x="646" y="29" class="small">Automation</text><rect x="790" y="18" width="18" height="12" class="ext"/><text x="816" y="29" class="small">External systems</text></g>
+</svg>
