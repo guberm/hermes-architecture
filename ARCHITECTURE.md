@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-06-22T10:22:33-04:00`.
+> Public-safe architecture snapshot generated at `2026-06-22T12:48:36-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -266,11 +266,11 @@ Future recommended profile split:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.17.0 (2026.6.19) · upstream 5ff11a68 · local f7524d0d (+2 carried commits)
+Hermes Agent v0.17.0 (2026.6.19) · upstream b1b20270 · local f7524d0d (+2 carried commits)
 Project: ~/.hermes/hermes-agent
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 317 commits behind — run 'hermes update'
+Update available: 373 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
@@ -295,7 +295,7 @@ MCP Servers:
   codegraph        ~/.nvm/versions/no...   all          ✓ enabled
   gbrain           http://127.0.0.1:3131/mcp      all          ✓ enabled
   notebooklm       npx -y notebooklm-mcp@latest   all          ✓ enabled
-  homeway          https://homeway.io/api/mcp     all          ✗ disabled
+  homeway          https://homeway.io/api/mcp     all          ✓ enabled
 ```
 
 ## Maintenance
