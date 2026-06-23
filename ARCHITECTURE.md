@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-06-22T19:31:04-04:00`.
+> Public-safe architecture snapshot generated at `2026-06-23T06:15:18-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -37,7 +37,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Skills | 216 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 23 | Hook command bodies are not published. |
 | Plugins | 63 visible plugin rows captured; enabled estimate 3 | Descriptions omitted to avoid leaking credential/env surfaces. |
-| MCP servers | 0 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
+| MCP servers | 4 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
 ### Scheduled tasks / cron categories
@@ -88,31 +88,31 @@ Public-safe skill examples:
 
 | Skill | Category | Public-safe description |
 |---|---|---|
-| `strategic-reading` | uncategorized | Read a book, article, transcript, or case study through the lens of a specific strategic problem you |
-| `article-enrichment` | uncategorized | Transform raw article text dumps in the brain into structured pages with executive summary, verbatim quotes, key insights, why-it-matters, a |
-| `skillpack-check` | uncategorized | / |
-| `chrome-extensions` | uncategorized | > |
-| `modern-web-guidance` | uncategorized | / |
-| `concept-synthesis` | uncategorized | Deduplicate and synthesize raw concept stubs into a tiered intellectual map (T1 Canon to T4 Riff), tracing idea evolution across sources ove |
-| `ingest` | uncategorized | Route content to specialized ingestion skills. Detects input type and delegates. |
-| `yuanbao` | uncategorized | Yuanbao (元宝) groups: @mention users, query info/members. |
-| `maintain` | uncategorized | / |
-| `academic-verify` | uncategorized | Verify a research claim or academic citation by tracing it through publication → methodology → raw data → independent replication. Routes th |
-| `dogfood` | uncategorized | Exploratory QA of web apps: find bugs, evidence, reports. |
-| `perplexity-research` | uncategorized | Brain-augmented web research. Sends brain context about a topic to Perplexity, which searches the web with citations and returns what is NEW |
-| `retrieval-reflex` | uncategorized | When/what to retrieve — open the brain page for a salient entity before answering from memory. |
-| `brain-pdf` | uncategorized | Generate a publication-quality PDF from a GBrain page or markdown file using Hermes-native Chrome rendering. The brain page remains the sour |
-| `huggingface-hub` | mlops | HuggingFace hf CLI: search/download/upload models, datasets. |
 | `dspy` | mlops | DSPy: declarative LM programs, auto-optimize prompts, RAG. |
 | `fine-tuning-with-trl` | mlops | TRL: SFT, DPO, PPO, GRPO, reward modeling for LLM RLHF. |
 | `axolotl` | mlops | Axolotl: YAML LLM fine-tuning (LoRA, DPO, GRPO). |
 | `unsloth` | mlops | Unsloth: 2-5x faster LoRA/QLoRA fine-tuning, less VRAM. |
+| `huggingface-hub` | mlops | HuggingFace hf CLI: search/download/upload models, datasets. |
 | `segment-anything-model` | mlops | SAM: zero-shot image segmentation via points, boxes, masks. |
 | `weights-and-biases` | mlops | W&B: log ML experiments, sweeps, model registry, dashboards. |
 | `evaluating-llms-harness` | mlops | lm-eval-harness: benchmark LLMs (MMLU, GSM8K, etc.). |
 | `llama-cpp` | mlops | llama.cpp local GGUF inference + HF Hub model discovery. |
 | `obliteratus` | mlops | OBLITERATUS: abliterate LLM refusals (diff-in-means). |
 | `serving-llms-vllm` | mlops | vLLM: high-throughput LLM serving, OpenAI API, quantization. |
+| `outlines` | mlops | Outlines: structured JSON/regex/Pydantic LLM generation. |
+| `strategic-reading` | uncategorized | Read a book, article, transcript, or case study through the lens of a specific strategic problem you |
+| `gif-search` | media | Search/download GIFs from Tenor via curl + jq. |
+| `spotify` | media | Spotify: play, search, queue, manage playlists and devices. |
+| `youtube-content` | media | YouTube transcripts to summaries, threads, blogs. |
+| `article-enrichment` | uncategorized | Transform raw article text dumps in the brain into structured pages with executive summary, verbatim quotes, key insights, why-it-matters, a |
+| `llm-wiki` | research | Karpathy |
+| `blogwatcher` | research | Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool. |
+| `[REDACTED]` | research | Evaluate whether a third-party service or product is trustworthy, integrable, and compliant enough for automation, purchasing, or review for |
+| `[REDACTED]` | research | Operate the academic research workflow from paper discovery through experiment-backed writing and submission. |
+| `polymarket` | research | Query Polymarket: markets, prices, orderbooks, history. |
+| `skillpack-check` | uncategorized | / |
+| `himalaya` | email | Himalaya CLI: IMAP/SMTP email from terminal. |
+| `chrome-extensions` | uncategorized | > |
 
 
 ### Hooks, webhooks, and plugin hook manifests
@@ -121,8 +121,8 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 
 | Hook manifest surface |
 |---|
-| `.claude/plugins/marketplaces/thedotmack/cursor-hooks/hooks.json` |
 | `.claude/plugins/marketplaces/thedotmack/plugin/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/thedotmack/cursor-hooks/hooks.json` |
 | `.claude/plugins/marketplaces/claude-plugins-official/plugins/learning-output-style/hooks/hooks.json` |
 | `.claude/plugins/marketplaces/claude-plugins-official/plugins/security-guidance/hooks/hooks.json` |
 | `.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/hooks.json` |
@@ -196,8 +196,13 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Role | Provider | Model | Notes |
 |---|---|---|---|
-| Primary |  |  | Default for Telegram/API/CLI gateway sessions |
-| Fallback |  |  | Used when primary fails |
+| Primary | openai-codex | gpt-5.5 | Default for Telegram/API/CLI gateway sessions |
+| Fallback | copilot | gpt-5.4 | Used when primary fails |
+| Optional provider | lmstudio | gemma4unc | http://127.0.0.1:1234/v1 |
+| Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |
+| Optional provider | freekimi | cfbt-kimi | http://127.0.0.1:3271/v1 |
+| Optional provider | forge_freekimi | cfbt-kimi | http://127.0.0.1:8081/v1 |
+| Optional provider | forge_lmstudio | gemma4unc | http://127.0.0.1:8082/v1 |
 
 
 ### Local model trial status
@@ -266,11 +271,11 @@ Future recommended profile split:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.17.0 (2026.6.19) · upstream 87c4a5eb · local f7524d0d (+2 carried commits)
+Hermes Agent v0.17.0 (2026.6.19) · upstream bb7ff7dc · local f7524d0d (+2 carried commits)
 Project: ~/.hermes/hermes-agent
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 407 commits behind — run 'hermes update'
+Update available: 430 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:

@@ -6,8 +6,13 @@ Low-level public-safe runtime routing document.
 
 | Role | Provider | Model | Notes |
 |---|---|---|---|
-| Primary |  |  | Default for Telegram/API/CLI gateway sessions |
-| Fallback |  |  | Used when primary fails |
+| Primary | openai-codex | gpt-5.5 | Default for Telegram/API/CLI gateway sessions |
+| Fallback | copilot | gpt-5.4 | Used when primary fails |
+| Optional provider | lmstudio | gemma4unc | http://127.0.0.1:1234/v1 |
+| Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |
+| Optional provider | freekimi | cfbt-kimi | http://127.0.0.1:3271/v1 |
+| Optional provider | forge_freekimi | cfbt-kimi | http://127.0.0.1:8081/v1 |
+| Optional provider | forge_lmstudio | gemma4unc | http://127.0.0.1:8082/v1 |
 
 
 ## Gateway

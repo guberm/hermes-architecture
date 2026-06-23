@@ -6,6 +6,10 @@ Low-level public-safe view of model-facing integration surfaces.
 
 | Server | Public-safe config |
 |---|---|
+| `codegraph` | `{"command": "~/.nvm/versions/node/v22.19.0/bin/codegraph", "args": ["serve", "--mcp"], "timeout": 120, "connect_timeout": 60, "enabled": true}` |
+| `gbrain` | `{"url": "http://127.0.0.1:3131/mcp", "headers": {}, "enabled": true, "timeout": 300, "connect_timeout": 60}` |
+| `notebooklm` | `{"command": "npx", "args": ["-y", "notebooklm-mcp@latest"], "env": {"NOTEBOOKLM_PROFILE": "standard", "NOTEBOOKLM_DISABLED_TOOLS": "cleanup_data,re_auth", "HEADLESS": "true", "BROWSER_CHANNEL": "chrome", "DISPLAY": ":0", "XDG_RUNTIME_DIR": "/run/user/1000"}, "connect_timeout": 120, "timeout": 600, "` |
+| `homeway` | `{"url": "https://homeway.io/api/mcp", "enabled": true, "auth": "oauth", "timeout": 300, "connect_timeout": 120}` |
 
 ## Toolset counts parsed from CLI
 

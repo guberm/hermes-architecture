@@ -33,25 +33,11 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 
 | Skill | Category | Description |
 |---|---|---|
-| `strategic-reading` | uncategorized | Read a book, article, transcript, or case study through the lens of a specific strategic problem you |
-| `article-enrichment` | uncategorized | Transform raw article text dumps in the brain into structured pages with executive summary, verbatim quotes, key insights, why-it-matters, a |
-| `skillpack-check` | uncategorized | / |
-| `chrome-extensions` | uncategorized | > |
-| `modern-web-guidance` | uncategorized | / |
-| `concept-synthesis` | uncategorized | Deduplicate and synthesize raw concept stubs into a tiered intellectual map (T1 Canon to T4 Riff), tracing idea evolution across sources ove |
-| `ingest` | uncategorized | Route content to specialized ingestion skills. Detects input type and delegates. |
-| `yuanbao` | uncategorized | Yuanbao (元宝) groups: @mention users, query info/members. |
-| `maintain` | uncategorized | / |
-| `academic-verify` | uncategorized | Verify a research claim or academic citation by tracing it through publication → methodology → raw data → independent replication. Routes th |
-| `dogfood` | uncategorized | Exploratory QA of web apps: find bugs, evidence, reports. |
-| `perplexity-research` | uncategorized | Brain-augmented web research. Sends brain context about a topic to Perplexity, which searches the web with citations and returns what is NEW |
-| `retrieval-reflex` | uncategorized | When/what to retrieve — open the brain page for a salient entity before answering from memory. |
-| `brain-pdf` | uncategorized | Generate a publication-quality PDF from a GBrain page or markdown file using Hermes-native Chrome rendering. The brain page remains the sour |
-| `huggingface-hub` | mlops | HuggingFace hf CLI: search/download/upload models, datasets. |
 | `dspy` | mlops | DSPy: declarative LM programs, auto-optimize prompts, RAG. |
 | `fine-tuning-with-trl` | mlops | TRL: SFT, DPO, PPO, GRPO, reward modeling for LLM RLHF. |
 | `axolotl` | mlops | Axolotl: YAML LLM fine-tuning (LoRA, DPO, GRPO). |
 | `unsloth` | mlops | Unsloth: 2-5x faster LoRA/QLoRA fine-tuning, less VRAM. |
+| `huggingface-hub` | mlops | HuggingFace hf CLI: search/download/upload models, datasets. |
 | `segment-anything-model` | mlops | SAM: zero-shot image segmentation via points, boxes, masks. |
 | `weights-and-biases` | mlops | W&B: log ML experiments, sweeps, model registry, dashboards. |
 | `evaluating-llms-harness` | mlops | lm-eval-harness: benchmark LLMs (MMLU, GSM8K, etc.). |
@@ -59,20 +45,34 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `obliteratus` | mlops | OBLITERATUS: abliterate LLM refusals (diff-in-means). |
 | `serving-llms-vllm` | mlops | vLLM: high-throughput LLM serving, OpenAI API, quantization. |
 | `outlines` | mlops | Outlines: structured JSON/regex/Pydantic LLM generation. |
+| `strategic-reading` | uncategorized | Read a book, article, transcript, or case study through the lens of a specific strategic problem you |
 | `gif-search` | media | Search/download GIFs from Tenor via curl + jq. |
 | `spotify` | media | Spotify: play, search, queue, manage playlists and devices. |
 | `youtube-content` | media | YouTube transcripts to summaries, threads, blogs. |
+| `article-enrichment` | uncategorized | Transform raw article text dumps in the brain into structured pages with executive summary, verbatim quotes, key insights, why-it-matters, a |
 | `llm-wiki` | research | Karpathy |
 | `blogwatcher` | research | Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool. |
 | `[REDACTED]` | research | Evaluate whether a third-party service or product is trustworthy, integrable, and compliant enough for automation, purchasing, or review for |
 | `[REDACTED]` | research | Operate the academic research workflow from paper discovery through experiment-backed writing and submission. |
 | `polymarket` | research | Query Polymarket: markets, prices, orderbooks, history. |
+| `skillpack-check` | uncategorized | / |
 | `himalaya` | email | Himalaya CLI: IMAP/SMTP email from terminal. |
+| `chrome-extensions` | uncategorized | > |
 | `pokemon-player` | gaming | Play Pokemon via headless emulator + RAM reads. |
 | `[REDACTED]` | gaming | Host modded Minecraft servers (CurseForge, Modrinth). |
+| `modern-web-guidance` | uncategorized | / |
+| `concept-synthesis` | uncategorized | Deduplicate and synthesize raw concept stubs into a tiered intellectual map (T1 Canon to T4 Riff), tracing idea evolution across sources ove |
 | `popular-web-designs` | creative | 54 real design systems (Stripe, Linear, Vercel) as HTML/CSS. |
 | `humanizer` | creative | Humanize text: strip AI-isms and add real voice. |
 | `comfyui` | creative | Generate images, video, and audio with ComfyUI — install, launch, manage nodes/models, run workflows with parameter injection. Uses the offi |
+| `pretext` | creative | Use when building creative browser demos with @chenglou/pretext — DOM-free text layout for ASCII art, typographic flow around obstacles, tex |
+| `[REDACTED]` | creative | Songwriting craft and Suno AI music prompts. |
+| `touchdesigner-mcp` | creative | Control a running TouchDesigner instance via twozero MCP — create operators, set parameters, wire connections, execute Python, build real-ti |
+| `design-md` | creative | Author/validate/export Google |
+| `ideation` | creative | Generate project ideas via creative constraints. |
+| `baoyu-comic` | creative | Knowledge comics (知识漫画): educational, biography, tutorial. |
+| `p5js` | creative | p5.js sketches: gen art, shaders, interactive, 3D. |
+| `architecture-diagram` | creative | Dark-themed SVG architecture/cloud/infra diagrams as HTML. |
 
 ## Operational meaning
 

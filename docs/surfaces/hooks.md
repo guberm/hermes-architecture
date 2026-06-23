@@ -13,8 +13,8 @@ Public-safe low-level inventory of hook surfaces. Hook command bodies and privat
 
 | Relative path |
 |---|
-| `.claude/plugins/marketplaces/thedotmack/cursor-hooks/hooks.json` |
 | `.claude/plugins/marketplaces/thedotmack/plugin/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/thedotmack/cursor-hooks/hooks.json` |
 | `.claude/plugins/marketplaces/claude-plugins-official/plugins/learning-output-style/hooks/hooks.json` |
 | `.claude/plugins/marketplaces/claude-plugins-official/plugins/security-guidance/hooks/hooks.json` |
 | `.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/hooks.json` |
