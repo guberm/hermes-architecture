@@ -10,6 +10,8 @@ Low-level public-safe view of model-facing integration surfaces.
 | `gbrain` | `{"url": "http://127.0.0.1:3131/mcp", "headers": {}, "enabled": true, "timeout": 300, "connect_timeout": 60}` |
 | `notebooklm` | `{"command": "npx", "args": ["-y", "notebooklm-mcp@latest"], "env": {"NOTEBOOKLM_PROFILE": "standard", "NOTEBOOKLM_DISABLED_TOOLS": "cleanup_data,re_auth", "HEADLESS": "true", "BROWSER_CHANNEL": "chrome", "DISPLAY": ":0", "XDG_RUNTIME_DIR": "/run/user/1000"}, "connect_timeout": 120, "timeout": 600, "` |
 | `homeway` | `{"url": "https://homeway.io/api/mcp", "enabled": true, "auth": "oauth", "timeout": 300, "connect_timeout": 120}` |
+| `windows-cua` | `{"command": "~/.local/bin/windows-cua-mcp", "args": [], "connect_timeout": 120, "timeout": 120, "enabled": true}` |
+| `monarch` | `{"url": "https://api.monarch.com/mcp", "enabled": true, "auth": "oauth", "timeout": 300, "connect_timeout": 120, "oauth": {"scope": "mcp:read", "redirect_port": 38475, "client_name": "Hermes Agent"}, "tools": {"include": ["GetTransactions", "GetCategories", "GetTags", "GetBusinesses", "GetCreditScor` |
 
 ## Toolset counts parsed from CLI
 

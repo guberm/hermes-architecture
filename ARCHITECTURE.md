@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-06-23T06:15:18-04:00`.
+> Public-safe architecture snapshot generated at `2026-06-23T14:17:20-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -34,10 +34,10 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 35 jobs; 25 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 216 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
+| Skills | 218 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 23 | Hook command bodies are not published. |
-| Plugins | 63 visible plugin rows captured; enabled estimate 3 | Descriptions omitted to avoid leaking credential/env surfaces. |
-| MCP servers | 4 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
+| Plugins | 72 visible plugin rows captured; enabled estimate 3 | Descriptions omitted to avoid leaking credential/env surfaces. |
+| MCP servers | 6 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
 ### Scheduled tasks / cron categories
@@ -61,11 +61,11 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | Skill category | Count |
 |---|---:|
 | .archive | 11 |
-| apple | 6 |
+| apple | 5 |
 | autonomous-ai-agents | 7 |
 | creative | 34 |
 | data-science | 2 |
-| devops | 9 |
+| devops | 7 |
 | ecc-imports | 4 |
 | email | 2 |
 | gaming | 2 |
@@ -80,8 +80,8 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | research | 13 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 33 |
-| uncategorized | 18 |
+| software-development | 37 |
+| uncategorized | 19 |
 
 
 Public-safe skill examples:
@@ -271,11 +271,11 @@ Future recommended profile split:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.17.0 (2026.6.19) · upstream bb7ff7dc · local f7524d0d (+2 carried commits)
+Hermes Agent v0.17.0 (2026.6.19) · upstream 5ecf3bf0
 Project: ~/.hermes/hermes-agent
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 430 commits behind — run 'hermes update'
+Up to date
 ```
 
 - Fallback chain:
@@ -301,6 +301,8 @@ MCP Servers:
   gbrain           http://127.0.0.1:3131/mcp      all          ✓ enabled
   notebooklm       npx -y notebooklm-mcp@latest   all          ✓ enabled
   homeway          https://homeway.io/api/mcp     all          ✓ enabled
+  windows-cua      ~/.local/bin/windo...   all          ✓ enabled
+  monarch          https://api.monarch.com/mcp    17 selected  ✓ enabled
 ```
 
 ## Maintenance

@@ -7,11 +7,11 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | Category | Count |
 |---|---:|
 | .archive | 11 |
-| apple | 6 |
+| apple | 5 |
 | autonomous-ai-agents | 7 |
 | creative | 34 |
 | data-science | 2 |
-| devops | 9 |
+| devops | 7 |
 | ecc-imports | 4 |
 | email | 2 |
 | gaming | 2 |
@@ -26,8 +26,8 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | research | 13 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 33 |
-| uncategorized | 18 |
+| software-development | 37 |
+| uncategorized | 19 |
 
 ## Public-safe examples
 
@@ -62,6 +62,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `[REDACTED]` | gaming | Host modded Minecraft servers (CurseForge, Modrinth). |
 | `modern-web-guidance` | uncategorized | / |
 | `concept-synthesis` | uncategorized | Deduplicate and synthesize raw concept stubs into a tiered intellectual map (T1 Canon to T4 Riff), tracing idea evolution across sources ove |
+| `computer-use` | uncategorized | / |
 | `popular-web-designs` | creative | 54 real design systems (Stripe, Linear, Vercel) as HTML/CSS. |
 | `humanizer` | creative | Humanize text: strip AI-isms and add real voice. |
 | `comfyui` | creative | Generate images, video, and audio with ComfyUI — install, launch, manage nodes/models, run workflows with parameter injection. Uses the offi |
@@ -72,7 +73,6 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `ideation` | creative | Generate project ideas via creative constraints. |
 | `baoyu-comic` | creative | Knowledge comics (知识漫画): educational, biography, tutorial. |
 | `p5js` | creative | p5.js sketches: gen art, shaders, interactive, 3D. |
-| `architecture-diagram` | creative | Dark-themed SVG architecture/cloud/infra diagrams as HTML. |
 
 ## Operational meaning
 
