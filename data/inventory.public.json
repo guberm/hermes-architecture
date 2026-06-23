@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T17:00:24-04:00",
+  "generated_at": "2026-06-23T17:06:25-04:00",
   "public_repo": "this public repository",
   "host": {
     "primary": "Linux host running Hermes gateway as a systemd service",
@@ -587,11 +587,11 @@
           "category": "Home automation",
           "schedule": "every 180m",
           "repeat": "∞",
-          "next_run": "2026-06-23T17:05:46.401717-04:00",
+          "next_run": "2026-06-23T20:05:53.113795-04:00",
           "deliver": "configured private channel",
           "script": "ha_entities_to_sheets.py",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-06-23T14:05:46.401717-04:00  ok"
+          "last_run": "2026-06-23T17:05:53.113795-04:00  ok"
         },
         {
           "name": "[REDACTED]",

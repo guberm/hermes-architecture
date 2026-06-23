@@ -16,7 +16,7 @@ Public-safe low-level inventory of Hermes scheduled automation. Private/client-s
 | Daily GBrain Google Drive Backup | Backup & sync | 45 4 * * * | no-agent (script stdout delivered directly) | [REDACTED] | configured private channel |  | 2026-06-23T04:45:27.392052-04:00  ok |
 | Daily RSS Bot Stats Report | GitHub & publishing | 0 8 * * * | no-agent (script stdout delivered directly) | rss_bot_daily_report.py | configured private channel |  | 2026-06-23T08:00:45.290270-04:00  ok |
 | SwitchBot Meter Pro hourly Google Sheet logger | Home automation | every 60m | no-agent (script stdout delivered directly) | [REDACTED] | configured private channel |  | 2026-06-23T16:39:51.522883-04:00  ok |
-| Home Assistant filtered 3-hour Google Sheet logger | Home automation | every 180m | no-agent (script stdout delivered directly) | ha_entities_to_sheets.py | configured private channel |  | 2026-06-23T14:05:46.401717-04:00  ok |
+| Home Assistant filtered 3-hour Google Sheet logger | Home automation | every 180m | no-agent (script stdout delivered directly) | ha_entities_to_sheets.py | configured private channel |  | 2026-06-23T17:05:53.113795-04:00  ok |
 | [REDACTED] | Knowledge & memory | once at 2026-09-01 08:43 |  |  | configured private channel |  |  |
 | [Media/news monitoring task] | Media/news monitoring | 20 8,20 * * * |  |  | configured private channel | ~ | 2026-06-23T08:20:36.931864-04:00  ok |
 | [Private finance automation task] | Private finance automation | every 720m | no-agent (script stdout delivered directly) | [private script] | origin |  | 2026-06-23T09:22:27.026117-04:00  error: Script timed out after 120s: ~/.hermes/scripts/refresh_monarch_auth.py |
