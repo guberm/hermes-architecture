@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-06-24T06:15:47-04:00`.
+> Public-safe architecture snapshot generated at `2026-06-25T06:15:47-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -34,10 +34,10 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 36 jobs; 26 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 219 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
+| Skills | 226 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 23 | Hook command bodies are not published. |
 | Plugins | 72 visible plugin rows captured; enabled estimate 3 | Descriptions omitted to avoid leaking credential/env surfaces. |
-| MCP servers | 6 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
+| MCP servers | 7 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
 ### Scheduled tasks / cron categories
@@ -65,7 +65,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | autonomous-ai-agents | 7 |
 | creative | 34 |
 | data-science | 2 |
-| devops | 7 |
+| devops | 8 |
 | ecc-imports | 4 |
 | email | 2 |
 | gaming | 2 |
@@ -75,13 +75,13 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | mlops | 19 |
 | note-taking | 4 |
 | personal | 6 |
-| productivity | 20 |
+| productivity | 23 |
 | red-teaming | 1 |
-| research | 13 |
+| research | 15 |
 | smart-home | 5 |
 | social-media | 2 |
 | software-development | 37 |
-| uncategorized | 19 |
+| uncategorized | 20 |
 
 
 Public-safe skill examples:
@@ -106,13 +106,13 @@ Public-safe skill examples:
 | `youtube-content` | media | YouTube transcripts to summaries, threads, blogs. |
 | `article-enrichment` | uncategorized | Transform raw article text dumps in the brain into structured pages with executive summary, verbatim quotes, key insights, why-it-matters, a |
 | `llm-wiki` | research | Karpathy |
+| `pixelrag-mcp-operations` | research | Operate and harden a local PixelRAG MCP wrapper for Hermes without exposing dangerous long-lived serve helpers through the gateway. |
 | `blogwatcher` | research | Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool. |
 | `[REDACTED]` | research | Evaluate whether a third-party service or product is trustworthy, integrable, and compliant enough for automation, purchasing, or review for |
 | `[REDACTED]` | research | Operate the academic research workflow from paper discovery through experiment-backed writing and submission. |
 | `polymarket` | research | Query Polymarket: markets, prices, orderbooks, history. |
 | `skillpack-check` | uncategorized | / |
-| `himalaya` | email | Himalaya CLI: IMAP/SMTP email from terminal. |
-| `chrome-extensions` | uncategorized | > |
+| `effective-liteparse` | uncategorized | Use when a task involves a local PDF, DOCX, PPTX, XLSX, or image and you want the fastest local extraction path. Prefer `lit` before heavier |
 
 
 ### Hooks, webhooks, and plugin hook manifests
@@ -196,7 +196,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Role | Provider | Model | Notes |
 |---|---|---|---|
-| Primary | openai-codex | gpt-5.5 | Default for Telegram/API/CLI gateway sessions |
+| Primary | copilot | gpt-5.4 | Default for Telegram/API/CLI gateway sessions |
 | Fallback | copilot | gpt-5.4 | Used when primary fails |
 | Optional provider | lmstudio | gemma4unc | http://127.0.0.1:1234/v1 |
 | Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |
@@ -209,11 +209,9 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Item | Status |
 |---|---|
-| LM Studio endpoint | `available` at `http://127.0.0.1:1234/v1` |
-| Reported model IDs | `qwenvl3bunc, mythosnanoq6, qwythos9bq5, gemma4coderq3, gemma4coderq4, oymuncq4, [REDACTED], gemma4unc, [REDACTED]` |
-| Chat smoke test | `blocked_or_unavailable: {
-"error": {
-    "message": "Failed to load model \"gemma4unc\". Error: Model loading was stopped due to insufficient system resources. Under the current settings, this model requires approximately 14.36 GB of memory, and continuing` |
+| LM Studio endpoint | `not reachable` at `http://127.0.0.1:1234/v1` |
+| Reported model IDs | `none` |
+| Chat smoke test | `blocked_or_unavailable: <urlopen error [Errno 111] Connection refused>` |
 | Safety decision | Main Hermes remains `openai-codex/gpt-5.5`; local provider is optional until a model can load reliably. |
 
 ## MCP and External Tooling
@@ -245,7 +243,7 @@ The live system currently exposes the default profile publicly as:
 ```text
 Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
- ◆default         gpt-5.5                      running      —            —
+ ◆default         gpt-5.4                      running      —            —
 ```
 
 Future recommended profile split:
@@ -271,17 +269,17 @@ Future recommended profile split:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.17.0 (2026.6.19) · upstream 935f2bc4 · local 40822dee (+1 carried commit)
+Hermes Agent v0.17.0 (2026.6.19) · upstream d6cf383d
 Project: ~/.hermes/hermes-agent
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 93 commits behind — run 'hermes update'
+Update available: 70 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
 
 ```text
-Primary:   gpt-5.5  (via openai-codex)
+Primary:   gpt-5.4  (via copilot)
 
   Fallback chain (1 entry):
 1. gpt-5.4  (via copilot)
@@ -303,6 +301,7 @@ MCP Servers:
   homeway          https://homeway.io/api/mcp     all          ✓ enabled
   windows-cua      ~/.local/bin/windo...   all          ✓ enabled
   monarch          https://api.monarch.com/mcp    17 selected  ✓ enabled
+  pixelrag         ~/github/pixelrag-...   all          ✓ enabled
 ```
 
 ## Maintenance

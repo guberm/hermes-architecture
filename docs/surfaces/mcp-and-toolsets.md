@@ -12,6 +12,7 @@ Low-level public-safe view of model-facing integration surfaces.
 | `homeway` | `{"url": "https://homeway.io/api/mcp", "enabled": true, "auth": "oauth", "timeout": 300, "connect_timeout": 120}` |
 | `windows-cua` | `{"command": "~/.local/bin/windows-cua-mcp", "args": [], "connect_timeout": 120, "timeout": 120, "enabled": true}` |
 | `monarch` | `{"url": "https://api.monarch.com/mcp", "enabled": true, "auth": "oauth", "timeout": 300, "connect_timeout": 120, "oauth": {"scope": "mcp:read", "redirect_port": 38475, "client_name": "Hermes Agent"}, "tools": {"include": ["GetTransactions", "GetCategories", "GetTags", "GetBusinesses", "GetCreditScor` |
+| `pixelrag` | `{"command": "~/github/pixelrag-mcp/.venv/bin/python", "args": ["~/github/pixelrag-mcp/server.py"], "enabled": true}` |
 
 ## Toolset counts parsed from CLI
 

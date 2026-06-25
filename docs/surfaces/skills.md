@@ -11,7 +11,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | autonomous-ai-agents | 7 |
 | creative | 34 |
 | data-science | 2 |
-| devops | 7 |
+| devops | 8 |
 | ecc-imports | 4 |
 | email | 2 |
 | gaming | 2 |
@@ -21,13 +21,13 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | mlops | 19 |
 | note-taking | 4 |
 | personal | 6 |
-| productivity | 20 |
+| productivity | 23 |
 | red-teaming | 1 |
-| research | 13 |
+| research | 15 |
 | smart-home | 5 |
 | social-media | 2 |
 | software-development | 37 |
-| uncategorized | 19 |
+| uncategorized | 20 |
 
 ## Public-safe examples
 
@@ -51,11 +51,13 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `youtube-content` | media | YouTube transcripts to summaries, threads, blogs. |
 | `article-enrichment` | uncategorized | Transform raw article text dumps in the brain into structured pages with executive summary, verbatim quotes, key insights, why-it-matters, a |
 | `llm-wiki` | research | Karpathy |
+| `pixelrag-mcp-operations` | research | Operate and harden a local PixelRAG MCP wrapper for Hermes without exposing dangerous long-lived serve helpers through the gateway. |
 | `blogwatcher` | research | Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool. |
 | `[REDACTED]` | research | Evaluate whether a third-party service or product is trustworthy, integrable, and compliant enough for automation, purchasing, or review for |
 | `[REDACTED]` | research | Operate the academic research workflow from paper discovery through experiment-backed writing and submission. |
 | `polymarket` | research | Query Polymarket: markets, prices, orderbooks, history. |
 | `skillpack-check` | uncategorized | / |
+| `effective-liteparse` | uncategorized | Use when a task involves a local PDF, DOCX, PPTX, XLSX, or image and you want the fastest local extraction path. Prefer `lit` before heavier |
 | `himalaya` | email | Himalaya CLI: IMAP/SMTP email from terminal. |
 | `chrome-extensions` | uncategorized | > |
 | `pokemon-player` | gaming | Play Pokemon via headless emulator + RAM reads. |
@@ -71,8 +73,6 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `touchdesigner-mcp` | creative | Control a running TouchDesigner instance via twozero MCP — create operators, set parameters, wire connections, execute Python, build real-ti |
 | `design-md` | creative | Author/validate/export Google |
 | `ideation` | creative | Generate project ideas via creative constraints. |
-| `baoyu-comic` | creative | Knowledge comics (知识漫画): educational, biography, tutorial. |
-| `p5js` | creative | p5.js sketches: gen art, shaders, interactive, 3D. |
 
 ## Operational meaning
 
