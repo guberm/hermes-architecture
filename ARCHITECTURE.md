@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-06-25T06:15:47-04:00`.
+> Public-safe architecture snapshot generated at `2026-06-25T11:39:43-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -34,8 +34,8 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 36 jobs; 26 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 226 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
-| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 23 | Hook command bodies are not published. |
+| Skills | 227 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
+| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 26 | Hook command bodies are not published. |
 | Plugins | 72 visible plugin rows captured; enabled estimate 3 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 7 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
@@ -80,7 +80,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | research | 15 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 37 |
+| software-development | 38 |
 | uncategorized | 20 |
 
 
@@ -121,6 +121,7 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 
 | Hook manifest surface |
 |---|
+| `.hermes/hermes-agent/.codex/hooks.json` |
 | `.claude/plugins/marketplaces/thedotmack/plugin/hooks/hooks.json` |
 | `.claude/plugins/marketplaces/thedotmack/cursor-hooks/hooks.json` |
 | `.claude/plugins/marketplaces/claude-plugins-official/plugins/learning-output-style/hooks/hooks.json` |
@@ -129,6 +130,7 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 | `.claude/plugins/marketplaces/claude-plugins-official/plugins/ralph-loop/hooks/hooks.json` |
 | `[REDACTED]` |
 | `.claude/plugins/marketplaces/claude-code-warp/plugins/warp/hooks/hooks.json` |
+| `.claude/plugins/marketplaces/headroom-marketplace/plugins/headroom-agent-hooks/hooks/hooks.json` |
 | `.claude/plugins/marketplaces/claude-code-plugins/plugins/learning-output-style/hooks/hooks.json` |
 | `.claude/plugins/marketplaces/claude-code-plugins/plugins/security-guidance/hooks/hooks.json` |
 | `.claude/plugins/marketplaces/claude-code-plugins/plugins/hookify/hooks/hooks.json` |
@@ -139,8 +141,6 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 | `.claude/plugins/cache/thedotmack/claude-mem/13.1.0/hooks/hooks.json` |
 | `.claude/plugins/cache/thedotmack/claude-mem/13.0.1/hooks/hooks.json` |
 | `.claude/plugins/cache/thedotmack/claude-mem/13.0.0/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.4.0/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.3.0/hooks/hooks.json` |
 
 
 ### Plugin surface
@@ -209,9 +209,11 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Item | Status |
 |---|---|
-| LM Studio endpoint | `not reachable` at `http://127.0.0.1:1234/v1` |
-| Reported model IDs | `none` |
-| Chat smoke test | `blocked_or_unavailable: <urlopen error [Errno 111] Connection refused>` |
+| LM Studio endpoint | `available` at `http://127.0.0.1:1234/v1` |
+| Reported model IDs | `qwenvl3bunc, mythosnanoq6, qwythos9bq5, gemma4coderq3, gemma4coderq4, oymuncq4, [REDACTED], gemma4unc, [REDACTED]` |
+| Chat smoke test | `blocked_or_unavailable: {
+"error": {
+    "message": "Failed to load model \"gemma4unc\". Error: Model loading was stopped due to insufficient system resources. Under the current settings, this model requires approximately 14.36 GB of memory, and continuing` |
 | Safety decision | Main Hermes remains `openai-codex/gpt-5.5`; local provider is optional until a model can load reliably. |
 
 ## MCP and External Tooling
@@ -269,11 +271,11 @@ Future recommended profile split:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.17.0 (2026.6.19) · upstream d6cf383d
+Hermes Agent v0.17.0 (2026.6.19) · upstream d6269da7 · local eb1a78aa (+1 carried commit)
 Project: ~/.hermes/hermes-agent
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 70 commits behind — run 'hermes update'
+Update available: 84 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:

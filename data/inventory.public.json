@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T06:15:47-04:00",
+  "generated_at": "2026-06-25T11:39:43-04:00",
   "public_repo": "this public repository",
   "host": {
     "primary": "Linux host running Hermes gateway as a systemd service",
@@ -7,7 +7,7 @@
     "timezone": "operator local timezone"
   },
   "hermes": {
-    "version_output": "Hermes Agent v0.17.0 (2026.6.19) · upstream d6cf383d\nProject: ~/.hermes/hermes-agent\nPython: 3.11.15\nOpenAI SDK: 2.24.0\nUpdate available: 70 commits behind — run 'hermes update'",
+    "version_output": "Hermes Agent v0.17.0 (2026.6.19) · upstream d6269da7 · local eb1a78aa (+1 carried commit)\nProject: ~/.hermes/hermes-agent\nPython: 3.11.15\nOpenAI SDK: 2.24.0\nUpdate available: 84 commits behind — run 'hermes update'",
     "primary_model": {
       "provider": "copilot",
       "default": "gpt-5.4",
@@ -480,9 +480,9 @@
           "category": "Backup & sync",
           "schedule": "0 */8 * * *",
           "repeat": "∞",
-          "next_run": "2026-06-25T08:00:00-04:00",
+          "next_run": "2026-06-25T16:00:00-04:00",
           "deliver": "configured private channel",
-          "last_run": "2026-06-25T00:02:51.584438-04:00  ok"
+          "last_run": "2026-06-25T08:03:04.365758-04:00  ok"
         },
         {
           "name": "Daily DB SQLite Google Drive Backup",
@@ -500,11 +500,11 @@
           "category": "GitHub & publishing",
           "schedule": "0 9 * * 1-5",
           "repeat": "∞",
-          "next_run": "2026-06-25T09:00:00-04:00",
+          "next_run": "2026-06-26T09:00:00-04:00",
           "deliver": "configured private channel",
           "script": "github_health_digest.py",
           "workdir": "~",
-          "last_run": "2026-06-24T09:02:38.634874-04:00  ok"
+          "last_run": "2026-06-25T09:02:24.937791-04:00  ok"
         },
         {
           "name": "Check Windows nightly cleanup logs",
@@ -520,21 +520,21 @@
           "category": "Media/news monitoring",
           "schedule": "0 7,19 * * *",
           "repeat": "∞",
-          "next_run": "2026-06-25T07:00:00-04:00",
+          "next_run": "2026-06-25T19:00:00-04:00",
           "deliver": "configured private channel",
           "workdir": "~/.hermes/scripts",
-          "last_run": "2026-06-24T19:49:37.296220-04:00  ok"
+          "last_run": "2026-06-25T07:56:43.298193-04:00  ok"
         },
         {
           "name": "[Backup & sync task]",
           "category": "Backup & sync",
           "schedule": "every 180m",
           "repeat": "∞",
-          "next_run": "2026-06-25T08:41:47.179317-04:00",
+          "next_run": "2026-06-25T11:41:54.957200-04:00",
           "deliver": "configured private channel",
           "script": "[private script]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-06-25T05:41:47.179317-04:00  ok"
+          "last_run": "2026-06-25T08:41:54.957200-04:00  ok"
         },
         {
           "name": "Auto-update public portfolio site Projects",
@@ -571,34 +571,34 @@
           "name": "Daily RSS Bot Stats Report",
           "category": "GitHub & publishing",
           "schedule": "0 8 * * *",
-          "repeat": "26/3650",
-          "next_run": "2026-06-25T08:00:00-04:00",
+          "repeat": "27/3650",
+          "next_run": "2026-06-26T08:00:00-04:00",
           "deliver": "configured private channel",
           "script": "rss_bot_daily_report.py",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-06-24T08:01:16.575560-04:00  ok"
+          "last_run": "2026-06-25T08:01:17.943702-04:00  ok"
         },
         {
           "name": "SwitchBot Meter Pro hourly Google Sheet logger",
           "category": "Home automation",
           "schedule": "every 60m",
           "repeat": "∞",
-          "next_run": "2026-06-25T07:14:49.860754-04:00",
+          "next_run": "2026-06-25T12:19:02.796367-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-06-25T06:14:49.860754-04:00  ok"
+          "last_run": "2026-06-25T11:19:02.796367-04:00  ok"
         },
         {
           "name": "Home Assistant filtered 3-hour Google Sheet logger",
           "category": "Home automation",
           "schedule": "every 180m",
           "repeat": "∞",
-          "next_run": "2026-06-25T08:08:47.287621-04:00",
+          "next_run": "2026-06-25T14:09:03.477850-04:00",
           "deliver": "configured private channel",
           "script": "ha_entities_to_sheets.py",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-06-25T05:08:47.287621-04:00  ok"
+          "last_run": "2026-06-25T11:09:03.477850-04:00  ok"
         },
         {
           "name": "[REDACTED]",
@@ -613,55 +613,55 @@
           "category": "Media/news monitoring",
           "schedule": "20 8,20 * * *",
           "repeat": "∞",
-          "next_run": "2026-06-25T08:20:00-04:00",
+          "next_run": "2026-06-25T20:20:00-04:00",
           "deliver": "configured private channel",
           "workdir": "~",
-          "last_run": "2026-06-24T20:22:26.503407-04:00  ok"
+          "last_run": "2026-06-25T08:22:07.891384-04:00  ok"
         },
         {
           "name": "[Private finance automation task]",
           "category": "Private finance automation",
           "schedule": "every 720m",
           "repeat": "∞",
-          "next_run": "2026-06-25T09:26:24.832860-04:00",
+          "next_run": "2026-06-25T21:27:38.513835-04:00",
           "deliver": "origin",
           "script": "[private script]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-06-24T21:26:24.832860-04:00  ok"
+          "last_run": "2026-06-25T09:27:38.513835-04:00  ok"
         },
         {
           "name": "[Private finance automation task]",
           "category": "Private finance automation",
           "schedule": "0 8,14,20 * * *",
-          "repeat": "49/3650",
-          "next_run": "2026-06-25T08:00:00-04:00",
+          "repeat": "50/3650",
+          "next_run": "2026-06-25T14:00:00-04:00",
           "deliver": "origin",
           "workdir": "~",
-          "last_run": "2026-06-24T20:06:18.086187-04:00  ok"
+          "last_run": "2026-06-25T08:06:44.878662-04:00  ok"
         },
         {
           "name": "Hermes cron auto-healer",
           "category": "Reliability watchdogs",
           "schedule": "every 15m",
           "repeat": "∞",
-          "next_run": "2026-06-25T06:24:47.133368-04:00",
+          "next_run": "2026-06-25T11:42:00.567191-04:00",
           "deliver": "origin",
           "script": "hermes_auto_healer.py",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-06-25T06:09:47.133368-04:00  ok"
+          "last_run": "2026-06-25T11:27:00.567191-04:00  ok"
         },
         {
           "name": "[Reliability watchdogs task]",
           "category": "Reliability watchdogs",
           "schedule": "every 720m",
           "repeat": "∞",
-          "next_run": "2026-06-25T12:36:42.451162-04:00",
+          "next_run": "2026-06-25T19:02:00.019519-04:00",
           "deliver": "origin",
           "script": "[private script]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-06-25T00:36:42.451162-04:00  error: Script exited with code 1"
+          "last_run": "2026-06-25T07:02:00.019519-04:00  ok"
         },
         {
           "name": "Nightly GBrain update watchdog",
@@ -680,57 +680,57 @@
           "category": "Private finance automation",
           "schedule": "15 8,14,20 * * *",
           "repeat": "∞",
-          "next_run": "2026-06-25T08:15:00-04:00",
+          "next_run": "2026-06-25T14:15:00-04:00",
           "deliver": "origin",
           "script": "[private script]",
           "workdir": "~",
-          "last_run": "2026-06-24T20:15:42.977060-04:00  ok"
+          "last_run": "2026-06-25T08:16:16.517002-04:00  ok"
         },
         {
           "name": "[Private finance automation task]",
           "category": "Private finance automation",
           "schedule": "20 8,14,20 * * *",
           "repeat": "∞",
-          "next_run": "2026-06-25T08:20:00-04:00",
+          "next_run": "2026-06-25T14:20:00-04:00",
           "deliver": "origin",
           "script": "[private script]",
           "workdir": "~",
-          "last_run": "2026-06-24T20:23:26.405566-04:00  ok"
+          "last_run": "2026-06-25T08:23:30.122572-04:00  ok"
         },
         {
           "name": "Hermes Python env guard",
           "category": "Reliability watchdogs",
           "schedule": "every 120m",
           "repeat": "∞",
-          "next_run": "2026-06-25T06:58:45.258799-04:00",
+          "next_run": "2026-06-25T13:17:01.481345-04:00",
           "deliver": "origin",
           "script": "hermes_python_env_guard.py",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-06-25T04:58:45.258799-04:00  ok"
+          "last_run": "2026-06-25T11:17:01.481345-04:00  ok"
         },
         {
           "name": "ForgetMe YouTube new video monitor",
           "category": "Media/news monitoring",
           "schedule": "every 30m",
           "repeat": "∞",
-          "next_run": "2026-06-25T06:32:47.120489-04:00",
+          "next_run": "2026-06-25T11:57:00.927036-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-06-25T06:02:47.120489-04:00  ok"
+          "last_run": "2026-06-25T11:27:00.927036-04:00  ok"
         },
         {
           "name": "Hourly GBrain auto-healer",
           "category": "Knowledge & memory",
           "schedule": "every 60m",
           "repeat": "∞",
-          "next_run": "2026-06-25T06:50:48.199667-04:00",
+          "next_run": "2026-06-25T11:59:01.346165-04:00",
           "deliver": "origin",
           "script": "gbrain_hourly_healer.py",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-06-25T05:50:48.199667-04:00  ok"
+          "last_run": "2026-06-25T10:59:01.346165-04:00  ok"
         },
         {
           "name": "Update public Hermes architecture repo",
@@ -742,133 +742,133 @@
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-06-24T06:16:12.144001-04:00  ok"
+          "last_run": "2026-06-25T06:16:10.134455-04:00  ok"
         },
         {
           "name": "OpenSourceProjects.dev hourly review",
           "category": "GitHub & publishing",
           "schedule": "every 60m",
           "repeat": "∞",
-          "next_run": "2026-06-25T06:53:46.964533-04:00",
+          "next_run": "2026-06-25T11:59:02.042262-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-06-25T05:53:46.964533-04:00  ok"
+          "last_run": "2026-06-25T10:59:02.042262-04:00  ok"
         },
         {
           "name": "Telegram @github hourly review",
           "category": "GitHub & publishing",
           "schedule": "every 60m",
           "repeat": "∞",
-          "next_run": "2026-06-25T06:54:47.321023-04:00",
+          "next_run": "2026-06-25T11:59:35.689011-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-06-25T05:54:47.321023-04:00  ok"
+          "last_run": "2026-06-25T10:59:35.689011-04:00  ok"
         },
         {
           "name": "Glances system watchdog",
           "category": "Reliability watchdogs",
           "schedule": "every 15m",
-          "repeat": "320/3650",
-          "next_run": "2026-06-25T06:30:47.203983-04:00",
+          "repeat": "337/3650",
+          "next_run": "2026-06-25T11:39:02.843668-04:00",
           "deliver": "origin",
           "script": "glances_watchdog.py",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-06-25T05:59:49.239213-04:00  ok"
+          "last_run": "2026-06-25T11:24:02.843668-04:00  ok"
         },
         {
           "name": "Daily React Doctor web watchdog",
           "category": "Reliability watchdogs",
           "schedule": "30 9 * * *",
-          "repeat": "4/3650",
-          "next_run": "2026-06-25T09:30:00-04:00",
+          "repeat": "5/3650",
+          "next_run": "2026-06-26T09:30:00-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-06-24T09:31:04.110442-04:00  ok"
+          "last_run": "2026-06-25T09:31:06.202426-04:00  ok"
         },
         {
           "name": "Private Hermes ops wiki updater",
           "category": "Other scheduled automation",
           "schedule": "every 360m",
-          "repeat": "15/3650",
-          "next_run": "2026-06-25T06:54:39.045398-04:00",
+          "repeat": "16/3650",
+          "next_run": "2026-06-25T12:54:55.594087-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-06-25T00:54:39.045398-04:00  ok"
+          "last_run": "2026-06-25T06:54:55.594087-04:00  ok"
         },
         {
           "name": "Hermes architecture public site watchdog",
           "category": "Reliability watchdogs",
           "schedule": "every 15m",
-          "repeat": "304/3650",
-          "next_run": "2026-06-25T06:30:47.214569-04:00",
+          "repeat": "321/3650",
+          "next_run": "2026-06-25T11:39:02.972185-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-06-25T05:59:49.364549-04:00  ok"
+          "last_run": "2026-06-25T11:24:02.972185-04:00  ok"
         },
         {
           "name": "Hermes private ops wiki public route watchdog",
           "category": "Reliability watchdogs",
           "schedule": "every 15m",
-          "repeat": "304/3650",
-          "next_run": "2026-06-25T06:30:47.225525-04:00",
+          "repeat": "321/3650",
+          "next_run": "2026-06-25T11:39:03.103339-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-06-25T05:59:49.506422-04:00  ok"
+          "last_run": "2026-06-25T11:24:03.103339-04:00  ok"
         },
         {
           "name": "Telegram @notboring_tech hourly review",
           "category": "Other scheduled automation",
           "schedule": "every 60m",
-          "repeat": "83/3650",
-          "next_run": "2026-06-25T06:54:48.489853-04:00",
+          "repeat": "88/3650",
+          "next_run": "2026-06-25T11:59:36.613250-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-06-25T05:54:48.489853-04:00  ok"
+          "last_run": "2026-06-25T10:59:36.613250-04:00  ok"
         },
         {
           "name": "Telegram @git_developer hourly review",
           "category": "Other scheduled automation",
           "schedule": "every 60m",
-          "repeat": "78/3650",
-          "next_run": "2026-06-25T06:56:47.395614-04:00",
+          "repeat": "83/3650",
+          "next_run": "2026-06-25T12:00:00.324474-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-06-25T05:56:47.395614-04:00  ok"
+          "last_run": "2026-06-25T11:00:00.324474-04:00  ok"
         },
         {
           "name": "NousResearch X hourly review",
           "category": "Other scheduled automation",
           "schedule": "every 60m",
           "repeat": "∞",
-          "next_run": "2026-06-25T06:56:48.055100-04:00",
+          "next_run": "2026-06-25T12:00:02.093886-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-06-25T05:56:48.055100-04:00  ok"
+          "last_run": "2026-06-25T11:00:02.093886-04:00  ok"
         }
       ],
       "note": "Task names that expose personal/client workflows are replaced with category labels; schedules/scripts/modes are retained when safe."
     },
     "skills": {
-      "total_detected": 226,
+      "total_detected": 227,
       "categories": {
         ".archive": 11,
         "apple": 5,
@@ -890,7 +890,7 @@
         "research": 15,
         "smart-home": 5,
         "social-media": 2,
-        "software-development": 37,
+        "software-development": 38,
         "uncategorized": 20
       },
       "public_examples": [
@@ -1100,8 +1100,9 @@
     "hooks": {
       "shell_hooks_allowlist_present": false,
       "shell_hooks_allowlist_entries": 0,
-      "claude_plugin_hook_files_detected": 23,
+      "claude_plugin_hook_files_detected": 26,
       "public_hook_file_examples": [
+        ".hermes/hermes-agent/.codex/hooks.json",
         ".claude/plugins/marketplaces/thedotmack/plugin/hooks/hooks.json",
         ".claude/plugins/marketplaces/thedotmack/cursor-hooks/hooks.json",
         ".claude/plugins/marketplaces/claude-plugins-official/plugins/learning-output-style/hooks/hooks.json",
@@ -1110,6 +1111,7 @@
         ".claude/plugins/marketplaces/claude-plugins-official/plugins/ralph-loop/hooks/hooks.json",
         "[REDACTED]",
         ".claude/plugins/marketplaces/claude-code-warp/plugins/warp/hooks/hooks.json",
+        ".claude/plugins/marketplaces/headroom-marketplace/plugins/headroom-agent-hooks/hooks/hooks.json",
         ".claude/plugins/marketplaces/claude-code-plugins/plugins/learning-output-style/hooks/hooks.json",
         ".claude/plugins/marketplaces/claude-code-plugins/plugins/security-guidance/hooks/hooks.json",
         ".claude/plugins/marketplaces/claude-code-plugins/plugins/hookify/hooks/hooks.json",
@@ -1124,6 +1126,7 @@
         ".claude/plugins/cache/thedotmack/claude-mem/13.3.0/hooks/hooks.json",
         ".claude/plugins/cache/thedotmack/claude-mem/13.4.1/hooks/hooks.json",
         ".claude/plugins/cache/claude-code-warp/warp/2.0.0/hooks/hooks.json",
+        ".claude/plugins/cache/headroom-marketplace/headroom/0.22.3/hooks/hooks.json",
         ".claude/plugins/cache/ponytail/ponytail/4.6.0/hooks/hooks.json"
       ],
       "webhook_summary": "webhook platform not enabled",
@@ -1433,8 +1436,18 @@
   "local_models": {
     "lm_studio": {
       "base_url": "http://127.0.0.1:1234/v1",
-      "models": [],
-      "chat_smoke": "blocked_or_unavailable: <urlopen error [Errno 111] Connection refused>"
+      "models": [
+        "qwenvl3bunc",
+        "mythosnanoq6",
+        "qwythos9bq5",
+        "gemma4coderq3",
+        "gemma4coderq4",
+        "oymuncq4",
+        "[REDACTED]",
+        "gemma4unc",
+        "[REDACTED]"
+      ],
+      "chat_smoke": "blocked_or_unavailable: {\n    \"error\": {\n        \"message\": \"Failed to load model \\\"gemma4unc\\\". Error: Model loading was stopped due to insufficient system resources. Under the current settings, this model requires approximately 14.36 GB of memory, and continuing"
     },
     "note": "Main Hermes remains openai-codex/gpt-5.5. LM Studio is configured as an optional local provider, not the default."
   }
