@@ -76,6 +76,7 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `web-tavily` | not enabled |
 | `web-xai` | not enabled |
 | `hermes-lcm` | enabled |
+| `orca-status` | enabled |
 
 ## Notes
 
