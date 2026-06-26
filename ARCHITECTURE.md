@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-06-25T11:39:43-04:00`.
+> Public-safe architecture snapshot generated at `2026-06-26T06:15:37-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -33,11 +33,11 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 36 jobs; 26 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Scheduled tasks / cron | 37 jobs; 26 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
 | Skills | 227 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 26 | Hook command bodies are not published. |
 | Plugins | 72 visible plugin rows captured; enabled estimate 3 | Descriptions omitted to avoid leaking credential/env surfaces. |
-| MCP servers | 7 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
+| MCP servers | 8 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
 ### Scheduled tasks / cron categories
@@ -47,7 +47,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Backup & sync | 5 | Protect configuration, repositories, databases, and knowledge stores. |
 | GitHub & publishing | 6 | Maintain GitHub/publication surfaces and repo health digests. |
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
-| Knowledge & memory | 4 | Keep GBrain/memory/context stores healthy and up to date. |
+| Knowledge & memory | 5 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 3 | News, RSS, YouTube, and briefing pipelines. |
 | Other scheduled automation | 5 | Other local automation jobs. |
 | Private finance automation | 4 | Private finance workflow snapshots; details omitted from public docs. |
@@ -196,7 +196,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Role | Provider | Model | Notes |
 |---|---|---|---|
-| Primary | copilot | gpt-5.4 | Default for Telegram/API/CLI gateway sessions |
+| Primary | github-copilot | gpt-5.5 | Default for Telegram/API/CLI gateway sessions |
 | Fallback | copilot | gpt-5.4 | Used when primary fails |
 | Optional provider | lmstudio | gemma4unc | http://127.0.0.1:1234/v1 |
 | Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |
@@ -231,7 +231,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Backup & sync | 5 | Protect configuration, repositories, databases, and knowledge stores. |
 | GitHub & publishing | 6 | Maintain GitHub/publication surfaces and repo health digests. |
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
-| Knowledge & memory | 4 | Keep GBrain/memory/context stores healthy and up to date. |
+| Knowledge & memory | 5 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 3 | News, RSS, YouTube, and briefing pipelines. |
 | Other scheduled automation | 5 | Other local automation jobs. |
 | Private finance automation | 4 | Private finance workflow snapshots; details omitted from public docs. |
@@ -245,7 +245,7 @@ The live system currently exposes the default profile publicly as:
 ```text
 Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
- ◆default         gpt-5.4                      running      —            —
+ ◆default         gpt-5.5                      running      —            —
 ```
 
 Future recommended profile split:
@@ -271,17 +271,17 @@ Future recommended profile split:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.17.0 (2026.6.19) · upstream d6269da7 · local eb1a78aa (+1 carried commit)
+Hermes Agent v0.17.0 (2026.6.19) · upstream 7d568293 · local eb1a78aa (+1 carried commit)
 Project: ~/.hermes/hermes-agent
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 84 commits behind — run 'hermes update'
+Update available: 195 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
 
 ```text
-Primary:   gpt-5.4  (via copilot)
+Primary:   gpt-5.5  (via github-copilot)
 
   Fallback chain (1 entry):
 1. gpt-5.4  (via copilot)
@@ -304,6 +304,7 @@ MCP Servers:
   windows-cua      ~/.local/bin/windo...   all          ✓ enabled
   monarch          https://api.monarch.com/mcp    17 selected  ✓ enabled
   pixelrag         ~/github/pixelrag-...   all          ✓ enabled
+  vibe_trading     ~/.hermes/scripts/...   29 selected  ✓ enabled
 ```
 
 ## Maintenance
