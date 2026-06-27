@@ -8,7 +8,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 |---|---:|
 | .archive | 11 |
 | apple | 5 |
-| autonomous-ai-agents | 7 |
+| autonomous-ai-agents | 8 |
 | creative | 34 |
 | data-science | 2 |
 | devops | 8 |
@@ -23,7 +23,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | personal | 6 |
 | productivity | 23 |
 | red-teaming | 1 |
-| research | 15 |
+| research | 16 |
 | smart-home | 5 |
 | social-media | 2 |
 | software-development | 38 |

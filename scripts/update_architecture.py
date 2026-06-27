@@ -284,6 +284,8 @@ def collect_inventory() -> dict:
     tools_list = run(["hermes", "tools", "list"], 60)[1]
     profiles = run(["hermes", "profile", "list"], 60)[1]
     fallback = run(["hermes", "fallback", "list"], 60)[1]
+    rules_list = run(["hermes", "rules", "list", "--all"], 60)[1]
+    kanban_assignees = run(["hermes", "kanban", "assignees"], 60)[1]
 
     # LM Studio local status: no secrets involved.
     lmstudio = {"base_url": "http://127.0.0.1:1234/v1", "models": [], "chat_smoke": "not_run"}
@@ -370,6 +372,18 @@ def collect_inventory() -> dict:
         },
         "profiles": {
             "output_sanitized": sanitize_text(profiles),
+        },
+        "orchestration": {
+            "kanban": redact(cfg.get("kanban", {})),
+            "safe_self_improvement": redact(cfg.get("session_automation", {})),
+            "rules_summary": [
+                "External agent resources are evidence sources; convert useful patterns into Hermes-native artifacts instead of direct-installing untrusted registries.",
+                "Durable multi-step work should prefer Kanban with default/researcher/worker/reviewer profiles; delegate_task remains for bounded fork-join reasoning.",
+                "Config/profile/rule/skill/private-architecture changes require verification and private backup before final reporting.",
+            ],
+            "kanban_assignees_sanitized": sanitize_text(kanban_assignees),
+            "profile_team": ["default", "researcher", "worker", "reviewer"],
+            "policy": "default is the interactive orchestrator; Kanban dispatcher launches researcher/worker/reviewer as ephemeral worker-runs when tasks are assigned.",
         },
         "fallback": {
             "output_sanitized": sanitize_text(fallback),
@@ -528,6 +542,8 @@ def generate_markdown(inv: dict) -> str:
 
     Hermes Agent runs as a **Linux-primary, multi-platform AI operations hub**. The gateway is a systemd service that connects Telegram, Mattermost, WhatsApp, API Server, Home Assistant, MCP servers, cron jobs, skills, memory/context stores, and remote Windows operations.
 
+The current architecture adds a **durable Kanban orchestration layer**: `default` remains the interactive/orchestrator profile, while `researcher`, `worker`, and `reviewer` are launched as ephemeral Kanban worker-runs for durable research, implementation, and verification tasks. Safe post-session automation generates local review artifacts (session summaries, skill-mining candidates, trace-derived code graphs) without silently installing skills or uploading traces.
+
     The default model remains **`openai-codex / gpt-5.5`**. Local/experimental providers such as **LM Studio** and **Free Kimi** are configured as optional providers only; they are not the default route for Telegram or production workflows.
 
     ## High-Level Architecture
@@ -543,8 +559,9 @@ def generate_markdown(inv: dict) -> str:
     | Models | OpenAI Codex primary, Copilot fallback, optional LM Studio, optional Free Kimi proxy | Provider selection is explicit; experimental endpoints are not default. |
     | Tools | Terminal, files, browser, web, vision, TTS, cron, delegation, Home Assistant, GBrain, NotebookLM, CodeGraph | Enabled toolsets differ by platform/session but the gateway exposes the main operational surface. |
     | Knowledge | GBrain, NotebookLM, session search, imported Claude context, skills | Long-term memory and research context are split across structured stores and markdown skills. |
-    | Automation | Hermes cron scheduler, no-agent scripts, hooks, plugins | Backups, monitoring, GitHub publication, finance snapshots, smart-home logging, news/media digests, and watchdogs. |
-    | Operational surfaces | Tasks, skills, hooks, plugins, MCP servers, toolsets | Documented as public-safe counts/categories plus selected non-sensitive examples. |
+    | Automation | Hermes cron scheduler, no-agent scripts, hooks, plugins, post-session automation | Backups, monitoring, GitHub publication, finance snapshots, smart-home logging, news/media digests, watchdogs, session summaries, skill-mining reviews, and trace graphs. |
+    | Durable orchestration | Kanban dispatcher + `default`/`researcher`/`worker`/`reviewer` profiles | The gateway dispatcher claims ready tasks and launches profile-specific worker-runs; `stopped` profiles are normal idle state. |
+    | Operational surfaces | Tasks, skills, rules, hooks, plugins, MCP servers, toolsets | Documented as public-safe counts/categories plus selected non-sensitive examples. |
     | Remote systems | Windows workstation over SSH, Home Assistant, Google Drive/GitHub, local LM Studio | Linux remains the control plane; Windows is operated remotely when needed. |
 
     ## Operational Surface Inventory
@@ -587,6 +604,7 @@ def generate_markdown(inv: dict) -> str:
     | [`docs/surfaces/plugins.md`](docs/surfaces/plugins.md) | Hermes plugin registry rows and status. |
     | [`docs/surfaces/mcp-and-toolsets.md`](docs/surfaces/mcp-and-toolsets.md) | MCP servers and toolset count estimates. |
     | [`docs/surfaces/models-and-gateway.md`](docs/surfaces/models-and-gateway.md) | Model routing, gateway status, channel/platform surface. |
+    | [`docs/surfaces/orchestration.md`](docs/surfaces/orchestration.md) | Kanban profiles, rules layer, self-improvement automation, and operating contract. |
 
     ## Model Routing
 
@@ -613,22 +631,28 @@ def generate_markdown(inv: dict) -> str:
 
     {cron_table(inv)}
 
+    ## Agentic Operating Model
+
+    {orchestration_table(inv)}
+
+    The important runtime distinction is that `researcher`, `worker`, and `reviewer` do **not** need to be continuously running gateway profiles. They are idle until a Kanban task is assigned to them; then the gateway dispatcher starts a worker-run for that profile and the worker completes, blocks, or retries the task.
+
     ## Current Profiles
 
-    The live system currently exposes the default profile publicly as:
+    The live system currently exposes the public-safe profile roster as:
 
     ```text
-    {inv['profiles']['output_sanitized'][:1200]}
+    {inv['profiles']['output_sanitized'][:1800]}
     ```
 
-    Future recommended profile split:
+    Current profile contract:
 
-    | Profile | Purpose | Model stance |
+    | Profile | Role | Runtime behavior |
     |---|---|---|
-    | `default` | Main Telegram/personal assistant | `openai-codex/gpt-5.5` primary, Copilot fallback. |
-    | `local-lmstudio` | Experimental local-model testing | LM Studio only after a local model can pass smoke tests. |
-    | `dev` | Developer workflows with larger context and coding tools | Can selectively use cloud or local providers. |
-    | `voice-coach` | Low-latency full-duplex voice experiments | Minimal tools/skills, local STT/TTS first. |
+    | `default` | Interactive orchestrator | Stays running in Telegram/API/CLI gateway; routes work. |
+    | `researcher` | Research/due-diligence worker | Normally stopped; launched by Kanban for evidence gathering. |
+    | `worker` | Implementation/execution worker | Normally stopped; fallback assignee for durable tasks. |
+    | `reviewer` | Independent verification worker | Normally stopped; launched for review/regression/security checks. |
 
     ## Reliability and Safety Boundaries
 
@@ -720,7 +744,7 @@ def svg_diagram(inv: dict) -> str:
   <g><rect x="40" y="345" width="175" height="70" rx="8" fill="#0f172a"/><rect x="40" y="345" width="175" height="70" rx="8" class="front" stroke-width="1.6"/><text x="60" y="375" class="box-title">WhatsApp/API</text><text x="60" y="395" class="box-sub">secondary channels</text></g>
 
   <!-- Core -->
-  <g><rect x="365" y="270" width="200" height="120" rx="10" fill="#0f172a"/><rect x="365" y="270" width="200" height="120" rx="10" class="back" stroke-width="2"/><text x="390" y="305" class="box-title">Hermes Gateway</text><text x="390" y="328" class="box-sub">systemd service on Linux</text><text x="390" y="350" class="box-sub">tool loop · skills · memory</text><text x="390" y="372" class="box-sub">tasks · hooks · plugins</text></g>
+  <g><rect x="365" y="270" width="200" height="120" rx="10" fill="#0f172a"/><rect x="365" y="270" width="200" height="120" rx="10" class="back" stroke-width="2"/><text x="390" y="305" class="box-title">Hermes Gateway</text><text x="390" y="328" class="box-sub">systemd service on Linux</text><text x="390" y="350" class="box-sub">tool loop · skills · rules</text><text x="390" y="372" class="box-sub">Kanban · memory · plugins</text></g>
 
   <!-- Models -->
   <g><rect x="705" y="115" width="190" height="80" rx="8" fill="#0f172a"/><rect x="705" y="115" width="190" height="80" rx="8" class="cloud" stroke-width="1.6"/><text x="728" y="148" class="box-title">OpenAI Codex</text><text x="728" y="170" class="box-sub">primary gpt-5.5</text></g>
@@ -734,7 +758,7 @@ def svg_diagram(inv: dict) -> str:
   <g><rect x="1005" y="390" width="220" height="80" rx="8" fill="#0f172a"/><rect x="1005" y="390" width="220" height="80" rx="8" class="db" stroke-width="1.6"/><text x="1030" y="423" class="box-title">CodeGraph MCP</text><text x="1030" y="445" class="box-sub">repository code intelligence</text></g>
 
   <!-- Automation / external -->
-  <g><rect x="705" y="555" width="220" height="90" rx="8" fill="#0f172a"/><rect x="705" y="555" width="220" height="90" rx="8" class="sec" stroke-width="1.6"/><text x="730" y="590" class="box-title">Tasks / Hooks</text><text x="730" y="612" class="box-sub">cron · no-agent scripts</text><text x="730" y="632" class="box-sub">skills · plugins · webhooks</text></g>
+  <g><rect x="705" y="555" width="220" height="90" rx="8" fill="#0f172a"/><rect x="705" y="555" width="220" height="90" rx="8" class="sec" stroke-width="1.6"/><text x="730" y="590" class="box-title">Kanban / Automation</text><text x="730" y="612" class="box-sub">cron · post-session reviews</text><text x="730" y="632" class="box-sub">researcher · worker · reviewer</text></g>
   <g><rect x="1005" y="650" width="220" height="90" rx="8" fill="#0f172a"/><rect x="1005" y="650" width="220" height="90" rx="8" class="ext" stroke-width="1.6"/><text x="1030" y="685" class="box-title">External Systems</text><text x="1030" y="707" class="box-sub">Windows SSH · Home Assistant</text><text x="1030" y="727" class="box-sub">GitHub · Google Drive</text></g>
 
   <!-- Legend -->
@@ -830,6 +854,70 @@ def mcp_tools_details_doc(inv: dict) -> str:
     return "\n".join(md)
 
 
+
+def orchestration_table(inv: dict) -> str:
+    orch = inv.get("orchestration", {})
+    kanban = orch.get("kanban", {}) or {}
+    session_auto = (orch.get("safe_self_improvement") or orch.get("session_automation") or {})
+    rows = [
+        ("Interactive orchestrator", "default", "Main Telegram/API/CLI profile; decides whether to answer directly, delegate, create Kanban work, or schedule cron."),
+        ("Research lane", "researcher", "Evidence-backed OSS/docs/web due diligence and adoption recommendations."),
+        ("Execution lane", "worker", "File/terminal/code/config implementation and verification for durable work items."),
+        ("Review lane", "reviewer", "Independent review, regression checks, security/config sanity, and final validation."),
+        ("Default assignee", kanban.get("default_assignee", "worker"), "Fallback when a task/decomposer does not choose a specialist."),
+        ("Failure limit", kanban.get("failure_limit", ""), "Raised above the previous aggressive default to avoid noisy retry failures."),
+        ("Per-profile concurrency", kanban.get("max_in_progress_per_profile", ""), "Keeps one profile from saturating model/API/browser capacity."),
+        ("Post-session automation", "enabled" if session_auto.get("enabled") else "disabled", "Generates review artifacts only; does not auto-install remote skills or mutate active prompts."),
+    ]
+    md = "| Item | Value | Meaning |\n|---|---|---|\n"
+    for item, value, meaning in rows:
+        md += f"| {clean_md_cell(item)} | `{clean_md_cell(value)}` | {clean_md_cell(meaning)} |\n"
+    return md
+
+
+def orchestration_details_doc(inv: dict) -> str:
+    orch = inv.get("orchestration", {})
+    kanban = orch.get("kanban", {}) or {}
+    session_auto = (orch.get("safe_self_improvement") or orch.get("session_automation") or {})
+    md = [
+        "# Kanban, Profiles, Rules, and Self-Improvement",
+        "",
+        "Public-safe view of the durable orchestration layer added around the Hermes gateway.",
+        "",
+        "## Profile team",
+        "",
+        orchestration_table(inv),
+        "",
+        "## Live Kanban assignees",
+        "",
+        "```text",
+        str(orch.get("kanban_assignees_sanitized", ""))[:3000],
+        "```",
+        "",
+        "## Active orchestration config",
+        "",
+        "```json",
+        json.dumps({"kanban": kanban, "safe_self_improvement": session_auto}, indent=2, ensure_ascii=False),
+        "```",
+        "",
+        "## Rules layer",
+        "",
+        "| Rule theme | Public-safe behavior |",
+        "|---|---|",
+        *[f"| Operating rule | {clean_md_cell(rule)} |" for rule in orch.get("rules_summary", [])],
+        "",
+        "## Operating contract",
+        "",
+        "- `default` is the interactive/orchestrator profile and remains running in the gateway.",
+        "- `researcher`, `worker`, and `reviewer` normally show as stopped/idle; the Kanban dispatcher launches them as worker-runs when a task is assigned.",
+        "- Durable multi-step work should go through Kanban; short fork-join reasoning can still use subagent delegation.",
+        "- External repos/tool lists are treated as evidence sources, not trusted installers; useful ideas become Hermes-native skills, rules, docs, config, Kanban tasks, or sandbox pilots.",
+        "- Post-session automation writes local review artifacts only: summaries, skill-mining candidates, and trace-derived graph reports.",
+        "",
+    ]
+    return "\n".join(md)
+
+
 def models_gateway_details_doc(inv: dict) -> str:
     md = ["# Models, Gateway, and Runtime Routing", "", "Low-level public-safe runtime routing document.", "", "## Model/provider routing", "", provider_table(inv), "", "## Gateway", "", "| Item | Value |", "|---|---|", f"| Service | `{clean_md_cell(inv.get('gateway',{}).get('status_summary',{}).get('service'))}` |", f"| Running | `{clean_md_cell(inv.get('gateway',{}).get('status_summary',{}).get('running'))}` |", f"| Platforms | `{clean_md_cell(', '.join(inv.get('gateway',{}).get('platforms', [])))}` |", "", "## Local model status", "", "| Item | Value |", "|---|---|"]
     lm = inv.get("local_models", {}).get("lm_studio", {})
@@ -856,6 +944,7 @@ def write_surface_docs(inv: dict) -> None:
             "| [`plugins.md`](plugins.md) | Hermes plugin registry status rows. |",
             "| [`mcp-and-toolsets.md`](mcp-and-toolsets.md) | MCP server configs and toolset count estimates. |",
             "| [`models-and-gateway.md`](models-and-gateway.md) | Model routing, gateway status, platform surface. |",
+            "| [`orchestration.md`](orchestration.md) | Kanban profiles, rules layer, self-improvement automation, and operating contract. |",
             "",
             "Private/client-sensitive names, command bodies, IDs, tokens, cookies, and secrets are intentionally omitted or grouped.",
             "",
@@ -866,6 +955,7 @@ def write_surface_docs(inv: dict) -> None:
         "plugins.md": plugins_details_doc(inv),
         "mcp-and-toolsets.md": mcp_tools_details_doc(inv),
         "models-and-gateway.md": models_gateway_details_doc(inv),
+        "orchestration.md": orchestration_details_doc(inv),
     }
     for name, body in docs.items():
         (SURFACES / name).write_text(body, encoding="utf-8")
@@ -903,9 +993,9 @@ def interactive_tags(name: str, text: str) -> list[str]:
     blob = f"{name}\n{text}".lower()
     rules = [
         ('models', ['model', 'provider', 'gateway', 'openai', 'copilot', 'lm studio']),
-        ('automation', ['cron', 'task', 'schedule', 'watchdog', 'automation']),
+        ('automation', ['cron', 'task', 'schedule', 'watchdog', 'automation', 'kanban', 'dispatcher']),
         ('tools', ['mcp', 'toolset', 'tool ', 'tools']),
-        ('skills', ['skill', 'agent rules']),
+        ('skills', ['skill', 'agent rules', 'rules layer']),
         ('plugins', ['plugin', 'hook', 'webhook']),
         ('surfaces', ['surface', 'route', 'domain', 'public', 'cloudflare', 'caddy']),
         ('data', ['inventory', 'json', 'snapshot']),
@@ -1054,7 +1144,7 @@ h1,h2,h3 {{ line-height:1.08; letter-spacing:-.035em }} .brand h1 {{ margin:0; f
 <main>
   <section class="hero">
     <div class="hero-top"><div><h2 id="title">Hermes Architecture Explorer</h2><p id="summary">Public-safe architecture documentation for Hermes Agent: runtime, gateway, models, MCP/toolsets, tasks, skills, hooks, and plugins.</p></div><div class="actions"><a class="btn primary" href="hermes-architecture.html">Diagram</a><a class="btn" href="Hermes-Architecture.pdf">PDF</a><a class="btn" href="../ARCHITECTURE.md">Markdown</a><a class="btn" href="../data/inventory.public.json">JSON</a></div></div>
-    <div class="graph"><div class="node"><b>Gateway</b><span>models + channels</span></div><div class="node"><b>Tools</b><span>MCP + local capabilities</span></div><div class="node"><b>Automation</b><span>cron + watchdogs</span></div><div class="node"><b>Knowledge</b><span>GBrain + skills</span></div></div>
+    <div class="graph"><div class="node"><b>Gateway</b><span>models + channels</span></div><div class="node"><b>Kanban</b><span>researcher / worker / reviewer</span></div><div class="node"><b>Tools</b><span>MCP + local capabilities</span></div><div class="node"><b>Automation</b><span>cron + post-session reviews</span></div><div class="node"><b>Knowledge</b><span>GBrain + skills + rules</span></div></div>
   </section>
   <article id="doc" class="doc"></article>
 </main>

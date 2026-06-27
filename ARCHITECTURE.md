@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-06-27T06:15:24-04:00`.
+> Public-safe architecture snapshot generated at `2026-06-27T13:56:13-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -9,6 +9,8 @@
 ## Executive Summary
 
 Hermes Agent runs as a **Linux-primary, multi-platform AI operations hub**. The gateway is a systemd service that connects Telegram, Mattermost, WhatsApp, API Server, Home Assistant, MCP servers, cron jobs, skills, memory/context stores, and remote Windows operations.
+
+The current architecture adds a **durable Kanban orchestration layer**: `default` remains the interactive/orchestrator profile, while `researcher`, `worker`, and `reviewer` are launched as ephemeral Kanban worker-runs for durable research, implementation, and verification tasks. Safe post-session automation generates local review artifacts (session summaries, skill-mining candidates, trace-derived code graphs) without silently installing skills or uploading traces.
 
 The default model remains **`openai-codex / gpt-5.5`**. Local/experimental providers such as **LM Studio** and **Free Kimi** are configured as optional providers only; they are not the default route for Telegram or production workflows.
 
@@ -25,8 +27,9 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Models | OpenAI Codex primary, Copilot fallback, optional LM Studio, optional Free Kimi proxy | Provider selection is explicit; experimental endpoints are not default. |
 | Tools | Terminal, files, browser, web, vision, TTS, cron, delegation, Home Assistant, GBrain, NotebookLM, CodeGraph | Enabled toolsets differ by platform/session but the gateway exposes the main operational surface. |
 | Knowledge | GBrain, NotebookLM, session search, imported Claude context, skills | Long-term memory and research context are split across structured stores and markdown skills. |
-| Automation | Hermes cron scheduler, no-agent scripts, hooks, plugins | Backups, monitoring, GitHub publication, finance snapshots, smart-home logging, news/media digests, and watchdogs. |
-| Operational surfaces | Tasks, skills, hooks, plugins, MCP servers, toolsets | Documented as public-safe counts/categories plus selected non-sensitive examples. |
+| Automation | Hermes cron scheduler, no-agent scripts, hooks, plugins, post-session automation | Backups, monitoring, GitHub publication, finance snapshots, smart-home logging, news/media digests, watchdogs, session summaries, skill-mining reviews, and trace graphs. |
+| Durable orchestration | Kanban dispatcher + `default`/`researcher`/`worker`/`reviewer` profiles | The gateway dispatcher claims ready tasks and launches profile-specific worker-runs; `stopped` profiles are normal idle state. |
+| Operational surfaces | Tasks, skills, rules, hooks, plugins, MCP servers, toolsets | Documented as public-safe counts/categories plus selected non-sensitive examples. |
 | Remote systems | Windows workstation over SSH, Home Assistant, Google Drive/GitHub, local LM Studio | Linux remains the control plane; Windows is operated remotely when needed. |
 
 ## Operational Surface Inventory
@@ -34,7 +37,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 39 jobs; 27 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 227 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
+| Skills | 229 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
 | Plugins | 75 visible plugin rows captured; enabled estimate 4 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 8 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -62,7 +65,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 |---|---:|
 | .archive | 11 |
 | apple | 5 |
-| autonomous-ai-agents | 7 |
+| autonomous-ai-agents | 8 |
 | creative | 34 |
 | data-science | 2 |
 | devops | 8 |
@@ -77,7 +80,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | personal | 6 |
 | productivity | 23 |
 | red-teaming | 1 |
-| research | 15 |
+| research | 16 |
 | smart-home | 5 |
 | social-media | 2 |
 | software-development | 38 |
@@ -191,6 +194,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | [`docs/surfaces/plugins.md`](docs/surfaces/plugins.md) | Hermes plugin registry rows and status. |
 | [`docs/surfaces/mcp-and-toolsets.md`](docs/surfaces/mcp-and-toolsets.md) | MCP servers and toolset count estimates. |
 | [`docs/surfaces/models-and-gateway.md`](docs/surfaces/models-and-gateway.md) | Model routing, gateway status, channel/platform surface. |
+| [`docs/surfaces/orchestration.md`](docs/surfaces/orchestration.md) | Kanban profiles, rules layer, self-improvement automation, and operating contract. |
 
 ## Model Routing
 
@@ -236,24 +240,43 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Reliability watchdogs | 7 | Auto-healing, environment guards, timeout/watchdog checks. |
 
 
+## Agentic Operating Model
+
+| Item | Value | Meaning |
+|---|---|---|
+| Interactive orchestrator | `default` | Main Telegram/API/CLI profile; decides whether to answer directly, delegate, create Kanban work, or schedule cron. |
+| Research lane | `researcher` | Evidence-backed OSS/docs/web due diligence and adoption recommendations. |
+| Execution lane | `worker` | File/terminal/code/config implementation and verification for durable work items. |
+| Review lane | `reviewer` | Independent review, regression checks, security/config sanity, and final validation. |
+| Default assignee | `worker` | Fallback when a task/decomposer does not choose a specialist. |
+| Failure limit | `5` | Raised above the previous aggressive default to avoid noisy retry failures. |
+| Per-profile concurrency | `1` | Keeps one profile from saturating model/API/browser capacity. |
+| Post-session automation | `enabled` | Generates review artifacts only; does not auto-install remote skills or mutate active prompts. |
+
+
+The important runtime distinction is that `researcher`, `worker`, and `reviewer` do **not** need to be continuously running gateway profiles. They are idle until a Kanban task is assigned to them; then the gateway dispatcher starts a worker-run for that profile and the worker completes, blocks, or retries the task.
+
 ## Current Profiles
 
-The live system currently exposes the default profile publicly as:
+The live system currently exposes the public-safe profile roster as:
 
 ```text
 Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
  ◆default         gpt-5.5                      running      —            —
+  researcher      gpt-5.5                      stopped      —            —
+  reviewer        gpt-5.5                      stopped      —            —
+  worker          gpt-5.5                      stopped      —            —
 ```
 
-Future recommended profile split:
+Current profile contract:
 
-| Profile | Purpose | Model stance |
+| Profile | Role | Runtime behavior |
 |---|---|---|
-| `default` | Main Telegram/personal assistant | `openai-codex/gpt-5.5` primary, Copilot fallback. |
-| `local-lmstudio` | Experimental local-model testing | LM Studio only after a local model can pass smoke tests. |
-| `dev` | Developer workflows with larger context and coding tools | Can selectively use cloud or local providers. |
-| `voice-coach` | Low-latency full-duplex voice experiments | Minimal tools/skills, local STT/TTS first. |
+| `default` | Interactive orchestrator | Stays running in Telegram/API/CLI gateway; routes work. |
+| `researcher` | Research/due-diligence worker | Normally stopped; launched by Kanban for evidence gathering. |
+| `worker` | Implementation/execution worker | Normally stopped; fallback assignee for durable tasks. |
+| `reviewer` | Independent verification worker | Normally stopped; launched for review/regression/security checks. |
 
 ## Reliability and Safety Boundaries
 
@@ -269,11 +292,11 @@ Future recommended profile split:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.17.0 (2026.6.19) · upstream 88273002 · local f4a462a2 (+1 carried commit)
+Hermes Agent v0.17.0 (2026.6.19) · upstream f53b184c · local 247a5c0b (+9 carried commits)
 Project: ~/.hermes/hermes-agent
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 53 commits behind — run 'hermes update'
+Update available: 1 commit behind — run 'hermes update'
 ```
 
 - Fallback chain:
