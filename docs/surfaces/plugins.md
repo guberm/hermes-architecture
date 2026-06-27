@@ -9,6 +9,7 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `browser-firecrawl` | not enabled |
 | `chronos` | not enabled |
 | `basic` | not enabled |
+| `drain` | not enabled |
 | `nous` | not enabled |
 | `self-hosted` | not enabled |
 | `disk-cleanup` | not enabled |
@@ -17,6 +18,7 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `krea` | not enabled |
 | `openai` | not enabled |
 | `openai-codex` | not enabled |
+| `openrouter` | not enabled |
 | `xai` | not enabled |
 | `alibaba-provider` | not enabled |
 | `anthropic-provider` | not enabled |

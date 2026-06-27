@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-06-26T16:05:36-04:00`.
+> Public-safe architecture snapshot generated at `2026-06-27T06:15:24-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -33,10 +33,10 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 38 jobs; 26 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Scheduled tasks / cron | 39 jobs; 27 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
 | Skills | 227 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
-| Plugins | 73 visible plugin rows captured; enabled estimate 4 | Descriptions omitted to avoid leaking credential/env surfaces. |
+| Plugins | 75 visible plugin rows captured; enabled estimate 4 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 8 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
@@ -47,7 +47,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Backup & sync | 5 | Protect configuration, repositories, databases, and knowledge stores. |
 | GitHub & publishing | 6 | Maintain GitHub/publication surfaces and repo health digests. |
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
-| Knowledge & memory | 5 | Keep GBrain/memory/context stores healthy and up to date. |
+| Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 3 | News, RSS, YouTube, and briefing pipelines. |
 | Other scheduled automation | 5 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
@@ -152,6 +152,7 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 | `browser-firecrawl` | not enabled |
 | `chronos` | not enabled |
 | `basic` | not enabled |
+| `drain` | not enabled |
 | `nous` | not enabled |
 | `self-hosted` | not enabled |
 | `disk-cleanup` | not enabled |
@@ -160,6 +161,7 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 | `krea` | not enabled |
 | `openai` | not enabled |
 | `openai-codex` | not enabled |
+| `openrouter` | not enabled |
 | `xai` | not enabled |
 | `alibaba-provider` | not enabled |
 | `anthropic-provider` | not enabled |
@@ -175,8 +177,6 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 | `kilocode-provider` | not enabled |
 | `kimi-coding-provider` | not enabled |
 | `minimax-provider` | not enabled |
-| `nous-provider` | not enabled |
-| `novita-provider` | not enabled |
 
 
 ## Low-Level Surface Files
@@ -209,11 +209,9 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Item | Status |
 |---|---|
-| LM Studio endpoint | `available` at `http://127.0.0.1:1234/v1` |
-| Reported model IDs | `qwenvl3bunc, mythosnanoq6, qwythos9bq5, gemma4coderq3, gemma4coderq4, oymuncq4, [REDACTED], gemma4unc, [REDACTED]` |
-| Chat smoke test | `blocked_or_unavailable: {
-"error": {
-    "message": "Failed to load model \"gemma4unc\". Error: Model loading was stopped due to insufficient system resources. Under the current settings, this model requires approximately 14.36 GB of memory, and continuing` |
+| LM Studio endpoint | `not reachable` at `http://127.0.0.1:1234/v1` |
+| Reported model IDs | `none` |
+| Chat smoke test | `blocked_or_unavailable: <urlopen error [Errno 111] Connection refused>` |
 | Safety decision | Main Hermes remains `openai-codex/gpt-5.5`; local provider is optional until a model can load reliably. |
 
 ## MCP and External Tooling
@@ -231,7 +229,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Backup & sync | 5 | Protect configuration, repositories, databases, and knowledge stores. |
 | GitHub & publishing | 6 | Maintain GitHub/publication surfaces and repo health digests. |
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
-| Knowledge & memory | 5 | Keep GBrain/memory/context stores healthy and up to date. |
+| Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 3 | News, RSS, YouTube, and briefing pipelines. |
 | Other scheduled automation | 5 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
@@ -271,11 +269,11 @@ Future recommended profile split:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.17.0 (2026.6.19) · upstream 217047de · local eb1a78aa (+1 carried commit)
+Hermes Agent v0.17.0 (2026.6.19) · upstream 88273002 · local f4a462a2 (+1 carried commit)
 Project: ~/.hermes/hermes-agent
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 275 commits behind — run 'hermes update'
+Update available: 53 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
