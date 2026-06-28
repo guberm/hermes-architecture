@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-06-27T13:56:13-04:00`.
+> Public-safe architecture snapshot generated at `2026-06-27T22:18:28-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -37,10 +37,10 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 39 jobs; 27 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 229 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
+| Skills | 231 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
 | Plugins | 75 visible plugin rows captured; enabled estimate 4 | Descriptions omitted to avoid leaking credential/env surfaces. |
-| MCP servers | 8 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
+| MCP servers | 10 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
 ### Scheduled tasks / cron categories
@@ -73,7 +73,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | email | 2 |
 | gaming | 2 |
 | github | 11 |
-| mcp | 1 |
+| mcp | 2 |
 | media | 7 |
 | mlops | 19 |
 | note-taking | 4 |
@@ -83,7 +83,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | research | 16 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 38 |
+| software-development | 39 |
 | uncategorized | 20 |
 
 
@@ -207,15 +207,18 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Optional provider | freekimi | cfbt-kimi | http://127.0.0.1:3271/v1 |
 | Optional provider | forge_freekimi | cfbt-kimi | http://127.0.0.1:8081/v1 |
 | Optional provider | forge_lmstudio | gemma4unc | http://127.0.0.1:8082/v1 |
+| Optional provider | chatgpt_web | chatgpt-5.5-high-web | https://codex.guber.dev/v1 |
 
 
 ### Local model trial status
 
 | Item | Status |
 |---|---|
-| LM Studio endpoint | `not reachable` at `http://127.0.0.1:1234/v1` |
-| Reported model IDs | `none` |
-| Chat smoke test | `blocked_or_unavailable: <urlopen error [Errno 111] Connection refused>` |
+| LM Studio endpoint | `available` at `http://127.0.0.1:1234/v1` |
+| Reported model IDs | `qwenvl3bunc, mythosnanoq6, qwythos9bq5, gemma4coderq3, gemma4coderq4, oymuncq4, [REDACTED], gemma4unc, [REDACTED]` |
+| Chat smoke test | `blocked_or_unavailable: {
+"error": {
+    "message": "Failed to load model \"gemma4unc\". Error: Model loading was stopped due to insufficient system resources. Under the current settings, this model requires approximately 14.36 GB of memory, and continuing` |
 | Safety decision | Main Hermes remains `openai-codex/gpt-5.5`; local provider is optional until a model can load reliably. |
 
 ## MCP and External Tooling
@@ -292,11 +295,11 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.17.0 (2026.6.19) · upstream f53b184c · local 247a5c0b (+9 carried commits)
+Hermes Agent v0.17.0 (2026.6.19) · upstream d3d621f7 · local 247a5c0b (+9 carried commits)
 Project: ~/.hermes/hermes-agent
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 1 commit behind — run 'hermes update'
+Update available: 17 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
@@ -324,8 +327,10 @@ MCP Servers:
   homeway          https://homeway.io/api/mcp     all          ✓ enabled
   windows-cua      ~/.local/bin/windo...   all          ✓ enabled
   monarch          https://api.monarch.com/mcp    17 selected  ✓ enabled
+  cloudflare-api   https://mcp.cloudflare.co...   all          ✓ enabled
   pixelrag         ~/github/pixelrag-...   all          ✓ enabled
   vibe_trading     ~/.hermes/scripts/...   29 selected  ✓ enabled
+  display          https://api.display.dev/v...   all          ✓ enabled
 ```
 
 ## Maintenance

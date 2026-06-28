@@ -16,7 +16,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | email | 2 |
 | gaming | 2 |
 | github | 11 |
-| mcp | 1 |
+| mcp | 2 |
 | media | 7 |
 | mlops | 19 |
 | note-taking | 4 |
@@ -26,7 +26,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | research | 16 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 38 |
+| software-development | 39 |
 | uncategorized | 20 |
 
 ## Public-safe examples
