@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-06-29T06:15:22-04:00`.
+> Public-safe architecture snapshot generated at `2026-06-29T20:23:16-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,8 +36,8 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 41 jobs; 29 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 231 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
+| Scheduled tasks / cron | 41 jobs; 24 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Skills | 233 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
 | Plugins | 75 visible plugin rows captured; enabled estimate 4 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 10 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -77,13 +77,13 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | media | 7 |
 | mlops | 19 |
 | note-taking | 4 |
-| personal | 6 |
+| personal | 7 |
 | productivity | 23 |
 | red-teaming | 1 |
 | research | 16 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 39 |
+| software-development | 40 |
 | uncategorized | 20 |
 
 
@@ -295,11 +295,11 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.17.0 (2026.6.19) · upstream 20b03d9a · local 247a5c0b (+9 carried commits)
+Hermes Agent v0.17.0 (2026.6.19) · upstream f3d2dfbe
 Project: ~/.hermes/hermes-agent
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 318 commits behind — run 'hermes update'
+Update available: 1 commit behind — run 'hermes update'
 ```
 
 - Fallback chain:
