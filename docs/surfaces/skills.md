@@ -20,7 +20,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | media | 7 |
 | mlops | 19 |
 | note-taking | 4 |
-| personal | 7 |
+| personal | 8 |
 | productivity | 23 |
 | red-teaming | 1 |
 | research | 16 |
