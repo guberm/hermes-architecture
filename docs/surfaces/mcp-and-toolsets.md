@@ -16,6 +16,7 @@ Low-level public-safe view of model-facing integration surfaces.
 | `pixelrag` | `{"command": "~/github/pixelrag-mcp/.venv/bin/python", "args": ["~/github/pixelrag-mcp/server.py"], "enabled": true}` |
 | `vibe_trading` | `{"command": "~/.hermes/scripts/vibe-trading-mcp", "args": [], "enabled": true, "connect_timeout": 120, "timeout": 300, "tools": {"include": ["list_skills", "load_skill", "backtest", "factor_analysis", "analyze_options", "pattern_recognition", "get_market_data", "get_stock_news", "get_sec_filings", "` |
 | `display` | `{"url": "https://api.display.dev/v1/mcp", "headers": {}, "timeout": 180, "connect_timeout": 60, "sampling": {"enabled": false}, "enabled": true}` |
+| `open_notebook` | `{"command": "~/.hermes/oss-evals/open-notebook/open-notebook-mcp-wrapper.sh", "enabled": true}` |
 
 ## Toolset counts parsed from CLI
 

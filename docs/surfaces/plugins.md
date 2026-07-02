@@ -40,6 +40,7 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `openrouter-provider` | not enabled |
 | `qwen-oauth-provider` | not enabled |
 | `stepfun-provider` | not enabled |
+| `vertex-provider` | not enabled |
 | `xai-provider` | not enabled |
 | `xiaomi-provider` | not enabled |
 | `zai-provider` | not enabled |

@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-01T06:15:27-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-02T06:15:01-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -37,10 +37,10 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 41 jobs; 24 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 234 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
+| Skills | 236 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
-| Plugins | 75 visible plugin rows captured; enabled estimate 4 | Descriptions omitted to avoid leaking credential/env surfaces. |
-| MCP servers | 10 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
+| Plugins | 76 visible plugin rows captured; enabled estimate 4 | Descriptions omitted to avoid leaking credential/env surfaces. |
+| MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
 ### Scheduled tasks / cron categories
@@ -78,12 +78,12 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | mlops | 19 |
 | note-taking | 4 |
 | personal | 8 |
-| productivity | 23 |
+| productivity | 24 |
 | red-teaming | 1 |
 | research | 16 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 40 |
+| software-development | 41 |
 | uncategorized | 20 |
 
 
@@ -295,11 +295,11 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.17.0 (2026.6.19) · upstream d8083221
+Hermes Agent v0.18.0 (2026.7.1) · upstream 76a468e5
 Project: ~/.hermes/hermes-agent
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 271 commits behind — run 'hermes update'
+Update available: 46 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
@@ -331,6 +331,7 @@ MCP Servers:
   pixelrag         ~/github/pixelrag-...   all          ✓ enabled
   vibe_trading     ~/.hermes/scripts/...   29 selected  ✓ enabled
   display          https://api.display.dev/v...   all          ✓ enabled
+  open_notebook    ~/.hermes/oss-eval...   all          ✓ enabled
 ```
 
 ## Maintenance
