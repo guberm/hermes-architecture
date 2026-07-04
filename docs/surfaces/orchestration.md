@@ -23,6 +23,7 @@ NAME                  ON DISK   COUNTS
 default               yes       (idle)
 researcher            yes       (idle)
 reviewer              yes       (idle)
+security-restricted   yes       (idle)
 worker                yes       (idle)
 ```
 

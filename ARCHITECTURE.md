@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-03T06:15:07-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-04T06:15:42-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -37,7 +37,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 44 jobs; 24 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 236 detected skill files across 22 categories | Private/client-sensitive skill names are omitted from examples. |
+| Skills | 257 detected skill files across 24 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
 | Plugins | 76 visible plugin rows captured; enabled estimate 4 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -65,26 +65,28 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 |---|---:|
 | .archive | 11 |
 | apple | 5 |
-| autonomous-ai-agents | 8 |
-| creative | 34 |
+| autonomous-ai-agents | 9 |
+| creative | 37 |
 | data-science | 2 |
 | devops | 8 |
 | ecc-imports | 4 |
-| email | 2 |
+| email | 3 |
 | gaming | 2 |
 | github | 11 |
 | mcp | 2 |
 | media | 7 |
-| mlops | 19 |
+| mlops | 24 |
 | note-taking | 4 |
 | personal | 8 |
-| productivity | 24 |
+| productivity | 26 |
 | red-teaming | 1 |
-| research | 16 |
+| research | 20 |
+| security | 2 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 41 |
+| software-development | 43 |
 | uncategorized | 20 |
+| web-development | 1 |
 
 
 Public-safe skill examples:
@@ -95,27 +97,27 @@ Public-safe skill examples:
 | `fine-tuning-with-trl` | mlops | TRL: SFT, DPO, PPO, GRPO, reward modeling for LLM RLHF. |
 | `axolotl` | mlops | Axolotl: YAML LLM fine-tuning (LoRA, DPO, GRPO). |
 | `unsloth` | mlops | Unsloth: 2-5x faster LoRA/QLoRA fine-tuning, less VRAM. |
+| `instructor` | mlops | Extract structured data from LLM responses with Pydantic validation, retry failed extractions automatically, parse complex JSON with type sa |
+| `nemo-curator` | mlops | GPU-accelerated data curation for LLM training. Supports text/image/video/audio. Features fuzzy deduplication (16× faster), quality filterin |
 | `huggingface-hub` | mlops | HuggingFace hf CLI: search/download/upload models, datasets. |
 | `segment-anything-model` | mlops | SAM: zero-shot image segmentation via points, boxes, masks. |
+| `chroma` | mlops | Open-source embedding database for AI applications. Store embeddings and metadata, perform vector and full-text search, filter by metadata.  |
+| `faiss` | mlops | Facebook |
 | `weights-and-biases` | mlops | W&B: log ML experiments, sweeps, model registry, dashboards. |
 | `evaluating-llms-harness` | mlops | lm-eval-harness: benchmark LLMs (MMLU, GSM8K, etc.). |
 | `llama-cpp` | mlops | llama.cpp local GGUF inference + HF Hub model discovery. |
 | `obliteratus` | mlops | OBLITERATUS: abliterate LLM refusals (diff-in-means). |
 | `serving-llms-vllm` | mlops | vLLM: high-throughput LLM serving, OpenAI API, quantization. |
 | `outlines` | mlops | Outlines: structured JSON/regex/Pydantic LLM generation. |
+| `qdrant-vector-search` | mlops | High-performance vector similarity search engine for RAG and semantic search. Use when building production RAG systems requiring fast neares |
 | `strategic-reading` | uncategorized | Read a book, article, transcript, or case study through the lens of a specific strategic problem you |
 | `gif-search` | media | Search/download GIFs from Tenor via curl + jq. |
 | `spotify` | media | Spotify: play, search, queue, manage playlists and devices. |
 | `youtube-content` | media | YouTube transcripts to summaries, threads, blogs. |
 | `article-enrichment` | uncategorized | Transform raw article text dumps in the brain into structured pages with executive summary, verbatim quotes, key insights, why-it-matters, a |
-| `llm-wiki` | research | Karpathy |
-| `pixelrag-mcp-operations` | research | Operate and harden a local PixelRAG MCP wrapper for Hermes without exposing dangerous long-lived serve helpers through the gateway. |
-| `blogwatcher` | research | Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool. |
-| `[REDACTED]` | research | Evaluate whether a third-party service or product is trustworthy, integrable, and compliant enough for automation, purchasing, or review for |
-| `[REDACTED]` | research | Operate the academic research workflow from paper discovery through experiment-backed writing and submission. |
-| `polymarket` | research | Query Polymarket: markets, prices, orderbooks, history. |
-| `skillpack-check` | uncategorized | / |
-| `effective-liteparse` | uncategorized | Use when a task involves a local PDF, DOCX, PPTX, XLSX, or image and you want the fastest local extraction path. Prefer `lit` before heavier |
+| `osint-investigation` | research | Public-records OSINT investigation framework — SEC EDGAR filings, USAspending contracts, Senate lobbying, OFAC sanctions, ICIJ offshore leak |
+| `domain-intel` | research | Passive domain reconnaissance using Python stdlib. Subdomain discovery, SSL certificate inspection, WHOIS lookups, DNS records, domain avail |
+| `[REDACTED]` | research | Evaluate agent memory systems locally before adopting cloud memory vendors like Synap, Mem0, Zep, or Supermemory. |
 
 
 ### Hooks, webhooks, and plugin hook manifests
@@ -267,9 +269,10 @@ The live system currently exposes the public-safe profile roster as:
 Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
  ◆default         gpt-5.5                      running      —            —
-  researcher      gpt-5.5                      stopped      —            —
-  reviewer        gpt-5.5                      stopped      —            —
-  worker          gpt-5.5                      stopped      —            —
+  researcher      gpt-5.5                      stopped      hermes-researcher —
+  reviewer        gpt-5.5                      stopped      hermes-reviewer —
+  security-restricted gpt-5.5                      stopped      hermes-security —
+  worker          gpt-5.5                      stopped      hermes-worker —
 ```
 
 Current profile contract:
@@ -295,11 +298,11 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.18.0 (2026.7.1) · upstream 89acc196
+Hermes Agent v0.18.0 (2026.7.1) · upstream 5445e42b
 Project: ~/.hermes/hermes-agent
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 23 commits behind — run 'hermes update'
+Update available: 59 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
