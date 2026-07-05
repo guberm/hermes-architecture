@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-04T06:15:42-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-05T06:15:08-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,10 +36,10 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 44 jobs; 24 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 257 detected skill files across 24 categories | Private/client-sensitive skill names are omitted from examples. |
-| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
-| Plugins | 76 visible plugin rows captured; enabled estimate 4 | Descriptions omitted to avoid leaking credential/env surfaces. |
+| Scheduled tasks / cron | 46 jobs; 25 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Skills | 259 detected skill files across 24 categories | Private/client-sensitive skill names are omitted from examples. |
+| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 27 | Hook command bodies are not published. |
+| Plugins | 77 visible plugin rows captured; enabled estimate 5 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
@@ -52,9 +52,9 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 3 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 10 | Other local automation jobs. |
+| Other scheduled automation | 11 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
-| Reliability watchdogs | 7 | Auto-healing, environment guards, timeout/watchdog checks. |
+| Reliability watchdogs | 8 | Auto-healing, environment guards, timeout/watchdog checks. |
 
 
 ### Skills surface
@@ -65,10 +65,10 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 |---|---:|
 | .archive | 11 |
 | apple | 5 |
-| autonomous-ai-agents | 9 |
+| autonomous-ai-agents | 10 |
 | creative | 37 |
 | data-science | 2 |
-| devops | 8 |
+| devops | 9 |
 | ecc-imports | 4 |
 | email | 3 |
 | gaming | 2 |
@@ -145,7 +145,7 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 | `.claude/plugins/marketplaces/claude-code-plugins/plugins/ralph-wiggum/hooks/hooks.json` |
 | `[REDACTED]` |
 | `.claude/plugins/marketplaces/ponytail/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.2.0/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.10.1/hooks/hooks.json` |
 
 
 ### Plugin surface
@@ -240,9 +240,9 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 3 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 10 | Other local automation jobs. |
+| Other scheduled automation | 11 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
-| Reliability watchdogs | 7 | Auto-healing, environment guards, timeout/watchdog checks. |
+| Reliability watchdogs | 8 | Auto-healing, environment guards, timeout/watchdog checks. |
 
 
 ## Agentic Operating Model
@@ -269,6 +269,7 @@ The live system currently exposes the public-safe profile roster as:
 Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
  ◆default         gpt-5.5                      running      —            —
+  claude          gpt-5.5                      stopped      hermes-claude —
   researcher      gpt-5.5                      stopped      hermes-researcher —
   reviewer        gpt-5.5                      stopped      hermes-reviewer —
   security-restricted gpt-5.5                      stopped      hermes-security —
@@ -298,11 +299,11 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.18.0 (2026.7.1) · upstream 5445e42b
+Hermes Agent v0.18.0 (2026.7.1) · upstream 7e8f50a1 · local 2f50f050 (+1 carried commit)
 Project: ~/.hermes/hermes-agent
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 59 commits behind — run 'hermes update'
+Update available: 82 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:

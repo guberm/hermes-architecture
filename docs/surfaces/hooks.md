@@ -6,7 +6,7 @@ Public-safe low-level inventory of hook surfaces. Hook command bodies and privat
 |---|---|
 | Shell hooks allowlist present | False |
 | Shell hooks allowlist entries | 0 |
-| Plugin hook manifests detected | 29 |
+| Plugin hook manifests detected | 27 |
 | Webhook summary | webhook platform not enabled |
 
 ## Hook manifest paths
@@ -32,10 +32,8 @@ Public-safe low-level inventory of hook surfaces. Hook command bodies and privat
 | `.claude/plugins/marketplaces/claude-code-plugins/plugins/ralph-wiggum/hooks/hooks.json` |
 | `[REDACTED]` |
 | `.claude/plugins/marketplaces/ponytail/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.10.1/hooks/hooks.json` |
 | `.claude/plugins/cache/thedotmack/claude-mem/13.2.0/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.1.0/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.0.1/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.0.0/hooks/hooks.json` |
 | `.claude/plugins/cache/thedotmack/claude-mem/13.4.0/hooks/hooks.json` |
 | `.claude/plugins/cache/thedotmack/claude-mem/13.3.0/hooks/hooks.json` |
 | `.claude/plugins/cache/thedotmack/claude-mem/13.4.1/hooks/hooks.json` |

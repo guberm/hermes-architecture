@@ -8,10 +8,10 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 |---|---:|
 | .archive | 11 |
 | apple | 5 |
-| autonomous-ai-agents | 9 |
+| autonomous-ai-agents | 10 |
 | creative | 37 |
 | data-science | 2 |
-| devops | 8 |
+| devops | 9 |
 | ecc-imports | 4 |
 | email | 3 |
 | gaming | 2 |

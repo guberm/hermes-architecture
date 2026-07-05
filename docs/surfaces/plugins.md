@@ -78,6 +78,7 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `web-searxng` | not enabled |
 | `web-tavily` | not enabled |
 | `web-xai` | not enabled |
+| `agency-agents-router` | enabled |
 | `hermes-lcm` | enabled |
 | `orca-status` | enabled |
 
