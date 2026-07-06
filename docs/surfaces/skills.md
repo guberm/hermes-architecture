@@ -15,7 +15,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | ecc-imports | 4 |
 | email | 3 |
 | gaming | 2 |
-| github | 11 |
+| github | 14 |
 | mcp | 2 |
 | media | 7 |
 | mlops | 24 |
@@ -27,8 +27,8 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | security | 2 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 43 |
-| uncategorized | 20 |
+| software-development | 44 |
+| uncategorized | 21 |
 | web-development | 1 |
 
 ## Public-safe examples
@@ -67,6 +67,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `[REDACTED]` | research | Operate the academic research workflow from paper discovery through experiment-backed writing and submission. |
 | `darwinian-evolver` | research | Evolve prompts/regex/SQL/code with Imbue |
 | `polymarket` | research | Query Polymarket: markets, prices, orderbooks, history. |
+| `sofa` | uncategorized | Use when an agent needs to interact with Stack Overflow for Agents: |
 | `skillpack-check` | uncategorized | / |
 | `effective-liteparse` | uncategorized | Use when a task involves a local PDF, DOCX, PPTX, XLSX, or image and you want the fastest local extraction path. Prefer `lit` before heavier |
 | `agentmail` | email | Give the agent its own dedicated email inbox via AgentMail. Send, receive, and manage email autonomously using agent-owned email addresses ( |
@@ -74,7 +75,6 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `chrome-extensions` | uncategorized | > |
 | `pokemon-player` | gaming | Play Pokemon via headless emulator + RAM reads. |
 | `[REDACTED]` | gaming | Host modded Minecraft servers (CurseForge, Modrinth). |
-| `modern-web-guidance` | uncategorized | / |
 
 ## Operational meaning
 

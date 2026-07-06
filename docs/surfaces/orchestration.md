@@ -21,6 +21,7 @@ Public-safe view of the durable orchestration layer added around the Hermes gate
 ```text
 NAME                  ON DISK   COUNTS
 claude                yes       (idle)
+coding                yes       (idle)
 default               yes       done=2
 researcher            yes       blocked=1, done=6
 reviewer              yes       done=2

@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-05T09:46:37-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-06T06:15:18-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,8 +36,8 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 46 jobs; 25 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 259 detected skill files across 24 categories | Private/client-sensitive skill names are omitted from examples. |
+| Scheduled tasks / cron | 47 jobs; 26 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Skills | 264 detected skill files across 24 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 27 | Hook command bodies are not published. |
 | Plugins | 77 visible plugin rows captured; enabled estimate 5 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -54,7 +54,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Media/news monitoring | 3 | News, RSS, YouTube, and briefing pipelines. |
 | Other scheduled automation | 11 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
-| Reliability watchdogs | 8 | Auto-healing, environment guards, timeout/watchdog checks. |
+| Reliability watchdogs | 9 | Auto-healing, environment guards, timeout/watchdog checks. |
 
 
 ### Skills surface
@@ -72,7 +72,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | ecc-imports | 4 |
 | email | 3 |
 | gaming | 2 |
-| github | 11 |
+| github | 14 |
 | mcp | 2 |
 | media | 7 |
 | mlops | 24 |
@@ -84,8 +84,8 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | security | 2 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 43 |
-| uncategorized | 20 |
+| software-development | 44 |
+| uncategorized | 21 |
 | web-development | 1 |
 
 
@@ -202,8 +202,8 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Role | Provider | Model | Notes |
 |---|---|---|---|
-| Primary | openai-codex | gpt-5.5 | Default for Telegram/API/CLI gateway sessions |
-| Fallback | copilot | gpt-5.4 | Used when primary fails |
+| Primary | copilot | gpt-5.5 | Default for Telegram/API/CLI gateway sessions |
+| Fallback | copilot | gpt-5.5 | Used when primary fails |
 | Optional provider | lmstudio | gemma4unc | http://127.0.0.1:1234/v1 |
 | Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |
 | Optional provider | freekimi | cfbt-kimi | http://127.0.0.1:3271/v1 |
@@ -242,7 +242,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Media/news monitoring | 3 | News, RSS, YouTube, and briefing pipelines. |
 | Other scheduled automation | 11 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
-| Reliability watchdogs | 8 | Auto-healing, environment guards, timeout/watchdog checks. |
+| Reliability watchdogs | 9 | Auto-healing, environment guards, timeout/watchdog checks. |
 
 
 ## Agentic Operating Model
@@ -270,6 +270,7 @@ Profile          Model                        Gateway      Alias        Distribu
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
  ◆default         gpt-5.5                      running      —            —
   claude          gpt-5.5                      stopped      hermes-claude —
+  coding          github-copilot/gpt-5.5       stopped      coding       —
   researcher      gpt-5.5                      stopped      hermes-researcher —
   reviewer        gpt-5.5                      stopped      hermes-reviewer —
   security-restricted gpt-5.5                      stopped      hermes-security —
@@ -299,20 +300,20 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.18.0 (2026.7.1) · upstream d8b51269 · local 2f50f050 (+1 carried commit)
+Hermes Agent v0.18.0 (2026.7.1) · upstream 61332855 · local 2f50f050 (+1 carried commit)
 Project: ~/.hermes/hermes-agent
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 82 commits behind — run 'hermes update'
+Update available: 242 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
 
 ```text
-Primary:   gpt-5.5  (via openai-codex)
+Primary:   gpt-5.5  (via copilot)
 
   Fallback chain (1 entry):
-1. gpt-5.4  (via copilot)
+1. gpt-5.5  (via copilot)
 
   Tried in order when the primary fails (rate-limit, 5xx, connection errors).
   Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/fallback-providers
