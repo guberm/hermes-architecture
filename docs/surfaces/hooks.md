@@ -16,7 +16,7 @@ Public-safe low-level inventory of hook surfaces. Hook command bodies and privat
 | `.hermes/oss-evals/2026-06-26/orca-sandbox/home/.gemini/config/hooks.json` |
 | `.hermes/oss-evals/2026-06-26/orca-sandbox/home/.cursor/hooks.json` |
 | `.hermes/oss-evals/2026-06-26/orca-sandbox/config/orca/codex-runtime-home/home/hooks.json` |
-| `.hermes/hermes-agent/.codex/hooks.json` |
+| `.hermes/hermes-agent.pre-v2026.7.7-20260707_215257_EDT/.codex/hooks.json` |
 | `.claude/plugins/marketplaces/thedotmack/plugin/hooks/hooks.json` |
 | `.claude/plugins/marketplaces/thedotmack/cursor-hooks/hooks.json` |
 | `.claude/plugins/marketplaces/claude-plugins-official/plugins/learning-output-style/hooks/hooks.json` |

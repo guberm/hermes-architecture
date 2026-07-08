@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-07T06:15:47-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-08T06:15:05-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -37,7 +37,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 49 jobs; 28 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 266 detected skill files across 24 categories | Private/client-sensitive skill names are omitted from examples. |
+| Skills | 265 detected skill files across 24 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 27 | Hook command bodies are not published. |
 | Plugins | 77 visible plugin rows captured; enabled estimate 5 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -65,7 +65,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 |---|---:|
 | .archive | 11 |
 | apple | 5 |
-| autonomous-ai-agents | 12 |
+| autonomous-ai-agents | 11 |
 | creative | 37 |
 | data-science | 2 |
 | devops | 9 |
@@ -129,7 +129,7 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 | `.hermes/oss-evals/2026-06-26/orca-sandbox/home/.gemini/config/hooks.json` |
 | `.hermes/oss-evals/2026-06-26/orca-sandbox/home/.cursor/hooks.json` |
 | `.hermes/oss-evals/2026-06-26/orca-sandbox/config/orca/codex-runtime-home/home/hooks.json` |
-| `.hermes/hermes-agent/.codex/hooks.json` |
+| `.hermes/hermes-agent.pre-v2026.7.7-20260707_215257_EDT/.codex/hooks.json` |
 | `.claude/plugins/marketplaces/thedotmack/plugin/hooks/hooks.json` |
 | `.claude/plugins/marketplaces/thedotmack/cursor-hooks/hooks.json` |
 | `.claude/plugins/marketplaces/claude-plugins-official/plugins/learning-output-style/hooks/hooks.json` |
@@ -204,11 +204,11 @@ The repository includes dedicated, low-level public-safe files for each operatio
 |---|---|---|---|
 | Primary | github-copilot | gpt-5.5 | Default for Telegram/API/CLI gateway sessions |
 | Fallback | copilot | gpt-5.5 | Used when primary fails |
-| Optional provider | lmstudio | gemma4unc | http://127.0.0.1:1234/v1 |
+| Optional provider | lmstudio | qwenvl3bunc | http://127.0.0.1:1234/v1 |
 | Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |
 | Optional provider | freekimi | cfbt-kimi | http://127.0.0.1:3271/v1 |
 | Optional provider | forge_freekimi | cfbt-kimi | http://127.0.0.1:8081/v1 |
-| Optional provider | forge_lmstudio | gemma4unc | http://127.0.0.1:8082/v1 |
+| Optional provider | forge_lmstudio | qwenvl3bunc | http://127.0.0.1:8082/v1 |
 | Optional provider | chatgpt_web | chatgpt-5.5-high-web | https://codex.guber.dev/v1 |
 
 
@@ -300,11 +300,12 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.18.0 (2026.7.1) · upstream 83016547 · local a8dca0b8 (+1 carried commit)
-Project: ~/.hermes/hermes-agent
+Hermes Agent v0.18.2 (2026.7.7.2) · upstream 48788032
+Install directory: ~/.hermes/hermes-agent
+Install method: git
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 57 commits behind — run 'hermes update'
+Update available: 11 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
