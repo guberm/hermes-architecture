@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-08T19:34:28-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-09T06:15:37-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -37,7 +37,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 53 jobs; 29 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 270 detected skill files across 24 categories | Private/client-sensitive skill names are omitted from examples. |
+| Skills | 273 detected skill files across 24 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 27 | Hook command bodies are not published. |
 | Plugins | 77 visible plugin rows captured; enabled estimate 5 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -84,7 +84,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | security | 2 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 49 |
+| software-development | 52 |
 | uncategorized | 21 |
 | web-development | 1 |
 
@@ -305,7 +305,7 @@ Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Up to date
+Update available: 45 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
