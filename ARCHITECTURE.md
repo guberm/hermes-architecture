@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-09T06:15:37-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-10T06:15:35-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,8 +36,8 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 53 jobs; 29 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 273 detected skill files across 24 categories | Private/client-sensitive skill names are omitted from examples. |
+| Scheduled tasks / cron | 51 jobs; 30 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Skills | 275 detected skill files across 24 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 27 | Hook command bodies are not published. |
 | Plugins | 77 visible plugin rows captured; enabled estimate 5 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -52,7 +52,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 3 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 16 | Other local automation jobs. |
+| Other scheduled automation | 14 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 9 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -68,7 +68,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | autonomous-ai-agents | 11 |
 | creative | 37 |
 | data-science | 2 |
-| devops | 9 |
+| devops | 10 |
 | ecc-imports | 4 |
 | email | 3 |
 | gaming | 2 |
@@ -84,7 +84,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | security | 2 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 52 |
+| software-development | 53 |
 | uncategorized | 21 |
 | web-development | 1 |
 
@@ -202,14 +202,14 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Role | Provider | Model | Notes |
 |---|---|---|---|
-| Primary | github-copilot | gpt-5.5 | Default for Telegram/API/CLI gateway sessions |
+| Primary | openai-codex | gpt-5.6-sol | Default for Telegram/API/CLI gateway sessions |
 | Fallback | copilot | gpt-5.5 | Used when primary fails |
 | Optional provider | lmstudio | qwenvl3bunc | http://127.0.0.1:1234/v1 |
 | Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |
 | Optional provider | freekimi | cfbt-kimi | http://127.0.0.1:3271/v1 |
 | Optional provider | forge_freekimi | cfbt-kimi | http://127.0.0.1:8081/v1 |
 | Optional provider | forge_lmstudio | qwenvl3bunc | http://127.0.0.1:8082/v1 |
-| Optional provider | chatgpt_web | chatgpt-5.5-high-web | https://codex.guber.dev/v1 |
+| Optional provider | chatgpt_web | chatgpt-5.6-sol-high-web | https://codex.guber.dev/v1 |
 
 
 ### Local model trial status
@@ -240,7 +240,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 3 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 16 | Other local automation jobs. |
+| Other scheduled automation | 14 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 9 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -268,7 +268,7 @@ The live system currently exposes the public-safe profile roster as:
 ```text
 Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
- ◆default         gpt-5.5                      running      —            —
+ ◆default         gpt-5.6-sol                  running      —            —
   claude          gpt-5.5                      stopped      hermes-claude —
   coding          github-copilot/gpt-5.5       stopped      coding       —
   researcher      gpt-5.5                      stopped      hermes-researcher —
@@ -300,18 +300,18 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.18.2 (2026.7.7.2) · upstream fac85518
+Hermes Agent v0.18.2 (2026.7.7.2) · upstream 07271a6f
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 45 commits behind — run 'hermes update'
+Update available: 153 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
 
 ```text
-Primary:   gpt-5.5  (via github-copilot)
+Primary:   gpt-5.6-sol  (via openai-codex)
 
   Fallback chain (1 entry):
 1. gpt-5.5  (via copilot)
