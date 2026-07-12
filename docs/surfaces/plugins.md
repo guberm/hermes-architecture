@@ -4,8 +4,6 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 
 | Plugin | Status |
 |---|---|
-| `browser-browser-use` | not enabled |
-| `browser-browserbase` | not enabled |
 | `browser-firecrawl` | not enabled |
 | `chronos` | not enabled |
 | `basic` | not enabled |
@@ -25,20 +23,15 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `arcee-provider` | not enabled |
 | `bedrock-provider` | not enabled |
 | `copilot-provider` | not enabled |
-| `copilot-acp-provider` | not enabled |
 | `custom-provider` | not enabled |
 | `deepseek-provider` | not enabled |
 | `gemini-provider` | not enabled |
 | `gmi-provider` | not enabled |
-| `huggingface-provider` | not enabled |
 | `kilocode-provider` | not enabled |
-| `kimi-coding-provider` | not enabled |
 | `minimax-provider` | not enabled |
 | `nous-provider` | not enabled |
 | `novita-provider` | not enabled |
 | `nvidia-provider` | not enabled |
-| `openrouter-provider` | not enabled |
-| `qwen-oauth-provider` | not enabled |
 | `stepfun-provider` | not enabled |
 | `vertex-provider` | not enabled |
 | `xai-provider` | not enabled |
@@ -50,11 +43,9 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `discord-platform` | not enabled |
 | `email-platform` | not enabled |
 | `feishu-platform` | not enabled |
-| `google_chat-platform` | not enabled |
 | `irc-platform` | not enabled |
 | `line-platform` | not enabled |
 | `matrix-platform` | not enabled |
-| `mattermost-platform` | not enabled |
 | `ntfy-platform` | not enabled |
 | `photon-platform` | not enabled |
 | `raft-platform` | not enabled |
@@ -78,9 +69,9 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `web-searxng` | not enabled |
 | `web-tavily` | not enabled |
 | `web-xai` | not enabled |
-| `agency-agents-router` | enabled |
 | `hermes-lcm` | enabled |
 | `orca-status` | enabled |
+| `agent-monitor` | enabled |
 
 ## Notes
 

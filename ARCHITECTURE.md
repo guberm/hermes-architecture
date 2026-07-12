@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-11T06:15:18-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-12T06:15:39-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -39,7 +39,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Scheduled tasks / cron | 51 jobs; 30 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
 | Skills | 279 detected skill files across 25 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 27 | Hook command bodies are not published. |
-| Plugins | 77 visible plugin rows captured; enabled estimate 5 | Descriptions omitted to avoid leaking credential/env surfaces. |
+| Plugins | 68 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
@@ -153,8 +153,6 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 
 | Plugin | Status |
 |---|---|
-| `browser-browser-use` | not enabled |
-| `browser-browserbase` | not enabled |
 | `browser-firecrawl` | not enabled |
 | `chronos` | not enabled |
 | `basic` | not enabled |
@@ -174,15 +172,17 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 | `arcee-provider` | not enabled |
 | `bedrock-provider` | not enabled |
 | `copilot-provider` | not enabled |
-| `copilot-acp-provider` | not enabled |
 | `custom-provider` | not enabled |
 | `deepseek-provider` | not enabled |
 | `gemini-provider` | not enabled |
 | `gmi-provider` | not enabled |
-| `huggingface-provider` | not enabled |
 | `kilocode-provider` | not enabled |
-| `kimi-coding-provider` | not enabled |
 | `minimax-provider` | not enabled |
+| `nous-provider` | not enabled |
+| `novita-provider` | not enabled |
+| `nvidia-provider` | not enabled |
+| `stepfun-provider` | not enabled |
+| `vertex-provider` | not enabled |
 
 
 ## Low-Level Surface Files
@@ -301,12 +301,12 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.18.2 (2026.7.7.2) · upstream b8880f12
+Hermes Agent v0.18.2 (2026.7.7.2) · upstream 4281151a
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 220 commits behind — run 'hermes update'
+Update available: 253 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
