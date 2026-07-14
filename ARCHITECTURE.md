@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-13T06:15:53-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-14T06:15:49-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,9 +36,9 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 51 jobs; 31 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Scheduled tasks / cron | 63 jobs; 32 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
 | Skills | 279 detected skill files across 25 categories | Private/client-sensitive skill names are omitted from examples. |
-| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 27 | Hook command bodies are not published. |
+| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 28 | Hook command bodies are not published. |
 | Plugins | 68 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
@@ -50,9 +50,9 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Backup & sync | 5 | Protect configuration, repositories, databases, and knowledge stores. |
 | GitHub & publishing | 6 | Maintain GitHub/publication surfaces and repo health digests. |
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
-| Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
+| Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 3 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 14 | Other local automation jobs. |
+| Other scheduled automation | 27 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 9 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -130,6 +130,7 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 | `.hermes/oss-evals/2026-06-26/orca-sandbox/home/.gemini/config/hooks.json` |
 | `.hermes/oss-evals/2026-06-26/orca-sandbox/home/.cursor/hooks.json` |
 | `.hermes/oss-evals/2026-06-26/orca-sandbox/config/orca/codex-runtime-home/home/hooks.json` |
+| `.hermes/oss-evals/agent-orchestrators/2026-07-13/wit/hooks/hooks.json` |
 | `.hermes/hermes-agent.pre-v2026.7.7-20260707_215257_EDT/.codex/hooks.json` |
 | `.claude/plugins/marketplaces/thedotmack/plugin/hooks/hooks.json` |
 | `.claude/plugins/marketplaces/thedotmack/cursor-hooks/hooks.json` |
@@ -146,7 +147,6 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 | `.claude/plugins/marketplaces/claude-code-plugins/plugins/ralph-wiggum/hooks/hooks.json` |
 | `[REDACTED]` |
 | `.claude/plugins/marketplaces/ponytail/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.10.1/hooks/hooks.json` |
 
 
 ### Plugin surface
@@ -204,7 +204,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Role | Provider | Model | Notes |
 |---|---|---|---|
 | Primary | openai-codex | gpt-5.6-sol | Default for Telegram/API/CLI gateway sessions |
-| Fallback | copilot | gpt-5.5 | Used when primary fails |
+| Fallback | chatgpt_web | chatgpt-5.6-sol-high-web | Used when primary fails |
 | Optional provider | lmstudio | qwenvl3bunc | http://127.0.0.1:1234/v1 |
 | Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |
 | Optional provider | freekimi | cfbt-kimi | http://127.0.0.1:3271/v1 |
@@ -239,9 +239,9 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Backup & sync | 5 | Protect configuration, repositories, databases, and knowledge stores. |
 | GitHub & publishing | 6 | Maintain GitHub/publication surfaces and repo health digests. |
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
-| Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
+| Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 3 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 14 | Other local automation jobs. |
+| Other scheduled automation | 27 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 9 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -301,12 +301,12 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.18.2 (2026.7.7.2) · upstream e589b739
+Hermes Agent v0.18.2 (2026.7.7.2) · upstream 226e8de8 · local 687c5a74 (+4 carried commits)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 353 commits behind — run 'hermes update'
+Update available: 452 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
@@ -315,7 +315,7 @@ Update available: 353 commits behind — run 'hermes update'
 Primary:   gpt-5.6-sol  (via openai-codex)
 
   Fallback chain (1 entry):
-1. gpt-5.5  (via copilot)
+1. chatgpt-5.6-sol-high-web  (via chatgpt_web)
 
   Tried in order when the primary fails (rate-limit, 5xx, connection errors).
   Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/fallback-providers
