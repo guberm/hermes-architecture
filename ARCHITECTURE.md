@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-14T06:15:49-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-15T06:15:56-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -52,9 +52,9 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 3 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 27 | Other local automation jobs. |
+| Other scheduled automation | 26 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
-| Reliability watchdogs | 9 | Auto-healing, environment guards, timeout/watchdog checks. |
+| Reliability watchdogs | 10 | Auto-healing, environment guards, timeout/watchdog checks. |
 
 
 ### Skills surface
@@ -241,9 +241,9 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 3 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 27 | Other local automation jobs. |
+| Other scheduled automation | 26 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
-| Reliability watchdogs | 9 | Auto-healing, environment guards, timeout/watchdog checks. |
+| Reliability watchdogs | 10 | Auto-healing, environment guards, timeout/watchdog checks. |
 
 
 ## Agentic Operating Model
@@ -301,12 +301,12 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.18.2 (2026.7.7.2) · upstream 226e8de8 · local 687c5a74 (+4 carried commits)
+Hermes Agent v0.18.2 (2026.7.7.2) · upstream 6997dc81 · local 0cbf486e (+5 carried commits)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 452 commits behind — run 'hermes update'
+Update available: 609 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
