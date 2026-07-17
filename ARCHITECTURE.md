@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-16T06:15:25-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-17T06:15:31-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,11 +36,11 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 64 jobs; 33 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 281 detected skill files across 25 categories | Private/client-sensitive skill names are omitted from examples. |
+| Scheduled tasks / cron | 65 jobs; 34 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Skills | 282 detected skill files across 25 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 30 | Hook command bodies are not published. |
 | Plugins | 68 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
-| MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
+| MCP servers | 10 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
 ### Scheduled tasks / cron categories
@@ -52,7 +52,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 3 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 27 | Other local automation jobs. |
+| Other scheduled automation | 28 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 10 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -82,7 +82,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | productivity | 26 |
 | red-teaming | 1 |
 | research | 20 |
-| security | 2 |
+| security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
 | software-development | 57 |
@@ -204,7 +204,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Role | Provider | Model | Notes |
 |---|---|---|---|
 | Primary | openai-codex | gpt-5.6-sol | Default for Telegram/API/CLI gateway sessions |
-| Fallback | chatgpt_web | chatgpt-5.6-sol-high-web | Used when primary fails |
+| Fallback |  |  | Used when primary fails |
 | Optional provider | lmstudio | qwenvl3bunc | http://127.0.0.1:1234/v1 |
 | Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |
 | Optional provider | freekimi | cfbt-kimi | http://127.0.0.1:3271/v1 |
@@ -241,7 +241,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 3 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 27 | Other local automation jobs. |
+| Other scheduled automation | 28 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 10 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -270,12 +270,12 @@ The live system currently exposes the public-safe profile roster as:
 Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
  ◆default         gpt-5.6-sol                  running      —            —
-  claude          gpt-5.5                      stopped      hermes-claude —
-  coding          github-copilot/gpt-5.5       stopped      coding       —
-  researcher      gpt-5.5                      stopped      hermes-researcher —
-  reviewer        gpt-5.5                      stopped      hermes-reviewer —
-  security-restricted gpt-5.5                      stopped      hermes-security —
-  worker          gpt-5.5                      stopped      hermes-worker —
+  claude          gpt-5.6-sol                  stopped      hermes-claude —
+  coding          gpt-5.6-sol                  stopped      coding       —
+  researcher      gpt-5.6-sol                  stopped      hermes-researcher —
+  reviewer        gpt-5.6-sol                  stopped      hermes-reviewer —
+  security-restricted gpt-5.6-sol                  stopped      hermes-security —
+  worker          gpt-5.6-sol                  stopped      hermes-worker —
 ```
 
 Current profile contract:
@@ -301,24 +301,20 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.18.2 (2026.7.7.2) · upstream e844ea9f · local d1f1d737 (+6 carried commits)
+Hermes Agent v0.18.2 (2026.7.7.2) · upstream 779019ef · local cc7f042c (+11 carried commits)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 771 commits behind — run 'hermes update'
+Update available: 1002 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
 
 ```text
-Primary:   gpt-5.6-sol  (via openai-codex)
+No fallback providers configured.
 
-  Fallback chain (1 entry):
-1. chatgpt-5.6-sol-high-web  (via chatgpt_web)
-
-  Tried in order when the primary fails (rate-limit, 5xx, connection errors).
-  Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/fallback-providers
+  Add one with:  hermes fallback add
 ```
 
 - MCP list:
@@ -331,7 +327,6 @@ MCP Servers:
   codegraph        ~/.nvm/versions/no...   all          ✓ enabled
   gbrain           http://127.0.0.1:3131/mcp      all          ✓ enabled
   notebooklm       npx -y notebooklm-mcp@latest   all          ✓ enabled
-  homeway          https://homeway.io/api/mcp     all          ✓ enabled
   windows-cua      ~/.local/bin/windo...   all          ✓ enabled
   monarch          https://api.monarch.com/mcp    17 selected  ✓ enabled
   cloudflare-api   https://mcp.cloudflare.co...   all          ✓ enabled

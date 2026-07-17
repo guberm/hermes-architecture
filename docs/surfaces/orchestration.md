@@ -23,7 +23,7 @@ NAME                  ON DISK   COUNTS
 claude                yes       (idle)
 coding                yes       (idle)
 default               yes       done=2, todo=1
-researcher            yes       blocked=17, done=8
+researcher            yes       blocked=20, done=8
 reviewer              yes       blocked=1, done=3, todo=1
 security-restricted   yes       (idle)
 worker                yes       blocked=1, done=3, todo=2
