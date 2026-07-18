@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-17T06:15:31-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-18T06:15:22-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -37,7 +37,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 65 jobs; 34 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 282 detected skill files across 25 categories | Private/client-sensitive skill names are omitted from examples. |
+| Skills | 284 detected skill files across 25 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 30 | Hook command bodies are not published. |
 | Plugins | 68 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 10 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -79,13 +79,13 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | mlops | 24 |
 | note-taking | 4 |
 | personal | 8 |
-| productivity | 26 |
+| productivity | 27 |
 | red-teaming | 1 |
 | research | 20 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 57 |
+| software-development | 58 |
 | uncategorized | 21 |
 | web-development | 1 |
 
@@ -301,20 +301,18 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.18.2 (2026.7.7.2) · upstream 779019ef · local cc7f042c (+11 carried commits)
+Hermes Agent v0.18.2 (2026.7.7.2) · upstream 5402cb55 · local db8ab0e3 (+12 carried commits)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 1002 commits behind — run 'hermes update'
+Update available: 1142 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
 
 ```text
-No fallback providers configured.
-
-  Add one with:  hermes fallback add
+[REDACTED]
 ```
 
 - MCP list:

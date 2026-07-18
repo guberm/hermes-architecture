@@ -22,13 +22,13 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | mlops | 24 |
 | note-taking | 4 |
 | personal | 8 |
-| productivity | 26 |
+| productivity | 27 |
 | red-teaming | 1 |
 | research | 20 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 57 |
+| software-development | 58 |
 | uncategorized | 21 |
 | web-development | 1 |
 
