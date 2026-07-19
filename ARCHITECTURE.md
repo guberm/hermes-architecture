@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-18T06:15:22-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-19T06:15:17-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -301,12 +301,12 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.18.2 (2026.7.7.2) · upstream 5402cb55 · local db8ab0e3 (+12 carried commits)
+Hermes Agent v0.18.2 (2026.7.7.2) · upstream e598cef8 · local db8ab0e3 (+12 carried commits)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 1142 commits behind — run 'hermes update'
+Update available: 1373 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
