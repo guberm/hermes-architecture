@@ -9,8 +9,8 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | .archive | 11 |
 | android | 2 |
 | apple | 5 |
-| autonomous-ai-agents | 11 |
-| creative | 37 |
+| autonomous-ai-agents | 12 |
+| creative | 38 |
 | data-science | 2 |
 | devops | 10 |
 | ecc-imports | 4 |
@@ -19,17 +19,17 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | github | 14 |
 | mcp | 2 |
 | media | 7 |
-| mlops | 24 |
+| mlops | 25 |
 | note-taking | 4 |
 | personal | 8 |
 | productivity | 27 |
 | red-teaming | 1 |
-| research | 20 |
+| research | 21 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 58 |
-| uncategorized | 21 |
+| software-development | 59 |
+| uncategorized | 23 |
 | web-development | 1 |
 
 ## Public-safe examples
@@ -46,6 +46,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `segment-anything-model` | mlops | SAM: zero-shot image segmentation via points, boxes, masks. |
 | `chroma` | mlops | Open-source embedding database for AI applications. Store embeddings and metadata, perform vector and full-text search, filter by metadata. |
 | `faiss` | mlops | Facebook |
+| `[REDACTED]` | mlops | Evidence-first evaluation of local LLM recommendations against the user |
 | `weights-and-biases` | mlops | W&B: log ML experiments, sweeps, model registry, dashboards. |
 | `evaluating-llms-harness` | mlops | lm-eval-harness: benchmark LLMs (MMLU, GSM8K, etc.). |
 | `llama-cpp` | mlops | llama.cpp local GGUF inference + HF Hub model discovery. |
@@ -64,6 +65,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `llm-wiki` | research | Karpathy |
 | `pixelrag-mcp-operations` | research | Operate and harden a local PixelRAG MCP wrapper for Hermes without exposing dangerous long-lived serve helpers through the gateway. |
 | `blogwatcher` | research | Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool. |
+| `[REDACTED]` | research | Evidence-first evaluation of third-party model releases, quantizations, conversions, altered-safety variants, and gated model repositories b |
 | `[REDACTED]` | research | Evaluate whether a third-party service or product is trustworthy, integrable, and compliant enough for automation, purchasing, or review for |
 | `[REDACTED]` | research | Operate the academic research workflow from paper discovery through experiment-backed writing and submission. |
 | `darwinian-evolver` | research | Evolve prompts/regex/SQL/code with Imbue |
@@ -74,8 +76,6 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `agentmail` | email | Give the agent its own dedicated email inbox via AgentMail. Send, receive, and manage email autonomously using agent-owned email addresses ( |
 | `himalaya` | email | Himalaya CLI: IMAP/SMTP email from terminal. |
 | `chrome-extensions` | uncategorized | > |
-| `pokemon-player` | gaming | Play Pokemon via headless emulator + RAM reads. |
-| `[REDACTED]` | gaming | Host modded Minecraft servers (CurseForge, Modrinth). |
 
 ## Operational meaning
 

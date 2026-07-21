@@ -23,10 +23,10 @@ NAME                  ON DISK   COUNTS
 claude                yes       (idle)
 coding                yes       (idle)
 default               yes       done=2, todo=1
-researcher            yes       blocked=19, done=10
+researcher            yes       blocked=21, done=10
 reviewer              yes       blocked=2, done=3, todo=1
 security-restricted   yes       (idle)
-worker                yes       blocked=3, done=5, todo=2
+worker                yes       blocked=5, done=5, todo=3
 ```
 
 ## Active orchestration config

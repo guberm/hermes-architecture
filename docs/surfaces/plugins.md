@@ -12,6 +12,7 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `self-hosted` | not enabled |
 | `disk-cleanup` | not enabled |
 | `google_meet` | not enabled |
+| `deepinfra` | not enabled |
 | `fal` | not enabled |
 | `krea` | not enabled |
 | `openai` | not enabled |
@@ -24,7 +25,9 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `bedrock-provider` | not enabled |
 | `copilot-provider` | not enabled |
 | `custom-provider` | not enabled |
+| `deepinfra-provider` | not enabled |
 | `deepseek-provider` | not enabled |
+| `fireworks-provider` | not enabled |
 | `gemini-provider` | not enabled |
 | `gmi-provider` | not enabled |
 | `kilocode-provider` | not enabled |
@@ -33,6 +36,7 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `novita-provider` | not enabled |
 | `nvidia-provider` | not enabled |
 | `stepfun-provider` | not enabled |
+| `upstage-provider` | not enabled |
 | `vertex-provider` | not enabled |
 | `xai-provider` | not enabled |
 | `xiaomi-provider` | not enabled |
@@ -59,6 +63,7 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `security-guidance` | not enabled |
 | `spotify` | not enabled |
 | `teams_pipeline` | not enabled |
+| `deepinfra` | not enabled |
 | `fal` | not enabled |
 | `xai` | not enabled |
 | `web-brave-free` | not enabled |
