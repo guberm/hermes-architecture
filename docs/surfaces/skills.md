@@ -9,10 +9,10 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | .archive | 11 |
 | android | 2 |
 | apple | 5 |
-| autonomous-ai-agents | 12 |
+| autonomous-ai-agents | 13 |
 | creative | 38 |
 | data-science | 2 |
-| devops | 10 |
+| devops | 16 |
 | ecc-imports | 4 |
 | email | 3 |
 | gaming | 2 |
@@ -21,14 +21,14 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | media | 7 |
 | mlops | 25 |
 | note-taking | 4 |
-| personal | 8 |
-| productivity | 27 |
+| personal | 9 |
+| productivity | 33 |
 | red-teaming | 1 |
-| research | 21 |
+| research | 26 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 59 |
+| software-development | 61 |
 | uncategorized | 23 |
 | web-development | 1 |
 
@@ -68,14 +68,14 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `[REDACTED]` | research | Evidence-first evaluation of third-party model releases, quantizations, conversions, altered-safety variants, and gated model repositories b |
 | `[REDACTED]` | research | Evaluate whether a third-party service or product is trustworthy, integrable, and compliant enough for automation, purchasing, or review for |
 | `[REDACTED]` | research | Operate the academic research workflow from paper discovery through experiment-backed writing and submission. |
+| `[REDACTED]` | research | Evidence-first review of technical articles, architecture case studies, and bare blog links—especially when no public implementation artifac |
 | `darwinian-evolver` | research | Evolve prompts/regex/SQL/code with Imbue |
+| `[REDACTED]` | research | Calibrate and safely relax LLM editorial-admissibility gates in automated news pipelines when valid event reports are rejected as opinion, r |
+| `[REDACTED]` | research | Evaluate desktop AI-agent applications that edit files, run commands, use local/remote/cloud models, or overlap with Hermes. Use for product |
 | `polymarket` | research | Query Polymarket: markets, prices, orderbooks, history. |
+| `[REDACTED]` | research | Evidence-first privacy and adoption review for desktop apps claiming fully local processing of sensitive data. |
+| `[REDACTED]` | research | Evaluate and tune news-selection gates for both precision and recall. Use when a digest feels too short, a classifier rejects too much, or e |
 | `sofa` | uncategorized | Use when an agent needs to interact with Stack Overflow for Agents: |
-| `skillpack-check` | uncategorized | / |
-| `effective-liteparse` | uncategorized | Use when a task involves a local PDF, DOCX, PPTX, XLSX, or image and you want the fastest local extraction path. Prefer `lit` before heavier |
-| `agentmail` | email | Give the agent its own dedicated email inbox via AgentMail. Send, receive, and manage email autonomously using agent-owned email addresses ( |
-| `himalaya` | email | Himalaya CLI: IMAP/SMTP email from terminal. |
-| `chrome-extensions` | uncategorized | > |
 
 ## Operational meaning
 

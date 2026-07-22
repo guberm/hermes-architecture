@@ -6,7 +6,7 @@ Public-safe low-level inventory of hook surfaces. Hook command bodies and privat
 |---|---|
 | Shell hooks allowlist present | False |
 | Shell hooks allowlist entries | 0 |
-| Plugin hook manifests detected | 27 |
+| Plugin hook manifests detected | 26 |
 | Webhook summary | webhook platform not enabled |
 
 ## Hook manifest paths
@@ -17,7 +17,6 @@ Public-safe low-level inventory of hook surfaces. Hook command bodies and privat
 | `.hermes/oss-evals/2026-06-26/orca-sandbox/home/.cursor/hooks.json` |
 | `.hermes/oss-evals/2026-06-26/orca-sandbox/config/orca/codex-runtime-home/home/hooks.json` |
 | `.hermes/oss-evals/agent-orchestrators/2026-07-13/wit/hooks/hooks.json` |
-| `.hermes/hermes-agent.pre-v2026.7.7-20260707_215257_EDT/.codex/hooks.json` |
 | `.claude/plugins/marketplaces/thedotmack/plugin/hooks/hooks.json` |
 | `.claude/plugins/marketplaces/thedotmack/cursor-hooks/hooks.json` |
 | `.claude/plugins/marketplaces/claude-plugins-official/plugins/learning-output-style/hooks/hooks.json` |
