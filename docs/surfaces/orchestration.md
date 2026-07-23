@@ -26,7 +26,7 @@ default               yes       done=2, todo=1
 researcher            yes       blocked=24, done=10
 reviewer              yes       blocked=2, done=6, todo=1
 security-restricted   yes       (idle)
-worker                yes       blocked=5, done=8, todo=3
+worker                yes       blocked=5, done=9, todo=3
 ```
 
 ## Active orchestration config

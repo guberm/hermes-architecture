@@ -9,10 +9,10 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | .archive | 11 |
 | android | 2 |
 | apple | 5 |
-| autonomous-ai-agents | 13 |
+| autonomous-ai-agents | 15 |
 | creative | 38 |
 | data-science | 2 |
-| devops | 16 |
+| devops | 19 |
 | ecc-imports | 4 |
 | email | 3 |
 | gaming | 2 |
@@ -22,13 +22,13 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | mlops | 25 |
 | note-taking | 4 |
 | personal | 9 |
-| productivity | 33 |
+| productivity | 34 |
 | red-teaming | 1 |
-| research | 26 |
+| research | 27 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 61 |
+| software-development | 65 |
 | uncategorized | 23 |
 | web-development | 1 |
 
@@ -72,10 +72,10 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `darwinian-evolver` | research | Evolve prompts/regex/SQL/code with Imbue |
 | `[REDACTED]` | research | Calibrate and safely relax LLM editorial-admissibility gates in automated news pipelines when valid event reports are rejected as opinion, r |
 | `[REDACTED]` | research | Evaluate desktop AI-agent applications that edit files, run commands, use local/remote/cloud models, or overlap with Hermes. Use for product |
+| `[REDACTED]` | research | Diagnose inaccessible public websites, login portals, and SPAs by separating DNS, network, TLS, HTTP routing, static-app loading, browser ex |
 | `polymarket` | research | Query Polymarket: markets, prices, orderbooks, history. |
 | `[REDACTED]` | research | Evidence-first privacy and adoption review for desktop apps claiming fully local processing of sensitive data. |
 | `[REDACTED]` | research | Evaluate and tune news-selection gates for both precision and recall. Use when a digest feels too short, a classifier rejects too much, or e |
-| `sofa` | uncategorized | Use when an agent needs to interact with Stack Overflow for Agents: |
 
 ## Operational meaning
 

@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-22T06:15:46-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-23T06:15:52-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,8 +36,8 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 70 jobs; 35 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 312 detected skill files across 25 categories | Private/client-sensitive skill names are omitted from examples. |
+| Scheduled tasks / cron | 71 jobs; 36 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Skills | 323 detected skill files across 25 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 26 | Hook command bodies are not published. |
 | Plugins | 73 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 10 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -52,7 +52,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 33 | Other local automation jobs. |
+| Other scheduled automation | 34 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 10 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -66,10 +66,10 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | .archive | 11 |
 | android | 2 |
 | apple | 5 |
-| autonomous-ai-agents | 13 |
+| autonomous-ai-agents | 15 |
 | creative | 38 |
 | data-science | 2 |
-| devops | 16 |
+| devops | 19 |
 | ecc-imports | 4 |
 | email | 3 |
 | gaming | 2 |
@@ -79,13 +79,13 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | mlops | 25 |
 | note-taking | 4 |
 | personal | 9 |
-| productivity | 33 |
+| productivity | 34 |
 | red-teaming | 1 |
-| research | 26 |
+| research | 27 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 61 |
+| software-development | 65 |
 | uncategorized | 23 |
 | web-development | 1 |
 
@@ -241,7 +241,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 33 | Other local automation jobs. |
+| Other scheduled automation | 34 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 10 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -301,12 +301,12 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.19.0 (2026.7.20) · upstream 7de55427 · local 820e14ad (+14 carried commits)
+Hermes Agent v0.19.0 (2026.7.20) · upstream 8fc27820 · local 93b86ef8 (+16 carried commits)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 269 commits behind — run 'hermes update'
+Update available: 658 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
