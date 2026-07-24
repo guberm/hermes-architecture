@@ -12,7 +12,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | autonomous-ai-agents | 15 |
 | creative | 38 |
 | data-science | 2 |
-| devops | 19 |
+| devops | 20 |
 | ecc-imports | 4 |
 | email | 3 |
 | gaming | 2 |
@@ -28,7 +28,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 65 |
+| software-development | 66 |
 | uncategorized | 23 |
 | web-development | 1 |
 
@@ -75,7 +75,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `[REDACTED]` | research | Diagnose inaccessible public websites, login portals, and SPAs by separating DNS, network, TLS, HTTP routing, static-app loading, browser ex |
 | `polymarket` | research | Query Polymarket: markets, prices, orderbooks, history. |
 | `[REDACTED]` | research | Evidence-first privacy and adoption review for desktop apps claiming fully local processing of sensitive data. |
-| `[REDACTED]` | research | Evaluate and tune news-selection gates for both precision and recall. Use when a digest feels too short, a classifier rejects too much, or e |
+| `[REDACTED]` | research | Evaluate and tune news-selection gates for both precision and recall. Use when a digest feels too short, a classifier rejects too much, edit |
 
 ## Operational meaning
 

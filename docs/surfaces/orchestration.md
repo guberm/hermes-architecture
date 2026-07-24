@@ -22,11 +22,11 @@ Public-safe view of the durable orchestration layer added around the Hermes gate
 NAME                  ON DISK   COUNTS
 claude                yes       (idle)
 coding                yes       (idle)
-default               yes       done=2, todo=1
-researcher            yes       blocked=24, done=10
-reviewer              yes       blocked=2, done=6, todo=1
+default               yes       done=3, todo=1
+researcher            yes       blocked=25, done=15
+reviewer              yes       blocked=7, done=11, todo=2
 security-restricted   yes       (idle)
-worker                yes       blocked=5, done=9, todo=3
+worker                yes       blocked=15, done=21, todo=3
 ```
 
 ## Active orchestration config
