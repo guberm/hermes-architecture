@@ -19,14 +19,7 @@ Public-safe view of the durable orchestration layer added around the Hermes gate
 ## Live Kanban assignees
 
 ```text
-NAME                  ON DISK   COUNTS
-claude                yes       (idle)
-coding                yes       (idle)
-default               yes       done=3, todo=1
-researcher            yes       blocked=25, done=15
-reviewer              yes       blocked=7, done=11, todo=2
-security-restricted   yes       (idle)
-worker                yes       blocked=15, done=21, todo=3
+kanban: could not initialize database: Refusing to open corrupt kanban DB at ~/.hermes/kanban.db: integrity_check returned '*** in database main ***\nTree 21 page 337: btreeInitPage() returns error code 11'. Original preserved; backup at ~/.hermes/kanban.db.corrupt.b4c37aeff6bc287e.bak.
 ```
 
 ## Active orchestration config

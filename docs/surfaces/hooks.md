@@ -6,7 +6,7 @@ Public-safe low-level inventory of hook surfaces. Hook command bodies and privat
 |---|---|
 | Shell hooks allowlist present | False |
 | Shell hooks allowlist entries | 0 |
-| Plugin hook manifests detected | 28 |
+| Plugin hook manifests detected | 30 |
 | Webhook summary | webhook platform not enabled |
 
 ## Hook manifest paths
@@ -34,10 +34,12 @@ Public-safe low-level inventory of hook surfaces. Hook command bodies and privat
 | `[REDACTED]` |
 | `.claude/plugins/marketplaces/ponytail/hooks/hooks.json` |
 | `.claude/plugins/cache/thedotmack/claude-mem/13.10.1/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.12.4/hooks/hooks.json` |
 | `.claude/plugins/cache/thedotmack/claude-mem/13.11.0/hooks/hooks.json` |
 | `.claude/plugins/cache/thedotmack/claude-mem/13.12.2/hooks/hooks.json` |
 | `.claude/plugins/cache/claude-plugins-official/superpowers/d884ae04edeb/hooks/hooks.json` |
 | `.claude/plugins/cache/claude-plugins-official/superpowers/6.1.1/hooks/hooks.json` |
+| `.claude/plugins/cache/claude-plugins-official/superpowers/6.2.0/hooks/hooks.json` |
 | `.claude/plugins/cache/claude-code-warp/warp/2.0.0/hooks/hooks.json` |
 | `.claude/plugins/cache/headroom-marketplace/headroom/0.22.3/hooks/hooks.json` |
 | `.claude/plugins/cache/ponytail/ponytail/4.6.0/hooks/hooks.json` |
