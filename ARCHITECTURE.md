@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-25T06:15:05-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-26T06:15:46-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,7 +36,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 71 jobs; 36 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Scheduled tasks / cron | 69 jobs; 35 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
 | Skills | 326 detected skill files across 25 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 30 | Hook command bodies are not published. |
 | Plugins | 73 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
@@ -52,7 +52,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 34 | Other local automation jobs. |
+| Other scheduled automation | 32 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 10 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -241,7 +241,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 34 | Other local automation jobs. |
+| Other scheduled automation | 32 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 10 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -269,7 +269,7 @@ The live system currently exposes the public-safe profile roster as:
 ```text
 Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
- ◆default         gpt-5.6-sol                  running      —            —
+ ◆default         gpt-5.6-sol                  stopped      —            —
   claude          gpt-5.6-sol                  stopped      hermes-claude —
   coding          gpt-5.6-sol                  stopped      coding       —
   researcher      gpt-5.6-sol                  stopped      hermes-researcher —
@@ -301,12 +301,7 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.19.0 (2026.7.20) · upstream 760112ad · local 50777b20 (+18 carried commits)
-Install directory: ~/.hermes/hermes-agent
-Install method: git
-Python: 3.11.15
-OpenAI SDK: 2.24.0
-Update available: 1255 commits behind — run 'hermes update'
+[REDACTED]
 ```
 
 - Fallback chain:
