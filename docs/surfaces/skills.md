@@ -10,7 +10,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | android | 2 |
 | apple | 5 |
 | autonomous-ai-agents | 15 |
-| creative | 38 |
+| creative | 39 |
 | data-science | 2 |
 | devops | 20 |
 | ecc-imports | 4 |
@@ -24,11 +24,11 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | personal | 9 |
 | productivity | 34 |
 | red-teaming | 1 |
-| research | 27 |
+| research | 28 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 67 |
+| software-development | 69 |
 | uncategorized | 23 |
 | web-development | 1 |
 
@@ -71,11 +71,11 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `[REDACTED]` | research | Evidence-first review of technical articles, architecture case studies, and bare blog links—especially when no public implementation artifac |
 | `darwinian-evolver` | research | Evolve prompts/regex/SQL/code with Imbue |
 | `[REDACTED]` | research | Calibrate and safely relax LLM editorial-admissibility gates in automated news pipelines when valid event reports are rejected as opinion, r |
+| `[REDACTED]` | research | Use when a native full-page screenshot is blank, sparse, clipped, distorted, or missing lazy-loaded and scroll-revealed content. Warm the re |
 | `[REDACTED]` | research | Evaluate desktop AI-agent applications that edit files, run commands, use local/remote/cloud models, or overlap with Hermes. Use for product |
 | `[REDACTED]` | research | Diagnose inaccessible public websites, login portals, and SPAs by separating DNS, network, TLS, HTTP routing, static-app loading, browser ex |
 | `polymarket` | research | Query Polymarket: markets, prices, orderbooks, history. |
 | `[REDACTED]` | research | Evidence-first privacy and adoption review for desktop apps claiming fully local processing of sensitive data. |
-| `[REDACTED]` | research | Evaluate and tune news-selection gates for both precision and recall. Use when a digest feels too short, a classifier rejects too much, edit |
 
 ## Operational meaning
 
