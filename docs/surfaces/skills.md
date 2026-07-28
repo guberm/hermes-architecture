@@ -12,7 +12,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | autonomous-ai-agents | 15 |
 | creative | 39 |
 | data-science | 2 |
-| devops | 20 |
+| devops | 21 |
 | ecc-imports | 4 |
 | email | 3 |
 | gaming | 2 |
@@ -22,13 +22,13 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | mlops | 25 |
 | note-taking | 4 |
 | personal | 9 |
-| productivity | 34 |
+| productivity | 36 |
 | red-teaming | 1 |
 | research | 28 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 69 |
+| software-development | 71 |
 | uncategorized | 23 |
 | web-development | 1 |
 

@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-27T06:15:15-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-28T06:15:46-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,11 +36,11 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 69 jobs; 35 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 330 detected skill files across 25 categories | Private/client-sensitive skill names are omitted from examples. |
+| Scheduled tasks / cron | 71 jobs; 35 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Skills | 335 detected skill files across 25 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 30 | Hook command bodies are not published. |
 | Plugins | 73 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
-| MCP servers | 10 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
+| MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
 ### Scheduled tasks / cron categories
@@ -48,11 +48,11 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Category | Active jobs | Public-safe purpose |
 |---|---:|---|
 | Backup & sync | 6 | Protect configuration, repositories, databases, and knowledge stores. |
-| GitHub & publishing | 6 | Maintain GitHub/publication surfaces and repo health digests. |
+| GitHub & publishing | 7 | Maintain GitHub/publication surfaces and repo health digests. |
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 32 | Other local automation jobs. |
+| Other scheduled automation | 33 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 10 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -69,7 +69,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | autonomous-ai-agents | 15 |
 | creative | 39 |
 | data-science | 2 |
-| devops | 20 |
+| devops | 21 |
 | ecc-imports | 4 |
 | email | 3 |
 | gaming | 2 |
@@ -79,13 +79,13 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | mlops | 25 |
 | note-taking | 4 |
 | personal | 9 |
-| productivity | 34 |
+| productivity | 36 |
 | red-teaming | 1 |
 | research | 28 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 69 |
+| software-development | 71 |
 | uncategorized | 23 |
 | web-development | 1 |
 
@@ -237,11 +237,11 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Category | Active jobs | Public-safe purpose |
 |---|---:|---|
 | Backup & sync | 6 | Protect configuration, repositories, databases, and knowledge stores. |
-| GitHub & publishing | 6 | Maintain GitHub/publication surfaces and repo health digests. |
+| GitHub & publishing | 7 | Maintain GitHub/publication surfaces and repo health digests. |
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 32 | Other local automation jobs. |
+| Other scheduled automation | 33 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 10 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -317,6 +317,7 @@ MCP Servers:
 
   Name             Transport                      Tools        Status    
   ──────────────── ────────────────────────────── ──────────── ──────────
+  keep-mcp         ~/.hermes/scripts/...   16 selected  ✓ enabled
   codegraph        ~/.nvm/versions/no...   all          ✓ enabled
   gbrain           http://127.0.0.1:3131/mcp      all          ✓ enabled
   notebooklm       npx -y notebooklm-mcp@latest   all          ✓ enabled
