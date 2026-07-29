@@ -10,7 +10,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | android | 2 |
 | apple | 5 |
 | autonomous-ai-agents | 15 |
-| creative | 39 |
+| creative | 40 |
 | data-science | 2 |
 | devops | 21 |
 | ecc-imports | 4 |
@@ -24,11 +24,11 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | personal | 9 |
 | productivity | 36 |
 | red-teaming | 1 |
-| research | 28 |
+| research | 29 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 71 |
+| software-development | 73 |
 | uncategorized | 23 |
 | web-development | 1 |
 
@@ -67,15 +67,15 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `blogwatcher` | research | Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool. |
 | `[REDACTED]` | research | Evidence-first evaluation of third-party model releases, quantizations, conversions, altered-safety variants, and gated model repositories b |
 | `[REDACTED]` | research | Evaluate whether a third-party service or product is trustworthy, integrable, and compliant enough for automation, purchasing, or review for |
-| `[REDACTED]` | research | Operate the academic research workflow from paper discovery through experiment-backed writing and submission. |
+| `[REDACTED]` | research | Use when academic or deep-research work needs source discovery, evidence gating, experiment-backed writing, or submission support. |
 | `[REDACTED]` | research | Evidence-first review of technical articles, architecture case studies, and bare blog links—especially when no public implementation artifac |
 | `darwinian-evolver` | research | Evolve prompts/regex/SQL/code with Imbue |
 | `[REDACTED]` | research | Calibrate and safely relax LLM editorial-admissibility gates in automated news pipelines when valid event reports are rejected as opinion, r |
 | `[REDACTED]` | research | Use when a native full-page screenshot is blank, sparse, clipped, distorted, or missing lazy-loaded and scroll-revealed content. Warm the re |
+| `[REDACTED]` | research | Use when extracting structured data from a browser session the user has already authorized, especially when no usable API exists. Applies th |
 | `[REDACTED]` | research | Evaluate desktop AI-agent applications that edit files, run commands, use local/remote/cloud models, or overlap with Hermes. Use for product |
 | `[REDACTED]` | research | Diagnose inaccessible public websites, login portals, and SPAs by separating DNS, network, TLS, HTTP routing, static-app loading, browser ex |
 | `polymarket` | research | Query Polymarket: markets, prices, orderbooks, history. |
-| `[REDACTED]` | research | Evidence-first privacy and adoption review for desktop apps claiming fully local processing of sensitive data. |
 
 ## Operational meaning
 
