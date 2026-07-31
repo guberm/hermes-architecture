@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-30T06:15:53-04:00`.
+> Public-safe architecture snapshot generated at `2026-07-31T06:47:06-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,9 +36,9 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 70 jobs; 35 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 341 detected skill files across 26 categories | Private/client-sensitive skill names are omitted from examples. |
-| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 30 | Hook command bodies are not published. |
+| Scheduled tasks / cron | 71 jobs; 35 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Skills | 353 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
+| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
 | Plugins | 73 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
@@ -52,7 +52,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 32 | Other local automation jobs. |
+| Other scheduled automation | 33 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 10 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -66,12 +66,13 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | .archive | 11 |
 | android | 2 |
 | apple | 5 |
-| autonomous-ai-agents | 15 |
+| autonomous-ai-agents | 16 |
 | creative | 40 |
 | data-science | 2 |
-| devops | 22 |
+| devops | 23 |
 | ecc-imports | 4 |
 | email | 3 |
+| external | 7 |
 | gaming | 2 |
 | github | 14 |
 | mcp | 2 |
@@ -80,13 +81,13 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | note-taking | 4 |
 | operations | 1 |
 | personal | 9 |
-| productivity | 36 |
+| productivity | 38 |
 | red-teaming | 1 |
 | research | 29 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 73 |
+| software-development | 74 |
 | uncategorized | 23 |
 | web-development | 1 |
 
@@ -114,12 +115,12 @@ Public-safe skill examples:
 | `outlines` | mlops | Outlines: structured JSON/regex/Pydantic LLM generation. |
 | `qdrant-vector-search` | mlops | High-performance vector similarity search engine for RAG and semantic search. Use when building production RAG systems requiring fast neares |
 | `strategic-reading` | uncategorized | Read a book, article, transcript, or case study through the lens of a specific strategic problem you |
-| `gif-search` | media | Search/download GIFs from Tenor via curl + jq. |
-| `spotify` | media | Spotify: play, search, queue, manage playlists and devices. |
-| `youtube-content` | media | YouTube transcripts to summaries, threads, blogs. |
-| `article-enrichment` | uncategorized | Transform raw article text dumps in the brain into structured pages with executive summary, verbatim quotes, key insights, why-it-matters, a |
-| `osint-investigation` | research | Public-records OSINT investigation framework — SEC EDGAR filings, USAspending contracts, Senate lobbying, OFAC sanctions, ICIJ offshore leak |
-| `domain-intel` | research | Passive domain reconnaissance using Python stdlib. Subdomain discovery, SSL certificate inspection, WHOIS lookups, DNS records, domain avail |
+| `better-colors` | external | OKLCH color space and color usage for web projects. Convert hex/rgb/hsl to oklch, generate palettes, check contrast, handle gamut boundaries |
+| `better-layout` | external | Layout structure for web interfaces, from grouping and alignment to reading order, progressive disclosure, and adaptive breakpoints. Use whe |
+| `better-ui` | external | Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing an |
+| `better-interface` | external | >- |
+| `better-typography` | external | Web typography from choosing fonts to spacing, wrapping and accessibility. Use when picking or pairing typefaces, configuring variable fonts |
+| `better-accessibility` | external | Accessibility engineering for product interfaces, from focus states and keyboard support to ARIA, forms, and screen readers. Use when buildi |
 
 
 ### Hooks, webhooks, and plugin hook manifests
@@ -242,7 +243,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 32 | Other local automation jobs. |
+| Other scheduled automation | 33 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 10 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -303,12 +304,12 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.19.0 (2026.7.20) · upstream fa8b959b · local a0e8f6be (+23 carried commits)
+Hermes Agent v0.19.0 (2026.7.20) · upstream b1858f33 · local a0e8f6be (+23 carried commits)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 2966 commits behind — run 'hermes update'
+Update available: 3107 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:

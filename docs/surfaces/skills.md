@@ -9,12 +9,13 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | .archive | 11 |
 | android | 2 |
 | apple | 5 |
-| autonomous-ai-agents | 15 |
+| autonomous-ai-agents | 16 |
 | creative | 40 |
 | data-science | 2 |
-| devops | 22 |
+| devops | 23 |
 | ecc-imports | 4 |
 | email | 3 |
+| external | 7 |
 | gaming | 2 |
 | github | 14 |
 | mcp | 2 |
@@ -23,13 +24,13 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | note-taking | 4 |
 | operations | 1 |
 | personal | 9 |
-| productivity | 36 |
+| productivity | 38 |
 | red-teaming | 1 |
 | research | 29 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 73 |
+| software-development | 74 |
 | uncategorized | 23 |
 | web-development | 1 |
 
@@ -56,6 +57,13 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `outlines` | mlops | Outlines: structured JSON/regex/Pydantic LLM generation. |
 | `qdrant-vector-search` | mlops | High-performance vector similarity search engine for RAG and semantic search. Use when building production RAG systems requiring fast neares |
 | `strategic-reading` | uncategorized | Read a book, article, transcript, or case study through the lens of a specific strategic problem you |
+| `better-colors` | external | OKLCH color space and color usage for web projects. Convert hex/rgb/hsl to oklch, generate palettes, check contrast, handle gamut boundaries |
+| `better-layout` | external | Layout structure for web interfaces, from grouping and alignment to reading order, progressive disclosure, and adaptive breakpoints. Use whe |
+| `better-ui` | external | Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing an |
+| `better-interface` | external | >- |
+| `better-typography` | external | Web typography from choosing fonts to spacing, wrapping and accessibility. Use when picking or pairing typefaces, configuring variable fonts |
+| `better-accessibility` | external | Accessibility engineering for product interfaces, from focus states and keyboard support to ARIA, forms, and screen readers. Use when buildi |
+| `better-writing` | external | >- |
 | `gif-search` | media | Search/download GIFs from Tenor via curl + jq. |
 | `spotify` | media | Spotify: play, search, queue, manage playlists and devices. |
 | `youtube-content` | media | YouTube transcripts to summaries, threads, blogs. |
@@ -70,13 +78,6 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `[REDACTED]` | research | Evaluate whether a third-party service or product is trustworthy, integrable, and compliant enough for automation, purchasing, or review for |
 | `[REDACTED]` | research | Use when academic or deep-research work needs source discovery, evidence gating, experiment-backed writing, or submission support. |
 | `[REDACTED]` | research | Evidence-first review of technical articles, architecture case studies, and bare blog links—especially when no public implementation artifac |
-| `darwinian-evolver` | research | Evolve prompts/regex/SQL/code with Imbue |
-| `[REDACTED]` | research | Calibrate and safely relax LLM editorial-admissibility gates in automated news pipelines when valid event reports are rejected as opinion, r |
-| `[REDACTED]` | research | Use when a native full-page screenshot is blank, sparse, clipped, distorted, or missing lazy-loaded and scroll-revealed content. Warm the re |
-| `[REDACTED]` | research | Use when extracting structured data from a browser session the user has already authorized, especially when no usable API exists. Applies th |
-| `[REDACTED]` | research | Evaluate desktop AI-agent applications that edit files, run commands, use local/remote/cloud models, or overlap with Hermes. Use for product |
-| `[REDACTED]` | research | Diagnose inaccessible public websites, login portals, and SPAs by separating DNS, network, TLS, HTTP routing, static-app loading, browser ex |
-| `polymarket` | research | Query Polymarket: markets, prices, orderbooks, history. |
 
 ## Operational meaning
 
