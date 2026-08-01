@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-07-31T06:47:06-04:00`.
+> Public-safe architecture snapshot generated at `2026-08-01T06:15:12-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,10 +36,10 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 71 jobs; 35 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 353 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
+| Scheduled tasks / cron | 72 jobs; 37 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Skills | 349 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
-| Plugins | 73 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
+| Plugins | 80 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
@@ -52,7 +52,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 33 | Other local automation jobs. |
+| Other scheduled automation | 34 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 10 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -66,9 +66,9 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | .archive | 11 |
 | android | 2 |
 | apple | 5 |
-| autonomous-ai-agents | 16 |
+| autonomous-ai-agents | 18 |
 | creative | 40 |
-| data-science | 2 |
+| data-science | 1 |
 | devops | 23 |
 | ecc-imports | 4 |
 | email | 3 |
@@ -76,19 +76,19 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | gaming | 2 |
 | github | 14 |
 | mcp | 2 |
-| media | 7 |
-| mlops | 25 |
+| media | 6 |
+| mlops | 23 |
 | note-taking | 4 |
-| operations | 1 |
+| operations | 2 |
 | personal | 9 |
-| productivity | 38 |
+| productivity | 37 |
 | red-teaming | 1 |
 | research | 29 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 74 |
-| uncategorized | 23 |
+| software-development | 78 |
+| uncategorized | 17 |
 | web-development | 1 |
 
 
@@ -107,12 +107,12 @@ Public-safe skill examples:
 | `chroma` | mlops | Open-source embedding database for AI applications. Store embeddings and metadata, perform vector and full-text search, filter by metadata.  |
 | `faiss` | mlops | Facebook |
 | `[REDACTED]` | mlops | Evidence-first evaluation of local LLM recommendations against the user |
-| `weights-and-biases` | mlops | W&B: log ML experiments, sweeps, model registry, dashboards. |
 | `evaluating-llms-harness` | mlops | lm-eval-harness: benchmark LLMs (MMLU, GSM8K, etc.). |
+| `weights-and-biases` | mlops | W&B: log ML experiments, sweeps, model registry, dashboards. |
 | `llama-cpp` | mlops | llama.cpp local GGUF inference + HF Hub model discovery. |
 | `obliteratus` | mlops | OBLITERATUS: abliterate LLM refusals (diff-in-means). |
-| `serving-llms-vllm` | mlops | vLLM: high-throughput LLM serving, OpenAI API, quantization. |
 | `outlines` | mlops | Outlines: structured JSON/regex/Pydantic LLM generation. |
+| `serving-llms-vllm` | mlops | vLLM: high-throughput LLM serving, OpenAI API, quantization. |
 | `qdrant-vector-search` | mlops | High-performance vector similarity search engine for RAG and semantic search. Use when building production RAG systems requiring fast neares |
 | `strategic-reading` | uncategorized | Read a book, article, transcript, or case study through the lens of a specific strategic problem you |
 | `better-colors` | external | OKLCH color space and color usage for web projects. Convert hex/rgb/hsl to oklch, generate palettes, check contrast, handle gamut boundaries |
@@ -155,6 +155,8 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 
 | Plugin | Status |
 |---|---|
+| `browser-browser-use` | not enabled |
+| `browser-browserbase` | not enabled |
 | `browser-firecrawl` | not enabled |
 | `chronos` | not enabled |
 | `basic` | not enabled |
@@ -170,21 +172,19 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 | `openai-codex` | not enabled |
 | `openrouter` | not enabled |
 | `xai` | not enabled |
+| `ai-gateway-provider` | not enabled |
 | `alibaba-provider` | not enabled |
 | `anthropic-provider` | not enabled |
 | `arcee-provider` | not enabled |
 | `bedrock-provider` | not enabled |
 | `copilot-provider` | not enabled |
+| `copilot-acp-provider` | not enabled |
 | `custom-provider` | not enabled |
 | `deepinfra-provider` | not enabled |
 | `deepseek-provider` | not enabled |
 | `fireworks-provider` | not enabled |
 | `gemini-provider` | not enabled |
 | `gmi-provider` | not enabled |
-| `kilocode-provider` | not enabled |
-| `minimax-provider` | not enabled |
-| `nous-provider` | not enabled |
-| `novita-provider` | not enabled |
 
 
 ## Low-Level Surface Files
@@ -243,7 +243,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 33 | Other local automation jobs. |
+| Other scheduled automation | 34 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 10 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -304,12 +304,12 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.19.0 (2026.7.20) · upstream b1858f33 · local a0e8f6be (+23 carried commits)
+Hermes Agent v0.19.1 (2026.7.30) · upstream d1f1d737 · local 00196f96 (+4722 carried commits)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 3107 commits behind — run 'hermes update'
+Update available: 6 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:

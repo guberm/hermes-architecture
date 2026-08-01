@@ -9,9 +9,9 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | .archive | 11 |
 | android | 2 |
 | apple | 5 |
-| autonomous-ai-agents | 16 |
+| autonomous-ai-agents | 18 |
 | creative | 40 |
-| data-science | 2 |
+| data-science | 1 |
 | devops | 23 |
 | ecc-imports | 4 |
 | email | 3 |
@@ -19,19 +19,19 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | gaming | 2 |
 | github | 14 |
 | mcp | 2 |
-| media | 7 |
-| mlops | 25 |
+| media | 6 |
+| mlops | 23 |
 | note-taking | 4 |
-| operations | 1 |
+| operations | 2 |
 | personal | 9 |
-| productivity | 38 |
+| productivity | 37 |
 | red-teaming | 1 |
 | research | 29 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 74 |
-| uncategorized | 23 |
+| software-development | 78 |
+| uncategorized | 17 |
 | web-development | 1 |
 
 ## Public-safe examples
@@ -49,12 +49,12 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `chroma` | mlops | Open-source embedding database for AI applications. Store embeddings and metadata, perform vector and full-text search, filter by metadata. |
 | `faiss` | mlops | Facebook |
 | `[REDACTED]` | mlops | Evidence-first evaluation of local LLM recommendations against the user |
-| `weights-and-biases` | mlops | W&B: log ML experiments, sweeps, model registry, dashboards. |
 | `evaluating-llms-harness` | mlops | lm-eval-harness: benchmark LLMs (MMLU, GSM8K, etc.). |
+| `weights-and-biases` | mlops | W&B: log ML experiments, sweeps, model registry, dashboards. |
 | `llama-cpp` | mlops | llama.cpp local GGUF inference + HF Hub model discovery. |
 | `obliteratus` | mlops | OBLITERATUS: abliterate LLM refusals (diff-in-means). |
-| `serving-llms-vllm` | mlops | vLLM: high-throughput LLM serving, OpenAI API, quantization. |
 | `outlines` | mlops | Outlines: structured JSON/regex/Pydantic LLM generation. |
+| `serving-llms-vllm` | mlops | vLLM: high-throughput LLM serving, OpenAI API, quantization. |
 | `qdrant-vector-search` | mlops | High-performance vector similarity search engine for RAG and semantic search. Use when building production RAG systems requiring fast neares |
 | `strategic-reading` | uncategorized | Read a book, article, transcript, or case study through the lens of a specific strategic problem you |
 | `better-colors` | external | OKLCH color space and color usage for web projects. Convert hex/rgb/hsl to oklch, generate palettes, check contrast, handle gamut boundaries |

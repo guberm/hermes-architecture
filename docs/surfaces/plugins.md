@@ -4,6 +4,8 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 
 | Plugin | Status |
 |---|---|
+| `browser-browser-use` | not enabled |
+| `browser-browserbase` | not enabled |
 | `browser-firecrawl` | not enabled |
 | `chronos` | not enabled |
 | `basic` | not enabled |
@@ -19,22 +21,28 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `openai-codex` | not enabled |
 | `openrouter` | not enabled |
 | `xai` | not enabled |
+| `ai-gateway-provider` | not enabled |
 | `alibaba-provider` | not enabled |
 | `anthropic-provider` | not enabled |
 | `arcee-provider` | not enabled |
 | `bedrock-provider` | not enabled |
 | `copilot-provider` | not enabled |
+| `copilot-acp-provider` | not enabled |
 | `custom-provider` | not enabled |
 | `deepinfra-provider` | not enabled |
 | `deepseek-provider` | not enabled |
 | `fireworks-provider` | not enabled |
 | `gemini-provider` | not enabled |
 | `gmi-provider` | not enabled |
+| `huggingface-provider` | not enabled |
 | `kilocode-provider` | not enabled |
+| `kimi-coding-provider` | not enabled |
 | `minimax-provider` | not enabled |
 | `nous-provider` | not enabled |
 | `novita-provider` | not enabled |
 | `nvidia-provider` | not enabled |
+| `openrouter-provider` | not enabled |
+| `qwen-oauth-provider` | not enabled |
 | `stepfun-provider` | not enabled |
 | `upstage-provider` | not enabled |
 | `vertex-provider` | not enabled |
@@ -43,13 +51,16 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `zai-provider` | not enabled |
 | `langfuse` | not enabled |
 | `nemo_relay` | not enabled |
+| `buzz-platform` | not enabled |
 | `dingtalk-platform` | not enabled |
 | `discord-platform` | not enabled |
 | `email-platform` | not enabled |
 | `feishu-platform` | not enabled |
+| `google_chat-platform` | not enabled |
 | `irc-platform` | not enabled |
 | `line-platform` | not enabled |
 | `matrix-platform` | not enabled |
+| `mattermost-platform` | not enabled |
 | `ntfy-platform` | not enabled |
 | `photon-platform` | not enabled |
 | `raft-platform` | not enabled |
@@ -73,10 +84,6 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `web-parallel` | not enabled |
 | `web-searxng` | not enabled |
 | `web-tavily` | not enabled |
-| `web-xai` | not enabled |
-| `hermes-lcm` | enabled |
-| `orca-status` | enabled |
-| `agent-monitor` | enabled |
 
 ## Notes
 
