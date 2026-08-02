@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-08-01T06:15:12-04:00`.
+> Public-safe architecture snapshot generated at `2026-08-02T06:15:37-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,9 +36,9 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 72 jobs; 37 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 349 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
-| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
+| Scheduled tasks / cron | 74 jobs; 38 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Skills | 351 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
+| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 28 | Hook command bodies are not published. |
 | Plugins | 80 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
@@ -52,9 +52,9 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 34 | Other local automation jobs. |
+| Other scheduled automation | 35 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
-| Reliability watchdogs | 10 | Auto-healing, environment guards, timeout/watchdog checks. |
+| Reliability watchdogs | 11 | Auto-healing, environment guards, timeout/watchdog checks. |
 
 
 ### Skills surface
@@ -83,11 +83,11 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | personal | 9 |
 | productivity | 37 |
 | red-teaming | 1 |
-| research | 29 |
+| research | 30 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 78 |
+| software-development | 79 |
 | uncategorized | 17 |
 | web-development | 1 |
 
@@ -243,9 +243,9 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 34 | Other local automation jobs. |
+| Other scheduled automation | 35 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
-| Reliability watchdogs | 10 | Auto-healing, environment guards, timeout/watchdog checks. |
+| Reliability watchdogs | 11 | Auto-healing, environment guards, timeout/watchdog checks. |
 
 
 ## Agentic Operating Model
@@ -304,12 +304,12 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.19.1 (2026.7.30) · upstream d1f1d737 · local 00196f96 (+4722 carried commits)
+Hermes Agent v0.19.1 (2026.7.30) · upstream 927662e4
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 6 commits behind — run 'hermes update'
+Up to date
 ```
 
 - Fallback chain:
