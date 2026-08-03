@@ -20,7 +20,6 @@ Public-safe view of the durable orchestration layer added around the Hermes gate
 
 ```text
 NAME                  ON DISK   COUNTS
-claude                yes       (idle)
 coding                yes       done=1
 default               yes       blocked=1, done=7, todo=2
 ghidra-restricted     yes       (idle)
