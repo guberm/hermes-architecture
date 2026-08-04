@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-08-03T06:15:11-04:00`.
+> Public-safe architecture snapshot generated at `2026-08-04T06:15:12-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,8 +36,8 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 76 jobs; 39 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 351 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
+| Scheduled tasks / cron | 75 jobs; 38 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Skills | 354 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
 | Plugins | 80 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -47,7 +47,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Category | Active jobs | Public-safe purpose |
 |---|---:|---|
-| Backup & sync | 6 | Protect configuration, repositories, databases, and knowledge stores. |
+| Backup & sync | 5 | Protect configuration, repositories, databases, and knowledge stores. |
 | GitHub & publishing | 7 | Maintain GitHub/publication surfaces and repo health digests. |
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
@@ -83,11 +83,11 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | personal | 9 |
 | productivity | 37 |
 | red-teaming | 1 |
-| research | 30 |
+| research | 32 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 79 |
+| software-development | 80 |
 | uncategorized | 17 |
 | web-development | 1 |
 
@@ -238,7 +238,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Category | Active jobs | Public-safe purpose |
 |---|---:|---|
-| Backup & sync | 6 | Protect configuration, repositories, databases, and knowledge stores. |
+| Backup & sync | 5 | Protect configuration, repositories, databases, and knowledge stores. |
 | GitHub & publishing | 7 | Maintain GitHub/publication surfaces and repo health digests. |
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
@@ -304,12 +304,12 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.19.1 (2026.7.30) · upstream d1afa160 · local 282f4542 (+3 carried commits)
+Hermes Agent v0.20.0 (2026.8.3)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Update available: 315 commits behind — run 'hermes update'
+Run 'hermes version' for update status.
 ```
 
 - Fallback chain:

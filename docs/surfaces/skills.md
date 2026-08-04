@@ -26,11 +26,11 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | personal | 9 |
 | productivity | 37 |
 | red-teaming | 1 |
-| research | 30 |
+| research | 32 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 79 |
+| software-development | 80 |
 | uncategorized | 17 |
 | web-development | 1 |
 
@@ -68,6 +68,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `spotify` | media | Spotify: play, search, queue, manage playlists and devices. |
 | `youtube-content` | media | YouTube transcripts to summaries, threads, blogs. |
 | `article-enrichment` | uncategorized | Transform raw article text dumps in the brain into structured pages with executive summary, verbatim quotes, key insights, why-it-matters, a |
+| `grounded-citations` | research | Ground answers and documents in cited, verifiable sources. |
 | `osint-investigation` | research | Public-records OSINT investigation framework — SEC EDGAR filings, USAspending contracts, Senate lobbying, OFAC sanctions, ICIJ offshore leak |
 | `domain-intel` | research | Passive domain reconnaissance using Python stdlib. Subdomain discovery, SSL certificate inspection, WHOIS lookups, DNS records, domain avail |
 | `[REDACTED]` | research | Evaluate agent memory systems locally before adopting cloud memory vendors like Synap, Mem0, Zep, or Supermemory. |
@@ -77,7 +78,6 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `[REDACTED]` | research | Evidence-first evaluation of third-party model releases, quantizations, conversions, altered-safety variants, and gated model repositories b |
 | `[REDACTED]` | research | Evaluate whether a third-party service or product is trustworthy, integrable, and compliant enough for automation, purchasing, or review for |
 | `[REDACTED]` | research | Use when academic or deep-research work needs source discovery, evidence gating, experiment-backed writing, or submission support. |
-| `[REDACTED]` | research | Evidence-first review of technical articles, architecture case studies, and bare blog links—especially when no public implementation artifac |
 
 ## Operational meaning
 

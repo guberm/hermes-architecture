@@ -51,6 +51,7 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `zai-provider` | not enabled |
 | `langfuse` | not enabled |
 | `nemo_relay` | not enabled |
+| `a2a-platform` | not enabled |
 | `buzz-platform` | not enabled |
 | `dingtalk-platform` | not enabled |
 | `discord-platform` | not enabled |
@@ -83,7 +84,6 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `web-firecrawl` | not enabled |
 | `web-parallel` | not enabled |
 | `web-searxng` | not enabled |
-| `web-tavily` | not enabled |
 
 ## Notes
 
