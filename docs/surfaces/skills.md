@@ -19,7 +19,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | gaming | 2 |
 | github | 14 |
 | mcp | 2 |
-| media | 6 |
+| media | 7 |
 | mlops | 23 |
 | note-taking | 4 |
 | operations | 2 |
@@ -65,6 +65,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `better-accessibility` | external | Accessibility engineering for product interfaces, from focus states and keyboard support to ARIA, forms, and screen readers. Use when buildi |
 | `better-writing` | external | >- |
 | `gif-search` | media | Search/download GIFs from Tenor via curl + jq. |
+| `video-analysis` | media | Use when analyzing an explicitly supplied local video file. |
 | `spotify` | media | Spotify: play, search, queue, manage playlists and devices. |
 | `youtube-content` | media | YouTube transcripts to summaries, threads, blogs. |
 | `article-enrichment` | uncategorized | Transform raw article text dumps in the brain into structured pages with executive summary, verbatim quotes, key insights, why-it-matters, a |
@@ -77,7 +78,6 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `blogwatcher` | research | Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool. |
 | `[REDACTED]` | research | Evidence-first evaluation of third-party model releases, quantizations, conversions, altered-safety variants, and gated model repositories b |
 | `[REDACTED]` | research | Evaluate whether a third-party service or product is trustworthy, integrable, and compliant enough for automation, purchasing, or review for |
-| `[REDACTED]` | research | Use when academic or deep-research work needs source discovery, evidence gating, experiment-backed writing, or submission support. |
 
 ## Operational meaning
 
