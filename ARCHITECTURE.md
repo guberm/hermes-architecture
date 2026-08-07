@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-08-06T06:15:29-04:00`.
+> Public-safe architecture snapshot generated at `2026-08-07T06:15:12-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,7 +36,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 80 jobs; 39 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Scheduled tasks / cron | 80 jobs; 41 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
 | Skills | 356 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
 | Plugins | 80 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
@@ -206,7 +206,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Role | Provider | Model | Notes |
 |---|---|---|---|
 | Primary | openai-codex | gpt-5.6-sol | Default for Telegram/API/CLI gateway sessions |
-| Fallback | openai-codex | gpt-5.6-sol | Used when primary fails |
+| Fallback |  |  | Used when primary fails |
 | Optional provider | lmstudio | qwenvl3bunc | http://127.0.0.1:1234/v1 |
 | Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |
 | Optional provider | freekimi | cfbt-kimi | http://127.0.0.1:3271/v1 |
@@ -313,7 +313,13 @@ Run 'hermes version' for update status.
 - Fallback chain:
 
 ```text
-[REDACTED]
+Primary:   gpt-5.6-sol  (via openai-codex)
+
+  Fallback chain (1 entry):
+1. gpt-5.3-codex-spark  (via openai-codex)  [https://chatgpt.com/backend-api/codex]
+
+  Tried in order when the primary fails (rate-limit, 5xx, connection errors).
+  Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/fallback-providers
 ```
 
 - MCP list:
