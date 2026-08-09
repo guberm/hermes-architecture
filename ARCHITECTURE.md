@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-08-08T06:15:31-04:00`.
+> Public-safe architecture snapshot generated at `2026-08-09T06:15:53-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,8 +36,8 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 80 jobs; 41 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 357 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
+| Scheduled tasks / cron | 79 jobs; 38 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Skills | 358 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
 | Plugins | 80 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -47,12 +47,12 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Category | Active jobs | Public-safe purpose |
 |---|---:|---|
-| Backup & sync | 6 | Protect configuration, repositories, databases, and knowledge stores. |
-| GitHub & publishing | 7 | Maintain GitHub/publication surfaces and repo health digests. |
+| Backup & sync | 7 | Protect configuration, repositories, databases, and knowledge stores. |
+| GitHub & publishing | 6 | Maintain GitHub/publication surfaces and repo health digests. |
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 40 | Other local automation jobs. |
+| Other scheduled automation | 39 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 11 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -87,7 +87,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 82 |
+| software-development | 83 |
 | uncategorized | 17 |
 | web-development | 1 |
 
@@ -205,7 +205,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Role | Provider | Model | Notes |
 |---|---|---|---|
-| Primary | anthropic | claude-sonnet-5 | Default for Telegram/API/CLI gateway sessions |
+| Primary | openai-codex | gpt-5.6-sol | Default for Telegram/API/CLI gateway sessions |
 | Fallback |  |  | Used when primary fails |
 | Optional provider | lmstudio | qwenvl3bunc | http://127.0.0.1:1234/v1 |
 | Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |
@@ -236,12 +236,12 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Category | Active jobs | Public-safe purpose |
 |---|---:|---|
-| Backup & sync | 6 | Protect configuration, repositories, databases, and knowledge stores. |
-| GitHub & publishing | 7 | Maintain GitHub/publication surfaces and repo health digests. |
+| Backup & sync | 7 | Protect configuration, repositories, databases, and knowledge stores. |
+| GitHub & publishing | 6 | Maintain GitHub/publication surfaces and repo health digests. |
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 40 | Other local automation jobs. |
+| Other scheduled automation | 39 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 11 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -269,7 +269,7 @@ The live system currently exposes the public-safe profile roster as:
 ```text
 Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
- ◆default         claude-sonnet-5              running      —            —
+ ◆default         gpt-5.6-sol                  running      —            —
   claude          —                            stopped      —            —
   coding          gpt-5.6-sol                  stopped      coding       —
   ghidra-restricted gpt-5.6-sol                  stopped      —            —
@@ -313,9 +313,13 @@ Run 'hermes version' for update status.
 - Fallback chain:
 
 ```text
-No fallback providers configured.
+Primary:   gpt-5.6-sol  (via openai-codex)
 
-  Add one with:  hermes fallback add
+  Fallback chain (1 entry):
+1. claude-sonnet-5  (via anthropic)
+
+  Tried in order when the primary fails (rate-limit, 5xx, connection errors).
+  Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/fallback-providers
 ```
 
 - MCP list:
