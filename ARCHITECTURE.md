@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-08-09T06:15:53-04:00`.
+> Public-safe architecture snapshot generated at `2026-08-10T06:15:18-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -313,13 +313,9 @@ Run 'hermes version' for update status.
 - Fallback chain:
 
 ```text
-Primary:   gpt-5.6-sol  (via openai-codex)
+No fallback providers configured.
 
-  Fallback chain (1 entry):
-1. claude-sonnet-5  (via anthropic)
-
-  Tried in order when the primary fails (rate-limit, 5xx, connection errors).
-  Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/fallback-providers
+  Add one with:  hermes fallback add
 ```
 
 - MCP list:

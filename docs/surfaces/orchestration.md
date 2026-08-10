@@ -23,7 +23,7 @@ NAME                  ON DISK   COUNTS
 coding                yes       done=1
 default               yes       blocked=1, done=7, todo=2
 ghidra-restricted     yes       (idle)
-researcher            yes       blocked=33, done=24, todo=1
+researcher            yes       blocked=34, done=24, todo=1
 reviewer              yes       blocked=6, done=21, todo=4
 security-restricted   yes       (idle)
 worker                yes       blocked=25, done=30, todo=6
