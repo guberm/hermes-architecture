@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-08-11T06:15:20-04:00`.
+> Public-safe architecture snapshot generated at `2026-08-12T06:15:53-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,7 +36,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 79 jobs; 38 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Scheduled tasks / cron | 80 jobs; 37 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
 | Skills | 358 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
 | Plugins | 80 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
@@ -52,7 +52,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 39 | Other local automation jobs. |
+| Other scheduled automation | 40 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 11 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -241,7 +241,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 39 | Other local automation jobs. |
+| Other scheduled automation | 40 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 11 | Auto-healing, environment guards, timeout/watchdog checks. |
 
