@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-08-13T06:15:54-04:00`.
+> Public-safe architecture snapshot generated at `2026-08-14T06:15:08-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -37,7 +37,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 81 jobs; 38 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 358 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
+| Skills | 359 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
 | Plugins | 80 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -87,7 +87,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 83 |
+| software-development | 84 |
 | uncategorized | 17 |
 | web-development | 1 |
 
@@ -219,9 +219,11 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Item | Status |
 |---|---|
-| LM Studio endpoint | `not reachable` at `http://127.0.0.1:1234/v1` |
-| Reported model IDs | `none` |
-| Chat smoke test | `blocked_or_unavailable: <urlopen error [Errno 111] Connection refused>` |
+| LM Studio endpoint | `available` at `http://127.0.0.1:1234/v1` |
+| Reported model IDs | `gemma4unc, [REDACTED]` |
+| Chat smoke test | `blocked_or_unavailable: {
+"error": {
+    "message": "Failed to load model \"gemma4unc\". Error: Model loading was stopped due to insufficient system resources. Under the current settings, this model requires approximately 14.36 GB of memory, and continuing` |
 | Safety decision | Main Hermes remains `openai-codex/gpt-5.5`; local provider is optional until a model can load reliably. |
 
 ## MCP and External Tooling

@@ -29,8 +29,8 @@ Low-level public-safe runtime routing document.
 | Item | Value |
 |---|---|
 | LM Studio base URL | `http://127.0.0.1:1234/v1` |
-| Model IDs | `` |
-| Chat smoke test | `blocked_or_unavailable: <urlopen error [Errno 111] Connection refused>` |
+| Model IDs | `gemma4unc, [REDACTED]` |
+| Chat smoke test | `blocked_or_unavailable: {     "error": {         "message": "Failed to load model \"gemma4unc\". Error: Model loading was stopped due to insufficient system resources. Under the current settings, this model requires approximately 14.36 GB of memory, and continuing` |
 
 ## Safety routing
 
