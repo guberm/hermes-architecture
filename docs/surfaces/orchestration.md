@@ -19,14 +19,7 @@ Public-safe view of the durable orchestration layer added around the Hermes gate
 ## Live Kanban assignees
 
 ```text
-NAME                  ON DISK   COUNTS
-coding                yes       done=1
-default               yes       blocked=1, done=7, todo=2
-ghidra-restricted     yes       (idle)
-researcher            yes       blocked=34, done=24, todo=1
-reviewer              yes       blocked=6, done=21, todo=4
-security-restricted   yes       (idle)
-worker                yes       blocked=25, done=30, todo=6
+kanban: could not initialize database: delegate_task child contexts cannot mutate Kanban tasks or boards
 ```
 
 ## Active orchestration config

@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-08-15T06:15:55-04:00`.
+> Public-safe architecture snapshot generated at `2026-08-15T15:27:48-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -47,12 +47,12 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Category | Active jobs | Public-safe purpose |
 |---|---:|---|
-| Backup & sync | 7 | Protect configuration, repositories, databases, and knowledge stores. |
+| Backup & sync | 6 | Protect configuration, repositories, databases, and knowledge stores. |
 | GitHub & publishing | 6 | Maintain GitHub/publication surfaces and repo health digests. |
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 42 | Other local automation jobs. |
+| Other scheduled automation | 43 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 11 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -238,12 +238,12 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Category | Active jobs | Public-safe purpose |
 |---|---:|---|
-| Backup & sync | 7 | Protect configuration, repositories, databases, and knowledge stores. |
+| Backup & sync | 6 | Protect configuration, repositories, databases, and knowledge stores. |
 | GitHub & publishing | 6 | Maintain GitHub/publication surfaces and repo health digests. |
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 42 | Other local automation jobs. |
+| Other scheduled automation | 43 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 11 | Auto-healing, environment guards, timeout/watchdog checks. |
 
