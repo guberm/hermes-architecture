@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T15:43:34-04:00",
+  "generated_at": "2026-08-15T15:44:34-04:00",
   "public_repo": "this public repository",
   "host": {
     "primary": "Linux host running Hermes gateway as a systemd service",
@@ -574,7 +574,7 @@
       "Durable multi-step work should prefer Kanban with default/researcher/worker/reviewer profiles; delegate_task remains for bounded fork-join reasoning.",
       "Config/profile/rule/skill/private-architecture changes require verification and private backup before final reporting."
     ],
-    "kanban_assignees_sanitized": "kanban: could not initialize database: delegate_task child contexts cannot mutate Kanban tasks or boards",
+    "kanban_assignees_sanitized": "NAME                  ON DISK   COUNTS\ncoding                yes       done=1\ndefault               yes       blocked=1, done=7, todo=2\nghidra-restricted     yes       (idle)\nresearcher            yes       blocked=35, done=24, todo=1\nreviewer              yes       blocked=6, done=21, todo=4\nsecurity-restricted   yes       (idle)\nworker                yes       blocked=25, done=30, todo=6",
     "profile_team": [
       "default",
       "researcher",
@@ -945,12 +945,12 @@
           "category": "Reliability watchdogs",
           "schedule": "every 15m",
           "repeat": "∞",
-          "next_run": "2026-08-15T15:43:12.189558-04:00",
+          "next_run": "2026-08-15T15:59:13.071866-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-08-15T15:28:12.189558-04:00  ok"
+          "last_run": "2026-08-15T15:44:13.071866-04:00  ok"
         },
         {
           "name": "Hermes private ops wiki public route watchdog",
