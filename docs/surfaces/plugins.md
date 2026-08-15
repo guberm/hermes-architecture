@@ -21,6 +21,7 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `openai-codex` | not enabled |
 | `openrouter` | not enabled |
 | `xai` | not enabled |
+| `actual-provider` | not enabled |
 | `ai-gateway-provider` | not enabled |
 | `alibaba-provider` | not enabled |
 | `anthropic-provider` | not enabled |
@@ -83,7 +84,6 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `web-exa` | not enabled |
 | `web-firecrawl` | not enabled |
 | `web-parallel` | not enabled |
-| `web-searxng` | not enabled |
 
 ## Notes
 
