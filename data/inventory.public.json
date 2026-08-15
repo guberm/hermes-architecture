@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T15:27:48-04:00",
+  "generated_at": "2026-08-15T15:43:34-04:00",
   "public_repo": "this public repository",
   "host": {
     "primary": "Linux host running Hermes gateway as a systemd service",
@@ -793,12 +793,12 @@
           "category": "Reliability watchdogs",
           "schedule": "every 15m",
           "repeat": "∞",
-          "next_run": "2026-08-15T15:42:07.520585-04:00",
+          "next_run": "2026-08-15T15:57:11.717981-04:00",
           "deliver": "origin",
           "script": "hermes_auto_healer.py",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-08-15T15:27:07.520585-04:00  ok"
+          "last_run": "2026-08-15T15:42:11.717981-04:00  ok"
         },
         {
           "name": "[Reliability watchdogs task]",
@@ -862,12 +862,12 @@
           "category": "Media/news monitoring",
           "schedule": "every 30m",
           "repeat": "∞",
-          "next_run": "2026-08-15T15:29:34.320714-04:00",
+          "next_run": "2026-08-15T16:00:08.663268-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-08-15T14:59:34.320714-04:00  ok"
+          "last_run": "2026-08-15T15:30:08.663268-04:00  ok"
         },
         {
           "name": "Hourly GBrain auto-healer",
@@ -921,12 +921,12 @@
           "category": "Reliability watchdogs",
           "schedule": "every 15m",
           "repeat": "∞",
-          "next_run": "2026-08-15T15:28:06.674091-04:00",
+          "next_run": "2026-08-15T15:58:14.761782-04:00",
           "deliver": "configured private channel",
           "script": "glances_system_monitor.py",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-08-15T15:13:06.674091-04:00  ok"
+          "last_run": "2026-08-15T15:43:14.761782-04:00  ok"
         },
         {
           "name": "Daily React Doctor web watchdog",
@@ -945,12 +945,12 @@
           "category": "Reliability watchdogs",
           "schedule": "every 15m",
           "repeat": "∞",
-          "next_run": "2026-08-15T15:28:07.518637-04:00",
+          "next_run": "2026-08-15T15:43:12.189558-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-08-15T15:13:07.518637-04:00  ok"
+          "last_run": "2026-08-15T15:28:12.189558-04:00  ok"
         },
         {
           "name": "Hermes private ops wiki public route watchdog",
@@ -1045,12 +1045,12 @@
           "category": "Reliability watchdogs",
           "schedule": "every 5m",
           "repeat": "∞",
-          "next_run": "2026-08-15T15:31:07.363856-04:00",
+          "next_run": "2026-08-15T15:46:11.576870-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-08-15T15:26:07.363856-04:00  ok"
+          "last_run": "2026-08-15T15:41:11.576870-04:00  ok"
         },
         {
           "name": "Weekly high-signal backlog review",
@@ -1234,13 +1234,13 @@
           "name": "Mattermost public route auto-healer",
           "category": "Reliability watchdogs",
           "schedule": "every 5m",
-          "repeat": "6195/999999",
-          "next_run": "2026-08-15T15:31:07.723699-04:00",
+          "repeat": "6198/999999",
+          "next_run": "2026-08-15T15:47:12.106967-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-08-15T15:26:07.723699-04:00  ok"
+          "last_run": "2026-08-15T15:42:12.106967-04:00  ok"
         },
         {
           "name": "Habr Russian articles hourly monitor",
