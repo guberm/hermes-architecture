@@ -30,7 +30,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 84 |
+| software-development | 85 |
 | uncategorized | 17 |
 | web-development | 1 |
 
