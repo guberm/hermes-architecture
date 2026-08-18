@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-08-17T06:15:10-04:00`.
+> Public-safe architecture snapshot generated at `2026-08-18T06:15:48-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -37,7 +37,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 82 jobs; 38 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 381 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
+| Skills | 386 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
 | Plugins | 80 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -69,7 +69,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | autonomous-ai-agents | 20 |
 | creative | 40 |
 | data-science | 1 |
-| devops | 25 |
+| devops | 27 |
 | ecc-imports | 4 |
 | email | 5 |
 | external | 7 |
@@ -81,13 +81,13 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | note-taking | 4 |
 | operations | 2 |
 | personal | 9 |
-| productivity | 47 |
+| productivity | 49 |
 | red-teaming | 1 |
 | research | 35 |
 | security | 3 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 85 |
+| software-development | 86 |
 | uncategorized | 17 |
 | web-development | 1 |
 
@@ -178,13 +178,13 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 | `anthropic-provider` | not enabled |
 | `arcee-provider` | not enabled |
 | `bedrock-provider` | not enabled |
+| `commandcode-provider` | not enabled |
 | `copilot-provider` | not enabled |
 | `copilot-acp-provider` | not enabled |
 | `custom-provider` | not enabled |
 | `deepinfra-provider` | not enabled |
 | `deepseek-provider` | not enabled |
 | `fireworks-provider` | not enabled |
-| `gemini-provider` | not enabled |
 
 
 ## Low-Level Surface Files
@@ -304,7 +304,7 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.20.1 (2026.8.13)
+Hermes Agent v0.20.3 (2026.8.16.2)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.15
@@ -315,9 +315,14 @@ Run 'hermes version' for update status.
 - Fallback chain:
 
 ```text
-No fallback providers configured.
+Primary:   gpt-5.6-sol  (via openai-codex)
 
-  Add one with:  hermes fallback add
+  Fallback chain (2 entries):
+1. openai/gpt-5.6-sol  (via openrouter)  [https://openrouter.ai/api/v1]
+2. gpt-5.3-codex-spark  (via openai-codex)  [https://chatgpt.com/backend-api/codex]
+
+  Tried in order when the primary fails (rate-limit, 5xx, connection errors).
+  Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/fallback-providers
 ```
 
 - MCP list:

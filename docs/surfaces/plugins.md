@@ -27,6 +27,7 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `anthropic-provider` | not enabled |
 | `arcee-provider` | not enabled |
 | `bedrock-provider` | not enabled |
+| `commandcode-provider` | not enabled |
 | `copilot-provider` | not enabled |
 | `copilot-acp-provider` | not enabled |
 | `custom-provider` | not enabled |
@@ -83,7 +84,6 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `web-ddgs` | not enabled |
 | `web-exa` | not enabled |
 | `web-firecrawl` | not enabled |
-| `web-parallel` | not enabled |
 
 ## Notes
 
