@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-08-21T06:15:25-04:00`.
+> Public-safe architecture snapshot generated at `2026-08-22T06:15:23-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,7 +36,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 80 jobs; 38 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Scheduled tasks / cron | 79 jobs; 38 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
 | Skills | 392 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
 | Plugins | 80 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
@@ -52,7 +52,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 42 | Other local automation jobs. |
+| Other scheduled automation | 41 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 11 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -206,13 +206,14 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Role | Provider | Model | Notes |
 |---|---|---|---|
 | Primary | openai-codex | gpt-5.6-sol | Default for Telegram/API/CLI gateway sessions |
-| Fallback |  |  | Used when primary fails |
+| Fallback | nous | stealth/ox-alpha | Used when primary fails |
 | Optional provider | lmstudio | qwenvl3bunc | http://127.0.0.1:1234/v1 |
 | Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |
 | Optional provider | freekimi | cfbt-kimi | http://127.0.0.1:3271/v1 |
 | Optional provider | forge_freekimi | cfbt-kimi | http://127.0.0.1:8081/v1 |
 | Optional provider | forge_lmstudio | qwenvl3bunc | http://127.0.0.1:8082/v1 |
 | Optional provider | chatgpt_web | chatgpt-5.6-sol-high-web | https://codex.guber.dev/v1 |
+| Optional provider | opencode_go | deepseek-v4-flash | https://opencode.ai/zen/go/v1 |
 
 
 ### Local model trial status
@@ -243,7 +244,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 42 | Other local automation jobs. |
+| Other scheduled automation | 41 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 11 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -318,8 +319,8 @@ Run 'hermes version' for update status.
 Primary:   gpt-5.6-sol  (via openai-codex)
 
   Fallback chain (2 entries):
-1. gpt-5.3-codex-spark  (via openai-codex)  [https://chatgpt.com/backend-api/codex]
-2. meta/llama-3.3-70b-instruct  (via nvidia)  [https://integrate.api.nvidia.com/v1]
+1. gpt-5.3-codex-spark  (via openai-codex)
+2. stealth/ox-alpha  (via nous)
 
   Tried in order when the primary fails (rate-limit, 5xx, connection errors).
   Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/fallback-providers

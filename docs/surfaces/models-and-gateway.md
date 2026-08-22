@@ -7,13 +7,14 @@ Low-level public-safe runtime routing document.
 | Role | Provider | Model | Notes |
 |---|---|---|---|
 | Primary | openai-codex | gpt-5.6-sol | Default for Telegram/API/CLI gateway sessions |
-| Fallback |  |  | Used when primary fails |
+| Fallback | nous | stealth/ox-alpha | Used when primary fails |
 | Optional provider | lmstudio | qwenvl3bunc | http://127.0.0.1:1234/v1 |
 | Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |
 | Optional provider | freekimi | cfbt-kimi | http://127.0.0.1:3271/v1 |
 | Optional provider | forge_freekimi | cfbt-kimi | http://127.0.0.1:8081/v1 |
 | Optional provider | forge_lmstudio | qwenvl3bunc | http://127.0.0.1:8082/v1 |
 | Optional provider | chatgpt_web | chatgpt-5.6-sol-high-web | https://codex.guber.dev/v1 |
+| Optional provider | opencode_go | deepseek-v4-flash | https://opencode.ai/zen/go/v1 |
 
 
 ## Gateway
