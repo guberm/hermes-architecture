@@ -27,11 +27,11 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | productivity | 49 |
 | red-teaming | 1 |
 | research | 35 |
-| security | 3 |
+| security | 4 |
 | smart-home | 5 |
 | social-media | 2 |
 | software-development | 89 |
-| uncategorized | 18 |
+| uncategorized | 19 |
 | web-development | 1 |
 
 ## Public-safe examples
