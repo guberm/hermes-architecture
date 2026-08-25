@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-08-24T06:15:01-04:00`.
+> Public-safe architecture snapshot generated at `2026-08-25T06:15:20-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,10 +36,10 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 79 jobs; 38 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 394 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
-| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 29 | Hook command bodies are not published. |
-| Plugins | 80 visible plugin rows captured; enabled estimate 6 | Descriptions omitted to avoid leaking credential/env surfaces. |
+| Scheduled tasks / cron | 80 jobs; 39 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Skills | 398 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
+| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 25 | Hook command bodies are not published. |
+| Plugins | 58 visible plugin rows captured; enabled estimate 5 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
@@ -54,7 +54,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
 | Other scheduled automation | 41 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
-| Reliability watchdogs | 11 | Auto-healing, environment guards, timeout/watchdog checks. |
+| Reliability watchdogs | 12 | Auto-healing, environment guards, timeout/watchdog checks. |
 
 
 ### Skills surface
@@ -87,7 +87,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | security | 4 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 89 |
+| software-development | 93 |
 | uncategorized | 19 |
 | web-development | 1 |
 
@@ -129,10 +129,6 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 
 | Hook manifest surface |
 |---|
-| `.hermes/oss-evals/2026-06-26/orca-sandbox/home/.gemini/config/hooks.json` |
-| `.hermes/oss-evals/2026-06-26/orca-sandbox/home/.cursor/hooks.json` |
-| `.hermes/oss-evals/2026-06-26/orca-sandbox/config/orca/codex-runtime-home/home/hooks.json` |
-| `.hermes/oss-evals/agent-orchestrators/2026-07-13/wit/hooks/hooks.json` |
 | `.claude/plugins/marketplaces/thedotmack/plugin/hooks/hooks.json` |
 | `.claude/plugins/marketplaces/thedotmack/cursor-hooks/hooks.json` |
 | `.claude/plugins/marketplaces/claude-plugins-official/plugins/learning-output-style/hooks/hooks.json` |
@@ -149,6 +145,10 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 | `.claude/plugins/marketplaces/claude-code-plugins/plugins/ralph-wiggum/hooks/hooks.json` |
 | `[REDACTED]` |
 | `.claude/plugins/marketplaces/ponytail/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.12.4/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.11.0/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.12.2/hooks/hooks.json` |
+| `.claude/plugins/cache/thedotmack/claude-mem/13.13.0/hooks/hooks.json` |
 
 
 ### Plugin surface
@@ -172,19 +172,19 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 | `openai-codex` | not enabled |
 | `openrouter` | not enabled |
 | `xai` | not enabled |
-| `actual-provider` | not enabled |
-| `ai-gateway-provider` | not enabled |
-| `alibaba-provider` | not enabled |
-| `anthropic-provider` | not enabled |
-| `arcee-provider` | not enabled |
-| `bedrock-provider` | not enabled |
-| `commandcode-provider` | not enabled |
-| `copilot-provider` | not enabled |
-| `copilot-acp-provider` | not enabled |
-| `custom-provider` | not enabled |
-| `deepinfra-provider` | not enabled |
-| `deepseek-provider` | not enabled |
-| `fireworks-provider` | not enabled |
+| `langfuse` | not enabled |
+| `a2a-platform` | not enabled |
+| `buzz-platform` | not enabled |
+| `dingtalk-platform` | not enabled |
+| `discord-platform` | not enabled |
+| `email-platform` | not enabled |
+| `feishu-platform` | not enabled |
+| `google_chat-platform` | not enabled |
+| `irc-platform` | not enabled |
+| `line-platform` | not enabled |
+| `matrix-platform` | not enabled |
+| `mattermost-platform` | not enabled |
+| `ntfy-platform` | not enabled |
 
 
 ## Low-Level Surface Files
@@ -205,15 +205,14 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Role | Provider | Model | Notes |
 |---|---|---|---|
-| Primary | openai-codex | gpt-5.6-sol | Default for Telegram/API/CLI gateway sessions |
-| Fallback | nous | stealth/ox-alpha | Used when primary fails |
+| Primary | nous | stealth/ox-alpha | Default for Telegram/API/CLI gateway sessions |
+| Fallback |  |  | Used when primary fails |
 | Optional provider | lmstudio | qwenvl3bunc | http://127.0.0.1:1234/v1 |
 | Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |
 | Optional provider | freekimi | cfbt-kimi | http://127.0.0.1:3271/v1 |
 | Optional provider | forge_freekimi | cfbt-kimi | http://127.0.0.1:8081/v1 |
 | Optional provider | forge_lmstudio | qwenvl3bunc | http://127.0.0.1:8082/v1 |
 | Optional provider | chatgpt_web | chatgpt-5.6-sol-high-web | https://codex.guber.dev/v1 |
-| Optional provider | opencode_go | deepseek-v4-flash | https://opencode.ai/zen/go/v1 |
 
 
 ### Local model trial status
@@ -246,7 +245,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
 | Other scheduled automation | 41 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
-| Reliability watchdogs | 11 | Auto-healing, environment guards, timeout/watchdog checks. |
+| Reliability watchdogs | 12 | Auto-healing, environment guards, timeout/watchdog checks. |
 
 
 ## Agentic Operating Model
@@ -272,7 +271,7 @@ The live system currently exposes the public-safe profile roster as:
 ```text
 Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
- ◆default         gpt-5.6-sol                  running      —            —
+ ◆default         stealth/ox-alpha             running      —            —
   claude          —                            stopped      —            —
   coding          gpt-5.6-sol                  stopped      coding       —
   ghidra-restricted gpt-5.6-sol                  stopped      —            —
@@ -305,24 +304,22 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.20.3 (2026.8.16.2)
+Hermes Agent v0.20.5 (2026.8.19)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.15
 OpenAI SDK: 2.24.0
-Run 'hermes version' for update status.
 ```
 
 - Fallback chain:
 
 ```text
-Primary:   gpt-5.6-sol  (via openai-codex)
+Primary:   stealth/ox-alpha  (via nous)
 
-  Fallback chain (4 entries):
-1. ox-alpha-free  (via opencode_go)
-2. stealth/ox-alpha  (via nous)
+  Fallback chain (3 entries):
+1. ox-alpha-free  (via opencode-go)
+2. gpt-5.6-terra  (via openai-codex)
 3. gpt-5.3-codex-spark  (via openai-codex)
-4. moonshotai/kimi-k3-free  (via tokenrouter)
 
   Tried in order when the primary fails (rate-limit, 5xx, connection errors).
   Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/fallback-providers

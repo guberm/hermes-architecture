@@ -21,38 +21,7 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `openai-codex` | not enabled |
 | `openrouter` | not enabled |
 | `xai` | not enabled |
-| `actual-provider` | not enabled |
-| `ai-gateway-provider` | not enabled |
-| `alibaba-provider` | not enabled |
-| `anthropic-provider` | not enabled |
-| `arcee-provider` | not enabled |
-| `bedrock-provider` | not enabled |
-| `commandcode-provider` | not enabled |
-| `copilot-provider` | not enabled |
-| `copilot-acp-provider` | not enabled |
-| `custom-provider` | not enabled |
-| `deepinfra-provider` | not enabled |
-| `deepseek-provider` | not enabled |
-| `fireworks-provider` | not enabled |
-| `gemini-provider` | not enabled |
-| `gmi-provider` | not enabled |
-| `huggingface-provider` | not enabled |
-| `kilocode-provider` | not enabled |
-| `kimi-coding-provider` | not enabled |
-| `minimax-provider` | not enabled |
-| `nous-provider` | not enabled |
-| `novita-provider` | not enabled |
-| `nvidia-provider` | not enabled |
-| `openrouter-provider` | not enabled |
-| `qwen-oauth-provider` | not enabled |
-| `stepfun-provider` | not enabled |
-| `upstage-provider` | not enabled |
-| `vertex-provider` | not enabled |
-| `xai-provider` | not enabled |
-| `xiaomi-provider` | not enabled |
-| `zai-provider` | not enabled |
 | `langfuse` | not enabled |
-| `nemo_relay` | not enabled |
 | `a2a-platform` | not enabled |
 | `buzz-platform` | not enabled |
 | `dingtalk-platform` | not enabled |
@@ -84,6 +53,15 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `web-ddgs` | not enabled |
 | `web-exa` | not enabled |
 | `web-firecrawl` | not enabled |
+| `web-keenable` | not enabled |
+| `web-parallel` | not enabled |
+| `web-searxng` | not enabled |
+| `web-tavily` | not enabled |
+| `web-xai` | not enabled |
+| `agency-agents-router` | enabled |
+| `hermes-lcm` | enabled |
+| `observability-local` | enabled |
+| `orca-status` | enabled |
 
 ## Notes
 
