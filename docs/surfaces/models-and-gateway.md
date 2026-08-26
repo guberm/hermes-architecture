@@ -14,6 +14,7 @@ Low-level public-safe runtime routing document.
 | Optional provider | forge_freekimi | cfbt-kimi | http://127.0.0.1:8081/v1 |
 | Optional provider | forge_lmstudio | qwenvl3bunc | http://127.0.0.1:8082/v1 |
 | Optional provider | chatgpt_web | chatgpt-5.6-sol-high-web | https://codex.guber.dev/v1 |
+| Optional provider | codex_web_gpt | chatgpt-web/light | http://100.82.137.49:17842/v1 |
 
 
 ## Gateway
