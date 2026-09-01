@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-08-31T06:15:33-04:00`.
+> Public-safe architecture snapshot generated at `2026-09-01T06:15:18-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -37,7 +37,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 78 jobs; 39 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 398 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
+| Skills | 399 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 25 | Hook command bodies are not published. |
 | Plugins | 58 visible plugin rows captured; enabled estimate 5 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -87,7 +87,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | security | 4 |
 | smart-home | 5 |
 | social-media | 2 |
-| software-development | 93 |
+| software-development | 94 |
 | uncategorized | 19 |
 | web-development | 1 |
 
