@@ -6,7 +6,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 
 | Category | Count |
 |---|---:|
-| .archive | 11 |
+| .archive | 12 |
 | android | 2 |
 | apple | 5 |
 | autonomous-ai-agents | 20 |
@@ -24,7 +24,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | note-taking | 4 |
 | operations | 3 |
 | personal | 9 |
-| productivity | 49 |
+| productivity | 48 |
 | red-teaming | 1 |
 | research | 35 |
 | security | 4 |

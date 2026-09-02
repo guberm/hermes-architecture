@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-09-01T06:15:18-04:00`.
+> Public-safe architecture snapshot generated at `2026-09-02T09:31:34-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -38,7 +38,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 |---|---|---|
 | Scheduled tasks / cron | 78 jobs; 39 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
 | Skills | 399 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
-| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 25 | Hook command bodies are not published. |
+| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 22 | Hook command bodies are not published. |
 | Plugins | 58 visible plugin rows captured; enabled estimate 5 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
@@ -63,7 +63,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 
 | Skill category | Count |
 |---|---:|
-| .archive | 11 |
+| .archive | 12 |
 | android | 2 |
 | apple | 5 |
 | autonomous-ai-agents | 20 |
@@ -81,7 +81,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | note-taking | 4 |
 | operations | 3 |
 | personal | 9 |
-| productivity | 49 |
+| productivity | 48 |
 | red-teaming | 1 |
 | research | 35 |
 | security | 4 |
@@ -145,10 +145,10 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 | `.claude/plugins/marketplaces/claude-code-plugins/plugins/ralph-wiggum/hooks/hooks.json` |
 | `[REDACTED]` |
 | `.claude/plugins/marketplaces/ponytail/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.12.4/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.11.0/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.12.2/hooks/hooks.json` |
 | `.claude/plugins/cache/thedotmack/claude-mem/13.13.0/hooks/hooks.json` |
+| `.claude/plugins/cache/claude-plugins-official/superpowers/6.1.1/hooks/hooks.json` |
+| `.claude/plugins/cache/claude-plugins-official/superpowers/6.2.0/hooks/hooks.json` |
+| `.claude/plugins/cache/claude-code-warp/warp/2.0.0/hooks/hooks.json` |
 
 
 ### Plugin surface
