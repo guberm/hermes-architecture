@@ -8,76 +8,77 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 |---|---:|
 | .archive | 12 |
 | android | 2 |
-| apple | 5 |
-| autonomous-ai-agents | 20 |
-| creative | 40 |
+| apple | 9 |
+| autonomous-ai-agents | 22 |
+| creative | 35 |
 | data-science | 1 |
 | devops | 28 |
 | ecc-imports | 4 |
 | email | 5 |
 | external | 7 |
 | gaming | 2 |
-| github | 16 |
+| github | 9 |
 | mcp | 2 |
-| media | 7 |
-| mlops | 23 |
+| media | 8 |
+| mlops | 18 |
 | note-taking | 4 |
 | operations | 3 |
 | personal | 9 |
-| productivity | 48 |
+| productivity | 45 |
 | red-teaming | 1 |
-| research | 35 |
+| research | 33 |
 | security | 4 |
-| smart-home | 5 |
+| smart-home | 4 |
 | social-media | 2 |
-| software-development | 94 |
+| software-development | 100 |
 | uncategorized | 19 |
+| web | 2 |
 | web-development | 1 |
 
 ## Public-safe examples
 
 | Skill | Category | Description |
 |---|---|---|
-| `dspy` | mlops | DSPy: declarative LM programs, auto-optimize prompts, RAG. |
-| `fine-tuning-with-trl` | mlops | TRL: SFT, DPO, PPO, GRPO, reward modeling for LLM RLHF. |
-| `axolotl` | mlops | Axolotl: YAML LLM fine-tuning (LoRA, DPO, GRPO). |
-| `unsloth` | mlops | Unsloth: 2-5x faster LoRA/QLoRA fine-tuning, less VRAM. |
-| `instructor` | mlops | Extract structured data from LLM responses with Pydantic validation, retry failed extractions automatically, parse complex JSON with type sa |
-| `nemo-curator` | mlops | GPU-accelerated data curation for LLM training. Supports text/image/video/audio. Features fuzzy deduplication (16× faster), quality filterin |
-| `huggingface-hub` | mlops | HuggingFace hf CLI: search/download/upload models, datasets. |
-| `segment-anything-model` | mlops | SAM: zero-shot image segmentation via points, boxes, masks. |
-| `chroma` | mlops | Open-source embedding database for AI applications. Store embeddings and metadata, perform vector and full-text search, filter by metadata. |
-| `faiss` | mlops | Facebook |
-| `[REDACTED]` | mlops | Evidence-first evaluation of local LLM recommendations against the user |
-| `evaluating-llms-harness` | mlops | lm-eval-harness: benchmark LLMs (MMLU, GSM8K, etc.). |
-| `weights-and-biases` | mlops | W&B: log ML experiments, sweeps, model registry, dashboards. |
-| `llama-cpp` | mlops | llama.cpp local GGUF inference + HF Hub model discovery. |
-| `obliteratus` | mlops | OBLITERATUS: abliterate LLM refusals (diff-in-means). |
-| `outlines` | mlops | Outlines: structured JSON/regex/Pydantic LLM generation. |
-| `serving-llms-vllm` | mlops | vLLM: high-throughput LLM serving, OpenAI API, quantization. |
-| `qdrant-vector-search` | mlops | High-performance vector similarity search engine for RAG and semantic search. Use when building production RAG systems requiring fast neares |
+| `obsidian` | note-taking | Read, search, create, and edit notes in the Obsidian vault. |
+| `comfyui` | creative | Generate images, video, and audio with ComfyUI — install, launch, manage nodes/models, run workflows with parameter injection. Uses the offi |
+| `[REDACTED]` | creative | Article illustrations: type × style × palette consistency. |
+| `humanizer` | creative | Humanize text: strip AI-isms and add real voice. |
+| `pixel-art` | creative | Pixel art w/ era palettes (NES, Game Boy, PICO-8). |
+| `ascii-video` | creative | ASCII video: convert video/audio to colored ASCII MP4/GIF. |
+| `manim-video` | creative | Manim CE animations: 3Blue1Brown math/algo videos. |
+| `architecture-diagram` | creative | Dark-themed SVG architecture/cloud/infra diagrams as HTML. |
+| `ascii-media` | creative | Create ASCII still art, banners, image conversions, and animated ASCII video/audio visuals from one umbrella workflow. |
+| `claude-design` | creative | Design one-off HTML artifacts (landing, deck, prototype). |
+| `pretext` | creative | Build creative browser demos with DOM-free text layout. |
+| `hyperframes` | creative | Create HTML-based video compositions, animated title cards, social overlays, captioned talking-head videos, audio-reactive visuals, and shad |
+| `apple-design` | creative | Design or review Apple-inspired web interactions with direct manipulation, interruptible spring motion, velocity handoff, momentum, rubber-b |
+| `[REDACTED]` | creative | Songwriting craft and Suno AI music prompts. |
+| `p5js` | creative | p5.js sketches: gen art, shaders, interactive, 3D. |
+| `reference-safe-design` | creative | Use when a user supplies websites, screenshots, brand campaigns, moodboards, copy, motion, or assets and wants either an originality audit o |
+| `baoyu-comic` | creative | Knowledge comics (知识漫画): educational, biography, tutorial. |
+| `touchdesigner-mcp` | creative | Control TouchDesigner via twozero MCP. |
+| `ideation` | creative | Generate project ideas via creative constraints. |
+| `design-md` | creative | Author/validate/export Google |
+| `excalidraw` | creative | Hand-drawn Excalidraw JSON diagrams (arch, flow, seq). |
+| `popular-web-designs` | creative | 54 real design systems (Stripe, Linear, Vercel) as HTML/CSS. |
+| `concept-diagrams` | creative | Generate flat, minimal light/dark-aware SVG diagrams as standalone HTML files, using a unified educational visual language with 9 semantic c |
+| `blender-mcp` | creative | Control Blender directly from Hermes via socket connection to the blender-mcp addon. Create 3D objects, materials, animations, and run arbit |
+| `baoyu-infographic` | creative | Infographics: 21 layouts x 21 styles (信息图, 可视化). |
 | `strategic-reading` | uncategorized | Read a book, article, transcript, or case study through the lens of a specific strategic problem you |
-| `better-colors` | external | OKLCH color space and color usage for web projects. Convert hex/rgb/hsl to oklch, generate palettes, check contrast, handle gamut boundaries |
-| `better-layout` | external | Layout structure for web interfaces, from grouping and alignment to reading order, progressive disclosure, and adaptive breakpoints. Use whe |
-| `better-ui` | external | Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing an |
-| `better-interface` | external | >- |
-| `better-typography` | external | Web typography from choosing fonts to spacing, wrapping and accessibility. Use when picking or pairing typefaces, configuring variable fonts |
-| `better-accessibility` | external | Accessibility engineering for product interfaces, from focus states and keyboard support to ARIA, forms, and screen readers. Use when buildi |
-| `better-writing` | external | >- |
-| `gif-search` | media | Search/download GIFs from Tenor via curl + jq. |
-| `video-analysis` | media | Use when analyzing an explicitly supplied local video file. |
-| `spotify` | media | Spotify: play, search, queue, manage playlists and devices. |
-| `youtube-content` | media | YouTube transcripts to summaries, threads, blogs. |
 | `article-enrichment` | uncategorized | Transform raw article text dumps in the brain into structured pages with executive summary, verbatim quotes, key insights, why-it-matters, a |
-| `grounded-citations` | research | Ground answers and documents in cited, verifiable sources. |
-| `osint-investigation` | research | Public-records OSINT investigation framework — SEC EDGAR filings, USAspending contracts, Senate lobbying, OFAC sanctions, ICIJ offshore leak |
-| `domain-intel` | research | Passive domain reconnaissance using Python stdlib. Subdomain discovery, SSL certificate inspection, WHOIS lookups, DNS records, domain avail |
-| `[REDACTED]` | research | Evaluate agent memory systems locally before adopting cloud memory vendors like Synap, Mem0, Zep, or Supermemory. |
-| `llm-wiki` | research | Karpathy |
-| `pixelrag-mcp-operations` | research | Operate and harden a local PixelRAG MCP wrapper for Hermes without exposing dangerous long-lived serve helpers through the gateway. |
-| `blogwatcher` | research | Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool. |
-| `[REDACTED]` | research | Evidence-first evaluation of third-party model releases, quantizations, conversions, altered-safety variants, and gated model repositories b |
-| `[REDACTED]` | research | Evaluate whether a third-party service or product is trustworthy, integrable, and compliant enough for automation, purchasing, or review for |
+| `[REDACTED]` | uncategorized | Validate TERMINAL_CWD and fallback runtime behavior. |
+| `[REDACTED]` | mcp | Configure, authenticate, verify, and safely operate Cloudflare |
+| `native-mcp` | mcp | MCP client: connect servers, register tools (stdio/HTTP). |
+| `retrieval-reflex` | uncategorized | When/what to retrieve — open the brain page for a salient entity before answering from memory. |
+| `maintain` | uncategorized | / |
+| `hermes-desktop-plugins` | uncategorized | Write desktop app plugins that add UI panes and commands. |
+| `[REDACTED]` | web-development | Deploy a Worker live, no account, via wrangler --temporary. |
+| `concept-synthesis` | uncategorized | Deduplicate and synthesize raw concept stubs into a tiered intellectual map (T1 Canon to T4 Riff), tracing idea evolution across sources ove |
+| `perplexity-research` | uncategorized | Brain-augmented web research. Sends brain context about a topic to Perplexity, which searches the web with citations and returns what is NEW |
+| `brain-pdf` | uncategorized | Generate a publication-quality PDF from a GBrain page or markdown file using Hermes-native Chrome rendering. The brain page remains the sour |
+| `skillpack-check` | uncategorized | / |
+| `jupyter-live-kernel` | data-science | Iterative Python via live Jupyter kernel (hamelnb). |
+| `yuanbao` | uncategorized | Yuanbao (元宝) groups: @mention users, query info/members. |
 
 ## Operational meaning
 

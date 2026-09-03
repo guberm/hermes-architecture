@@ -45,7 +45,8 @@ worker                yes       blocked=25, done=30, todo=6
     "auto_decompose": true,
     "auto_decompose_per_tick": 3,
     "dispatch_stale_timeout_seconds": 21600,
-    "auto_promote_children": true
+    "auto_promote_children": true,
+    "review_dispatch": true
   },
   "safe_self_improvement": {
     "enabled": true,

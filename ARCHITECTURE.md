@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-09-02T09:31:34-04:00`.
+> Public-safe architecture snapshot generated at `2026-09-03T06:15:53-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -37,8 +37,8 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 78 jobs; 39 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 399 detected skill files across 27 categories | Private/client-sensitive skill names are omitted from examples. |
-| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 22 | Hook command bodies are not published. |
+| Skills | 391 detected skill files across 28 categories | Private/client-sensitive skill names are omitted from examples. |
+| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 0 | Hook command bodies are not published. |
 | Plugins | 58 visible plugin rows captured; enabled estimate 5 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
@@ -65,30 +65,31 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 |---|---:|
 | .archive | 12 |
 | android | 2 |
-| apple | 5 |
-| autonomous-ai-agents | 20 |
-| creative | 40 |
+| apple | 9 |
+| autonomous-ai-agents | 22 |
+| creative | 35 |
 | data-science | 1 |
 | devops | 28 |
 | ecc-imports | 4 |
 | email | 5 |
 | external | 7 |
 | gaming | 2 |
-| github | 16 |
+| github | 9 |
 | mcp | 2 |
-| media | 7 |
-| mlops | 23 |
+| media | 8 |
+| mlops | 18 |
 | note-taking | 4 |
 | operations | 3 |
 | personal | 9 |
-| productivity | 48 |
+| productivity | 45 |
 | red-teaming | 1 |
-| research | 35 |
+| research | 33 |
 | security | 4 |
-| smart-home | 5 |
+| smart-home | 4 |
 | social-media | 2 |
-| software-development | 94 |
+| software-development | 100 |
 | uncategorized | 19 |
+| web | 2 |
 | web-development | 1 |
 
 
@@ -96,31 +97,31 @@ Public-safe skill examples:
 
 | Skill | Category | Public-safe description |
 |---|---|---|
-| `dspy` | mlops | DSPy: declarative LM programs, auto-optimize prompts, RAG. |
-| `fine-tuning-with-trl` | mlops | TRL: SFT, DPO, PPO, GRPO, reward modeling for LLM RLHF. |
-| `axolotl` | mlops | Axolotl: YAML LLM fine-tuning (LoRA, DPO, GRPO). |
-| `unsloth` | mlops | Unsloth: 2-5x faster LoRA/QLoRA fine-tuning, less VRAM. |
-| `instructor` | mlops | Extract structured data from LLM responses with Pydantic validation, retry failed extractions automatically, parse complex JSON with type sa |
-| `nemo-curator` | mlops | GPU-accelerated data curation for LLM training. Supports text/image/video/audio. Features fuzzy deduplication (16× faster), quality filterin |
-| `huggingface-hub` | mlops | HuggingFace hf CLI: search/download/upload models, datasets. |
-| `segment-anything-model` | mlops | SAM: zero-shot image segmentation via points, boxes, masks. |
-| `chroma` | mlops | Open-source embedding database for AI applications. Store embeddings and metadata, perform vector and full-text search, filter by metadata.  |
-| `faiss` | mlops | Facebook |
-| `[REDACTED]` | mlops | Evidence-first evaluation of local LLM recommendations against the user |
-| `evaluating-llms-harness` | mlops | lm-eval-harness: benchmark LLMs (MMLU, GSM8K, etc.). |
-| `weights-and-biases` | mlops | W&B: log ML experiments, sweeps, model registry, dashboards. |
-| `llama-cpp` | mlops | llama.cpp local GGUF inference + HF Hub model discovery. |
-| `obliteratus` | mlops | OBLITERATUS: abliterate LLM refusals (diff-in-means). |
-| `outlines` | mlops | Outlines: structured JSON/regex/Pydantic LLM generation. |
-| `serving-llms-vllm` | mlops | vLLM: high-throughput LLM serving, OpenAI API, quantization. |
-| `qdrant-vector-search` | mlops | High-performance vector similarity search engine for RAG and semantic search. Use when building production RAG systems requiring fast neares |
-| `strategic-reading` | uncategorized | Read a book, article, transcript, or case study through the lens of a specific strategic problem you |
-| `better-colors` | external | OKLCH color space and color usage for web projects. Convert hex/rgb/hsl to oklch, generate palettes, check contrast, handle gamut boundaries |
-| `better-layout` | external | Layout structure for web interfaces, from grouping and alignment to reading order, progressive disclosure, and adaptive breakpoints. Use whe |
-| `better-ui` | external | Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing an |
-| `better-interface` | external | >- |
-| `better-typography` | external | Web typography from choosing fonts to spacing, wrapping and accessibility. Use when picking or pairing typefaces, configuring variable fonts |
-| `better-accessibility` | external | Accessibility engineering for product interfaces, from focus states and keyboard support to ARIA, forms, and screen readers. Use when buildi |
+| `obsidian` | note-taking | Read, search, create, and edit notes in the Obsidian vault. |
+| `comfyui` | creative | Generate images, video, and audio with ComfyUI — install, launch, manage nodes/models, run workflows with parameter injection. Uses the offi |
+| `[REDACTED]` | creative | Article illustrations: type × style × palette consistency. |
+| `humanizer` | creative | Humanize text: strip AI-isms and add real voice. |
+| `pixel-art` | creative | Pixel art w/ era palettes (NES, Game Boy, PICO-8). |
+| `ascii-video` | creative | ASCII video: convert video/audio to colored ASCII MP4/GIF. |
+| `manim-video` | creative | Manim CE animations: 3Blue1Brown math/algo videos. |
+| `architecture-diagram` | creative | Dark-themed SVG architecture/cloud/infra diagrams as HTML. |
+| `ascii-media` | creative | Create ASCII still art, banners, image conversions, and animated ASCII video/audio visuals from one umbrella workflow. |
+| `claude-design` | creative | Design one-off HTML artifacts (landing, deck, prototype). |
+| `pretext` | creative | Build creative browser demos with DOM-free text layout. |
+| `hyperframes` | creative | Create HTML-based video compositions, animated title cards, social overlays, captioned talking-head videos, audio-reactive visuals, and shad |
+| `apple-design` | creative | Design or review Apple-inspired web interactions with direct manipulation, interruptible spring motion, velocity handoff, momentum, rubber-b |
+| `[REDACTED]` | creative | Songwriting craft and Suno AI music prompts. |
+| `p5js` | creative | p5.js sketches: gen art, shaders, interactive, 3D. |
+| `reference-safe-design` | creative | Use when a user supplies websites, screenshots, brand campaigns, moodboards, copy, motion, or assets and wants either an originality audit o |
+| `baoyu-comic` | creative | Knowledge comics (知识漫画): educational, biography, tutorial. |
+| `touchdesigner-mcp` | creative | Control TouchDesigner via twozero MCP. |
+| `ideation` | creative | Generate project ideas via creative constraints. |
+| `design-md` | creative | Author/validate/export Google |
+| `excalidraw` | creative | Hand-drawn Excalidraw JSON diagrams (arch, flow, seq). |
+| `popular-web-designs` | creative | 54 real design systems (Stripe, Linear, Vercel) as HTML/CSS. |
+| `concept-diagrams` | creative | Generate flat, minimal light/dark-aware SVG diagrams as standalone HTML files, using a unified educational visual language with 9 semantic c |
+| `blender-mcp` | creative | Control Blender directly from Hermes via socket connection to the blender-mcp addon. Create 3D objects, materials, animations, and run arbit |
+| `baoyu-infographic` | creative | Infographics: 21 layouts x 21 styles (信息图, 可视化). |
 
 
 ### Hooks, webhooks, and plugin hook manifests
@@ -129,26 +130,7 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 
 | Hook manifest surface |
 |---|
-| `.claude/plugins/marketplaces/thedotmack/plugin/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/thedotmack/cursor-hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-plugins-official/plugins/learning-output-style/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-plugins-official/plugins/security-guidance/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-plugins-official/plugins/claude-security/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-plugins-official/plugins/ralph-loop/hooks/hooks.json` |
-| `[REDACTED]` |
-| `.claude/plugins/marketplaces/claude-code-warp/plugins/warp/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/headroom-marketplace/plugins/headroom-agent-hooks/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-code-plugins/plugins/learning-output-style/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-code-plugins/plugins/security-guidance/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-code-plugins/plugins/hookify/hooks/hooks.json` |
-| `.claude/plugins/marketplaces/claude-code-plugins/plugins/ralph-wiggum/hooks/hooks.json` |
-| `[REDACTED]` |
-| `.claude/plugins/marketplaces/ponytail/hooks/hooks.json` |
-| `.claude/plugins/cache/thedotmack/claude-mem/13.13.0/hooks/hooks.json` |
-| `.claude/plugins/cache/claude-plugins-official/superpowers/6.1.1/hooks/hooks.json` |
-| `.claude/plugins/cache/claude-plugins-official/superpowers/6.2.0/hooks/hooks.json` |
-| `.claude/plugins/cache/claude-code-warp/warp/2.0.0/hooks/hooks.json` |
+| none detected |
 
 
 ### Plugin surface
@@ -205,7 +187,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Role | Provider | Model | Notes |
 |---|---|---|---|
-| Primary | nous | stealth/ox-alpha | Default for Telegram/API/CLI gateway sessions |
+| Primary | openai-codex | gpt-5.6-terra | Default for Telegram/API/CLI gateway sessions |
 | Fallback |  |  | Used when primary fails |
 | Optional provider | lmstudio | qwenvl3bunc | http://127.0.0.1:1234/v1 |
 | Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |
@@ -220,11 +202,9 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Item | Status |
 |---|---|
-| LM Studio endpoint | `available` at `http://127.0.0.1:1234/v1` |
-| Reported model IDs | `gemma4unc, [REDACTED]` |
-| Chat smoke test | `blocked_or_unavailable: {
-"error": {
-    "message": "Failed to load model \"gemma4unc\". Error: Model loading was stopped due to insufficient system resources. Under the current settings, this model requires approximately 14.36 GB of memory, and continuing` |
+| LM Studio endpoint | `not reachable` at `http://127.0.0.1:1234/v1` |
+| Reported model IDs | `none` |
+| Chat smoke test | `blocked_or_unavailable: <urlopen error [Errno 111] Connection refused>` |
 | Safety decision | Main Hermes remains `openai-codex/gpt-5.5`; local provider is optional until a model can load reliably. |
 
 ## MCP and External Tooling
@@ -272,7 +252,7 @@ The live system currently exposes the public-safe profile roster as:
 ```text
 Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
- ◆default         stealth/ox-alpha             running      —            —
+ ◆default         gpt-5.6-terra                running      —            —
   claude          —                            stopped      —            —
   coding          gpt-5.6-sol                  stopped      coding       —
   ghidra-restricted gpt-5.6-sol                  stopped      —            —
@@ -305,17 +285,18 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.20.5 (2026.8.19)
+Hermes Agent v0.21.0 (2026.8.31) · upstream 2b55ded1 · local 3ca096de (+1 carried commit)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
-Python: 3.11.15
+Python: 3.11.16
 OpenAI SDK: 2.24.0
+Update available: 679 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
 
 ```text
-Primary:   stealth/ox-alpha  (via nous)
+Primary:   gpt-5.6-terra  (via openai-codex)
 
   Fallback chain (3 entries):
 1. ox-alpha-free  (via opencode-go)

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T09:31:34-04:00",
+  "generated_at": "2026-09-03T06:15:53-04:00",
   "public_repo": "this public repository",
   "host": {
     "primary": "Linux host running Hermes gateway as a systemd service",
@@ -7,10 +7,11 @@
     "timezone": "operator local timezone"
   },
   "hermes": {
-    "version_output": "Hermes Agent v0.20.5 (2026.8.19)\nInstall directory: ~/.hermes/hermes-agent\nInstall method: git\nPython: 3.11.15\nOpenAI SDK: 2.24.0",
+    "version_output": "Hermes Agent v0.21.0 (2026.8.31) · upstream 2b55ded1 · local 3ca096de (+1 carried commit)\nInstall directory: ~/.hermes/hermes-agent\nInstall method: git\nPython: 3.11.16\nOpenAI SDK: 2.24.0\nUpdate available: 679 commits behind — run 'hermes update'",
     "primary_model": {
-      "provider": "nous",
-      "default": "stealth/ox-alpha"
+      "provider": "openai-codex",
+      "default": "gpt-5.6-terra",
+      "base_url": "https://chatgpt.com/backend-api/codex"
     },
     "fallback_model": {},
     "providers": {
@@ -269,7 +270,8 @@
         "language": ""
       },
       "openai": {
-        "model": "whisper-1"
+        "model": "whisper-1",
+        "language": ""
       },
       "mistral": {
         "model": "voxtral-mini-latest"
@@ -279,7 +281,8 @@
         "language_code": "",
         "tag_audio_events": false,
         "diarize": false
-      }
+      },
+      "language": "en"
     },
     "tts": {
       "provider": "edge",
@@ -565,7 +568,7 @@
     "list_output_sanitized": "[REDACTED]"
   },
   "profiles": {
-    "output_sanitized": "Profile          Model                        Gateway      Alias        Distribution\n ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────\n ◆default         stealth/ox-alpha             running      —            —\n  claude          —                            stopped      —            —\n  coding          gpt-5.6-sol                  stopped      coding       —\n  ghidra-restricted gpt-5.6-sol                  stopped      —            —\n  researcher      gpt-5.6-terra                stopped      hermes-researcher —\n  reviewer        gpt-5.6-sol                  stopped      hermes-reviewer —\n  security-restricted gpt-5.6-sol                  stopped      hermes-security —\n  worker          gpt-5.6-terra                stopped      hermes-worker —"
+    "output_sanitized": "Profile          Model                        Gateway      Alias        Distribution\n ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────\n ◆default         gpt-5.6-terra                running      —            —\n  claude          —                            stopped      —            —\n  coding          gpt-5.6-sol                  stopped      coding       —\n  ghidra-restricted gpt-5.6-sol                  stopped      —            —\n  researcher      gpt-5.6-terra                stopped      hermes-researcher —\n  reviewer        gpt-5.6-sol                  stopped      hermes-reviewer —\n  security-restricted gpt-5.6-sol                  stopped      hermes-security —\n  worker          gpt-5.6-terra                stopped      hermes-worker —"
   },
   "orchestration": {
     "kanban": {
@@ -580,7 +583,8 @@
       "auto_decompose": true,
       "auto_decompose_per_tick": 3,
       "dispatch_stale_timeout_seconds": 21600,
-      "auto_promote_children": true
+      "auto_promote_children": true,
+      "review_dispatch": true
     },
     "safe_self_improvement": {
       "enabled": true,
@@ -611,7 +615,7 @@
     "policy": "default is the interactive orchestrator; Kanban dispatcher launches researcher/worker/reviewer as ephemeral worker-runs when tasks are assigned."
   },
   "fallback": {
-    "output_sanitized": "Primary:   stealth/ox-alpha  (via nous)\n\n  Fallback chain (3 entries):\n    1. ox-alpha-free  (via opencode-go)\n    2. gpt-5.6-terra  (via openai-codex)\n    3. gpt-5.3-codex-spark  (via openai-codex)\n\n  Tried in order when the primary fails (rate-limit, 5xx, connection errors).\n  Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/fallback-providers"
+    "output_sanitized": "Primary:   gpt-5.6-terra  (via openai-codex)\n\n  Fallback chain (3 entries):\n    1. ox-alpha-free  (via opencode-go)\n    2. gpt-5.6-terra  (via openai-codex)\n    3. gpt-5.3-codex-spark  (via openai-codex)\n\n  Tried in order when the primary fails (rate-limit, 5xx, connection errors).\n  Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/fallback-providers"
   },
   "scheduled_automation": {
     "active_job_categories": {
@@ -650,23 +654,23 @@
           "category": "Backup & sync",
           "schedule": "0 3 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-03T03:00:00-04:00",
+          "next_run": "2026-09-04T03:00:00-04:00",
           "deliver": "configured private channel",
           "script": "daily_hermes_backup.sh",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-02T09:14:10.186953-04:00  ok"
+          "last_run": "2026-09-03T03:00:46.719921-04:00  error: Script exited with code 128"
         },
         {
           "name": "Daily DB SQLite Google Drive Backup",
           "category": "Backup & sync",
           "schedule": "30 4 * * *",
-          "repeat": "121/3650",
-          "next_run": "2026-09-03T04:30:00-04:00",
+          "repeat": "122/3650",
+          "next_run": "2026-09-04T04:30:00-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-02T09:14:27.852836-04:00  ok"
+          "last_run": "2026-09-03T04:30:57.797231-04:00  ok"
         },
         {
           "name": "github-health-digest",
@@ -685,40 +689,40 @@
           "category": "Other scheduled automation",
           "schedule": "15 2 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-03T02:15:00-04:00",
+          "next_run": "2026-09-04T02:15:00-04:00",
           "deliver": "configured private channel",
-          "last_run": "2026-09-02T09:14:28.745487-04:00  ok"
+          "last_run": "2026-09-03T02:19:36.315737-04:00  ok"
         },
         {
           "name": "world-update-brief",
           "category": "Media/news monitoring",
           "schedule": "0 7,19 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-02T19:00:00-04:00",
+          "next_run": "2026-09-03T07:00:00-04:00",
           "deliver": "configured private channel",
-          "last_run": "2026-09-01T20:37:31.984737-04:00  ok"
+          "last_run": "2026-09-02T23:34:09.302822-04:00  error: Gateway shutdown (post-interrupt) killed the job's tool subprocess before the run finished."
         },
         {
           "name": "[Backup & sync task]",
           "category": "Backup & sync",
           "schedule": "every 180m",
           "repeat": "∞",
-          "next_run": "2026-09-02T12:13:05.754557-04:00",
+          "next_run": "2026-09-03T08:22:47.498074-04:00",
           "deliver": "configured private channel",
           "script": "[private script]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-02T09:13:05.754557-04:00  error: Script exited with code 1"
+          "last_run": "2026-09-03T05:22:47.498074-04:00  error: Script exited with code 1"
         },
         {
           "name": "[GitHub & publishing task]",
           "category": "GitHub & publishing",
           "schedule": "every 1440m",
           "repeat": "∞",
-          "next_run": "2026-09-02T10:29:01.338152-04:00",
+          "next_run": "2026-09-03T10:29:39.997987-04:00",
           "deliver": "configured private channel",
           "script": "[private script]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-01T10:29:01.338152-04:00  ok"
+          "last_run": "2026-09-02T10:29:39.997987-04:00  ok"
         },
         {
           "name": "Weekly deep memory cleanup",
@@ -734,11 +738,11 @@
           "category": "Backup & sync",
           "schedule": "45 4 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-03T04:45:00-04:00",
+          "next_run": "2026-09-04T04:45:00-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-02T09:13:40.999286-04:00  ok"
+          "last_run": "2026-09-03T04:45:51.011937-04:00  ok"
         },
         {
           "name": "Daily RSS Bot Stats Report",
@@ -756,22 +760,22 @@
           "category": "Home automation",
           "schedule": "every 60m",
           "repeat": "∞",
-          "next_run": "2026-09-02T10:13:08.435491-04:00",
+          "next_run": "2026-09-03T06:38:51.196514-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-02T09:13:08.435491-04:00  ok"
+          "last_run": "2026-09-03T05:38:51.196514-04:00  ok"
         },
         {
           "name": "Home Assistant filtered 3-hour Google Sheet logger",
           "category": "Home automation",
           "schedule": "every 180m",
           "repeat": "∞",
-          "next_run": "2026-09-02T12:13:11.616547-04:00",
+          "next_run": "2026-09-03T08:22:51.483768-04:00",
           "deliver": "configured private channel",
           "script": "ha_entities_to_sheets.py",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-02T09:13:11.616547-04:00  ok"
+          "last_run": "2026-09-03T05:22:51.483768-04:00  ok"
         },
         {
           "name": "[REDACTED]",
@@ -787,112 +791,112 @@
           "category": "Other scheduled automation",
           "schedule": "20 8,20 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-02T20:20:00-04:00",
+          "next_run": "2026-09-03T08:20:00-04:00",
           "deliver": "configured private channel",
           "workdir": "~",
-          "last_run": "2026-09-02T09:26:52.523711-04:00  error: TimeoutError: Timed out waiting for the TERMINAL_CWD write lock after 660s — another cron job (a workdir writer, or long-running readers) has held it for longer than the cron inactivity limit. If a workdir job is the holder, stagger its schedule or remove its workdir to unblock this job (#79768).  (2 failures in a row)"
+          "last_run": "2026-09-02T23:22:34.657466-04:00  ok"
         },
         {
           "name": "[Private finance automation task]",
           "category": "Private finance automation",
           "schedule": "every 720m",
           "repeat": "∞",
-          "next_run": "2026-09-02T11:09:13.108582-04:00",
+          "next_run": "2026-09-03T11:22:24.430124-04:00",
           "deliver": "origin",
           "script": "[private script]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-01T23:09:13.108582-04:00  ok"
+          "last_run": "2026-09-02T23:22:24.430124-04:00  error: Script exited with code 1"
         },
         {
           "name": "[Private finance automation task]",
           "category": "Private finance automation",
           "schedule": "0 8,14,20 * * *",
-          "repeat": "261/3650",
-          "next_run": "2026-09-02T14:00:00-04:00",
+          "repeat": "263/3650",
+          "next_run": "2026-09-03T08:00:00-04:00",
           "deliver": "origin",
           "script": "[private script]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-02T09:31:21.996321-04:00  ok"
+          "last_run": "2026-09-02T23:22:11.831937-04:00  error: Script exited with code 1"
         },
         {
           "name": "Hermes cron auto-healer",
           "category": "Reliability watchdogs",
           "schedule": "every 15m",
           "repeat": "∞",
-          "next_run": "2026-09-02T09:46:22.477191-04:00",
+          "next_run": "2026-09-03T06:22:52.736384-04:00",
           "deliver": "origin",
           "script": "hermes_auto_healer.py",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-02T09:31:22.477191-04:00  ok"
+          "last_run": "2026-09-03T06:07:52.736384-04:00  ok"
         },
         {
           "name": "[Reliability watchdogs task]",
           "category": "Reliability watchdogs",
           "schedule": "every 720m",
           "repeat": "∞",
-          "next_run": "2026-09-02T21:31:26.886322-04:00",
+          "next_run": "2026-09-03T11:22:12.363710-04:00",
           "deliver": "origin",
           "script": "[private script]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-02T09:31:26.886322-04:00  ok"
+          "last_run": "2026-09-02T23:22:12.363710-04:00  ok"
         },
         {
           "name": "Nightly GBrain update watchdog",
           "category": "Knowledge & memory",
           "schedule": "20 3 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-03T03:20:00-04:00",
+          "next_run": "2026-09-04T03:20:00-04:00",
           "deliver": "origin",
           "script": "gbrain_update_watchdog.py",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-02T09:31:33.390381-04:00  ok"
+          "last_run": "2026-09-03T03:20:32.916609-04:00  ok"
         },
         {
           "name": "[Private finance automation task]",
           "category": "Private finance automation",
           "schedule": "15 8,14,20 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-02T14:15:00-04:00",
+          "next_run": "2026-09-03T08:15:00-04:00",
           "deliver": "origin",
           "script": "[private script]",
-          "last_run": "2026-09-02T09:14:38.157301-04:00  ok"
+          "last_run": "2026-09-02T23:22:41.986804-04:00  ok"
         },
         {
           "name": "[Private finance automation task]",
           "category": "Private finance automation",
           "schedule": "20 8,14,20 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-02T14:20:00-04:00",
+          "next_run": "2026-09-03T08:20:00-04:00",
           "deliver": "origin",
           "script": "[private script]",
-          "last_run": "2026-09-02T09:22:32.650182-04:00  ok"
+          "last_run": "2026-09-02T23:24:51.478965-04:00  ok"
         },
         {
           "name": "Hermes Python env guard",
           "category": "Reliability watchdogs",
           "schedule": "every 120m",
           "repeat": "∞",
-          "next_run": "2026-09-02T11:13:31.633998-04:00",
+          "next_run": "2026-09-03T07:36:49.552663-04:00",
           "deliver": "origin",
           "script": "hermes_python_env_guard.py",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-02T09:13:31.633998-04:00  ok"
+          "last_run": "2026-09-03T05:36:49.552663-04:00  error: Script exited with code 1"
         },
         {
           "name": "ForgetMe YouTube new video monitor",
           "category": "Media/news monitoring",
           "schedule": "every 30m",
           "repeat": "∞",
-          "next_run": "2026-09-02T10:01:34.017044-04:00",
+          "next_run": "2026-09-03T06:39:53.305200-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-02T09:31:34.017044-04:00  ok"
+          "last_run": "2026-09-03T06:09:53.305200-04:00  ok"
         },
         {
           "name": "Hourly GBrain auto-healer",
@@ -911,104 +915,104 @@
           "category": "GitHub & publishing",
           "schedule": "15 6 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-03T06:15:00-04:00",
+          "next_run": "2026-09-04T06:15:00-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-01T06:18:23.316075-04:00  ok"
+          "last_run": "2026-09-02T09:34:17.703894-04:00  ok"
         },
         {
           "name": "OpenSourceProjects.dev hourly review",
           "category": "GitHub & publishing",
           "schedule": "every 60m",
           "repeat": "∞",
-          "next_run": "2026-09-02T10:12:57.946879-04:00",
+          "next_run": "2026-09-03T06:37:49.235089-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-01T23:13:37.712215-04:00  ok"
+          "last_run": "2026-09-03T05:37:49.235089-04:00  ok"
         },
         {
           "name": "Telegram @github hourly review",
           "category": "GitHub & publishing",
           "schedule": "every 60m",
           "repeat": "∞",
-          "next_run": "2026-09-02T10:13:47.882189-04:00",
+          "next_run": "2026-09-03T06:38:49.894121-04:00",
           "deliver": "configured private channel",
           "script": "telegram_github_watch.py",
-          "last_run": "2026-09-02T09:13:47.882189-04:00  ok"
+          "last_run": "2026-09-03T05:38:49.894121-04:00  ok"
         },
         {
           "name": "Glances system watchdog",
           "category": "Reliability watchdogs",
           "schedule": "every 15m",
           "repeat": "∞",
-          "next_run": "2026-09-02T09:43:12.755713-04:00",
+          "next_run": "2026-09-03T06:29:55.223379-04:00",
           "deliver": "configured private channel",
           "script": "glances_system_monitor.py",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-02T00:04:54.170138-04:00  ok"
+          "last_run": "2026-09-03T06:14:55.223379-04:00  ok"
         },
         {
           "name": "Daily React Doctor web watchdog",
           "category": "Reliability watchdogs",
           "schedule": "30 9 * * *",
-          "repeat": "75/3650",
+          "repeat": "76/3650",
           "next_run": "2026-09-03T09:30:00-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-01T09:30:26.513106-04:00  ok"
+          "last_run": "2026-09-02T10:10:18.924825-04:00  ok"
         },
         {
           "name": "Hermes architecture public site watchdog",
           "category": "Reliability watchdogs",
           "schedule": "every 15m",
           "repeat": "∞",
-          "next_run": "2026-09-02T09:43:12.755713-04:00",
+          "next_run": "2026-09-03T06:22:53.507163-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-02T00:05:53.710966-04:00  ok"
+          "last_run": "2026-09-03T06:07:53.507163-04:00  error: Script exited with code 1"
         },
         {
           "name": "Hermes private ops wiki public route watchdog",
           "category": "Reliability watchdogs",
           "schedule": "every 15m",
           "repeat": "∞",
-          "next_run": "2026-09-02T09:43:12.755713-04:00",
+          "next_run": "2026-09-03T06:22:52.847195-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-02T00:05:54.283486-04:00  ok"
+          "last_run": "2026-09-03T06:07:52.847195-04:00  ok"
         },
         {
           "name": "Telegram @notboring_tech hourly review",
           "category": "Other scheduled automation",
           "schedule": "every 60m",
-          "repeat": "1567/3650",
-          "next_run": "2026-09-02T10:12:57.946879-04:00",
+          "repeat": "1581/3650",
+          "next_run": "2026-09-03T06:37:49.464234-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "workdir": "~",
-          "last_run": "2026-09-01T23:15:38.437824-04:00  ok"
+          "last_run": "2026-09-03T05:37:49.464234-04:00  ok"
         },
         {
           "name": "Telegram @git_developer hourly review",
           "category": "Other scheduled automation",
           "schedule": "every 60m",
-          "repeat": "1560/3650",
-          "next_run": "2026-09-02T10:12:57.946879-04:00",
+          "repeat": "1574/3650",
+          "next_run": "2026-09-03T06:38:49.885895-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "workdir": "~",
-          "last_run": "2026-09-01T23:15:58.889409-04:00  ok"
+          "last_run": "2026-09-03T05:38:49.885895-04:00  ok"
         },
         {
           "name": "NousResearch X hourly review",
@@ -1037,44 +1041,44 @@
           "category": "Private finance automation",
           "schedule": "every 240m",
           "repeat": "∞",
-          "next_run": "2026-09-02T13:12:57.946879-04:00",
+          "next_run": "2026-09-03T07:22:41.027033-04:00",
           "deliver": "configured private channel",
           "script": "[private script]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-01T23:27:52.047665-04:00  ok"
+          "last_run": "2026-09-03T03:22:41.027033-04:00  ok"
         },
         {
           "name": "Nightly Hermes memory hygiene",
           "category": "Knowledge & memory",
           "schedule": "0 3 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-03T03:00:00-04:00",
+          "next_run": "2026-09-04T03:00:00-04:00",
           "deliver": "configured private channel",
-          "last_run": "2026-09-02T09:15:30.962662-04:00  ok"
+          "last_run": "2026-09-03T03:00:53.945611-04:00  ok"
         },
         {
           "name": "Watch awesome-ai-workflows for Hermes-relevant additions",
           "category": "Other scheduled automation",
           "schedule": "0 10 * * *",
-          "repeat": "65/3650",
-          "next_run": "2026-09-02T10:00:00-04:00",
+          "repeat": "66/3650",
+          "next_run": "2026-09-03T10:00:00-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-01T10:00:31.671180-04:00  ok"
+          "last_run": "2026-09-02T10:00:26.159311-04:00  ok"
         },
         {
           "name": "GVault public route watchdog",
           "category": "Reliability watchdogs",
           "schedule": "every 5m",
           "repeat": "∞",
-          "next_run": "2026-09-02T09:33:12.755713-04:00",
+          "next_run": "2026-09-03T06:18:53.652032-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-02T00:06:52.238582-04:00  ok"
+          "last_run": "2026-09-03T06:13:53.652032-04:00  ok"
         },
         {
           "name": "Weekly high-signal backlog review",
@@ -1090,23 +1094,23 @@
           "category": "Reliability watchdogs",
           "schedule": "every 60m",
           "repeat": "∞",
-          "next_run": "2026-09-02T10:12:57.946879-04:00",
+          "next_run": "2026-09-03T06:37:49.081870-04:00",
           "deliver": "configured private channel",
           "script": "hermes_latency_watchdog.py",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-01T23:15:59.477751-04:00  ok"
+          "last_run": "2026-09-03T05:37:49.081870-04:00  ok"
         },
         {
           "name": "Hermes session housekeeping",
           "category": "Other scheduled automation",
           "schedule": "10 5 * * *",
-          "repeat": "62/3650",
-          "next_run": "2026-09-03T05:10:00-04:00",
+          "repeat": "63/3650",
+          "next_run": "2026-09-04T05:10:00-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-02T09:13:46.547311-04:00  ok"
+          "last_run": "2026-09-03T05:10:45.924364-04:00  ok"
         },
         {
           "name": "[REDACTED]",
@@ -1249,25 +1253,25 @@
           "name": "Mattermost public route auto-healer",
           "category": "Reliability watchdogs",
           "schedule": "every 5m",
-          "repeat": "10134/999999",
-          "next_run": "2026-09-02T09:33:12.755713-04:00",
+          "repeat": "10260/999999",
+          "next_run": "2026-09-03T06:20:53.983047-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-02T00:07:52.749613-04:00  ok"
+          "last_run": "2026-09-03T06:15:53.983047-04:00  ok"
         },
         {
           "name": "Habr Russian articles hourly monitor",
           "category": "Other scheduled automation",
           "schedule": "every 60m",
-          "repeat": "1007/999999",
-          "next_run": "2026-09-02T10:12:57.946879-04:00",
+          "repeat": "1021/999999",
+          "next_run": "2026-09-03T06:41:25.171371-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-01T23:35:45.408640-04:00  ok"
+          "last_run": "2026-09-03T05:41:25.171371-04:00  ok"
         },
         {
           "name": "Watch chrome-devtools-mcp pilot triggers",
@@ -1285,63 +1289,63 @@
           "category": "Other scheduled automation",
           "schedule": "0 9,21 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-02T21:00:00-04:00",
+          "next_run": "2026-09-03T09:00:00-04:00",
           "deliver": "configured private channel",
           "workdir": "~",
-          "last_run": "2026-09-01T21:03:37.405136-04:00  ok"
+          "last_run": "2026-09-02T23:24:49.177432-04:00  ok"
         },
         {
           "name": "[REDACTED]",
           "category": "Other scheduled automation",
           "schedule": "35 9,21 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-02T09:35:00-04:00",
+          "next_run": "2026-09-03T09:35:00-04:00",
           "deliver": "configured private channel",
           "workdir": "~",
-          "last_run": "2026-09-01T21:40:06.347657-04:00  ok"
+          "last_run": "2026-09-02T23:24:26.685951-04:00  ok"
         },
         {
           "name": "[REDACTED]",
           "category": "Backup & sync",
           "schedule": "5 10,22 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-02T10:05:00-04:00",
+          "next_run": "2026-09-03T10:05:00-04:00",
           "deliver": "origin",
           "workdir": "~",
-          "last_run": "2026-09-01T22:08:37.739709-04:00  ok"
+          "last_run": "2026-09-02T23:23:41.404824-04:00  ok"
         },
         {
           "name": "Telegram @quotaradar hourly forward",
           "category": "Other scheduled automation",
           "schedule": "every 60m",
           "repeat": "∞",
-          "next_run": "2026-09-02T10:12:57.946879-04:00",
+          "next_run": "2026-09-03T06:37:49.523104-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-01T23:35:46.397432-04:00  ok"
+          "last_run": "2026-09-03T05:37:49.523104-04:00  ok"
         },
         {
           "name": "Daily discussion journal Google Sheet updater",
           "category": "Other scheduled automation",
           "schedule": "35 11 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-02T11:35:00-04:00",
+          "next_run": "2026-09-03T11:35:00-04:00",
           "deliver": "configured private channel",
           "workdir": "~",
-          "last_run": "2026-09-01T11:59:12.706674-04:00  ok"
+          "last_run": "2026-09-02T11:41:38.506885-04:00  ok"
         },
         {
           "name": "Nightly Hermes & Orchestrator deep optimizer",
           "category": "Other scheduled automation",
           "schedule": "15 0 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-03T00:15:00-04:00",
+          "next_run": "2026-09-04T00:15:00-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "workdir": "~",
-          "last_run": "2026-09-01T00:17:10.438811-04:00  ok"
+          "last_run": "2026-09-03T00:25:41.746695-04:00  ok"
         },
         {
           "name": "Reassess QM for Hermes",
@@ -1376,12 +1380,12 @@
           "category": "Other scheduled automation",
           "schedule": "5 11 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-02T11:05:00-04:00",
+          "next_run": "2026-09-03T11:05:00-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-01T11:05:10.638711-04:00  ok"
+          "last_run": "2026-09-02T11:05:49.865641-04:00  ok"
         },
         {
           "name": "Reassess Qwen3.8-Max Hermes relevance",
@@ -1395,10 +1399,10 @@
           "name": "Daily Google Keep useful-resource review",
           "category": "Other scheduled automation",
           "schedule": "45 9 * * *",
-          "repeat": "35/3650",
-          "next_run": "2026-09-02T09:45:00-04:00",
+          "repeat": "36/3650",
+          "next_run": "2026-09-03T09:45:00-04:00",
           "deliver": "origin",
-          "last_run": "2026-09-01T10:02:26.250357-04:00  ok"
+          "last_run": "2026-09-02T10:04:17.076604-04:00  ok"
         },
         {
           "name": "GPT-5.6 Terra pilot daily metrics",
@@ -1425,157 +1429,193 @@
           "category": "Other scheduled automation",
           "schedule": "every 180m",
           "repeat": "∞",
-          "next_run": "2026-09-02T12:12:57.946879-04:00",
+          "next_run": "2026-09-03T08:22:46.771249-04:00",
           "deliver": "configured private channel",
           "script": "glances_disk_cleanup.py",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-01T22:25:30.903469-04:00  ok"
+          "last_run": "2026-09-03T05:22:46.771249-04:00  ok"
         },
         {
           "name": "codex-chatgpt-web #154 watch → swap + decommission old provider",
           "category": "Other scheduled automation",
           "schedule": "every 720m",
           "repeat": "∞",
-          "next_run": "2026-09-02T21:14:20.116434-04:00",
+          "next_run": "2026-09-03T11:23:00.542119-04:00",
           "deliver": "origin",
-          "last_run": "2026-09-02T09:14:20.116434-04:00  ok"
+          "last_run": "2026-09-02T23:23:00.542119-04:00  ok"
         },
         {
           "name": "[REDACTED]",
           "category": "Reliability watchdogs",
           "schedule": "*/15 * * * *",
           "repeat": "∞",
-          "next_run": "2026-09-02T09:45:00-04:00",
+          "next_run": "2026-09-03T06:30:00-04:00",
           "deliver": "origin",
           "script": "wud_evening_watchdog.py",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-02T09:30:13.886652-04:00  ok"
+          "last_run": "2026-09-03T06:15:53.872450-04:00  ok"
         }
       ],
       "note": "Task names that expose personal/client workflows are replaced with category labels; schedules/scripts/modes are retained when safe."
     },
     "skills": {
-      "total_detected": 399,
+      "total_detected": 391,
       "categories": {
         ".archive": 12,
         "android": 2,
-        "apple": 5,
-        "autonomous-ai-agents": 20,
-        "creative": 40,
+        "apple": 9,
+        "autonomous-ai-agents": 22,
+        "creative": 35,
         "data-science": 1,
         "devops": 28,
         "ecc-imports": 4,
         "email": 5,
         "external": 7,
         "gaming": 2,
-        "github": 16,
+        "github": 9,
         "mcp": 2,
-        "media": 7,
-        "mlops": 23,
+        "media": 8,
+        "mlops": 18,
         "note-taking": 4,
         "operations": 3,
         "personal": 9,
-        "productivity": 48,
+        "productivity": 45,
         "red-teaming": 1,
-        "research": 35,
+        "research": 33,
         "security": 4,
-        "smart-home": 5,
+        "smart-home": 4,
         "social-media": 2,
-        "software-development": 94,
+        "software-development": 100,
         "uncategorized": 19,
+        "web": 2,
         "web-development": 1
       },
       "public_examples": [
         {
-          "name": "dspy",
-          "category": "mlops",
-          "description": "DSPy: declarative LM programs, auto-optimize prompts, RAG."
+          "name": "obsidian",
+          "category": "note-taking",
+          "description": "Read, search, create, and edit notes in the Obsidian vault."
         },
         {
-          "name": "fine-tuning-with-trl",
-          "category": "mlops",
-          "description": "TRL: SFT, DPO, PPO, GRPO, reward modeling for LLM RLHF."
-        },
-        {
-          "name": "axolotl",
-          "category": "mlops",
-          "description": "Axolotl: YAML LLM fine-tuning (LoRA, DPO, GRPO)."
-        },
-        {
-          "name": "unsloth",
-          "category": "mlops",
-          "description": "Unsloth: 2-5x faster LoRA/QLoRA fine-tuning, less VRAM."
-        },
-        {
-          "name": "instructor",
-          "category": "mlops",
-          "description": "Extract structured data from LLM responses with Pydantic validation, retry failed extractions automatically, parse complex JSON with type sa"
-        },
-        {
-          "name": "nemo-curator",
-          "category": "mlops",
-          "description": "GPU-accelerated data curation for LLM training. Supports text/image/video/audio. Features fuzzy deduplication (16× faster), quality filterin"
-        },
-        {
-          "name": "huggingface-hub",
-          "category": "mlops",
-          "description": "HuggingFace hf CLI: search/download/upload models, datasets."
-        },
-        {
-          "name": "segment-anything-model",
-          "category": "mlops",
-          "description": "SAM: zero-shot image segmentation via points, boxes, masks."
-        },
-        {
-          "name": "chroma",
-          "category": "mlops",
-          "description": "Open-source embedding database for AI applications. Store embeddings and metadata, perform vector and full-text search, filter by metadata. "
-        },
-        {
-          "name": "faiss",
-          "category": "mlops",
-          "description": "Facebook"
+          "name": "comfyui",
+          "category": "creative",
+          "description": "Generate images, video, and audio with ComfyUI — install, launch, manage nodes/models, run workflows with parameter injection. Uses the offi"
         },
         {
           "name": "[REDACTED]",
-          "category": "mlops",
-          "description": "Evidence-first evaluation of local LLM recommendations against the user"
+          "category": "creative",
+          "description": "Article illustrations: type × style × palette consistency."
         },
         {
-          "name": "evaluating-llms-harness",
-          "category": "mlops",
-          "description": "lm-eval-harness: benchmark LLMs (MMLU, GSM8K, etc.)."
+          "name": "humanizer",
+          "category": "creative",
+          "description": "Humanize text: strip AI-isms and add real voice."
         },
         {
-          "name": "weights-and-biases",
-          "category": "mlops",
-          "description": "W&B: log ML experiments, sweeps, model registry, dashboards."
+          "name": "pixel-art",
+          "category": "creative",
+          "description": "Pixel art w/ era palettes (NES, Game Boy, PICO-8)."
         },
         {
-          "name": "llama-cpp",
-          "category": "mlops",
-          "description": "llama.cpp local GGUF inference + HF Hub model discovery."
+          "name": "ascii-video",
+          "category": "creative",
+          "description": "ASCII video: convert video/audio to colored ASCII MP4/GIF."
         },
         {
-          "name": "obliteratus",
-          "category": "mlops",
-          "description": "OBLITERATUS: abliterate LLM refusals (diff-in-means)."
+          "name": "manim-video",
+          "category": "creative",
+          "description": "Manim CE animations: 3Blue1Brown math/algo videos."
         },
         {
-          "name": "outlines",
-          "category": "mlops",
-          "description": "Outlines: structured JSON/regex/Pydantic LLM generation."
+          "name": "architecture-diagram",
+          "category": "creative",
+          "description": "Dark-themed SVG architecture/cloud/infra diagrams as HTML."
         },
         {
-          "name": "serving-llms-vllm",
-          "category": "mlops",
-          "description": "vLLM: high-throughput LLM serving, OpenAI API, quantization."
+          "name": "ascii-media",
+          "category": "creative",
+          "description": "Create ASCII still art, banners, image conversions, and animated ASCII video/audio visuals from one umbrella workflow."
         },
         {
-          "name": "qdrant-vector-search",
-          "category": "mlops",
-          "description": "High-performance vector similarity search engine for RAG and semantic search. Use when building production RAG systems requiring fast neares"
+          "name": "claude-design",
+          "category": "creative",
+          "description": "Design one-off HTML artifacts (landing, deck, prototype)."
+        },
+        {
+          "name": "pretext",
+          "category": "creative",
+          "description": "Build creative browser demos with DOM-free text layout."
+        },
+        {
+          "name": "hyperframes",
+          "category": "creative",
+          "description": "Create HTML-based video compositions, animated title cards, social overlays, captioned talking-head videos, audio-reactive visuals, and shad"
+        },
+        {
+          "name": "apple-design",
+          "category": "creative",
+          "description": "Design or review Apple-inspired web interactions with direct manipulation, interruptible spring motion, velocity handoff, momentum, rubber-b"
+        },
+        {
+          "name": "[REDACTED]",
+          "category": "creative",
+          "description": "Songwriting craft and Suno AI music prompts."
+        },
+        {
+          "name": "p5js",
+          "category": "creative",
+          "description": "p5.js sketches: gen art, shaders, interactive, 3D."
+        },
+        {
+          "name": "reference-safe-design",
+          "category": "creative",
+          "description": "Use when a user supplies websites, screenshots, brand campaigns, moodboards, copy, motion, or assets and wants either an originality audit o"
+        },
+        {
+          "name": "baoyu-comic",
+          "category": "creative",
+          "description": "Knowledge comics (知识漫画): educational, biography, tutorial."
+        },
+        {
+          "name": "touchdesigner-mcp",
+          "category": "creative",
+          "description": "Control TouchDesigner via twozero MCP."
+        },
+        {
+          "name": "ideation",
+          "category": "creative",
+          "description": "Generate project ideas via creative constraints."
+        },
+        {
+          "name": "design-md",
+          "category": "creative",
+          "description": "Author/validate/export Google"
+        },
+        {
+          "name": "excalidraw",
+          "category": "creative",
+          "description": "Hand-drawn Excalidraw JSON diagrams (arch, flow, seq)."
+        },
+        {
+          "name": "popular-web-designs",
+          "category": "creative",
+          "description": "54 real design systems (Stripe, Linear, Vercel) as HTML/CSS."
+        },
+        {
+          "name": "concept-diagrams",
+          "category": "creative",
+          "description": "Generate flat, minimal light/dark-aware SVG diagrams as standalone HTML files, using a unified educational visual language with 9 semantic c"
+        },
+        {
+          "name": "blender-mcp",
+          "category": "creative",
+          "description": "Control Blender directly from Hermes via socket connection to the blender-mcp addon. Create 3D objects, materials, animations, and run arbit"
+        },
+        {
+          "name": "baoyu-infographic",
+          "category": "creative",
+          "description": "Infographics: 21 layouts x 21 styles (信息图, 可视化)."
         },
         {
           "name": "strategic-reading",
@@ -1583,109 +1623,74 @@
           "description": "Read a book, article, transcript, or case study through the lens of a specific strategic problem you"
         },
         {
-          "name": "better-colors",
-          "category": "external",
-          "description": "OKLCH color space and color usage for web projects. Convert hex/rgb/hsl to oklch, generate palettes, check contrast, handle gamut boundaries"
-        },
-        {
-          "name": "better-layout",
-          "category": "external",
-          "description": "Layout structure for web interfaces, from grouping and alignment to reading order, progressive disclosure, and adaptive breakpoints. Use whe"
-        },
-        {
-          "name": "better-ui",
-          "category": "external",
-          "description": "Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing an"
-        },
-        {
-          "name": "better-interface",
-          "category": "external",
-          "description": ">-"
-        },
-        {
-          "name": "better-typography",
-          "category": "external",
-          "description": "Web typography from choosing fonts to spacing, wrapping and accessibility. Use when picking or pairing typefaces, configuring variable fonts"
-        },
-        {
-          "name": "better-accessibility",
-          "category": "external",
-          "description": "Accessibility engineering for product interfaces, from focus states and keyboard support to ARIA, forms, and screen readers. Use when buildi"
-        },
-        {
-          "name": "better-writing",
-          "category": "external",
-          "description": ">-"
-        },
-        {
-          "name": "gif-search",
-          "category": "media",
-          "description": "Search/download GIFs from Tenor via curl + jq."
-        },
-        {
-          "name": "video-analysis",
-          "category": "media",
-          "description": "Use when analyzing an explicitly supplied local video file."
-        },
-        {
-          "name": "spotify",
-          "category": "media",
-          "description": "Spotify: play, search, queue, manage playlists and devices."
-        },
-        {
-          "name": "youtube-content",
-          "category": "media",
-          "description": "YouTube transcripts to summaries, threads, blogs."
-        },
-        {
           "name": "article-enrichment",
           "category": "uncategorized",
           "description": "Transform raw article text dumps in the brain into structured pages with executive summary, verbatim quotes, key insights, why-it-matters, a"
         },
         {
-          "name": "grounded-citations",
-          "category": "research",
-          "description": "Ground answers and documents in cited, verifiable sources."
-        },
-        {
-          "name": "osint-investigation",
-          "category": "research",
-          "description": "Public-records OSINT investigation framework — SEC EDGAR filings, USAspending contracts, Senate lobbying, OFAC sanctions, ICIJ offshore leak"
-        },
-        {
-          "name": "domain-intel",
-          "category": "research",
-          "description": "Passive domain reconnaissance using Python stdlib. Subdomain discovery, SSL certificate inspection, WHOIS lookups, DNS records, domain avail"
+          "name": "[REDACTED]",
+          "category": "uncategorized",
+          "description": "Validate TERMINAL_CWD and fallback runtime behavior."
         },
         {
           "name": "[REDACTED]",
-          "category": "research",
-          "description": "Evaluate agent memory systems locally before adopting cloud memory vendors like Synap, Mem0, Zep, or Supermemory."
+          "category": "mcp",
+          "description": "Configure, authenticate, verify, and safely operate Cloudflare"
         },
         {
-          "name": "llm-wiki",
-          "category": "research",
-          "description": "Karpathy"
+          "name": "native-mcp",
+          "category": "mcp",
+          "description": "MCP client: connect servers, register tools (stdio/HTTP)."
         },
         {
-          "name": "pixelrag-mcp-operations",
-          "category": "research",
-          "description": "Operate and harden a local PixelRAG MCP wrapper for Hermes without exposing dangerous long-lived serve helpers through the gateway."
+          "name": "retrieval-reflex",
+          "category": "uncategorized",
+          "description": "When/what to retrieve — open the brain page for a salient entity before answering from memory."
         },
         {
-          "name": "blogwatcher",
-          "category": "research",
-          "description": "Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool."
+          "name": "maintain",
+          "category": "uncategorized",
+          "description": "|"
+        },
+        {
+          "name": "hermes-desktop-plugins",
+          "category": "uncategorized",
+          "description": "Write desktop app plugins that add UI panes and commands."
         },
         {
           "name": "[REDACTED]",
-          "category": "research",
-          "description": "Evidence-first evaluation of third-party model releases, quantizations, conversions, altered-safety variants, and gated model repositories b"
+          "category": "web-development",
+          "description": "Deploy a Worker live, no account, via wrangler --temporary."
         },
         {
-          "name": "[REDACTED]",
-          "category": "research",
-          "description": "Evaluate whether a third-party service or product is trustworthy, integrable, and compliant enough for automation, purchasing, or review for"
+          "name": "concept-synthesis",
+          "category": "uncategorized",
+          "description": "Deduplicate and synthesize raw concept stubs into a tiered intellectual map (T1 Canon to T4 Riff), tracing idea evolution across sources ove"
+        },
+        {
+          "name": "perplexity-research",
+          "category": "uncategorized",
+          "description": "Brain-augmented web research. Sends brain context about a topic to Perplexity, which searches the web with citations and returns what is NEW"
+        },
+        {
+          "name": "brain-pdf",
+          "category": "uncategorized",
+          "description": "Generate a publication-quality PDF from a GBrain page or markdown file using Hermes-native Chrome rendering. The brain page remains the sour"
+        },
+        {
+          "name": "skillpack-check",
+          "category": "uncategorized",
+          "description": "|"
+        },
+        {
+          "name": "jupyter-live-kernel",
+          "category": "data-science",
+          "description": "Iterative Python via live Jupyter kernel (hamelnb)."
+        },
+        {
+          "name": "yuanbao",
+          "category": "uncategorized",
+          "description": "Yuanbao (元宝) groups: @mention users, query info/members."
         }
       ],
       "note": "Examples omit personal/client-sensitive skill names; full local skill inventory remains private."
@@ -1693,31 +1698,8 @@
     "hooks": {
       "shell_hooks_allowlist_present": false,
       "shell_hooks_allowlist_entries": 0,
-      "claude_plugin_hook_files_detected": 22,
-      "public_hook_file_examples": [
-        ".claude/plugins/marketplaces/thedotmack/plugin/hooks/hooks.json",
-        ".claude/plugins/marketplaces/thedotmack/cursor-hooks/hooks.json",
-        ".claude/plugins/marketplaces/claude-plugins-official/plugins/learning-output-style/hooks/hooks.json",
-        ".claude/plugins/marketplaces/claude-plugins-official/plugins/security-guidance/hooks/hooks.json",
-        ".claude/plugins/marketplaces/claude-plugins-official/plugins/hookify/hooks/hooks.json",
-        ".claude/plugins/marketplaces/claude-plugins-official/plugins/claude-security/hooks/hooks.json",
-        ".claude/plugins/marketplaces/claude-plugins-official/plugins/ralph-loop/hooks/hooks.json",
-        "[REDACTED]",
-        ".claude/plugins/marketplaces/claude-code-warp/plugins/warp/hooks/hooks.json",
-        ".claude/plugins/marketplaces/headroom-marketplace/plugins/headroom-agent-hooks/hooks/hooks.json",
-        ".claude/plugins/marketplaces/claude-code-plugins/plugins/learning-output-style/hooks/hooks.json",
-        ".claude/plugins/marketplaces/claude-code-plugins/plugins/security-guidance/hooks/hooks.json",
-        ".claude/plugins/marketplaces/claude-code-plugins/plugins/hookify/hooks/hooks.json",
-        ".claude/plugins/marketplaces/claude-code-plugins/plugins/ralph-wiggum/hooks/hooks.json",
-        "[REDACTED]",
-        ".claude/plugins/marketplaces/ponytail/hooks/hooks.json",
-        ".claude/plugins/cache/thedotmack/claude-mem/13.13.0/hooks/hooks.json",
-        ".claude/plugins/cache/claude-plugins-official/superpowers/6.1.1/hooks/hooks.json",
-        ".claude/plugins/cache/claude-plugins-official/superpowers/6.2.0/hooks/hooks.json",
-        ".claude/plugins/cache/claude-code-warp/warp/2.0.0/hooks/hooks.json",
-        ".claude/plugins/cache/headroom-marketplace/headroom/0.22.3/hooks/hooks.json",
-        ".claude/plugins/cache/ponytail/ponytail/4.6.0/hooks/hooks.json"
-      ],
+      "claude_plugin_hook_files_detected": 0,
+      "public_hook_file_examples": [],
       "webhook_summary": "webhook platform not enabled",
       "note": "Hook contents and command bodies are not published; only hook surfaces/counts are documented."
     },
@@ -1962,18 +1944,15 @@
     },
     "tools": {
       "toolset_counts_estimate": {},
-      "enabled_rows_estimate": 27,
+      "enabled_rows_estimate": 26,
       "note": "CLI parsing is best-effort; full tool schemas are runtime-generated and not published."
     }
   },
   "local_models": {
     "lm_studio": {
       "base_url": "http://127.0.0.1:1234/v1",
-      "models": [
-        "gemma4unc",
-        "[REDACTED]"
-      ],
-      "chat_smoke": "blocked_or_unavailable: {\n    \"error\": {\n        \"message\": \"Failed to load model \\\"gemma4unc\\\". Error: Model loading was stopped due to insufficient system resources. Under the current settings, this model requires approximately 14.36 GB of memory, and continuing"
+      "models": [],
+      "chat_smoke": "blocked_or_unavailable: <urlopen error [Errno 111] Connection refused>"
     },
     "note": "Main Hermes remains openai-codex/gpt-5.5. LM Studio is configured as an optional local provider, not the default."
   }
