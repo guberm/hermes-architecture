@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-09-03T06:15:53-04:00`.
+> Public-safe architecture snapshot generated at `2026-09-04T06:15:54-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,10 +36,10 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 78 jobs; 39 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Scheduled tasks / cron | 77 jobs; 39 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
 | Skills | 391 detected skill files across 28 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 0 | Hook command bodies are not published. |
-| Plugins | 58 visible plugin rows captured; enabled estimate 5 | Descriptions omitted to avoid leaking credential/env surfaces. |
+| Plugins | 53 visible plugin rows captured; enabled estimate 22 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
@@ -52,7 +52,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 39 | Other local automation jobs. |
+| Other scheduled automation | 38 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 12 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -108,18 +108,18 @@ Public-safe skill examples:
 | `ascii-media` | creative | Create ASCII still art, banners, image conversions, and animated ASCII video/audio visuals from one umbrella workflow. |
 | `claude-design` | creative | Design one-off HTML artifacts (landing, deck, prototype). |
 | `pretext` | creative | Build creative browser demos with DOM-free text layout. |
-| `hyperframes` | creative | Create HTML-based video compositions, animated title cards, social overlays, captioned talking-head videos, audio-reactive visuals, and shad |
+| `hyperframes` | creative | Render MP4/WebM videos from HTML compositions. |
 | `apple-design` | creative | Design or review Apple-inspired web interactions with direct manipulation, interruptible spring motion, velocity handoff, momentum, rubber-b |
 | `[REDACTED]` | creative | Songwriting craft and Suno AI music prompts. |
 | `p5js` | creative | p5.js sketches: gen art, shaders, interactive, 3D. |
 | `reference-safe-design` | creative | Use when a user supplies websites, screenshots, brand campaigns, moodboards, copy, motion, or assets and wants either an originality audit o |
 | `baoyu-comic` | creative | Knowledge comics (知识漫画): educational, biography, tutorial. |
 | `touchdesigner-mcp` | creative | Control TouchDesigner via twozero MCP. |
-| `ideation` | creative | Generate project ideas via creative constraints. |
+| `creative-ideation` | creative | Generate ideas via named methods from creative practice. |
 | `design-md` | creative | Author/validate/export Google |
 | `excalidraw` | creative | Hand-drawn Excalidraw JSON diagrams (arch, flow, seq). |
 | `popular-web-designs` | creative | 54 real design systems (Stripe, Linear, Vercel) as HTML/CSS. |
-| `concept-diagrams` | creative | Generate flat, minimal light/dark-aware SVG diagrams as standalone HTML files, using a unified educational visual language with 9 semantic c |
+| `concept-diagrams` | creative | Generate flat, minimal educational SVG visuals as HTML. |
 | `blender-mcp` | creative | Control Blender directly from Hermes via socket connection to the blender-mcp addon. Create 3D objects, materials, animations, and run arbit |
 | `baoyu-infographic` | creative | Infographics: 21 layouts x 21 styles (信息图, 可视化). |
 
@@ -137,22 +137,21 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 
 | Plugin | Status |
 |---|---|
-| `browser-browser-use` | not enabled |
-| `browser-browserbase` | not enabled |
-| `browser-firecrawl` | not enabled |
+| `browser-firecrawl` | enabled |
 | `chronos` | not enabled |
 | `basic` | not enabled |
 | `drain` | not enabled |
 | `nous` | not enabled |
-| `self-hosted` | not enabled |
-| `disk-cleanup` | not enabled |
+| `self-hosted` | enabled |
+| `disk-cleanup` | enabled |
 | `google_meet` | not enabled |
-| `deepinfra` | not enabled |
+| `deepinfra` | enabled |
 | `fal` | not enabled |
 | `krea` | not enabled |
-| `openai` | not enabled |
-| `openai-codex` | not enabled |
-| `openrouter` | not enabled |
+| `meta-ai-image-gen` | not enabled |
+| `openai` | enabled |
+| `openai-codex` | enabled |
+| `openrouter` | enabled |
 | `xai` | not enabled |
 | `langfuse` | not enabled |
 | `a2a-platform` | not enabled |
@@ -161,12 +160,13 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 | `discord-platform` | not enabled |
 | `email-platform` | not enabled |
 | `feishu-platform` | not enabled |
-| `google_chat-platform` | not enabled |
 | `irc-platform` | not enabled |
 | `line-platform` | not enabled |
 | `matrix-platform` | not enabled |
-| `mattermost-platform` | not enabled |
 | `ntfy-platform` | not enabled |
+| `photon-platform` | not enabled |
+| `raft-platform` | not enabled |
+| `simplex-platform` | not enabled |
 
 
 ## Low-Level Surface Files
@@ -224,7 +224,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 39 | Other local automation jobs. |
+| Other scheduled automation | 38 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 12 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -253,13 +253,13 @@ The live system currently exposes the public-safe profile roster as:
 Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
  ◆default         gpt-5.6-terra                running      —            —
-  claude          —                            stopped      —            —
-  coding          gpt-5.6-sol                  stopped      coding       —
-  ghidra-restricted gpt-5.6-sol                  stopped      —            —
-  researcher      gpt-5.6-terra                stopped      hermes-researcher —
-  reviewer        gpt-5.6-sol                  stopped      hermes-reviewer —
-  security-restricted gpt-5.6-sol                  stopped      hermes-security —
-  worker          gpt-5.6-terra                stopped      hermes-worker —
+  claude          —                            running      —            —
+  coding          gpt-5.6-sol                  running      coding       —
+  ghidra-restricted gpt-5.6-sol                  running      —            —
+  researcher      gpt-5.6-terra                running      hermes-researcher —
+  reviewer        gpt-5.6-sol                  running      hermes-reviewer —
+  security-restricted gpt-5.6-sol                  running      hermes-security —
+  worker          gpt-5.6-terra                running      hermes-worker —
 ```
 
 Current profile contract:
@@ -285,12 +285,12 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.21.0 (2026.8.31) · upstream 2b55ded1 · local 3ca096de (+1 carried commit)
+Hermes Agent v0.21.0 (2026.8.31) · upstream 63279301
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.16
 OpenAI SDK: 2.24.0
-Update available: 679 commits behind — run 'hermes update'
+Up to date
 ```
 
 - Fallback chain:
@@ -298,10 +298,11 @@ Update available: 679 commits behind — run 'hermes update'
 ```text
 Primary:   gpt-5.6-terra  (via openai-codex)
 
-  Fallback chain (3 entries):
+  Fallback chain (4 entries):
 1. ox-alpha-free  (via opencode-go)
-2. gpt-5.6-terra  (via openai-codex)
-3. gpt-5.3-codex-spark  (via openai-codex)
+2. stealth/ox-alpha  (via nous)
+3. chatgpt-web/high  (via codex-web-gpt)
+4. gpt-5.3-codex-spark  (via openai-codex)
 
   Tried in order when the primary fails (rate-limit, 5xx, connection errors).
   Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/fallback-providers

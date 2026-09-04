@@ -50,18 +50,18 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `ascii-media` | creative | Create ASCII still art, banners, image conversions, and animated ASCII video/audio visuals from one umbrella workflow. |
 | `claude-design` | creative | Design one-off HTML artifacts (landing, deck, prototype). |
 | `pretext` | creative | Build creative browser demos with DOM-free text layout. |
-| `hyperframes` | creative | Create HTML-based video compositions, animated title cards, social overlays, captioned talking-head videos, audio-reactive visuals, and shad |
+| `hyperframes` | creative | Render MP4/WebM videos from HTML compositions. |
 | `apple-design` | creative | Design or review Apple-inspired web interactions with direct manipulation, interruptible spring motion, velocity handoff, momentum, rubber-b |
 | `[REDACTED]` | creative | Songwriting craft and Suno AI music prompts. |
 | `p5js` | creative | p5.js sketches: gen art, shaders, interactive, 3D. |
 | `reference-safe-design` | creative | Use when a user supplies websites, screenshots, brand campaigns, moodboards, copy, motion, or assets and wants either an originality audit o |
 | `baoyu-comic` | creative | Knowledge comics (知识漫画): educational, biography, tutorial. |
 | `touchdesigner-mcp` | creative | Control TouchDesigner via twozero MCP. |
-| `ideation` | creative | Generate project ideas via creative constraints. |
+| `creative-ideation` | creative | Generate ideas via named methods from creative practice. |
 | `design-md` | creative | Author/validate/export Google |
 | `excalidraw` | creative | Hand-drawn Excalidraw JSON diagrams (arch, flow, seq). |
 | `popular-web-designs` | creative | 54 real design systems (Stripe, Linear, Vercel) as HTML/CSS. |
-| `concept-diagrams` | creative | Generate flat, minimal light/dark-aware SVG diagrams as standalone HTML files, using a unified educational visual language with 9 semantic c |
+| `concept-diagrams` | creative | Generate flat, minimal educational SVG visuals as HTML. |
 | `blender-mcp` | creative | Control Blender directly from Hermes via socket connection to the blender-mcp addon. Create 3D objects, materials, animations, and run arbit |
 | `baoyu-infographic` | creative | Infographics: 21 layouts x 21 styles (信息图, 可视化). |
 | `strategic-reading` | uncategorized | Read a book, article, transcript, or case study through the lens of a specific strategic problem you |

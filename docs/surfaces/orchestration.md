@@ -35,6 +35,7 @@ worker                yes       blocked=25, done=30, todo=6
 {
   "kanban": {
     "dispatch_in_gateway": true,
+    "review_dispatch": true,
     "dispatch_interval_seconds": 60,
     "failure_limit": 5,
     "worker_log_rotate_bytes": 2097152,
@@ -45,8 +46,7 @@ worker                yes       blocked=25, done=30, todo=6
     "auto_decompose": true,
     "auto_decompose_per_tick": 3,
     "dispatch_stale_timeout_seconds": 21600,
-    "auto_promote_children": true,
-    "review_dispatch": true
+    "auto_promote_children": true
   },
   "safe_self_improvement": {
     "enabled": true,

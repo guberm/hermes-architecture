@@ -4,22 +4,21 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 
 | Plugin | Status |
 |---|---|
-| `browser-browser-use` | not enabled |
-| `browser-browserbase` | not enabled |
-| `browser-firecrawl` | not enabled |
+| `browser-firecrawl` | enabled |
 | `chronos` | not enabled |
 | `basic` | not enabled |
 | `drain` | not enabled |
 | `nous` | not enabled |
-| `self-hosted` | not enabled |
-| `disk-cleanup` | not enabled |
+| `self-hosted` | enabled |
+| `disk-cleanup` | enabled |
 | `google_meet` | not enabled |
-| `deepinfra` | not enabled |
+| `deepinfra` | enabled |
 | `fal` | not enabled |
 | `krea` | not enabled |
-| `openai` | not enabled |
-| `openai-codex` | not enabled |
-| `openrouter` | not enabled |
+| `meta-ai-image-gen` | not enabled |
+| `openai` | enabled |
+| `openai-codex` | enabled |
+| `openrouter` | enabled |
 | `xai` | not enabled |
 | `langfuse` | not enabled |
 | `a2a-platform` | not enabled |
@@ -28,11 +27,9 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `discord-platform` | not enabled |
 | `email-platform` | not enabled |
 | `feishu-platform` | not enabled |
-| `google_chat-platform` | not enabled |
 | `irc-platform` | not enabled |
 | `line-platform` | not enabled |
 | `matrix-platform` | not enabled |
-| `mattermost-platform` | not enabled |
 | `ntfy-platform` | not enabled |
 | `photon-platform` | not enabled |
 | `raft-platform` | not enabled |
@@ -40,27 +37,25 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `slack-platform` | not enabled |
 | `sms-platform` | not enabled |
 | `teams-platform` | not enabled |
-| `telegram-platform` | not enabled |
+| `telegram-platform` | enabled |
 | `wecom-platform` | not enabled |
 | `whatsapp-platform` | not enabled |
-| `security-guidance` | not enabled |
+| `security-guidance` | enabled |
 | `spotify` | not enabled |
 | `teams_pipeline` | not enabled |
-| `deepinfra` | not enabled |
+| `deepinfra` | enabled |
 | `fal` | not enabled |
 | `xai` | not enabled |
-| `web-brave-free` | not enabled |
+| `web-brave-free` | enabled |
 | `web-ddgs` | not enabled |
 | `web-exa` | not enabled |
-| `web-firecrawl` | not enabled |
+| `web-firecrawl` | enabled |
 | `web-keenable` | not enabled |
-| `web-parallel` | not enabled |
+| `web-parallel` | enabled |
 | `web-searxng` | not enabled |
 | `web-tavily` | not enabled |
 | `web-xai` | not enabled |
-| `agency-agents-router` | enabled |
 | `hermes-lcm` | enabled |
-| `observability-local` | enabled |
 | `orca-status` | enabled |
 
 ## Notes
