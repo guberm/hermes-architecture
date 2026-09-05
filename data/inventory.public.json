@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T06:15:54-04:00",
+  "generated_at": "2026-09-05T06:15:48-04:00",
   "public_repo": "this public repository",
   "host": {
     "primary": "Linux host running Hermes gateway as a systemd service",
@@ -7,10 +7,10 @@
     "timezone": "operator local timezone"
   },
   "hermes": {
-    "version_output": "Hermes Agent v0.21.0 (2026.8.31) · upstream 63279301\nInstall directory: ~/.hermes/hermes-agent\nInstall method: git\nPython: 3.11.16\nOpenAI SDK: 2.24.0\nUp to date",
+    "version_output": "Hermes Agent v0.21.0 (2026.8.31) · upstream f58fcc81 · local 3ec27303 (+3 carried commits)\nInstall directory: ~/.hermes/hermes-agent\nInstall method: git\nPython: 3.11.16\nOpenAI SDK: 2.24.0\nUpdate available — run 'hermes update'",
     "primary_model": {
       "provider": "openai-codex",
-      "default": "gpt-5.6-terra",
+      "default": "gpt-5.6-luna",
       "base_url": "https://chatgpt.com/backend-api/codex",
       "key_env": "NVIDIA_API_KEY"
     },
@@ -118,8 +118,24 @@
           },
           "o3": {
             "context_length": 65536
+          },
+          "chatgpt-web/light": {
+            "context_length": 256000
+          },
+          "chatgpt-web/medium": {
+            "context_length": 256000
+          },
+          "chatgpt-web/high": {
+            "context_length": 256000
+          },
+          "chatgpt-web/extra-high": {
+            "context_length": 256000
+          },
+          "chatgpt-web/pro": {
+            "context_length": 256000
           }
-        }
+        },
+        "enabled": false
       },
       "codex_web_gpt": {
         "name": "Codex Web GPT (private Tailscale bridge)",
@@ -144,7 +160,8 @@
           "chatgpt-web/pro": {
             "context_length": 256000
           }
-        }
+        },
+        "enabled": false
       }
     },
     "custom_providers": [
@@ -573,7 +590,7 @@
     "list_output_sanitized": "[REDACTED]"
   },
   "profiles": {
-    "output_sanitized": "Profile          Model                        Gateway      Alias        Distribution\n ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────\n ◆default         gpt-5.6-terra                running      —            —\n  claude          —                            running      —            —\n  coding          gpt-5.6-sol                  running      coding       —\n  ghidra-restricted gpt-5.6-sol                  running      —            —\n  researcher      gpt-5.6-terra                running      hermes-researcher —\n  reviewer        gpt-5.6-sol                  running      hermes-reviewer —\n  security-restricted gpt-5.6-sol                  running      hermes-security —\n  worker          gpt-5.6-terra                running      hermes-worker —"
+    "output_sanitized": "Profile          Model                        Gateway      Alias        Distribution\n ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────\n ◆default         gpt-5.6-luna                 running      —            —\n  claude          —                            running      —            —\n  coding          gpt-5.6-sol                  running      coding       —\n  ghidra-restricted gpt-5.6-sol                  running      —            —\n  researcher      gpt-5.6-terra                running      hermes-researcher —\n  reviewer        gpt-5.6-sol                  running      hermes-reviewer —\n  security-restricted gpt-5.6-sol                  running      hermes-security —\n  worker          gpt-5.6-terra                running      hermes-worker —"
   },
   "orchestration": {
     "kanban": {
@@ -620,7 +637,7 @@
     "policy": "default is the interactive orchestrator; Kanban dispatcher launches researcher/worker/reviewer as ephemeral worker-runs when tasks are assigned."
   },
   "fallback": {
-    "output_sanitized": "Primary:   gpt-5.6-terra  (via openai-codex)\n\n  Fallback chain (4 entries):\n    1. ox-alpha-free  (via opencode-go)\n    2. stealth/ox-alpha  (via nous)\n    3. chatgpt-web/high  (via codex-web-gpt)\n    4. gpt-5.3-codex-spark  (via openai-codex)\n\n  Tried in order when the primary fails (rate-limit, 5xx, connection errors).\n  Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/fallback-providers"
+    "output_sanitized": "Primary:   gpt-5.6-luna  (via openai-codex)\n\n  Fallback chain (3 entries):\n    1. kimi-k2.6  (via opencode-go)\n    2. nvidia/nemotron-3.5-lightning-30b-a3b  (via nvidia)\n    3. cfbt-kimi  (via freekimi)\n\n  Tried in order when the primary fails (rate-limit, 5xx, connection errors).\n  Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/fallback-providers"
   },
   "scheduled_automation": {
     "active_job_categories": {
@@ -659,75 +676,75 @@
           "category": "Backup & sync",
           "schedule": "0 3 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-05T03:00:00-04:00",
+          "next_run": "2026-09-06T03:00:00-04:00",
           "deliver": "configured private channel",
           "script": "daily_hermes_backup.sh",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-04T03:01:45.982869-04:00  error: Script exited with code 128"
+          "last_run": "2026-09-05T03:01:45.918964-04:00  error: Script exited with code 128"
         },
         {
           "name": "Daily DB SQLite Google Drive Backup",
           "category": "Backup & sync",
           "schedule": "30 4 * * *",
-          "repeat": "123/3650",
-          "next_run": "2026-09-05T04:30:00-04:00",
+          "repeat": "124/3650",
+          "next_run": "2026-09-06T04:30:00-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-04T04:31:18.533596-04:00  ok"
+          "last_run": "2026-09-05T04:31:19.522397-04:00  ok"
         },
         {
           "name": "github-health-digest",
           "category": "GitHub & publishing",
           "schedule": "0 9 * * 1-5",
           "repeat": "∞",
-          "next_run": "2026-09-04T09:00:00-04:00",
+          "next_run": "2026-09-07T09:00:00-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-03T09:00:17.575717-04:00  error: Script exited with code 1"
+          "last_run": "2026-09-04T09:02:59.367258-04:00  ok"
         },
         {
           "name": "Check Windows nightly cleanup logs",
           "category": "Other scheduled automation",
           "schedule": "15 2 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-05T02:15:00-04:00",
+          "next_run": "2026-09-06T02:15:00-04:00",
           "deliver": "configured private channel",
-          "last_run": "2026-09-04T02:16:30.706235-04:00  error: RuntimeError: HTTP 404: Model 'stealth/ox-alpha' requires available credits. Your account balance is too low to use paid models — add credits at https://portal.nousresearch.com or pick a free model."
+          "last_run": "2026-09-05T02:17:02.067898-04:00  ok"
         },
         {
           "name": "world-update-brief",
           "category": "Media/news monitoring",
           "schedule": "0 7,19 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-04T07:00:00-04:00",
+          "next_run": "2026-09-05T07:00:00-04:00",
           "deliver": "configured private channel",
-          "last_run": "2026-09-03T19:01:10.436103-04:00  error: RuntimeError: HTTP 404: Model 'stealth/ox-alpha' requires available credits. Your account balance is too low to use paid models — add credits at https://portal.nousresearch.com or pick a free model."
+          "last_run": "2026-09-04T20:14:20.055530-04:00  ok"
         },
         {
           "name": "[Backup & sync task]",
           "category": "Backup & sync",
           "schedule": "every 180m",
           "repeat": "∞",
-          "next_run": "2026-09-04T08:37:42.687331-04:00",
+          "next_run": "2026-09-05T08:42:38.661042-04:00",
           "deliver": "configured private channel",
           "script": "[private script]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-04T05:37:42.687331-04:00  ok"
+          "last_run": "2026-09-05T05:42:38.661042-04:00  ok"
         },
         {
           "name": "[GitHub & publishing task]",
           "category": "GitHub & publishing",
           "schedule": "every 1440m",
           "repeat": "∞",
-          "next_run": "2026-09-04T10:30:27.187541-04:00",
+          "next_run": "2026-09-05T10:30:34.312917-04:00",
           "deliver": "configured private channel",
           "script": "[private script]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-03T10:30:27.187541-04:00  ok"
+          "last_run": "2026-09-04T10:30:34.312917-04:00  ok"
         },
         {
           "name": "Weekly deep memory cleanup",
@@ -743,44 +760,44 @@
           "category": "Backup & sync",
           "schedule": "45 4 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-05T04:45:00-04:00",
+          "next_run": "2026-09-06T04:45:00-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-04T04:45:33.193357-04:00  ok"
+          "last_run": "2026-09-05T04:45:27.209130-04:00  ok"
         },
         {
           "name": "Daily RSS Bot Stats Report",
           "category": "GitHub & publishing",
           "schedule": "0 8 * * *",
-          "repeat": "98/3650",
-          "next_run": "2026-09-04T08:00:00-04:00",
+          "repeat": "99/3650",
+          "next_run": "2026-09-05T08:00:00-04:00",
           "deliver": "configured private channel",
           "script": "rss_bot_daily_report.py",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-03T08:00:36.429956-04:00  ok"
+          "last_run": "2026-09-04T08:01:14.200223-04:00  ok"
         },
         {
           "name": "SwitchBot Meter Pro hourly Google Sheet logger",
           "category": "Home automation",
           "schedule": "every 60m",
           "repeat": "∞",
-          "next_run": "2026-09-04T06:45:47.225314-04:00",
+          "next_run": "2026-09-05T06:54:43.958105-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-04T05:45:47.225314-04:00  ok"
+          "last_run": "2026-09-05T05:54:43.958105-04:00  ok"
         },
         {
           "name": "Home Assistant filtered 3-hour Google Sheet logger",
           "category": "Home automation",
           "schedule": "every 180m",
           "repeat": "∞",
-          "next_run": "2026-09-04T08:28:41.918979-04:00",
+          "next_run": "2026-09-05T08:32:37.632896-04:00",
           "deliver": "configured private channel",
           "script": "ha_entities_to_sheets.py",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-04T05:28:41.918979-04:00  ok"
+          "last_run": "2026-09-05T05:32:37.632896-04:00  ok"
         },
         {
           "name": "[REDACTED]",
@@ -796,112 +813,112 @@
           "category": "Other scheduled automation",
           "schedule": "20 8,20 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-04T08:20:00-04:00",
+          "next_run": "2026-09-05T08:20:00-04:00",
           "deliver": "configured private channel",
           "workdir": "~",
-          "last_run": "2026-09-03T20:21:01.334339-04:00  error: RuntimeError: HTTP 404: Model 'stealth/ox-alpha' requires available credits. Your account balance is too low to use paid models — add credits at https://portal.nousresearch.com or pick a free model."
+          "last_run": "2026-09-04T20:44:05.513982-04:00  ok"
         },
         {
           "name": "[Private finance automation task]",
           "category": "Private finance automation",
           "schedule": "every 720m",
           "repeat": "∞",
-          "next_run": "2026-09-04T11:27:59.162623-04:00",
+          "next_run": "2026-09-05T11:33:59.214517-04:00",
           "deliver": "origin",
           "script": "[private script]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-03T23:27:59.162623-04:00  ok"
+          "last_run": "2026-09-04T23:33:59.214517-04:00  ok"
         },
         {
           "name": "[Private finance automation task]",
           "category": "Private finance automation",
           "schedule": "0 8,14,20 * * *",
-          "repeat": "266/3650",
-          "next_run": "2026-09-04T08:00:00-04:00",
+          "repeat": "269/3650",
+          "next_run": "2026-09-05T08:00:00-04:00",
           "deliver": "origin",
           "script": "[private script]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-03T20:07:33.011240-04:00  ok"
+          "last_run": "2026-09-04T20:08:16.985290-04:00  ok"
         },
         {
           "name": "Hermes cron auto-healer",
           "category": "Reliability watchdogs",
           "schedule": "every 15m",
           "repeat": "∞",
-          "next_run": "2026-09-04T06:22:52.062295-04:00",
+          "next_run": "2026-09-05T06:22:45.807231-04:00",
           "deliver": "origin",
           "script": "hermes_auto_healer.py",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-04T06:07:52.062295-04:00  ok"
+          "last_run": "2026-09-05T06:07:45.807231-04:00  ok"
         },
         {
           "name": "[Reliability watchdogs task]",
           "category": "Reliability watchdogs",
           "schedule": "every 720m",
           "repeat": "∞",
-          "next_run": "2026-09-04T11:23:50.627194-04:00",
+          "next_run": "2026-09-05T11:25:47.236240-04:00",
           "deliver": "origin",
           "script": "[private script]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-03T23:23:50.627194-04:00  ok"
+          "last_run": "2026-09-04T23:25:47.236240-04:00  ok"
         },
         {
           "name": "Nightly GBrain update watchdog",
           "category": "Knowledge & memory",
           "schedule": "20 3 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-05T03:20:00-04:00",
+          "next_run": "2026-09-06T03:20:00-04:00",
           "deliver": "origin",
           "script": "gbrain_update_watchdog.py",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-04T03:21:54.218548-04:00  ok"
+          "last_run": "2026-09-05T03:21:54.205634-04:00  ok"
         },
         {
           "name": "[Private finance automation task]",
           "category": "Private finance automation",
           "schedule": "15 8,14,20 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-04T08:15:00-04:00",
+          "next_run": "2026-09-05T08:15:00-04:00",
           "deliver": "origin",
           "script": "[private script]",
-          "last_run": "2026-09-03T20:16:36.063075-04:00  error: RuntimeError: HTTP 404: Model 'stealth/ox-alpha' requires available credits. Your account balance is too low to use paid models — add credits at https://portal.nousresearch.com or pick a free model."
+          "last_run": "2026-09-04T20:17:23.304646-04:00  ok"
         },
         {
           "name": "[Private finance automation task]",
           "category": "Private finance automation",
           "schedule": "20 8,14,20 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-04T08:20:00-04:00",
+          "next_run": "2026-09-05T08:20:00-04:00",
           "deliver": "origin",
           "script": "[private script]",
-          "last_run": "2026-09-03T14:21:13.351666-04:00  error: RuntimeError: HTTP 530: {\"type\":\"https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1033/\",\"title\":\"Error 1033: Cloudflare Tunnel error\",\"status\":530,\"detail\":\"The host is configured as a Cloudflare Tunnel, but Cloudflare is currently unable to reach it.\",\"instance\":\"a3"
+          "last_run": "2026-09-04T20:24:59.766904-04:00  ok"
         },
         {
           "name": "Hermes Python env guard",
           "category": "Reliability watchdogs",
           "schedule": "every 120m",
           "repeat": "∞",
-          "next_run": "2026-09-04T07:45:45.261157-04:00",
+          "next_run": "2026-09-05T07:54:42.108054-04:00",
           "deliver": "origin",
           "script": "hermes_python_env_guard.py",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-04T05:45:45.261157-04:00  ok"
+          "last_run": "2026-09-05T05:54:42.108054-04:00  ok"
         },
         {
           "name": "ForgetMe YouTube new video monitor",
           "category": "Media/news monitoring",
           "schedule": "every 30m",
           "repeat": "∞",
-          "next_run": "2026-09-04T06:20:46.735695-04:00",
+          "next_run": "2026-09-05T06:30:43.731498-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-04T05:50:46.735695-04:00  ok"
+          "last_run": "2026-09-05T06:00:43.731498-04:00  ok"
         },
         {
           "name": "Hourly GBrain auto-healer",
@@ -920,104 +937,104 @@
           "category": "GitHub & publishing",
           "schedule": "15 6 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-05T06:15:00-04:00",
+          "next_run": "2026-09-06T06:15:00-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-03T06:16:41.977125-04:00  ok"
+          "last_run": "2026-09-04T06:16:54.011680-04:00  ok"
         },
         {
           "name": "OpenSourceProjects.dev hourly review",
           "category": "GitHub & publishing",
           "schedule": "every 60m",
           "repeat": "∞",
-          "next_run": "2026-09-04T06:45:45.363962-04:00",
+          "next_run": "2026-09-05T06:55:42.797374-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-04T05:45:45.363962-04:00  ok"
+          "last_run": "2026-09-05T05:55:42.797374-04:00  ok"
         },
         {
           "name": "Telegram @github hourly review",
           "category": "GitHub & publishing",
           "schedule": "every 60m",
           "repeat": "∞",
-          "next_run": "2026-09-04T06:55:49.702599-04:00",
+          "next_run": "2026-09-05T07:11:13.968350-04:00",
           "deliver": "configured private channel",
           "script": "telegram_github_watch.py",
-          "last_run": "2026-09-04T05:55:49.702599-04:00  ok"
+          "last_run": "2026-09-05T06:11:13.968350-04:00  ok"
         },
         {
           "name": "Glances system watchdog",
           "category": "Reliability watchdogs",
           "schedule": "every 15m",
           "repeat": "∞",
-          "next_run": "2026-09-04T06:29:55.936861-04:00",
+          "next_run": "2026-09-05T06:25:48.749976-04:00",
           "deliver": "configured private channel",
           "script": "glances_system_monitor.py",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-04T06:14:55.936861-04:00  ok"
+          "last_run": "2026-09-05T06:10:48.749976-04:00  ok"
         },
         {
           "name": "Daily React Doctor web watchdog",
           "category": "Reliability watchdogs",
           "schedule": "30 9 * * *",
-          "repeat": "79/3650",
-          "next_run": "2026-09-04T09:30:00-04:00",
+          "repeat": "80/3650",
+          "next_run": "2026-09-05T09:30:00-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-03T10:09:39.387274-04:00  ok"
+          "last_run": "2026-09-04T09:31:08.150087-04:00  ok"
         },
         {
           "name": "Hermes architecture public site watchdog",
           "category": "Reliability watchdogs",
           "schedule": "every 15m",
           "repeat": "∞",
-          "next_run": "2026-09-04T06:25:53.337289-04:00",
+          "next_run": "2026-09-05T06:22:46.423788-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-04T06:10:53.337289-04:00  ok"
+          "last_run": "2026-09-05T06:07:46.423788-04:00  ok"
         },
         {
           "name": "Hermes private ops wiki public route watchdog",
           "category": "Reliability watchdogs",
           "schedule": "every 15m",
           "repeat": "∞",
-          "next_run": "2026-09-04T06:25:53.182935-04:00",
+          "next_run": "2026-09-05T06:22:46.157590-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-04T06:10:53.182935-04:00  ok"
+          "last_run": "2026-09-05T06:07:46.157590-04:00  ok"
         },
         {
           "name": "Telegram @notboring_tech hourly review",
           "category": "Other scheduled automation",
           "schedule": "every 60m",
-          "repeat": "1605/3650",
-          "next_run": "2026-09-04T06:48:47.921883-04:00",
+          "repeat": "1629/3650",
+          "next_run": "2026-09-05T07:02:46.088318-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "workdir": "~",
-          "last_run": "2026-09-04T05:48:47.921883-04:00  ok"
+          "last_run": "2026-09-05T06:02:46.088318-04:00  ok"
         },
         {
           "name": "Telegram @git_developer hourly review",
           "category": "Other scheduled automation",
           "schedule": "every 60m",
-          "repeat": "1598/3650",
-          "next_run": "2026-09-04T06:50:48.172509-04:00",
+          "repeat": "1622/3650",
+          "next_run": "2026-09-05T07:03:45.622614-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "workdir": "~",
-          "last_run": "2026-09-04T05:50:48.172509-04:00  ok"
+          "last_run": "2026-09-05T06:03:45.622614-04:00  ok"
         },
         {
           "name": "NousResearch X hourly review",
@@ -1046,44 +1063,44 @@
           "category": "Private finance automation",
           "schedule": "every 240m",
           "repeat": "∞",
-          "next_run": "2026-09-04T07:25:56.330218-04:00",
+          "next_run": "2026-09-05T07:32:58.814597-04:00",
           "deliver": "configured private channel",
           "script": "[private script]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-04T03:25:56.330218-04:00  ok"
+          "last_run": "2026-09-05T03:32:58.814597-04:00  ok"
         },
         {
           "name": "Nightly Hermes memory hygiene",
           "category": "Knowledge & memory",
           "schedule": "0 3 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-05T03:00:00-04:00",
+          "next_run": "2026-09-06T03:00:00-04:00",
           "deliver": "configured private channel",
-          "last_run": "2026-09-03T03:00:53.945611-04:00  ok"
+          "last_run": "2026-09-05T03:03:47.856416-04:00  ok"
         },
         {
           "name": "Watch awesome-ai-workflows for Hermes-relevant additions",
           "category": "Other scheduled automation",
           "schedule": "0 10 * * *",
-          "repeat": "67/3650",
-          "next_run": "2026-09-04T10:00:00-04:00",
+          "repeat": "68/3650",
+          "next_run": "2026-09-05T10:00:00-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-03T10:00:19.649344-04:00  ok"
+          "last_run": "2026-09-04T10:00:20.302850-04:00  ok"
         },
         {
           "name": "GVault public route watchdog",
           "category": "Reliability watchdogs",
           "schedule": "every 5m",
           "repeat": "∞",
-          "next_run": "2026-09-04T06:20:54.864879-04:00",
+          "next_run": "2026-09-05T06:18:48.169465-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-04T06:15:54.864879-04:00  ok"
+          "last_run": "2026-09-05T06:13:48.169465-04:00  ok"
         },
         {
           "name": "Weekly high-signal backlog review",
@@ -1099,23 +1116,23 @@
           "category": "Reliability watchdogs",
           "schedule": "every 60m",
           "repeat": "∞",
-          "next_run": "2026-09-04T06:46:45.449587-04:00",
+          "next_run": "2026-09-05T07:00:43.832389-04:00",
           "deliver": "configured private channel",
           "script": "hermes_latency_watchdog.py",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-04T05:46:45.449587-04:00  ok"
+          "last_run": "2026-09-05T06:00:43.832389-04:00  ok"
         },
         {
           "name": "Hermes session housekeeping",
           "category": "Other scheduled automation",
           "schedule": "10 5 * * *",
-          "repeat": "64/3650",
-          "next_run": "2026-09-05T05:10:00-04:00",
+          "repeat": "65/3650",
+          "next_run": "2026-09-06T05:10:00-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-04T05:11:32.974621-04:00  ok"
+          "last_run": "2026-09-05T05:10:33.971442-04:00  ok"
         },
         {
           "name": "[REDACTED]",
@@ -1258,25 +1275,25 @@
           "name": "Mattermost public route auto-healer",
           "category": "Reliability watchdogs",
           "schedule": "every 5m",
-          "repeat": "10543/999999",
-          "next_run": "2026-09-04T06:17:53.898389-04:00",
+          "repeat": "10828/999999",
+          "next_run": "2026-09-05T06:18:48.286415-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-04T06:12:53.898389-04:00  ok"
+          "last_run": "2026-09-05T06:13:48.286415-04:00  ok"
         },
         {
           "name": "Habr Russian articles hourly monitor",
           "category": "Other scheduled automation",
           "schedule": "every 60m",
-          "repeat": "1044/999999",
-          "next_run": "2026-09-04T06:18:35.637797-04:00",
+          "repeat": "1068/999999",
+          "next_run": "2026-09-05T06:44:06.268451-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-04T05:18:35.637797-04:00  error: Script exited with code 1"
+          "last_run": "2026-09-05T05:44:06.268451-04:00  ok"
         },
         {
           "name": "Watch chrome-devtools-mcp pilot triggers",
@@ -1294,63 +1311,63 @@
           "category": "Other scheduled automation",
           "schedule": "0 9,21 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-04T09:00:00-04:00",
+          "next_run": "2026-09-05T09:00:00-04:00",
           "deliver": "configured private channel",
           "workdir": "~",
-          "last_run": "2026-09-03T21:01:23.478283-04:00  error: RuntimeError: HTTP 404: Model 'stealth/ox-alpha' requires available credits. Your account balance is too low to use paid models — add credits at https://portal.nousresearch.com or pick a free model."
+          "last_run": "2026-09-04T21:06:11.553387-04:00  ok"
         },
         {
           "name": "[REDACTED]",
           "category": "Other scheduled automation",
           "schedule": "35 9,21 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-04T09:35:00-04:00",
+          "next_run": "2026-09-05T09:35:00-04:00",
           "deliver": "configured private channel",
           "workdir": "~",
-          "last_run": "2026-09-03T21:35:23.448667-04:00  error: RuntimeError: HTTP 404: Model 'stealth/ox-alpha' requires available credits. Your account balance is too low to use paid models — add credits at https://portal.nousresearch.com or pick a free model."
+          "last_run": "2026-09-04T21:44:19.061112-04:00  ok"
         },
         {
           "name": "[REDACTED]",
           "category": "Backup & sync",
           "schedule": "5 10,22 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-04T10:05:00-04:00",
+          "next_run": "2026-09-05T10:05:00-04:00",
           "deliver": "origin",
           "workdir": "~",
-          "last_run": "2026-09-03T22:06:11.567102-04:00  error: RuntimeError: HTTP 404: Model 'stealth/ox-alpha' requires available credits. Your account balance is too low to use paid models — add credits at https://portal.nousresearch.com or pick a free model."
+          "last_run": "2026-09-04T22:07:05.076728-04:00  ok"
         },
         {
           "name": "Telegram @quotaradar hourly forward",
           "category": "Other scheduled automation",
           "schedule": "every 60m",
           "repeat": "∞",
-          "next_run": "2026-09-04T06:46:46.038502-04:00",
+          "next_run": "2026-09-05T06:56:42.995706-04:00",
           "deliver": "configured private channel",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-04T05:46:46.038502-04:00  ok"
+          "last_run": "2026-09-05T05:56:42.995706-04:00  ok"
         },
         {
           "name": "Daily discussion journal Google Sheet updater",
           "category": "Other scheduled automation",
           "schedule": "35 11 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-04T11:35:00-04:00",
+          "next_run": "2026-09-05T11:35:00-04:00",
           "deliver": "configured private channel",
           "workdir": "~",
-          "last_run": "2026-09-03T11:42:11.440223-04:00  ok"
+          "last_run": "2026-09-04T12:15:09.167153-04:00  ok"
         },
         {
           "name": "Nightly Hermes & Orchestrator deep optimizer",
           "category": "Other scheduled automation",
           "schedule": "15 0 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-05T00:15:00-04:00",
+          "next_run": "2026-09-06T00:15:00-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "workdir": "~",
-          "last_run": "2026-09-04T00:16:51.629629-04:00  error: RuntimeError: HTTP 404: Model 'stealth/ox-alpha' requires available credits. Your account balance is too low to use paid models — add credits at https://portal.nousresearch.com or pick a free model."
+          "last_run": "2026-09-05T00:17:49.351600-04:00  ok"
         },
         {
           "name": "Reassess QM for Hermes",
@@ -1365,11 +1382,11 @@
           "category": "Reliability watchdogs",
           "schedule": "0 9 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-04T09:00:00-04:00",
+          "next_run": "2026-09-05T09:00:00-04:00",
           "deliver": "origin",
           "script": "doordash_cli_watch.py",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-03T09:00:17.521871-04:00  error: Script exited with code 1"
+          "last_run": "2026-09-04T09:01:58.401068-04:00  ok"
         },
         {
           "name": "Weekly TencentDB Agent Memory adoption recheck",
@@ -1385,21 +1402,21 @@
           "category": "Other scheduled automation",
           "schedule": "5 11 * * *",
           "repeat": "∞",
-          "next_run": "2026-09-04T11:05:00-04:00",
+          "next_run": "2026-09-05T11:05:00-04:00",
           "deliver": "origin",
           "script": "[REDACTED]",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-03T11:05:28.314396-04:00  ok"
+          "last_run": "2026-09-04T11:05:47.156385-04:00  ok"
         },
         {
           "name": "Daily Google Keep useful-resource review",
           "category": "Other scheduled automation",
           "schedule": "45 9 * * *",
-          "repeat": "37/3650",
-          "next_run": "2026-09-04T09:45:00-04:00",
+          "repeat": "38/3650",
+          "next_run": "2026-09-05T09:45:00-04:00",
           "deliver": "origin",
-          "last_run": "2026-09-03T10:01:12.716655-04:00  ok"
+          "last_run": "2026-09-04T10:07:22.651669-04:00  ok"
         },
         {
           "name": "GPT-5.6 Terra pilot daily metrics",
@@ -1426,32 +1443,32 @@
           "category": "Other scheduled automation",
           "schedule": "every 180m",
           "repeat": "∞",
-          "next_run": "2026-09-04T08:27:39.201648-04:00",
+          "next_run": "2026-09-05T08:31:33.755310-04:00",
           "deliver": "configured private channel",
           "script": "glances_disk_cleanup.py",
           "mode": "no-agent (script stdout delivered directly)",
           "workdir": "~",
-          "last_run": "2026-09-04T05:27:39.201648-04:00  ok"
+          "last_run": "2026-09-05T05:31:33.755310-04:00  ok"
         },
         {
           "name": "codex-chatgpt-web #154 watch → swap + decommission old provider",
           "category": "Other scheduled automation",
           "schedule": "every 720m",
           "repeat": "∞",
-          "next_run": "2026-09-04T11:25:34.951791-04:00",
+          "next_run": "2026-09-05T11:29:32.901420-04:00",
           "deliver": "origin",
-          "last_run": "2026-09-03T23:25:34.951791-04:00  error: RuntimeError: HTTP 404: Model 'stealth/ox-alpha' requires available credits. Your account balance is too low to use paid models — add credits at https://portal.nousresearch.com or pick a free model."
+          "last_run": "2026-09-04T23:29:32.901420-04:00  ok"
         },
         {
           "name": "[REDACTED]",
           "category": "Reliability watchdogs",
           "schedule": "*/15 * * * *",
           "repeat": "∞",
-          "next_run": "2026-09-04T06:30:00-04:00",
+          "next_run": "2026-09-05T06:30:00-04:00",
           "deliver": "origin",
           "script": "wud_evening_watchdog.py",
           "mode": "no-agent (script stdout delivered directly)",
-          "last_run": "2026-09-04T06:15:54.758150-04:00  ok"
+          "last_run": "2026-09-05T06:15:48.723409-04:00  ok"
         }
       ],
       "note": "Task names that expose personal/client workflows are replaced with category labels; schedules/scripts/modes are retained when safe."

@@ -6,7 +6,7 @@ Low-level public-safe runtime routing document.
 
 | Role | Provider | Model | Notes |
 |---|---|---|---|
-| Primary | openai-codex | gpt-5.6-terra | Default for Telegram/API/CLI gateway sessions |
+| Primary | openai-codex | gpt-5.6-luna | Default for Telegram/API/CLI gateway sessions |
 | Fallback |  |  | Used when primary fails |
 | Optional provider | lmstudio | qwenvl3bunc | http://127.0.0.1:1234/v1 |
 | Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |

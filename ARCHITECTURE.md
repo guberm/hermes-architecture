@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-09-04T06:15:54-04:00`.
+> Public-safe architecture snapshot generated at `2026-09-05T06:15:48-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -187,7 +187,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Role | Provider | Model | Notes |
 |---|---|---|---|
-| Primary | openai-codex | gpt-5.6-terra | Default for Telegram/API/CLI gateway sessions |
+| Primary | openai-codex | gpt-5.6-luna | Default for Telegram/API/CLI gateway sessions |
 | Fallback |  |  | Used when primary fails |
 | Optional provider | lmstudio | qwenvl3bunc | http://127.0.0.1:1234/v1 |
 | Optional provider | nvidia | meta/llama-3.3-70b-instruct | https://integrate.api.nvidia.com/v1 |
@@ -252,7 +252,7 @@ The live system currently exposes the public-safe profile roster as:
 ```text
 Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
- ◆default         gpt-5.6-terra                running      —            —
+ ◆default         gpt-5.6-luna                 running      —            —
   claude          —                            running      —            —
   coding          gpt-5.6-sol                  running      coding       —
   ghidra-restricted gpt-5.6-sol                  running      —            —
@@ -285,24 +285,23 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.21.0 (2026.8.31) · upstream 63279301
+Hermes Agent v0.21.0 (2026.8.31) · upstream f58fcc81 · local 3ec27303 (+3 carried commits)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.16
 OpenAI SDK: 2.24.0
-Up to date
+Update available — run 'hermes update'
 ```
 
 - Fallback chain:
 
 ```text
-Primary:   gpt-5.6-terra  (via openai-codex)
+Primary:   gpt-5.6-luna  (via openai-codex)
 
-  Fallback chain (4 entries):
-1. ox-alpha-free  (via opencode-go)
-2. stealth/ox-alpha  (via nous)
-3. chatgpt-web/high  (via codex-web-gpt)
-4. gpt-5.3-codex-spark  (via openai-codex)
+  Fallback chain (3 entries):
+1. kimi-k2.6  (via opencode-go)
+2. nvidia/nemotron-3.5-lightning-30b-a3b  (via nvidia)
+3. cfbt-kimi  (via freekimi)
 
   Tried in order when the primary fails (rate-limit, 5xx, connection errors).
   Docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/fallback-providers
