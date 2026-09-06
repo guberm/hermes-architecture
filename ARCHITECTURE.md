@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-09-05T06:15:48-04:00`.
+> Public-safe architecture snapshot generated at `2026-09-06T06:15:36-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -37,9 +37,9 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 77 jobs; 39 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 391 detected skill files across 28 categories | Private/client-sensitive skill names are omitted from examples. |
+| Skills | 396 detected skill files across 28 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 0 | Hook command bodies are not published. |
-| Plugins | 53 visible plugin rows captured; enabled estimate 22 | Descriptions omitted to avoid leaking credential/env surfaces. |
+| Plugins | 54 visible plugin rows captured; enabled estimate 24 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
@@ -69,7 +69,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | autonomous-ai-agents | 22 |
 | creative | 35 |
 | data-science | 1 |
-| devops | 28 |
+| devops | 29 |
 | ecc-imports | 4 |
 | email | 5 |
 | external | 7 |
@@ -79,15 +79,15 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | media | 8 |
 | mlops | 18 |
 | note-taking | 4 |
-| operations | 3 |
+| operations | 4 |
 | personal | 9 |
-| productivity | 45 |
+| productivity | 46 |
 | red-teaming | 1 |
 | research | 33 |
 | security | 4 |
 | smart-home | 4 |
 | social-media | 2 |
-| software-development | 100 |
+| software-development | 102 |
 | uncategorized | 19 |
 | web | 2 |
 | web-development | 1 |
@@ -97,8 +97,9 @@ Public-safe skill examples:
 
 | Skill | Category | Public-safe description |
 |---|---|---|
+| `gbrain-memory-capture` | note-taking | Capture user-marked durable context into GBrain while keeping Hermes memory compact. |
 | `obsidian` | note-taking | Read, search, create, and edit notes in the Obsidian vault. |
-| `comfyui` | creative | Generate images, video, and audio with ComfyUI — install, launch, manage nodes/models, run workflows with parameter injection. Uses the offi |
+| `comfyui` | creative | Generate images, video, and audio with ComfyUI — install, launch, manage nodes/models, run workflows. |
 | `[REDACTED]` | creative | Article illustrations: type × style × palette consistency. |
 | `humanizer` | creative | Humanize text: strip AI-isms and add real voice. |
 | `pixel-art` | creative | Pixel art w/ era palettes (NES, Game Boy, PICO-8). |
@@ -109,10 +110,10 @@ Public-safe skill examples:
 | `claude-design` | creative | Design one-off HTML artifacts (landing, deck, prototype). |
 | `pretext` | creative | Build creative browser demos with DOM-free text layout. |
 | `hyperframes` | creative | Render MP4/WebM videos from HTML compositions. |
-| `apple-design` | creative | Design or review Apple-inspired web interactions with direct manipulation, interruptible spring motion, velocity handoff, momentum, rubber-b |
+| `apple-design` | creative | Design or review Apple-inspired web interactions with direct manipulation, interruptible spring. |
 | `[REDACTED]` | creative | Songwriting craft and Suno AI music prompts. |
 | `p5js` | creative | p5.js sketches: gen art, shaders, interactive, 3D. |
-| `reference-safe-design` | creative | Use when a user supplies websites, screenshots, brand campaigns, moodboards, copy, motion, or assets and wants either an originality audit o |
+| `reference-safe-design` | creative | Use when a user supplies websites, screenshots, brand campaigns, moodboards, copy, motion, or. |
 | `baoyu-comic` | creative | Knowledge comics (知识漫画): educational, biography, tutorial. |
 | `touchdesigner-mcp` | creative | Control TouchDesigner via twozero MCP. |
 | `creative-ideation` | creative | Generate ideas via named methods from creative practice. |
@@ -120,8 +121,7 @@ Public-safe skill examples:
 | `excalidraw` | creative | Hand-drawn Excalidraw JSON diagrams (arch, flow, seq). |
 | `popular-web-designs` | creative | 54 real design systems (Stripe, Linear, Vercel) as HTML/CSS. |
 | `concept-diagrams` | creative | Generate flat, minimal educational SVG visuals as HTML. |
-| `blender-mcp` | creative | Control Blender directly from Hermes via socket connection to the blender-mcp addon. Create 3D objects, materials, animations, and run arbit |
-| `baoyu-infographic` | creative | Infographics: 21 layouts x 21 styles (信息图, 可视化). |
+| `blender-mcp` | creative | Control Blender directly from Hermes via socket connection to the blender-mcp addon. |
 
 
 ### Hooks, webhooks, and plugin hook manifests
@@ -250,7 +250,11 @@ The important runtime distinction is that `researcher`, `worker`, and `reviewer`
 The live system currently exposes the public-safe profile roster as:
 
 ```text
-Profile          Model                        Gateway      Alias        Distribution
+⚠ A previous `hermes update` pulled new code but did not restart running gateways.
+  Gateways may still be serving pre-update modules (mixed sys.modules).
+  Run `hermes update` or `hermes gateway restart`.
+
+ Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
  ◆default         gpt-5.6-luna                 running      —            —
   claude          —                            running      —            —
@@ -285,7 +289,7 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.21.0 (2026.8.31) · upstream f58fcc81 · local 3ec27303 (+3 carried commits)
+Hermes Agent v0.21.0 (2026.8.31) · upstream 01ae7a56 · local 845bc11e (+3 carried commits)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.16
@@ -296,7 +300,11 @@ Update available — run 'hermes update'
 - Fallback chain:
 
 ```text
-Primary:   gpt-5.6-luna  (via openai-codex)
+⚠ A previous `hermes update` pulled new code but did not restart running gateways.
+  Gateways may still be serving pre-update modules (mixed sys.modules).
+  Run `hermes update` or `hermes gateway restart`.
+
+  Primary:   gpt-5.6-luna  (via openai-codex)
 
   Fallback chain (3 entries):
 1. kimi-k2.6  (via opencode-go)
@@ -310,7 +318,11 @@ Primary:   gpt-5.6-luna  (via openai-codex)
 - MCP list:
 
 ```text
-MCP Servers:
+⚠ A previous `hermes update` pulled new code but did not restart running gateways.
+  Gateways may still be serving pre-update modules (mixed sys.modules).
+  Run `hermes update` or `hermes gateway restart`.
+
+  MCP Servers:
 
   Name             Transport                      Tools        Status    
   ──────────────── ────────────────────────────── ──────────── ──────────

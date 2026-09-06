@@ -12,7 +12,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | autonomous-ai-agents | 22 |
 | creative | 35 |
 | data-science | 1 |
-| devops | 28 |
+| devops | 29 |
 | ecc-imports | 4 |
 | email | 5 |
 | external | 7 |
@@ -22,15 +22,15 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | media | 8 |
 | mlops | 18 |
 | note-taking | 4 |
-| operations | 3 |
+| operations | 4 |
 | personal | 9 |
-| productivity | 45 |
+| productivity | 46 |
 | red-teaming | 1 |
 | research | 33 |
 | security | 4 |
 | smart-home | 4 |
 | social-media | 2 |
-| software-development | 100 |
+| software-development | 102 |
 | uncategorized | 19 |
 | web | 2 |
 | web-development | 1 |
@@ -39,8 +39,9 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 
 | Skill | Category | Description |
 |---|---|---|
+| `gbrain-memory-capture` | note-taking | Capture user-marked durable context into GBrain while keeping Hermes memory compact. |
 | `obsidian` | note-taking | Read, search, create, and edit notes in the Obsidian vault. |
-| `comfyui` | creative | Generate images, video, and audio with ComfyUI — install, launch, manage nodes/models, run workflows with parameter injection. Uses the offi |
+| `comfyui` | creative | Generate images, video, and audio with ComfyUI — install, launch, manage nodes/models, run workflows. |
 | `[REDACTED]` | creative | Article illustrations: type × style × palette consistency. |
 | `humanizer` | creative | Humanize text: strip AI-isms and add real voice. |
 | `pixel-art` | creative | Pixel art w/ era palettes (NES, Game Boy, PICO-8). |
@@ -51,10 +52,10 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `claude-design` | creative | Design one-off HTML artifacts (landing, deck, prototype). |
 | `pretext` | creative | Build creative browser demos with DOM-free text layout. |
 | `hyperframes` | creative | Render MP4/WebM videos from HTML compositions. |
-| `apple-design` | creative | Design or review Apple-inspired web interactions with direct manipulation, interruptible spring motion, velocity handoff, momentum, rubber-b |
+| `apple-design` | creative | Design or review Apple-inspired web interactions with direct manipulation, interruptible spring. |
 | `[REDACTED]` | creative | Songwriting craft and Suno AI music prompts. |
 | `p5js` | creative | p5.js sketches: gen art, shaders, interactive, 3D. |
-| `reference-safe-design` | creative | Use when a user supplies websites, screenshots, brand campaigns, moodboards, copy, motion, or assets and wants either an originality audit o |
+| `reference-safe-design` | creative | Use when a user supplies websites, screenshots, brand campaigns, moodboards, copy, motion, or. |
 | `baoyu-comic` | creative | Knowledge comics (知识漫画): educational, biography, tutorial. |
 | `touchdesigner-mcp` | creative | Control TouchDesigner via twozero MCP. |
 | `creative-ideation` | creative | Generate ideas via named methods from creative practice. |
@@ -62,10 +63,10 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `excalidraw` | creative | Hand-drawn Excalidraw JSON diagrams (arch, flow, seq). |
 | `popular-web-designs` | creative | 54 real design systems (Stripe, Linear, Vercel) as HTML/CSS. |
 | `concept-diagrams` | creative | Generate flat, minimal educational SVG visuals as HTML. |
-| `blender-mcp` | creative | Control Blender directly from Hermes via socket connection to the blender-mcp addon. Create 3D objects, materials, animations, and run arbit |
+| `blender-mcp` | creative | Control Blender directly from Hermes via socket connection to the blender-mcp addon. |
 | `baoyu-infographic` | creative | Infographics: 21 layouts x 21 styles (信息图, 可视化). |
-| `strategic-reading` | uncategorized | Read a book, article, transcript, or case study through the lens of a specific strategic problem you |
-| `article-enrichment` | uncategorized | Transform raw article text dumps in the brain into structured pages with executive summary, verbatim quotes, key insights, why-it-matters, a |
+| `strategic-reading` | uncategorized | Read a book, article, transcript, or case study through the lens of a specific strategic problem. |
+| `article-enrichment` | uncategorized | Transform raw article text dumps in the brain into structured pages with executive summary,. |
 | `[REDACTED]` | uncategorized | Validate TERMINAL_CWD and fallback runtime behavior. |
 | `[REDACTED]` | mcp | Configure, authenticate, verify, and safely operate Cloudflare |
 | `native-mcp` | mcp | MCP client: connect servers, register tools (stdio/HTTP). |
@@ -73,12 +74,11 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `maintain` | uncategorized | / |
 | `hermes-desktop-plugins` | uncategorized | Write desktop app plugins that add UI panes and commands. |
 | `[REDACTED]` | web-development | Deploy a Worker live, no account, via wrangler --temporary. |
-| `concept-synthesis` | uncategorized | Deduplicate and synthesize raw concept stubs into a tiered intellectual map (T1 Canon to T4 Riff), tracing idea evolution across sources ove |
-| `perplexity-research` | uncategorized | Brain-augmented web research. Sends brain context about a topic to Perplexity, which searches the web with citations and returns what is NEW |
-| `brain-pdf` | uncategorized | Generate a publication-quality PDF from a GBrain page or markdown file using Hermes-native Chrome rendering. The brain page remains the sour |
+| `concept-synthesis` | uncategorized | Deduplicate and synthesize raw concept stubs into a tiered intellectual map (T1 Canon to T4 Riff),. |
+| `perplexity-research` | uncategorized | Brain-augmented web research. |
+| `brain-pdf` | uncategorized | Generate a publication-quality PDF from a GBrain page or markdown file using Hermes-native Chrome. |
 | `skillpack-check` | uncategorized | / |
 | `jupyter-live-kernel` | data-science | Iterative Python via live Jupyter kernel (hamelnb). |
-| `yuanbao` | uncategorized | Yuanbao (元宝) groups: @mention users, query info/members. |
 
 ## Operational meaning
 

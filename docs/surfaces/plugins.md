@@ -39,7 +39,7 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `teams-platform` | not enabled |
 | `telegram-platform` | enabled |
 | `wecom-platform` | not enabled |
-| `whatsapp-platform` | not enabled |
+| `whatsapp-platform` | enabled |
 | `security-guidance` | enabled |
 | `spotify` | not enabled |
 | `teams_pipeline` | not enabled |
@@ -47,11 +47,12 @@ Public-safe Hermes plugin inventory. Descriptions are omitted because plugin met
 | `fal` | not enabled |
 | `xai` | not enabled |
 | `web-brave-free` | enabled |
-| `web-ddgs` | not enabled |
+| `web-ddgs` | enabled |
 | `web-exa` | not enabled |
 | `web-firecrawl` | enabled |
 | `web-keenable` | not enabled |
 | `web-parallel` | enabled |
+| `web-perplexity` | not enabled |
 | `web-searxng` | not enabled |
 | `web-tavily` | not enabled |
 | `web-xai` | not enabled |
