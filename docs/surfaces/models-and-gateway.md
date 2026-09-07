@@ -30,8 +30,8 @@ Low-level public-safe runtime routing document.
 | Item | Value |
 |---|---|
 | LM Studio base URL | `http://127.0.0.1:1234/v1` |
-| Model IDs | `` |
-| Chat smoke test | `blocked_or_unavailable: <urlopen error [Errno 111] Connection refused>` |
+| Model IDs | `[REDACTED]` |
+| Chat smoke test | `blocked_or_unavailable: {     "error": {         "message": "No models loaded. Please load a model in the developer page or use the 'lms load' command.",         "type": "invalid_request_error",         "param": "model",         "code": null     } }` |
 
 ## Safety routing
 

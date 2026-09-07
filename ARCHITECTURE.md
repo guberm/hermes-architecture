@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-09-06T06:15:36-04:00`.
+> Public-safe architecture snapshot generated at `2026-09-07T06:15:46-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,8 +36,8 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 77 jobs; 39 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 396 detected skill files across 28 categories | Private/client-sensitive skill names are omitted from examples. |
+| Scheduled tasks / cron | 78 jobs; 40 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Skills | 402 detected skill files across 28 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 0 | Hook command bodies are not published. |
 | Plugins | 54 visible plugin rows captured; enabled estimate 24 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -52,7 +52,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 38 | Other local automation jobs. |
+| Other scheduled automation | 39 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 12 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -83,11 +83,11 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | personal | 9 |
 | productivity | 46 |
 | red-teaming | 1 |
-| research | 33 |
+| research | 35 |
 | security | 4 |
 | smart-home | 4 |
-| social-media | 2 |
-| software-development | 102 |
+| social-media | 4 |
+| software-development | 104 |
 | uncategorized | 19 |
 | web | 2 |
 | web-development | 1 |
@@ -202,9 +202,16 @@ The repository includes dedicated, low-level public-safe files for each operatio
 
 | Item | Status |
 |---|---|
-| LM Studio endpoint | `not reachable` at `http://127.0.0.1:1234/v1` |
-| Reported model IDs | `none` |
-| Chat smoke test | `blocked_or_unavailable: <urlopen error [Errno 111] Connection refused>` |
+| LM Studio endpoint | `available` at `http://127.0.0.1:1234/v1` |
+| Reported model IDs | `[REDACTED]` |
+| Chat smoke test | `blocked_or_unavailable: {
+"error": {
+    "message": "No models loaded. Please load a model in the developer page or use the 'lms load' command.",
+    "type": "invalid_request_error",
+    "param": "model",
+    "code": null
+}
+}` |
 | Safety decision | Main Hermes remains `openai-codex/gpt-5.5`; local provider is optional until a model can load reliably. |
 
 ## MCP and External Tooling
@@ -224,7 +231,7 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
 | Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
-| Other scheduled automation | 38 | Other local automation jobs. |
+| Other scheduled automation | 39 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
 | Reliability watchdogs | 12 | Auto-healing, environment guards, timeout/watchdog checks. |
 
@@ -289,12 +296,12 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.21.0 (2026.8.31) · upstream 01ae7a56 · local 845bc11e (+3 carried commits)
+Hermes Agent v0.21.0 (2026.8.31) · upstream 7874ef9f · local 5bd439d3 (+1 carried commit)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.16
 OpenAI SDK: 2.24.0
-Update available — run 'hermes update'
+Update available: 24 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
