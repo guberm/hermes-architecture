@@ -24,7 +24,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | note-taking | 4 |
 | operations | 4 |
 | personal | 9 |
-| productivity | 46 |
+| productivity | 48 |
 | red-teaming | 1 |
 | research | 35 |
 | security | 4 |

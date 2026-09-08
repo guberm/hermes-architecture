@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-09-07T06:15:46-04:00`.
+> Public-safe architecture snapshot generated at `2026-09-08T06:15:57-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -37,9 +37,9 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 78 jobs; 40 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 402 detected skill files across 28 categories | Private/client-sensitive skill names are omitted from examples. |
+| Skills | 404 detected skill files across 28 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 0 | Hook command bodies are not published. |
-| Plugins | 54 visible plugin rows captured; enabled estimate 24 | Descriptions omitted to avoid leaking credential/env surfaces. |
+| Plugins | 55 visible plugin rows captured; enabled estimate 25 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
@@ -81,7 +81,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | note-taking | 4 |
 | operations | 4 |
 | personal | 9 |
-| productivity | 46 |
+| productivity | 48 |
 | red-teaming | 1 |
 | research | 35 |
 | security | 4 |
@@ -264,13 +264,12 @@ The live system currently exposes the public-safe profile roster as:
  Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
  ◆default         gpt-5.6-luna                 running      —            —
-  claude          —                            running      —            —
   coding          gpt-5.6-sol                  running      coding       —
   ghidra-restricted gpt-5.6-sol                  running      —            —
-  researcher      gpt-5.6-terra                running      hermes-researcher —
-  reviewer        gpt-5.6-sol                  running      hermes-reviewer —
+  researcher      gpt-5.6-luna                 running      hermes-researcher —
+  reviewer        gpt-5.6-luna                 running      hermes-reviewer —
   security-restricted gpt-5.6-sol                  running      hermes-security —
-  worker          gpt-5.6-terra                running      hermes-worker —
+  worker          gpt-5.6-luna                 running      hermes-worker —
 ```
 
 Current profile contract:
@@ -296,12 +295,12 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.21.0 (2026.8.31) · upstream 7874ef9f · local 5bd439d3 (+1 carried commit)
+Hermes Agent v0.21.1 (2026.9.7) · upstream 520e6366 · local 2237be35 (+1 carried commit)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.16
 OpenAI SDK: 2.24.0
-Update available: 24 commits behind — run 'hermes update'
+Update available: 11 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
@@ -338,7 +337,7 @@ Update available: 24 commits behind — run 'hermes update'
   gbrain           http://127.0.0.1:3131/mcp      all          ✓ enabled
   notebooklm       npx -y notebooklm-mcp@latest   all          ✓ enabled
   windows-cua      ~/.local/bin/windo...   all          ✓ enabled
-  monarch          https://api.monarch.com/mcp    17 selected  ✓ enabled
+  monarch          https://api.monarch.com/mcp    17 selected  ✗ disabled
   cloudflare-api   https://mcp.cloudflare.co...   all          ✓ enabled
   pixelrag         ~/github/pixelrag-...   all          ✓ enabled
   vibe_trading     ~/.hermes/scripts/...   29 selected  ✓ enabled
