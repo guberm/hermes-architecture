@@ -6,25 +6,25 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 
 | Category | Count |
 |---|---:|
-| .archive | 12 |
+| .archive | 16 |
 | android | 2 |
 | apple | 9 |
 | autonomous-ai-agents | 22 |
-| creative | 35 |
+| creative | 34 |
 | data-science | 1 |
-| devops | 29 |
+| devops | 30 |
 | ecc-imports | 4 |
 | email | 5 |
 | external | 7 |
 | gaming | 2 |
 | github | 9 |
 | mcp | 2 |
-| media | 8 |
+| media | 7 |
 | mlops | 18 |
 | note-taking | 4 |
 | operations | 4 |
 | personal | 9 |
-| productivity | 48 |
+| productivity | 46 |
 | red-teaming | 1 |
 | research | 35 |
 | security | 4 |
@@ -54,7 +54,6 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `hyperframes` | creative | Render MP4/WebM videos from HTML compositions. |
 | `apple-design` | creative | Design or review Apple-inspired web interactions with direct manipulation, interruptible spring. |
 | `[REDACTED]` | creative | Songwriting craft and Suno AI music prompts. |
-| `p5js` | creative | p5.js sketches: gen art, shaders, interactive, 3D. |
 | `reference-safe-design` | creative | Use when a user supplies websites, screenshots, brand campaigns, moodboards, copy, motion, or. |
 | `baoyu-comic` | creative | Knowledge comics (知识漫画): educational, biography, tutorial. |
 | `touchdesigner-mcp` | creative | Control TouchDesigner via twozero MCP. |
@@ -79,6 +78,7 @@ Low-level public-safe view of installed Hermes skill packs and categories. Priva
 | `brain-pdf` | uncategorized | Generate a publication-quality PDF from a GBrain page or markdown file using Hermes-native Chrome. |
 | `skillpack-check` | uncategorized | / |
 | `jupyter-live-kernel` | data-science | Iterative Python via live Jupyter kernel (hamelnb). |
+| `yuanbao` | uncategorized | Yuanbao (元宝) groups: @mention users, query info/members. |
 
 ## Operational meaning
 

@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-09-08T06:15:57-04:00`.
+> Public-safe architecture snapshot generated at `2026-09-09T06:15:14-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -36,8 +36,8 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
-| Scheduled tasks / cron | 78 jobs; 40 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 404 detected skill files across 28 categories | Private/client-sensitive skill names are omitted from examples. |
+| Scheduled tasks / cron | 78 jobs; 41 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
+| Skills | 405 detected skill files across 28 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 0 | Hook command bodies are not published. |
 | Plugins | 55 visible plugin rows captured; enabled estimate 25 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
@@ -50,11 +50,11 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Backup & sync | 5 | Protect configuration, repositories, databases, and knowledge stores. |
 | GitHub & publishing | 6 | Maintain GitHub/publication surfaces and repo health digests. |
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
-| Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
+| Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
 | Other scheduled automation | 39 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
-| Reliability watchdogs | 12 | Auto-healing, environment guards, timeout/watchdog checks. |
+| Reliability watchdogs | 13 | Auto-healing, environment guards, timeout/watchdog checks. |
 
 
 ### Skills surface
@@ -63,25 +63,25 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 
 | Skill category | Count |
 |---|---:|
-| .archive | 12 |
+| .archive | 16 |
 | android | 2 |
 | apple | 9 |
 | autonomous-ai-agents | 22 |
-| creative | 35 |
+| creative | 34 |
 | data-science | 1 |
-| devops | 29 |
+| devops | 30 |
 | ecc-imports | 4 |
 | email | 5 |
 | external | 7 |
 | gaming | 2 |
 | github | 9 |
 | mcp | 2 |
-| media | 8 |
+| media | 7 |
 | mlops | 18 |
 | note-taking | 4 |
 | operations | 4 |
 | personal | 9 |
-| productivity | 48 |
+| productivity | 46 |
 | red-teaming | 1 |
 | research | 35 |
 | security | 4 |
@@ -112,7 +112,6 @@ Public-safe skill examples:
 | `hyperframes` | creative | Render MP4/WebM videos from HTML compositions. |
 | `apple-design` | creative | Design or review Apple-inspired web interactions with direct manipulation, interruptible spring. |
 | `[REDACTED]` | creative | Songwriting craft and Suno AI music prompts. |
-| `p5js` | creative | p5.js sketches: gen art, shaders, interactive, 3D. |
 | `reference-safe-design` | creative | Use when a user supplies websites, screenshots, brand campaigns, moodboards, copy, motion, or. |
 | `baoyu-comic` | creative | Knowledge comics (知识漫画): educational, biography, tutorial. |
 | `touchdesigner-mcp` | creative | Control TouchDesigner via twozero MCP. |
@@ -122,6 +121,7 @@ Public-safe skill examples:
 | `popular-web-designs` | creative | 54 real design systems (Stripe, Linear, Vercel) as HTML/CSS. |
 | `concept-diagrams` | creative | Generate flat, minimal educational SVG visuals as HTML. |
 | `blender-mcp` | creative | Control Blender directly from Hermes via socket connection to the blender-mcp addon. |
+| `baoyu-infographic` | creative | Infographics: 21 layouts x 21 styles (信息图, 可视化). |
 
 
 ### Hooks, webhooks, and plugin hook manifests
@@ -229,11 +229,11 @@ The repository includes dedicated, low-level public-safe files for each operatio
 | Backup & sync | 5 | Protect configuration, repositories, databases, and knowledge stores. |
 | GitHub & publishing | 6 | Maintain GitHub/publication surfaces and repo health digests. |
 | Home automation | 2 | Log smart-home/home-environment telemetry. |
-| Knowledge & memory | 7 | Keep GBrain/memory/context stores healthy and up to date. |
+| Knowledge & memory | 6 | Keep GBrain/memory/context stores healthy and up to date. |
 | Media/news monitoring | 2 | News, RSS, YouTube, and briefing pipelines. |
 | Other scheduled automation | 39 | Other local automation jobs. |
 | Private finance automation | 5 | Private finance workflow snapshots; details omitted from public docs. |
-| Reliability watchdogs | 12 | Auto-healing, environment guards, timeout/watchdog checks. |
+| Reliability watchdogs | 13 | Auto-healing, environment guards, timeout/watchdog checks. |
 
 
 ## Agentic Operating Model
@@ -295,12 +295,12 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.21.1 (2026.9.7) · upstream 520e6366 · local 2237be35 (+1 carried commit)
+Hermes Agent v0.21.1 (2026.9.7) · upstream d0df3248 · local 2237be35 (+1 carried commit)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.16
 OpenAI SDK: 2.24.0
-Update available: 11 commits behind — run 'hermes update'
+Update available: 357 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
