@@ -19,9 +19,6 @@ Public-safe view of the durable orchestration layer added around the Hermes gate
 ## Live Kanban assignees
 
 ```text
-⚠ A previous `hermes update` pulled new code but did not restart running gateways.
-  Gateways may still be serving pre-update modules (mixed sys.modules).
-  Run `hermes update` or `hermes gateway restart`.
 NAME                  ON DISK   COUNTS
 coding                yes       done=1
 default               yes       blocked=1, done=7, todo=2

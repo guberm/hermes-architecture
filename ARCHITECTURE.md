@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-09-09T06:15:14-04:00`.
+> Public-safe architecture snapshot generated at `2026-09-10T06:15:13-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -38,7 +38,7 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 |---|---|---|
 | Scheduled tasks / cron | 78 jobs; 41 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
 | Skills | 405 detected skill files across 28 categories | Private/client-sensitive skill names are omitted from examples. |
-| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 0 | Hook command bodies are not published. |
+| Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 1 | Hook command bodies are not published. |
 | Plugins | 55 visible plugin rows captured; enabled estimate 25 | Descriptions omitted to avoid leaking credential/env surfaces. |
 | MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
@@ -69,7 +69,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | autonomous-ai-agents | 22 |
 | creative | 34 |
 | data-science | 1 |
-| devops | 30 |
+| devops | 31 |
 | ecc-imports | 4 |
 | email | 5 |
 | external | 7 |
@@ -86,7 +86,7 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | research | 35 |
 | security | 4 |
 | smart-home | 4 |
-| social-media | 4 |
+| social-media | 3 |
 | software-development | 104 |
 | uncategorized | 19 |
 | web | 2 |
@@ -130,7 +130,7 @@ Hermes has multiple hook-related surfaces: shell-hook allowlists, webhook subscr
 
 | Hook manifest surface |
 |---|
-| none detected |
+| `.hermes/reference/llm-wiki-pilot-source/plugins/llm-wiki/hooks/hooks.json` |
 
 
 ### Plugin surface
@@ -257,11 +257,7 @@ The important runtime distinction is that `researcher`, `worker`, and `reviewer`
 The live system currently exposes the public-safe profile roster as:
 
 ```text
-⚠ A previous `hermes update` pulled new code but did not restart running gateways.
-  Gateways may still be serving pre-update modules (mixed sys.modules).
-  Run `hermes update` or `hermes gateway restart`.
-
- Profile          Model                        Gateway      Alias        Distribution
+Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
  ◆default         gpt-5.6-luna                 running      —            —
   coding          gpt-5.6-sol                  running      coding       —
@@ -295,22 +291,18 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.21.1 (2026.9.7) · upstream d0df3248 · local 2237be35 (+1 carried commit)
+Hermes Agent v0.21.1 (2026.9.7) · upstream 2bbb279c · local 6f3e630b (+9769 carried commits)
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.16
 OpenAI SDK: 2.24.0
-Update available: 357 commits behind — run 'hermes update'
+Update available: 64 commits behind — run 'hermes update'
 ```
 
 - Fallback chain:
 
 ```text
-⚠ A previous `hermes update` pulled new code but did not restart running gateways.
-  Gateways may still be serving pre-update modules (mixed sys.modules).
-  Run `hermes update` or `hermes gateway restart`.
-
-  Primary:   gpt-5.6-luna  (via openai-codex)
+Primary:   gpt-5.6-luna  (via openai-codex)
 
   Fallback chain (3 entries):
 1. kimi-k2.6  (via opencode-go)
@@ -324,11 +316,7 @@ Update available: 357 commits behind — run 'hermes update'
 - MCP list:
 
 ```text
-⚠ A previous `hermes update` pulled new code but did not restart running gateways.
-  Gateways may still be serving pre-update modules (mixed sys.modules).
-  Run `hermes update` or `hermes gateway restart`.
-
-  MCP Servers:
+MCP Servers:
 
   Name             Transport                      Tools        Status    
   ──────────────── ────────────────────────────── ──────────── ──────────

@@ -6,13 +6,14 @@ Public-safe low-level inventory of hook surfaces. Hook command bodies and privat
 |---|---|
 | Shell hooks allowlist present | False |
 | Shell hooks allowlist entries | 0 |
-| Plugin hook manifests detected | 0 |
+| Plugin hook manifests detected | 1 |
 | Webhook summary | webhook platform not enabled |
 
 ## Hook manifest paths
 
 | Relative path |
 |---|
+| `.hermes/reference/llm-wiki-pilot-source/plugins/llm-wiki/hooks/hooks.json` |
 
 ## Boundaries
 
