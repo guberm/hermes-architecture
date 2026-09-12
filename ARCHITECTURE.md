@@ -1,6 +1,6 @@
 # Hermes Agent Architecture
 
-> Public-safe architecture snapshot generated at `2026-09-11T06:15:29-04:00`.
+> Public-safe architecture snapshot generated at `2026-09-12T06:15:03-04:00`.
 >
 > Source of truth: local Hermes configuration and runtime status on the operator Linux host.
 >
@@ -37,10 +37,10 @@ The default model remains **`openai-codex / gpt-5.5`**. Local/experimental provi
 | Surface | Detected public-safe state | Notes |
 |---|---|---|
 | Scheduled tasks / cron | 78 jobs; 41 no-agent script jobs; 0 agent-backed jobs | Exact private task names are grouped by category. |
-| Skills | 405 detected skill files across 28 categories | Private/client-sensitive skill names are omitted from examples. |
+| Skills | 414 detected skill files across 29 categories | Private/client-sensitive skill names are omitted from examples. |
 | Hooks / webhooks | shell allowlist present: False; allowlist entries: 0; plugin hook manifests: 1 | Hook command bodies are not published. |
 | Plugins | 55 visible plugin rows captured; enabled estimate 25 | Descriptions omitted to avoid leaking credential/env surfaces. |
-| MCP servers | 11 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
+| MCP servers | 19 configured MCP servers | GBrain, NotebookLM, CodeGraph are the active core MCP surfaces. |
 
 
 ### Scheduled tasks / cron categories
@@ -66,28 +66,29 @@ Hermes currently has a broad skill surface. The public inventory lists category 
 | .archive | 16 |
 | android | 2 |
 | apple | 9 |
-| autonomous-ai-agents | 22 |
+| autonomous-ai-agents | 23 |
 | creative | 34 |
 | data-science | 1 |
-| devops | 31 |
+| devops | 34 |
 | ecc-imports | 4 |
 | email | 5 |
 | external | 7 |
+| finance | 2 |
 | gaming | 2 |
 | github | 9 |
 | mcp | 2 |
 | media | 7 |
-| mlops | 18 |
+| mlops | 19 |
 | note-taking | 4 |
 | operations | 4 |
 | personal | 9 |
 | productivity | 46 |
 | red-teaming | 1 |
 | research | 35 |
-| security | 4 |
+| security | 5 |
 | smart-home | 4 |
 | social-media | 3 |
-| software-development | 104 |
+| software-development | 105 |
 | uncategorized | 19 |
 | web | 2 |
 | web-development | 1 |
@@ -291,12 +292,12 @@ Current profile contract:
 - Hermes version/status summary:
 
 ```text
-Hermes Agent v0.21.1 (2026.9.7) · upstream d15ed444 · local 6f3e630b (+9769 carried commits)
+Hermes Agent v0.21.2 (2026.9.11) · upstream 31d0a242
 Install directory: ~/.hermes/hermes-agent
 Install method: git
 Python: 3.11.16
 OpenAI SDK: 2.24.0
-Update available: 276 commits behind — run 'hermes update'
+Up to date
 ```
 
 - Fallback chain:
@@ -324,13 +325,17 @@ MCP Servers:
   codegraph        ~/.nvm/versions/no...   all          ✓ enabled
   gbrain           http://127.0.0.1:3131/mcp      all          ✓ enabled
   notebooklm       npx -y notebooklm-mcp@latest   all          ✓ enabled
-  windows-cua      ~/.local/bin/windo...   all          ✓ enabled
+  windows-cua      ~/.local/bin/windo...   all          ✗ disabled
   monarch          https://api.monarch.com/mcp    17 selected  ✗ disabled
   cloudflare-api   https://mcp.cloudflare.co...   all          ✓ enabled
   pixelrag         ~/github/pixelrag-...   all          ✓ enabled
   vibe_trading     ~/.hermes/scripts/...   29 selected  ✓ enabled
   display          https://api.display.dev/v...   all          ✓ enabled
   open_notebook    ~/.hermes/oss-eval...   all          ✓ enabled
+  context7         https://mcp.context7.com/mcp   all          ✓ enabled
+  gamma            https://mcp.gamma.app/mcp      -3 excluded  ✗ disabled
+  hugging_face     https://huggingface.co/mcp     all          ✗ disabled
+  supabase         https://mcp.supabase.com/mcp   all 
 ```
 
 ## Maintenance
